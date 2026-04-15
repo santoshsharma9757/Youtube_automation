@@ -1,0 +1,8 @@
+.env
+youtube_token.json
+client_secret.json
+__pycache__/
+output/
+assets/localvideos/
+*.mp4
+*.mp3

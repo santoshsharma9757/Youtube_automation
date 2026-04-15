@@ -1,0 +1,122 @@
+[
+  {
+    "line": "त्यो रात... दरबारभित्र साँच्चै के फुट्यो?",
+    "keywords": [
+      "dark palace corridor",
+      "night mystery",
+      "shadow hallway"
+    ],
+    "emotion": "shock",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "सबै कुरा सामान्य जस्तै थियो...",
+    "keywords": [
+      "royal dinner table",
+      "quiet palace room",
+      "calm before chaos"
+    ],
+    "emotion": "suspense",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "अनि अचानक... आवाज आयो...",
+    "keywords": [
+      "sudden gunshot reaction",
+      "dark interior",
+      "panic shadow"
+    ],
+    "emotion": "shock",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "एक आवाज... अनि फेरि अर्को...",
+    "keywords": [
+      "echoing hallway",
+      "fearful face",
+      "running footsteps"
+    ],
+    "emotion": "suspense",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "दरबारको हावा नै डरले जम्यो...",
+    "keywords": [
+      "dark palace room",
+      "frozen silence",
+      "night fear"
+    ],
+    "emotion": "dark",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "कोही भागे... कोही लुके...",
+    "keywords": [
+      "people running",
+      "hiding in darkness",
+      "chaos indoors"
+    ],
+    "emotion": "suspense",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "तर सत्य... त्यहीँ कतै थुनियो...",
+    "keywords": [
+      "hidden truth",
+      "sealed door",
+      "mystery file"
+    ],
+    "emotion": "dark",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "नाम बाहिर आए... तर कहानी आएन...",
+    "keywords": [
+      "newspaper headline",
+      "investigation document",
+      "secret report"
+    ],
+    "emotion": "dark",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "त्यो रात केवल हत्या थिएन भनिन्छ...",
+    "keywords": [
+      "conspiracy board",
+      "dark silhouette",
+      "palace secret"
+    ],
+    "emotion": "suspense",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "सायद... त्यो त अझ ठूलो खेल थियो...",
+    "keywords": [
+      "shadow conspiracy",
+      "dim light face",
+      "hidden agenda"
+    ],
+    "emotion": "dark",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "आजसम्म पनि धेरै कुरा मिल्दैनन्...",
+    "keywords": [
+      "unanswered questions",
+      "mystery investigation",
+      "confused witness"
+    ],
+    "emotion": "suspense",
+    "visual_type": "mystery"
+  },
+  {
+    "line": "त्यो रात दरबारमा वास्तवमै के भयो... आखिर सत्य के हो?",
+    "keywords": [
+      "palace mystery night",
+      "questioning face",
+      "dark truth"
+    ],
+    "emotion": "shock",
+    "visual_type": "mystery"
+  }
+]

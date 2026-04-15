@@ -1,0 +1,716 @@
+{
+  "duration": 39.880001068115234,
+  "language": "english",
+  "text": "Janiye wo 5 excuses jo aap roj sunate hain. Most people fail at gym motivation because they rely on emotion instead of a repeatable system. Real identify common excuses not to hit the gym. Starts on the days when your body says quit but your identity says keep going. Pick one small non-negotiable action, repeat it daily, track it weekly, and let encourage viewers to overcome their excuses and motivate them to start exercising. Become your edge. Follow daily fix and build discipline that shows in your body and mind.",
+  "segments": [
+    {
+      "id": 0,
+      "avg_logprob": -0.3035736382007599,
+      "compression_ratio": 1.5521739721298218,
+      "end": 3.2799999713897705,
+      "no_speech_prob": 0.0010083562228828669,
+      "seek": 0,
+      "start": 0.0,
+      "temperature": 0.0,
+      "text": " Janiye wo 5 excuses jo aap roj sunate hain.",
+      "tokens": [
+        50364,
+        508,
+        3782,
+        1200,
+        6020,
+        1025,
+        24666,
+        1488,
+        257,
+        569,
+        744,
+        73,
+        3295,
+        473,
+        324,
+        259,
+        13,
+        50610
+      ]
+    },
+    {
+      "id": 1,
+      "avg_logprob": -0.3035736382007599,
+      "compression_ratio": 1.5521739721298218,
+      "end": 10.260000228881836,
+      "no_speech_prob": 0.0010083562228828669,
+      "seek": 0,
+      "start": 4.920000076293945,
+      "temperature": 0.0,
+      "text": " Most people fail at gym motivation because they rely on emotion instead of a repeatable",
+      "tokens": [
+        50610,
+        4534,
+        561,
+        3061,
+        412,
+        9222,
+        12335,
+        570,
+        436,
+        10687,
+        322,
+        8913,
+        2602,
+        295,
+        257,
+        7149,
+        712,
+        50878
+      ]
+    },
+    {
+      "id": 2,
+      "avg_logprob": -0.3035736382007599,
+      "compression_ratio": 1.5521739721298218,
+      "end": 10.579999923706055,
+      "no_speech_prob": 0.0010083562228828669,
+      "seek": 0,
+      "start": 10.260000228881836,
+      "temperature": 0.0,
+      "text": " system.",
+      "tokens": [
+        50878,
+        1185,
+        13,
+        50928
+      ]
+    },
+    {
+      "id": 3,
+      "avg_logprob": -0.3035736382007599,
+      "compression_ratio": 1.5521739721298218,
+      "end": 14.5,
+      "no_speech_prob": 0.0010083562228828669,
+      "seek": 0,
+      "start": 11.5,
+      "temperature": 0.0,
+      "text": " Real identify common excuses not to hit the gym.",
+      "tokens": [
+        50928,
+        8467,
+        5876,
+        2689,
+        24666,
+        406,
+        281,
+        2045,
+        264,
+        9222,
+        13,
+        51148
+      ]
+    },
+    {
+      "id": 4,
+      "avg_logprob": -0.3035736382007599,
+      "compression_ratio": 1.5521739721298218,
+      "end": 20.5,
+      "no_speech_prob": 0.0010083562228828669,
+      "seek": 0,
+      "start": 15.699999809265137,
+      "temperature": 0.0,
+      "text": " Starts on the days when your body says quit but your identity says keep going.",
+      "tokens": [
+        51148,
+        6481,
+        82,
+        322,
+        264,
+        1708,
+        562,
+        428,
+        1772,
+        1619,
+        10366,
+        457,
+        428,
+        6575,
+        1619,
+        1066,
+        516,
+        13,
+        51424
+      ]
+    },
+    {
+      "id": 5,
+      "avg_logprob": -0.3035736382007599,
+      "compression_ratio": 1.5521739721298218,
+      "end": 27.239999771118164,
+      "no_speech_prob": 0.0010083562228828669,
+      "seek": 0,
+      "start": 21.31999969482422,
+      "temperature": 0.0,
+      "text": " Pick one small non-negotiable action, repeat it daily, track it weekly, and let encourage",
+      "tokens": [
+        51424,
+        14129,
+        472,
+        1359,
+        2107,
+        12,
+        28561,
+        8206,
+        712,
+        3069,
+        11,
+        7149,
+        309,
+        5212,
+        11,
+        2837,
+        309,
+        12460,
+        11,
+        293,
+        718,
+        5373,
+        51720
+      ]
+    },
+    {
+      "id": 6,
+      "avg_logprob": -0.38016167283058167,
+      "compression_ratio": 1.361344575881958,
+      "end": 31.639999389648438,
+      "no_speech_prob": 0.34375855326652527,
+      "seek": 2724,
+      "start": 27.239999771118164,
+      "temperature": 0.0,
+      "text": " viewers to overcome their excuses and motivate them to start exercising.",
+      "tokens": [
+        50364,
+        8499,
+        281,
+        10473,
+        641,
+        24666,
+        293,
+        28497,
+        552,
+        281,
+        722,
+        27272,
+        13,
+        50646
+      ]
+    },
+    {
+      "id": 7,
+      "avg_logprob": -0.38016167283058167,
+      "compression_ratio": 1.361344575881958,
+      "end": 33.599998474121094,
+      "no_speech_prob": 0.34375855326652527,
+      "seek": 2724,
+      "start": 32.7400016784668,
+      "temperature": 0.0,
+      "text": " Become your edge.",
+      "tokens": [
+        50646,
+        44308,
+        428,
+        4691,
+        13,
+        50736
+      ]
+    },
+    {
+      "id": 8,
+      "avg_logprob": -0.38016167283058167,
+      "compression_ratio": 1.361344575881958,
+      "end": 39.060001373291016,
+      "no_speech_prob": 0.34375855326652527,
+      "seek": 2724,
+      "start": 34.7599983215332,
+      "temperature": 0.0,
+      "text": " Follow daily fix and build discipline that shows in your body and mind.",
+      "tokens": [
+        50736,
+        9876,
+        5212,
+        3191,
+        293,
+        1322,
+        13635,
+        300,
+        3110,
+        294,
+        428,
+        1772,
+        293,
+        1575,
+        13,
+        50958
+      ]
+    }
+  ],
+  "words": [
+    {
+      "end": 0.6399999856948853,
+      "start": 0.0,
+      "word": "Janiye"
+    },
+    {
+      "end": 0.7200000286102295,
+      "start": 0.6399999856948853,
+      "word": "wo"
+    },
+    {
+      "end": 1.2200000286102295,
+      "start": 0.7200000286102295,
+      "word": "5"
+    },
+    {
+      "end": 1.8200000524520874,
+      "start": 1.2200000286102295,
+      "word": "excuses"
+    },
+    {
+      "end": 2.119999885559082,
+      "start": 1.8200000524520874,
+      "word": "jo"
+    },
+    {
+      "end": 2.4200000762939453,
+      "start": 2.119999885559082,
+      "word": "aap"
+    },
+    {
+      "end": 2.700000047683716,
+      "start": 2.4200000762939453,
+      "word": "roj"
+    },
+    {
+      "end": 3.119999885559082,
+      "start": 2.700000047683716,
+      "word": "sunate"
+    },
+    {
+      "end": 3.2799999713897705,
+      "start": 3.119999885559082,
+      "word": "hain"
+    },
+    {
+      "end": 4.940000057220459,
+      "start": 4.559999942779541,
+      "word": "Most"
+    },
+    {
+      "end": 5.400000095367432,
+      "start": 4.940000057220459,
+      "word": "people"
+    },
+    {
+      "end": 5.739999771118164,
+      "start": 5.400000095367432,
+      "word": "fail"
+    },
+    {
+      "end": 6.21999979019165,
+      "start": 5.739999771118164,
+      "word": "at"
+    },
+    {
+      "end": 6.340000152587891,
+      "start": 6.21999979019165,
+      "word": "gym"
+    },
+    {
+      "end": 6.900000095367432,
+      "start": 6.340000152587891,
+      "word": "motivation"
+    },
+    {
+      "end": 7.400000095367432,
+      "start": 6.900000095367432,
+      "word": "because"
+    },
+    {
+      "end": 7.699999809265137,
+      "start": 7.400000095367432,
+      "word": "they"
+    },
+    {
+      "end": 7.960000038146973,
+      "start": 7.699999809265137,
+      "word": "rely"
+    },
+    {
+      "end": 8.359999656677246,
+      "start": 7.960000038146973,
+      "word": "on"
+    },
+    {
+      "end": 8.859999656677246,
+      "start": 8.359999656677246,
+      "word": "emotion"
+    },
+    {
+      "end": 9.279999732971191,
+      "start": 8.859999656677246,
+      "word": "instead"
+    },
+    {
+      "end": 9.640000343322754,
+      "start": 9.279999732971191,
+      "word": "of"
+    },
+    {
+      "end": 9.760000228881836,
+      "start": 9.640000343322754,
+      "word": "a"
+    },
+    {
+      "end": 10.260000228881836,
+      "start": 9.760000228881836,
+      "word": "repeatable"
+    },
+    {
+      "end": 10.579999923706055,
+      "start": 10.260000228881836,
+      "word": "system"
+    },
+    {
+      "end": 11.760000228881836,
+      "start": 11.5,
+      "word": "Real"
+    },
+    {
+      "end": 12.359999656677246,
+      "start": 11.760000228881836,
+      "word": "identify"
+    },
+    {
+      "end": 12.859999656677246,
+      "start": 12.359999656677246,
+      "word": "common"
+    },
+    {
+      "end": 13.279999732971191,
+      "start": 12.859999656677246,
+      "word": "excuses"
+    },
+    {
+      "end": 13.680000305175781,
+      "start": 13.279999732971191,
+      "word": "not"
+    },
+    {
+      "end": 14.0,
+      "start": 13.680000305175781,
+      "word": "to"
+    },
+    {
+      "end": 14.0600004196167,
+      "start": 14.0,
+      "word": "hit"
+    },
+    {
+      "end": 14.5,
+      "start": 14.0600004196167,
+      "word": "the"
+    },
+    {
+      "end": 14.5,
+      "start": 14.5,
+      "word": "gym"
+    },
+    {
+      "end": 15.84000015258789,
+      "start": 15.699999809265137,
+      "word": "Starts"
+    },
+    {
+      "end": 16.040000915527344,
+      "start": 15.84000015258789,
+      "word": "on"
+    },
+    {
+      "end": 16.280000686645508,
+      "start": 16.040000915527344,
+      "word": "the"
+    },
+    {
+      "end": 16.479999542236328,
+      "start": 16.280000686645508,
+      "word": "days"
+    },
+    {
+      "end": 16.860000610351562,
+      "start": 16.479999542236328,
+      "word": "when"
+    },
+    {
+      "end": 17.139999389648438,
+      "start": 16.860000610351562,
+      "word": "your"
+    },
+    {
+      "end": 17.459999084472656,
+      "start": 17.139999389648438,
+      "word": "body"
+    },
+    {
+      "end": 17.780000686645508,
+      "start": 17.459999084472656,
+      "word": "says"
+    },
+    {
+      "end": 18.079999923706055,
+      "start": 17.780000686645508,
+      "word": "quit"
+    },
+    {
+      "end": 18.3799991607666,
+      "start": 18.079999923706055,
+      "word": "but"
+    },
+    {
+      "end": 18.760000228881836,
+      "start": 18.3799991607666,
+      "word": "your"
+    },
+    {
+      "end": 19.18000030517578,
+      "start": 18.760000228881836,
+      "word": "identity"
+    },
+    {
+      "end": 19.579999923706055,
+      "start": 19.18000030517578,
+      "word": "says"
+    },
+    {
+      "end": 19.920000076293945,
+      "start": 19.579999923706055,
+      "word": "keep"
+    },
+    {
+      "end": 20.5,
+      "start": 19.920000076293945,
+      "word": "going"
+    },
+    {
+      "end": 21.31999969482422,
+      "start": 21.31999969482422,
+      "word": "Pick"
+    },
+    {
+      "end": 21.68000030517578,
+      "start": 21.31999969482422,
+      "word": "one"
+    },
+    {
+      "end": 22.040000915527344,
+      "start": 21.68000030517578,
+      "word": "small"
+    },
+    {
+      "end": 22.299999237060547,
+      "start": 22.040000915527344,
+      "word": "non"
+    },
+    {
+      "end": 22.81999969482422,
+      "start": 22.299999237060547,
+      "word": "negotiable"
+    },
+    {
+      "end": 23.239999771118164,
+      "start": 22.81999969482422,
+      "word": "action"
+    },
+    {
+      "end": 24.0,
+      "start": 24.0,
+      "word": "repeat"
+    },
+    {
+      "end": 24.639999389648438,
+      "start": 24.0,
+      "word": "it"
+    },
+    {
+      "end": 24.639999389648438,
+      "start": 24.639999389648438,
+      "word": "daily"
+    },
+    {
+      "end": 25.280000686645508,
+      "start": 25.020000457763672,
+      "word": "track"
+    },
+    {
+      "end": 25.719999313354492,
+      "start": 25.280000686645508,
+      "word": "it"
+    },
+    {
+      "end": 25.81999969482422,
+      "start": 25.719999313354492,
+      "word": "weekly"
+    },
+    {
+      "end": 26.440000534057617,
+      "start": 26.139999389648438,
+      "word": "and"
+    },
+    {
+      "end": 26.68000030517578,
+      "start": 26.440000534057617,
+      "word": "let"
+    },
+    {
+      "end": 27.239999771118164,
+      "start": 26.68000030517578,
+      "word": "encourage"
+    },
+    {
+      "end": 27.639999389648438,
+      "start": 27.239999771118164,
+      "word": "viewers"
+    },
+    {
+      "end": 27.979999542236328,
+      "start": 27.639999389648438,
+      "word": "to"
+    },
+    {
+      "end": 28.31999969482422,
+      "start": 27.979999542236328,
+      "word": "overcome"
+    },
+    {
+      "end": 28.780000686645508,
+      "start": 28.31999969482422,
+      "word": "their"
+    },
+    {
+      "end": 29.260000228881836,
+      "start": 28.780000686645508,
+      "word": "excuses"
+    },
+    {
+      "end": 29.719999313354492,
+      "start": 29.260000228881836,
+      "word": "and"
+    },
+    {
+      "end": 30.1200008392334,
+      "start": 29.719999313354492,
+      "word": "motivate"
+    },
+    {
+      "end": 30.440000534057617,
+      "start": 30.1200008392334,
+      "word": "them"
+    },
+    {
+      "end": 30.65999984741211,
+      "start": 30.440000534057617,
+      "word": "to"
+    },
+    {
+      "end": 31.0,
+      "start": 30.65999984741211,
+      "word": "start"
+    },
+    {
+      "end": 31.639999389648438,
+      "start": 31.0,
+      "word": "exercising"
+    },
+    {
+      "end": 32.939998626708984,
+      "start": 32.7400016784668,
+      "word": "Become"
+    },
+    {
+      "end": 33.2599983215332,
+      "start": 32.939998626708984,
+      "word": "your"
+    },
+    {
+      "end": 33.599998474121094,
+      "start": 33.2599983215332,
+      "word": "edge"
+    },
+    {
+      "end": 34.7599983215332,
+      "start": 34.7599983215332,
+      "word": "Follow"
+    },
+    {
+      "end": 35.119998931884766,
+      "start": 34.7599983215332,
+      "word": "daily"
+    },
+    {
+      "end": 35.380001068115234,
+      "start": 35.119998931884766,
+      "word": "fix"
+    },
+    {
+      "end": 35.779998779296875,
+      "start": 35.380001068115234,
+      "word": "and"
+    },
+    {
+      "end": 36.119998931884766,
+      "start": 35.779998779296875,
+      "word": "build"
+    },
+    {
+      "end": 36.58000183105469,
+      "start": 36.119998931884766,
+      "word": "discipline"
+    },
+    {
+      "end": 37.119998931884766,
+      "start": 36.58000183105469,
+      "word": "that"
+    },
+    {
+      "end": 37.47999954223633,
+      "start": 37.119998931884766,
+      "word": "shows"
+    },
+    {
+      "end": 37.7599983215332,
+      "start": 37.47999954223633,
+      "word": "in"
+    },
+    {
+      "end": 37.97999954223633,
+      "start": 37.7599983215332,
+      "word": "your"
+    },
+    {
+      "end": 38.34000015258789,
+      "start": 37.97999954223633,
+      "word": "body"
+    },
+    {
+      "end": 38.81999969482422,
+      "start": 38.34000015258789,
+      "word": "and"
+    },
+    {
+      "end": 39.060001373291016,
+      "start": 38.81999969482422,
+      "word": "mind"
+    }
+  ],
+  "task": "transcribe",
+  "usage": {
+    "type": "duration",
+    "seconds": 40
+  }
+}
