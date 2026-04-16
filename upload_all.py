@@ -24,7 +24,7 @@ def build_daily_slots(videos_per_day: int) -> list[int]:
     if videos_per_day <= 1:
         return [12]
     if videos_per_day == 2:
-        return [7, 19]
+        return [8, 20]
     if videos_per_day == 3:
         return [8, 14, 20]
     step = max(1, 12 // max(videos_per_day - 1, 1))

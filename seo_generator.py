@@ -31,6 +31,11 @@ class SeoGenerator:
 
     def generate(self, script: VideoScript) -> SeoPackage:
         LOGGER.info("Generating SEO package")
+        is_long = getattr(script, "video_type", "short") == "long"
+        
+        video_format_type = "Long-form cinematic video (16:9 Landscape)" if is_long else "YouTube Short (9:16 Vertical)"
+        discovery_focus = "YouTube Search traffic, Suggested Videos, and high-CTR thumbnail clickability" if is_long else "the Shorts Feed, initial swipe-stop curiosity, and high loop retention"
+        
         language_code = self._detect_language_code(script)
         content_style = self._detect_content_style(script)
         language_line = (
@@ -39,23 +44,23 @@ class SeoGenerator:
             else "The output language should be Hinglish in Roman script only, mixing Hindi and English naturally."
         )
         prompt = (
-            "You are a YouTube SEO expert specializing in the Fitness and Motivation niche. "
-            "Create metadata optimized for Shorts discovery, CTR, retention expectation, search relevance, and swipe-stop curiosity. "
+            "You are a master YouTube SEO expert specializing in the Fitness and Motivation niche. "
+            f"You are creating metadata for a {video_format_type}. "
+            f"Your strict goal is to completely maximize virality and optimize for {discovery_focus}. "
             "Return strict JSON with keys title, description, tags, hashtags, primary_keyword. "
-            "Title should be under 60 characters and create curiosity or urgency without sounding fake. "
-            "Description should front-load the keyword, explain the viewer payoff quickly, and sound native to Shorts. "
-            "Tags should mix strong evergreen search terms with viral Shorts-style phrases. "
+            "Title should be under 60 characters and create massive curiosity or urgency without sounding fake. "
+            "Description should front-load the keyword in the first sentence, explain the viewer payoff quickly, and feel native to the video format. "
+            "Tags should mix incredibly strong evergreen search terms with viral trending phrases. "
             "Hashtags must include brand and category tags. "
             "Use only Roman script written with normal English letters. "
             "Do not use clickbait that the script does not support. "
-            "Prefer SEO that matches what viewers would actually search after seeing the hook."
+            "Prefer SEO that matches what viewers would actually search to solve the problem the hook introduces."
             f"\n{language_line}"
             f"\nContent style: {content_style}"
             f"\nPrimary keyword from script: {script.primary_keyword}"
             f"\nRetention note from AI script writer: {script.retention_note}"
             f"\n\nScript for Context:\n{script.full_script}"
         )
-        is_long = getattr(script, "video_type", "short") == "long"
         payload, provider_used = build_json_with_fallback(
             self.llm,
             prompt,
