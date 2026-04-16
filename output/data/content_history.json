@@ -2073,5 +2073,536 @@
     "created_at": "2026-04-15T19:21:04.840452+00:00",
     "scheduled_time": "2026-04-19T01:30:00Z",
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "30 Days of Intense Running Changes Your Body",
+    "idea": {
+      "idea_id": "30-days-of-intense-running-changes-your-body",
+      "title": "30 Days of Intense Running Changes Your Body",
+      "angle": "30 Days of Intense Running Changes Your Body",
+      "hook": "",
+      "topic": "30 Days of Intense Running Changes Your Body",
+      "audience_value": "Deliver a beautiful, high-retention Hindi-English short on this exact topic",
+      "source_prompt": "manual-topic-script-generator",
+      "created_at": "2026-04-16T12:24:22.168771+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "30 Days of Intense Running Changes Your Body",
+      "video_type": "long"
+    },
+    "script": {
+      "title": "30 Days of Intense Running Changes Your Body",
+      "hook": "Kya aapka body transformation sirf 30 din ki running se ho sakta hai? Ruk mat!",
+      "problem": "Aam logon ki tarah, aap bhi scare ho gaye honge running shuru karne se. Not enough time, stamina nahi, ya kya pata raha hai? Body ko change karne ka time ka waqt nahi hai!",
+      "insight": "Lekin, jab aap roz 30 minutes intense running karte hain, aapka body switch on hota hai. Ye sirf fat loss nahi hai, aapki muscle fibers grow karne lagti hain! Aapka heart strength, lung capacity, aur stamina natural tarike se improve hota hai.",
+      "solution": "Toh, kya karein? Subah jaldi uthkar running shuru karein. Fitness ke sath sath, khana peena bhi dhyan rakhein. Whole grains, protein-rich foods aur dahi se aap apne muscles ko fuel de sakte ho. Apne running duration ko dheere dheere increase karo, yeh consistency se aaye ga.",
+      "cta": "Toh aaj se running chalu kar do! 30 din ka challenge lo aur share karo results! Kaise aapka confidence badh raha hai! Comment karke batao, ready ho?",
+      "full_script": "Kya aapka body transformation sirf 30 din ki running se ho sakta hai? Ruk mat! Aam logon ki tarah, aap bhi scare ho gaye honge running shuru karne se. Not enough time, stamina nahi, ya kya pata raha hai? Body ko change karne ka time ka waqt nahi hai! Lekin, jab aap roz 30 minutes intense running karte hain, aapka body switch on hota hai. Ye sirf fat loss nahi hai, aapki muscle fibers grow karne lagti hain! Aapka heart strength, lung capacity, aur stamina natural tarike se improve hota hai. Toh, kya karein? Subah jaldi uthkar running shuru karein. Fitness ke sath sath, khana peena bhi dhyan rakhein. Whole grains, protein-rich foods aur dahi se aap apne muscles ko fuel de sakte ho. Apne running duration ko dheere dheere increase karo, yeh consistency se aaye ga. Toh aaj se running chalu kar do! 30 din ka challenge lo aur share karo results! Kaise aapka confidence badh raha hai! Comment karke batao, ready ho? Most people chase results, but champions chase systems. If you master 30 days of intense running changes your body with patience, intensity, and repetition, your confidence changes first and your physique follows next.",
+      "estimated_duration_seconds": 85,
+      "primary_keyword": "fat loss",
+      "retention_note": "Opening line grabs attention immediately by challenging a commonly held belief, prompting curiosity about transformation."
+    },
+    "seo": {
+      "title": "30 Din Mein Fat Loss: Kya Aap Ready Ho?",
+      "description": "Fat loss ka challenge lene ka waqt aa gaya hai! Sirf 30 din ki running se aapka body transform ho sakti hai. Roz bas 30 minutes ki intense running se aapki fitness, stamina aur self-confidence improve hoga. Toh shuru karo aaj se aur apne results comment karke share karo! Kya aap ready ho? Let's get fit! #fatloss\n\n#MyFitnessJourney #FatLoss #RunningChallenge #FitnessMotivation #HealthGoals",
+      "tags": [
+        "fat loss",
+        "30 day challenge",
+        "body transformation",
+        "fitness journey",
+        "running tips",
+        "motivation",
+        "get fit",
+        "home workout",
+        "wellness",
+        "intense running",
+        "fat loss motivation",
+        "weight loss tips",
+        "fat loss routine",
+        "fitness discipline",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#MyFitnessJourney",
+        "#FatLoss",
+        "#RunningChallenge",
+        "#FitnessMotivation",
+        "#HealthGoals"
+      ],
+      "primary_keyword": "fat loss",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260416_122422_30-days-of-intense-running-changes-your-body.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260416_122422_30-days-of-intense-running-changes-your-body.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260416_122422_30-days-of-intense-running-changes-your-body.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260416_122422_30-days-of-intense-running-changes-your-body.json",
+    "uploaded": false,
+    "upload_response": null,
+    "created_at": "2026-04-16T12:46:44.263814+00:00"
+  },
+  {
+    "idea_title": "Sleep Loss Destroys Muscle Growth",
+    "idea": {
+      "idea_id": "ca626fed-3a6e-4c5e-b151-c669251664e6",
+      "title": "Sleep Loss Destroys Muscle Growth",
+      "angle": "Health",
+      "hook": "Sleep Loss Destroys Muscle Growth. You are doing it wrong.",
+      "topic": "sleep muscle connection",
+      "audience_value": "Why sleeping is better than another set",
+      "source_prompt": "static-bank",
+      "created_at": "2026-04-16T16:15:51.025955+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long"
+    },
+    "script": {
+      "title": "Sleep Loss Destroys Muscle Growth",
+      "hook": "Sleep ki kami se aapki muscles ka kya hota hai? Aap sab kuch galat kar rahe ho.",
+      "problem": "Jaante ho, roz exercise karne ke baad agar aap sahi se nahi so rahe ho, toh aapki mehnat bekaar hai. Stress hormone cortisol badh jaata hai, jo muscle growth ko rokta hai. Raat ko thakne ke bajaye, aap sirf thake hue uthte ho.",
+      "insight": "Yehi nahi! Neend ke doran humare muscles repair aur growth ke liye critical hormones release karte hain, jaise ki testosterone aur growth hormone. Agar sleep nahi hai, toh yeh sab kuch band ho jaata hai. Ab aap kal se gym jaake zyada mehnat karne jaa rahe ho, lekin aapki muscles ko mujhe sahi se support nahi mil raha.",
+      "solution": "Toh, kya karna hai? Pehle, apna sleep routine set karo. Koshish karo ki aap har raat 7-9 ghante soye. Sleep hygiene banaye rakhna zaroori hai - room dark hona chahiye, electronics ko door rakho, aur caffeine ka intake kam karo. Dusra, post-workout nutrition ko bhi sahe samjho. Protein rich snack se muscle recovery ko boost karo, jaise ki Greek yogurt ya protein shake.",
+      "cta": "Aaj se hi sahi sohne ka plan banao aur apne muscle growth ko dekhte jao! Gym pe jaane ke bajaye, zyada sone ka focus karo. Agar yeh video chha gaya, toh share karo, aur subscribe karna mat bhoolna!",
+      "full_script": "Sleep ki kami se aapki muscles ka kya hota hai? Aap sab kuch galat kar rahe ho. Jaante ho, roz exercise karne ke baad agar aap sahi se nahi so rahe ho, toh aapki mehnat bekaar hai. Stress hormone cortisol badh jaata hai, jo muscle growth ko rokta hai. Raat ko thakne ke bajaye, aap sirf thake hue uthte ho. Yehi nahi! Neend ke doran humare muscles repair aur growth ke liye critical hormones release karte hain, jaise ki testosterone aur growth hormone. Agar sleep nahi hai, toh yeh sab kuch band ho jaata hai. Ab aap kal se gym jaake zyada mehnat karne jaa rahe ho, lekin aapki muscles ko mujhe sahi se support nahi mil raha. Toh, kya karna hai? Pehle, apna sleep routine set karo. Koshish karo ki aap har raat 7-9 ghante soye. Sleep hygiene banaye rakhna zaroori hai - room dark hona chahiye, electronics ko door rakho, aur caffeine ka intake kam karo. Dusra, post-workout nutrition ko bhi sahe samjho. Protein rich snack se muscle recovery ko boost karo, jaise ki Greek yogurt ya protein shake. Aaj se hi sahi sohne ka plan banao aur apne muscle growth ko dekhte jao! Gym pe jaane ke bajaye, zyada sone ka focus karo. Agar yeh video chha gaya, toh share karo, aur subscribe karna mat bhoolna!",
+      "estimated_duration_seconds": 89,
+      "primary_keyword": "muscle growth",
+      "retention_note": "Yeh opening statement instantly sabko jagata hai, kyunki sabko pata hai ki sleep important hai, lekin unhe nahi pata ki iski kami kitni damaging hai.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Neend Se Badhao Muscle Growth Abhi!",
+      "description": "Muscle growth ko boost karne ke liye sahi neend lein. Neend ki kami se muscles ko fayda nahi milta, matlab aapki hard work bekaar. Is video me jaaniye kaise 7-9 ghante ki neend aur sahi nutrition se aap apni muscle recovery ko improve kar sakte hain. Apni routines badlo aur apne fitness goals ko haqiqat banao!\n\n#FitnessJourney #MuscleGrowth #SleepWell #FitnessMotivation #HealthyLiving",
+      "tags": [
+        "muscle growth",
+        "fitness tips",
+        "sleep importance",
+        "strength training",
+        "healthy lifestyle",
+        "gym motivation",
+        "post workout nutrition",
+        "muscle recovery",
+        "neend aur muscles",
+        "power of sleep",
+        "strength training motivation",
+        "muscle gain tips",
+        "gym motivation hindi",
+        "better workout form",
+        "real strength"
+      ],
+      "hashtags": [
+        "#FitnessJourney",
+        "#MuscleGrowth",
+        "#SleepWell",
+        "#FitnessMotivation",
+        "#HealthyLiving"
+      ],
+      "primary_keyword": "muscle growth",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260416_161551_sleep-loss-destroys-muscle-growth.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260416_161551_sleep-loss-destroys-muscle-growth.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260416_161551_sleep-loss-destroys-muscle-growth.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260416_161551_sleep-loss-destroys-muscle-growth.json",
+    "uploaded": false,
+    "upload_response": null,
+    "created_at": "2026-04-16T16:33:59.734819+00:00"
+  },
+  {
+    "idea_title": "The Posture Cue That Improves Shoulder Press",
+    "idea": {
+      "idea_id": "e138dcd7-2540-4489-ba3f-17eff826c79f",
+      "title": "The Posture Cue That Improves Shoulder Press",
+      "angle": "Form Fix",
+      "hook": "The Posture Cue That Improves Shoulder Press. Nobody tells tum yeh.",
+      "topic": "shoulder press posture",
+      "audience_value": "Press stronger with less neck strain",
+      "source_prompt": "static-bank",
+      "created_at": "2026-04-16T16:54:58.538941+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long"
+    },
+    "script": {
+      "title": "The Posture Cue That Improves Shoulder Press",
+      "hook": "Kya aap shoulder press mein neck pain se pareshan hain? Ruk mat, suno yeh important cue!",
+      "problem": "Galat posture se strength nahi milti. Jab aap shoulder press karte hain, zyada pressure neck par aata hai. Yeh na sirf aapki strength ko kam karta hai, balki injury ka risk bhi badhata hai. Aakhir, koi bhi nahi chahta strain ya pain!",
+      "insight": "Jab aap apne shoulder blades ko down aur back rakhenge, aapke shoulders zyada stable honge. Yeh ek chhota sa change hai, par iska impact huge hai. Achi form se aap zyada weight utha sakte hain bina kisi discomfort ke.",
+      "solution": "Ab suno, jab aap weight uthao, apne elbows ko thoda forward rakho aur shoulder blades ko squeeze karo. Yeh aapke press ko radically improve karega. Jaise hi aap barbell ko upar push karte ho, focus rakho ki aapka head neutral rahe. Yeh simple tweak aapke lift ko boost karega, strength badhaega, plus neck strain kam karega!",
+      "cta": "Toh aaj se hi yeh technique try karo! Aur apne progress ko share karo. Yahi discipline aur consistency hai jo aapko results dilaega!",
+      "full_script": "Kya aap shoulder press mein neck pain se pareshan hain? Ruk mat, suno yeh important cue! Galat posture se strength nahi milti. Jab aap shoulder press karte hain, zyada pressure neck par aata hai. Yeh na sirf aapki strength ko kam karta hai, balki injury ka risk bhi badhata hai. Aakhir, koi bhi nahi chahta strain ya pain! Jab aap apne shoulder blades ko down aur back rakhenge, aapke shoulders zyada stable honge. Yeh ek chhota sa change hai, par iska impact huge hai. Achi form se aap zyada weight utha sakte hain bina kisi discomfort ke. Ab suno, jab aap weight uthao, apne elbows ko thoda forward rakho aur shoulder blades ko squeeze karo. Yeh aapke press ko radically improve karega. Jaise hi aap barbell ko upar push karte ho, focus rakho ki aapka head neutral rahe. Yeh simple tweak aapke lift ko boost karega, strength badhaega, plus neck strain kam karega! Toh aaj se hi yeh technique try karo! Aur apne progress ko share karo. Yahi discipline aur consistency hai jo aapko results dilaega!",
+      "estimated_duration_seconds": 90,
+      "primary_keyword": "shoulder press form fix",
+      "retention_note": "Opening questions create immediate engagement, forcing viewers to confront their struggle with neck pain during shoulder press and promising a powerful solution.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Shoulder Press Form Fix: Kya Aapka Neck Pain?",
+      "description": "Shoulder press form fix ke liye neck pain se pareshaan hain? Yeh crucial cue aapki strength badha sakta hai bina discomfort ke! Is video mein jaaniye kaise simple adjustment se aap apne shoulder press ko improve kar sakte hain. Elbows thoda forward, shoulder blades squeeze, aur neutral head position - yeh sab kuch seekhenge abhi! Aaj se hi try karo aur apna progress share karo!\n\n#fitness #motivation #shoulderpress #fitnessjourney #gym",
+      "tags": [
+        "shoulder press",
+        "shoulder press form",
+        "neck pain relief",
+        "fitness tips",
+        "strength training",
+        "exercise form",
+        "shoulder workout",
+        "gym motivation",
+        "fitnesstraining",
+        "bodybuilding tips",
+        "weightlifting",
+        "viral fitness",
+        "fitness motivation",
+        "gym motivation hindi",
+        "workout motivation"
+      ],
+      "hashtags": [
+        "#fitness",
+        "#motivation",
+        "#shoulderpress",
+        "#fitnessjourney",
+        "#gym"
+      ],
+      "primary_keyword": "shoulder press form fix",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260416_165458_the-posture-cue-that-improves-shoulder-press.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260416_165458_the-posture-cue-that-improves-shoulder-press.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260416_165458_the-posture-cue-that-improves-shoulder-press.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260416_165458_the-posture-cue-that-improves-shoulder-press.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "fnwpywKHBteiNqaBF5PlWgnTlFo",
+      "id": "h6S4y1hjkio",
+      "snippet": {
+        "publishedAt": "2026-04-16T17:40:59Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Shoulder Press Form Fix: Kya Aapka Neck Pain?",
+        "description": "Shoulder press form fix ke liye neck pain se pareshaan hain? Yeh crucial cue aapki strength badha sakta hai bina discomfort ke! Is video mein jaaniye kaise simple adjustment se aap apne shoulder press ko improve kar sakte hain. Elbows thoda forward, shoulder blades squeeze, aur neutral head position - yeh sab kuch seekhenge abhi! Aaj se hi try karo aur apna progress share karo!\n\n#fitness #motivation #shoulderpress #fitnessjourney #gym",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/h6S4y1hjkio/default.jpg?sqp=CPC9hM8G&rs=AOn4CLCyk7z4WIWifP-1k3bBUknSk1SftA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/h6S4y1hjkio/mqdefault.jpg?sqp=CPC9hM8G&rs=AOn4CLDfwhTFQUFxyAdz4SnWgP0lPHndlw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/h6S4y1hjkio/hqdefault.jpg?sqp=CPC9hM8G&rs=AOn4CLC087J1jtBYmqmVwnzxNkRaDLVu5Q",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "bodybuilding tips",
+          "exercise form",
+          "fitness motivation",
+          "fitness tips",
+          "fitnesstraining",
+          "gym motivation",
+          "gym motivation hindi",
+          "neck pain relief",
+          "shoulder press",
+          "shoulder press form",
+          "shoulder workout",
+          "strength training",
+          "viral fitness",
+          "weightlifting",
+          "workout motivation"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Shoulder Press Form Fix: Kya Aapka Neck Pain?",
+          "description": "Shoulder press form fix ke liye neck pain se pareshaan hain? Yeh crucial cue aapki strength badha sakta hai bina discomfort ke! Is video mein jaaniye kaise simple adjustment se aap apne shoulder press ko improve kar sakte hain. Elbows thoda forward, shoulder blades squeeze, aur neutral head position - yeh sab kuch seekhenge abhi! Aaj se hi try karo aur apna progress share karo!\n\n#fitness #motivation #shoulderpress #fitnessjourney #gym"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-19T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-16T17:09:24.089855+00:00",
+    "scheduled_time": "2026-04-19T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Bade Shoulders Ke Liye Sahi Pressing Form",
+    "idea": {
+      "idea_id": "6ef062dc-dab0-4d2b-84c8-8b22851c5a2c",
+      "title": "Bade Shoulders Ke Liye Sahi Pressing Form",
+      "angle": "Form Fix",
+      "hook": "Bade Shoulders Ke Liye Sahi Pressing Form. Watch yeh before workout.",
+      "topic": "shoulder press form",
+      "audience_value": "Train shoulders better with safer mechanics",
+      "source_prompt": "static-bank",
+      "created_at": "2026-04-16T17:16:30.154068+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Bade Shoulders Ke Liye Sahi Pressing Form",
+      "hook": "Bade Shoulders Ke Liye Sahi Pressing Form! Watch yeh before workout.",
+      "problem": "Kya aap shoulder press mein struggling kar rahe ho? Galat form se injury ka risk badh jata hai aur results bhi nahi milte.",
+      "insight": "Shoulder ki structure fragile hai. Agar aap focus nahi karoge, toh aapke muscles fail kar sakte hain. Saaf rakhna hai!",
+      "solution": "Sahi form ke liye, pehle apne knees ko thoda bend karo. Feet hip-width apart rakho. Elbows ko 45-degree angle par rakhke, barbell ko chhati ki taraf le jao, phir upar press karo. Yeh aapko zyada strength dega aur muscle growth ko accelerate karega.",
+      "cta": "Ab se, jab bhi shoulder press karo, is form ko follow karo! Like karo, share karo, aur DailyFitX ke liye subscribe karo!",
+      "full_script": "Bade Shoulders Ke Liye Sahi Pressing Form! Watch yeh before workout. Kya aap shoulder press mein struggling kar rahe ho? Galat form se injury ka risk badh jata hai aur results bhi nahi milte. Shoulder ki structure fragile hai. Agar aap focus nahi karoge, toh aapke muscles fail kar sakte hain. Saaf rakhna hai! Sahi form ke liye, pehle apne knees ko thoda bend karo. Feet hip-width apart rakho. Elbows ko 45-degree angle par rakhke, barbell ko chhati ki taraf le jao, phir upar press karo. Yeh aapko zyada strength dega aur muscle growth ko accelerate karega. Ab se, jab bhi shoulder press karo, is form ko follow karo! Like karo, share karo, aur DailyFitX ke liye subscribe karo!",
+      "estimated_duration_seconds": 35,
+      "primary_keyword": "shoulder press form",
+      "retention_note": "Opening grabs attention by addressing common struggles, compelling viewers to stay for actionable fixes.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Shoulder Press Form: Galtiyan Avoid Karo!",
+      "description": "Shoulder press form mein dikkat aa rahi hai? Sahi form se injury aur results dono ka risk kam karein! Is video mein jaaniye perfect stance aur execution jo aapko strong shoulders dega. Ab se, sahi form follow karein aur maximum muscle growth paayein! Like karein aur subscribe karein DailyFitX ke liye!\n\n#DailyFitX #FitnessMotivation #ShoulderPress #GymLife #StrengthTraining",
+      "tags": [
+        "shoulder press form",
+        "fitness tips",
+        "weightlifting",
+        "strength training",
+        "workout mistakes",
+        "gym motivation",
+        "exercise form",
+        "fit lifestyle",
+        "daily workout",
+        "quick fitness tips",
+        "fitness motivation",
+        "gym motivation hindi",
+        "workout motivation",
+        "discipline mindset",
+        "transformation tips"
+      ],
+      "hashtags": [
+        "#DailyFitX",
+        "#FitnessMotivation",
+        "#ShoulderPress",
+        "#GymLife",
+        "#StrengthTraining"
+      ],
+      "primary_keyword": "shoulder press form",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260416_171630_bade-shoulders-ke-liye-sahi-pressing-form.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260416_171630_bade-shoulders-ke-liye-sahi-pressing-form.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260416_171630_bade-shoulders-ke-liye-sahi-pressing-form.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260416_171630_bade-shoulders-ke-liye-sahi-pressing-form.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "6HKhJt3cyTrmZ9V6QAd3JU8gmoE",
+      "id": "3gih1ZjVY_I",
+      "snippet": {
+        "publishedAt": "2026-04-16T17:41:32Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Shoulder Press Form: Galtiyan Avoid Karo!",
+        "description": "Shoulder press form mein dikkat aa rahi hai? Sahi form se injury aur results dono ka risk kam karein! Is video mein jaaniye perfect stance aur execution jo aapko strong shoulders dega. Ab se, sahi form follow karein aur maximum muscle growth paayein! Like karein aur subscribe karein DailyFitX ke liye!\n\n#DailyFitX #FitnessMotivation #ShoulderPress #GymLife #StrengthTraining",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/3gih1ZjVY_I/default.jpg?sqp=CPC9hM8G&rs=AOn4CLDzBd-nxg6SRhrb926WV63kAGGInA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/3gih1ZjVY_I/mqdefault.jpg?sqp=CPC9hM8G&rs=AOn4CLBwmF1NVCMUfmq7GkK9rr2CxgMjVQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/3gih1ZjVY_I/hqdefault.jpg?sqp=CPC9hM8G&rs=AOn4CLCNDult1Cgz0eedQzcUmIHICoAnmQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "daily workout",
+          "discipline mindset",
+          "exercise form",
+          "fit lifestyle",
+          "fitness motivation",
+          "fitness tips",
+          "gym motivation",
+          "gym motivation hindi",
+          "quick fitness tips",
+          "shoulder press form",
+          "strength training",
+          "transformation tips",
+          "weightlifting",
+          "workout mistakes",
+          "workout motivation"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Shoulder Press Form: Galtiyan Avoid Karo!",
+          "description": "Shoulder press form mein dikkat aa rahi hai? Sahi form se injury aur results dono ka risk kam karein! Is video mein jaaniye perfect stance aur execution jo aapko strong shoulders dega. Ab se, sahi form follow karein aur maximum muscle growth paayein! Like karein aur subscribe karein DailyFitX ke liye!\n\n#DailyFitX #FitnessMotivation #ShoulderPress #GymLife #StrengthTraining"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-20T01:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-16T17:25:32.729665+00:00",
+    "scheduled_time": "2026-04-20T01:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Running Ko Ek Hafte Mein Aasan Kaise Banayein?",
+    "idea": {
+      "idea_id": "83214867-9685-4c71-af76-b740404f2232",
+      "title": "Running Ko Ek Hafte Mein Aasan Kaise Banayein?",
+      "angle": "Beginner Guide",
+      "hook": "Running Ko Ek Hafte Mein Aasan Kaise Banayein?. Yeh is why tum fail.",
+      "topic": "running stamina",
+      "audience_value": "Improve breathing and pacing without overtraining",
+      "source_prompt": "static-bank",
+      "created_at": "2026-04-16T17:16:30.154136+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Running Ko Ek Hafte Mein Aasan Kaise Banayein?",
+      "hook": "Running ko ek hafte mein aasan kaise banayein? Ye hai jise sab galat samajhte hain.",
+      "problem": "Aksar log running start karte hain lekin thakawat se give up kar dete hain. Unka stamina nahi badhta, breath control miss ho jata hai.",
+      "insight": "Jab hum sahin breathing aur pacing nahi karte, toh body ko stress hota hai. Aur tab humari running ka maza khatam ho jata hai.",
+      "solution": "Bus ek simple method se shuru karo: Har din running se pehle sirf 5 minute ka deep breathing karo. Isse lungs ka capacity improve hoga. Phir 10 minute brisk walk se running ki taraf shift ho. Flexibility aur pace ko improve karne ke liye, baad mein 5 minute ki stretching bhi zaroori hai. Yeh exercise tumhe focus aur flow provide karegi. Result: Aapka stamina dheere-dheere badhega aur running experience khaas ban jayega.",
+      "cta": "Toh chalo, aaj se running ko asaan banao aur apni shuruaat karo!",
+      "full_script": "Running ko ek hafte mein aasan kaise banayein? Ye hai jise sab galat samajhte hain. Aksar log running start karte hain lekin thakawat se give up kar dete hain. Unka stamina nahi badhta, breath control miss ho jata hai. Jab hum sahin breathing aur pacing nahi karte, toh body ko stress hota hai. Aur tab humari running ka maza khatam ho jata hai. Bus ek simple method se shuru karo: Har din running se pehle sirf 5 minute ka deep breathing karo. Isse lungs ka capacity improve hoga. Phir 10 minute brisk walk se running ki taraf shift ho. Flexibility aur pace ko improve karne ke liye, baad mein 5 minute ki stretching bhi zaroori hai. Yeh exercise tumhe focus aur flow provide karegi. Result: Aapka stamina dheere-dheere badhega aur running experience khaas ban jayega. Toh chalo, aaj se running ko asaan banao aur apni shuruaat karo!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "running stamina",
+      "retention_note": "Starting with a strong hook grabs attention instantly, making viewers eager to learn how to improve their running experience.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Running Stamina Badhao in 1 Week!",
+      "description": "Running stamina ko badhana ab aasan hai! Sirf 5 minute deep breathing se apne lungs ko taiyaar karo. Phir brisk walk ke saath running shuru karo. 5 minute ki stretching se flexibility aur pace improve karna mat bhoolna! Yeh method se aapki running ka experience khud hi badal jaega. Aaj se shuru karo aur dekho farak!\n\n#FitnessMotivation #Yoga #RunningStamina #DeepBreathing #Stretching",
+      "tags": [
+        "running stamina",
+        "how to increase stamina",
+        "running tips for beginners",
+        "fitness motivation",
+        "improve running experience",
+        "yoga for runners",
+        "short running tips",
+        "deep breathing exercise",
+        "stamina building techniques",
+        "running hacks",
+        "gym motivation hindi",
+        "workout motivation",
+        "discipline mindset",
+        "transformation tips",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#FitnessMotivation",
+        "#Yoga",
+        "#RunningStamina",
+        "#DeepBreathing",
+        "#Stretching"
+      ],
+      "primary_keyword": "running stamina",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260416_172532_running-ko-ek-hafte-mein-aasan-kaise-banayein.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260416_172532_running-ko-ek-hafte-mein-aasan-kaise-banayein.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260416_172532_running-ko-ek-hafte-mein-aasan-kaise-banayein.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260416_172532_running-ko-ek-hafte-mein-aasan-kaise-banayein.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "dpOey6HXso9jqB9MMDMfzK1RExA",
+      "id": "Rwg6oeeLnd8",
+      "snippet": {
+        "publishedAt": "2026-04-16T17:42:04Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Running Stamina Badhao in 1 Week!",
+        "description": "Running stamina ko badhana ab aasan hai! Sirf 5 minute deep breathing se apne lungs ko taiyaar karo. Phir brisk walk ke saath running shuru karo. 5 minute ki stretching se flexibility aur pace improve karna mat bhoolna! Yeh method se aapki running ka experience khud hi badal jaega. Aaj se shuru karo aur dekho farak!\n\n#FitnessMotivation #Yoga #RunningStamina #DeepBreathing #Stretching",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/Rwg6oeeLnd8/default.jpg?sqp=CPC9hM8G&rs=AOn4CLBBFuhqLc5hGTv36ICKdKk51VTKRA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/Rwg6oeeLnd8/mqdefault.jpg?sqp=CPC9hM8G&rs=AOn4CLCBmQqnp8e4rMey-JnUE-vNiZQkHw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/Rwg6oeeLnd8/hqdefault.jpg?sqp=CPC9hM8G&rs=AOn4CLBrX84e8PmI62oqtT073yfVhTnM5w",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "deep breathing exercise",
+          "discipline mindset",
+          "fitness motivation",
+          "gym motivation hindi",
+          "how to increase stamina",
+          "improve running experience",
+          "running hacks",
+          "running stamina",
+          "running tips for beginners",
+          "short running tips",
+          "stamina building techniques",
+          "transformation tips",
+          "workout motivation",
+          "yoga for runners"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Running Stamina Badhao in 1 Week!",
+          "description": "Running stamina ko badhana ab aasan hai! Sirf 5 minute deep breathing se apne lungs ko taiyaar karo. Phir brisk walk ke saath running shuru karo. 5 minute ki stretching se flexibility aur pace improve karna mat bhoolna! Yeh method se aapki running ka experience khud hi badal jaega. Aaj se shuru karo aur dekho farak!\n\n#FitnessMotivation #Yoga #RunningStamina #DeepBreathing #Stretching"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-20T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-16T17:40:06.254518+00:00",
+    "scheduled_time": "2026-04-20T13:30:00Z",
+    "local_video_deleted": true
   }
 ]

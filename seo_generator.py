@@ -55,6 +55,7 @@ class SeoGenerator:
             f"\nRetention note from AI script writer: {script.retention_note}"
             f"\n\nScript for Context:\n{script.full_script}"
         )
+        is_long = getattr(script, "video_type", "short") == "long"
         payload, provider_used = build_json_with_fallback(
             self.llm,
             prompt,
@@ -63,8 +64,8 @@ class SeoGenerator:
         )
         LOGGER.info("SEO generation provider used: %s", provider_used)
 
-        tags = self._normalize_tags(payload.get("tags", []), script.primary_keyword)
-        hashtags = self._normalize_hashtags(payload.get("hashtags", []), content_style, language_code)
+        tags = self._normalize_tags(payload.get("tags", []), script.primary_keyword, is_long)
+        hashtags = self._normalize_hashtags(payload.get("hashtags", []), content_style, language_code, is_long)
         description = self._clean_ascii_text(payload["description"].strip())
         hashtag_text = " ".join(hashtags)
         if hashtag_text.lower() not in description.lower():
@@ -88,8 +89,9 @@ class SeoGenerator:
         keyword = self._clean_ascii_text(script.primary_keyword or script.title).strip()
         title = self._fallback_title(script, content_style, language_code)
         description = self._fallback_description(script, keyword, content_style, language_code)
-        tags = self._fallback_tags(script, keyword, content_style, language_code)
-        hashtags = self._fallback_hashtags(content_style, language_code)
+        is_long = getattr(script, "video_type", "short") == "long"
+        tags = self._fallback_tags(script, keyword, content_style, language_code, is_long)
+        hashtags = self._fallback_hashtags(content_style, language_code, is_long)
         return {
             "title": title,
             "description": description,
@@ -98,19 +100,21 @@ class SeoGenerator:
             "primary_keyword": keyword,
         }
 
-    def _normalize_tags(self, tags: List[str], primary_keyword: str) -> List[str]:
+    def _normalize_tags(self, tags: List[str], primary_keyword: str, is_long: bool = False) -> List[str]:
         style = self._infer_style_from_keyword(primary_keyword)
-        baseline = self._baseline_tags(style, primary_keyword)
+        baseline = self._baseline_tags(style, primary_keyword, is_long)
         merged: List[str] = []
         for tag in [*tags, *baseline]:
             cleaned = self._clean_ascii_text(str(tag).strip())
+            if is_long and "short" in cleaned.lower():
+                continue
             if cleaned and cleaned.lower() not in {item.lower() for item in merged}:
                 merged.append(cleaned[:30])
         return merged[:15]
 
     @staticmethod
-    def _normalize_hashtags(hashtags: List[str], content_style: str, language_code: str) -> List[str]:
-        style_defaults = SeoGenerator._fallback_hashtags(content_style, language_code)
+    def _normalize_hashtags(hashtags: List[str], content_style: str, language_code: str, is_long: bool = False) -> List[str]:
+        style_defaults = SeoGenerator._fallback_hashtags(content_style, language_code, is_long)
         cleaned: List[str] = []
         for tag in [*hashtags, *style_defaults]:
             value = str(tag).strip()
@@ -118,6 +122,8 @@ class SeoGenerator:
                 continue
             if not value.startswith("#"):
                 value = f"#{value}"
+            if is_long and "short" in value.lower():
+                continue
             if value.lower() not in {item.lower() for item in cleaned}:
                 cleaned.append(value)
         return cleaned[:5]
@@ -206,27 +212,37 @@ class SeoGenerator:
         )
         return f"{opener}{body} {close}"
 
-    def _fallback_tags(self, script: VideoScript, keyword: str, content_style: str, language_code: str) -> List[str]:
-        tags = self._baseline_tags(content_style, keyword)
+    def _fallback_tags(self, script: VideoScript, keyword: str, content_style: str, language_code: str, is_long: bool = False) -> List[str]:
+        tags = self._baseline_tags(content_style, keyword, is_long)
         title_words = self._clean_ascii_text(script.title).lower().split()
         if title_words:
             tags.append(" ".join(title_words[:4]))
         if language_code == "hi":
-            tags.extend(["hinglish shorts", "hindi english shorts", "roman hindi motivation"])
+            if is_long:
+                tags.extend(["hinglish fitness", "hindi english workout", "roman hindi motivation"])
+            else:
+                tags.extend(["hinglish shorts", "hindi english shorts", "roman hindi motivation"])
         return tags
 
     @staticmethod
-    def _fallback_hashtags(content_style: str, language_code: str) -> List[str]:
+    def _fallback_hashtags(content_style: str, language_code: str, is_long: bool = False) -> List[str]:
+        base = ["#DailyFitX", "#hinglish" if language_code == "hi" else ("#wellness" if content_style=="yoga" else "#fitness")]
+        if not is_long:
+            base.append("#shorts")
+            
         style_tags = {
-            "yoga": ["#DailyFitX", "#yoga", "#shorts", "#stressrelief", "#hinglish" if language_code == "hi" else "#wellness"],
-            "fat_loss": ["#DailyFitX", "#fatloss", "#shorts", "#fitness", "#hinglish" if language_code == "hi" else "#weightloss"],
-            "strength": ["#DailyFitX", "#strength", "#shorts", "#gym", "#hinglish" if language_code == "hi" else "#muscle"],
-            "fitness": ["#DailyFitX", "#fitness", "#shorts", "#motivation", "#hinglish" if language_code == "hi" else "#workout"],
+            "yoga": ["#yoga", "#stressrelief"],
+            "fat_loss": ["#fatloss", "#fitness"],
+            "strength": ["#strength", "#gym"],
+            "fitness": ["#fitness", "#motivation"],
         }
-        return style_tags.get(content_style, style_tags["fitness"])
+        return [*base, *style_tags.get(content_style, style_tags["fitness"])]
 
-    def _baseline_tags(self, content_style: str, primary_keyword: str) -> List[str]:
-        common = ["DailyFitX", primary_keyword, "viral fitness shorts", "shorts feed fitness"]
+    def _baseline_tags(self, content_style: str, primary_keyword: str, is_long: bool = False) -> List[str]:
+        common = ["DailyFitX", primary_keyword, "fitness routine", "fitness channel"]
+        if not is_long:
+            common = ["DailyFitX", primary_keyword, "viral fitness shorts", "shorts feed fitness"]
+            
         by_style = {
             "yoga": ["yoga motivation hindi", "morning yoga", "stress relief yoga", "yoga for beginners", "mindful movement"],
             "fat_loss": ["fat loss motivation", "weight loss tips", "fat loss routine", "fitness discipline", "body transformation"],

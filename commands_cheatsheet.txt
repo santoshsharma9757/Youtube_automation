@@ -1,0 +1,46 @@
+==============================================
+  DAILYFITX AUTOMATION COMMAND CHEATSHEET
+==============================================
+Copy and paste these commands into your terminal.
+
+----------------------------------------------
+ 1. STANDARD GENERATION (SAFE & FAST)
+----------------------------------------------
+# Generate 1 standard Short (Uses local background videos)
+python main.py --count 1
+
+# Generate 6 standard Shorts at once
+python main.py --count 6
+
+# Generate exactly 1 Long Video (16:9, uses Pexels automatically)
+python main.py --count 0 --long-count 1
+
+# Generate 2 Shorts and 1 Long Video together
+python main.py --count 2 --long-count 1
+
+----------------------------------------------
+ 2. DYNAMIC GENERATION (PEXELS API)
+----------------------------------------------
+# Generate exactly 1 Short, but FORCE it to use Pexels for fresh visuals
+python main.py --count 1 --use-pexels
+
+# Generate 2 Shorts and 1 Long Video (Everything uses Pexels)
+python main.py --count 2 --long-count 1 --use-pexels
+
+----------------------------------------------
+ 3. MANUAL / CUSTOM TOPICS
+----------------------------------------------
+# Generate 1 Short heavily focused on a specific custom topic
+python main.py --topic "Why Yoga Solves Sleep Deprivation"
+
+# Generate 1 Long Video focused on a specific custom topic
+python main.py --count 0 --long-count 1 --topic "Full Body Muscle Recovery Explained"
+
+----------------------------------------------
+ 4. SCHEDULING & UPLOADING
+----------------------------------------------
+# Generate 2 Shorts and schedule/upload them immediately
+python main.py --count 2 --upload
+
+# Just run the scheduler program to upload pending videos
+python main.py --schedule-upload

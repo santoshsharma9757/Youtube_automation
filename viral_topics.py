@@ -107,6 +107,9 @@ VIRAL_TOPIC_BANK: list[dict[str, str]] = [
     {"title": "What Happens When You Stop Negotiating With Yourself", "angle": "Motivation", "topic": "self negotiation", "audience_value": "Build a mindset that respects promises to yourself"},
     {"title": "Why Running Is Better Than Waiting for Motivation", "angle": "Mindset", "topic": "running and motivation", "audience_value": "Use action to create energy instead of waiting for it"},
     {"title": "The Beginner Fitness Trap Called All or Nothing", "angle": "Psychology", "topic": "all or nothing fitness", "audience_value": "Stay in the game longer with a balanced approach"},
+    {"title": "The Ultimate 90-Second Full Body Reset", "angle": "Lifestyle", "topic": "full body reset", "audience_value": "Quick physiological reset"},
+    {"title": "Why You Keep Failing Your Fitness Goals", "angle": "Psychology", "topic": "fitness psychology", "audience_value": "Mastering the mental aspect of fitness"},
+    {"title": "Sleep Loss Destroys Muscle Growth", "angle": "Health", "topic": "sleep muscle connection", "audience_value": "Why sleeping is better than another set"},
 ]
 
 

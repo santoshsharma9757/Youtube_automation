@@ -42,6 +42,7 @@ class VideoIdea:
     created_at: str
     language_preference: str = "hinglish"
     theme_hint: str = ""
+    video_type: str = "short"
 
 
 class IdeaGenerator:

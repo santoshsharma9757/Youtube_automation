@@ -84,11 +84,13 @@ class AppConfig:
     background_assets_dir: Path = field(default_factory=lambda: ASSETS_DIR / "backgrounds")
     local_video_assets_dir: Path = field(default_factory=lambda: ASSETS_DIR / "localvideos")
     content_images_dir: Path = field(default_factory=lambda: ASSETS_DIR / "content images")
+    music_dir: Path = field(default_factory=lambda: ASSETS_DIR / "music")
     font_file: Path = field(default_factory=lambda: resolve_font_path())
     subtitle_store_dir: Path = field(default_factory=lambda: SUBTITLE_DIR)
     scheduler_timezone: str = field(default_factory=lambda: os.getenv("SCHEDULER_TIMEZONE", "Asia/Kolkata"))
     daily_video_count: int = field(default_factory=lambda: int(os.getenv("DAILY_VIDEO_COUNT", "1")))
     upload_enabled: bool = field(default_factory=lambda: os.getenv("UPLOAD_ENABLED", "false").lower() == "true")
+    use_pexels_for_shorts: bool = field(default=False)
 
     ideas_store: Path = field(default_factory=lambda: DATA_DIR / "ideas.json")
     content_store: Path = field(default_factory=lambda: DATA_DIR / "content_history.json")

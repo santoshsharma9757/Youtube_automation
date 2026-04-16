@@ -66,15 +66,20 @@ def select_fresh_ideas(
 
 
 def run_pipeline(
-    video_count: int = 1,
+    short_count: int = 1,
+    long_count: int = 0,
     upload: bool = False,
     topic: str | None = None,
     theme: str | None = None,
     language: str = "hinglish",
+    test_long: bool = False,
+    use_pexels: bool = False,
 ) -> list[dict]:
     config = get_config()
-    if video_count < 1 or video_count > 30:
-        raise ValueError("video_count must be between 1 and 30.")
+    config.use_pexels_for_shorts = use_pexels
+    total_count = short_count + long_count
+    if total_count < 1 or total_count > 30:
+        raise ValueError("Total video count must be between 1 and 30.")
 
     idea_generator = IdeaGenerator(config)
     script_generator = ScriptGenerator(config)
@@ -128,7 +133,15 @@ def run_pipeline(
                 )
             ]
     else:
-        ideas_to_process = select_fresh_ideas(idea_generator, video_count, theme=theme, language=language)
+        ideas_to_process = select_fresh_ideas(idea_generator, total_count, theme=theme, language=language)
+
+    if not topic and long_count > 0:
+        actual_long_count = min(long_count, len(ideas_to_process))
+        for i in range(len(ideas_to_process) - actual_long_count, len(ideas_to_process)):
+            ideas_to_process[i] = replace(ideas_to_process[i], video_type="long")
+    
+    if test_long and ideas_to_process:
+        ideas_to_process[0] = replace(ideas_to_process[0], video_type="long")
 
     for idea in ideas_to_process:
         idea_signature = (
@@ -144,10 +157,12 @@ def run_pipeline(
         try:
             manual_package = build_manual_content(topic) if topic else None
             script = manual_package.script if manual_package else script_generator.generate_script(idea)
+            is_long = getattr(idea, "video_type", "short") == "long"
+            min_dur = 80 if is_long else 31
             script = replace(
                 script,
                 full_script=script_generator._extend_script_if_needed(script.full_script, idea),
-                estimated_duration_seconds=max(31, int(script.estimated_duration_seconds)),
+                estimated_duration_seconds=max(min_dur, int(script.estimated_duration_seconds)),
             )
             audio_path = tts_engine.synthesize(script.full_script, AUDIO_DIR / f"{base_name}.mp3")
             if manual_package:
@@ -202,8 +217,15 @@ def parse_args() -> argparse.Namespace:
         const=2,
         default=2,
         type=int,
-        help="Number of videos to generate in this run. If passed without a value, defaults to 2.",
+        help="Number of short videos to generate. If passed without a value, defaults to 2.",
     )
+    parser.add_argument(
+        "--long-count",
+        type=int,
+        default=0,
+        help="Number of long videos to generate.",
+    )
+    parser.add_argument("--use-pexels", action="store_true", help="Use Pexels API for short videos instead of local files")
     parser.add_argument("--upload", action="store_true", help="Upload generated videos to YouTube")
     parser.add_argument("--schedule", action="store_true", help="Start APScheduler instead of running once")
     parser.add_argument("--topic", type=str, help="Create one manual topic-driven Short")
@@ -226,6 +248,7 @@ def parse_args() -> argparse.Namespace:
         default=2,
         help="How many videos to schedule per day when using --schedule-upload",
     )
+    parser.add_argument("--test-long", action="store_true", help="Generate a long video for testing")
     parser.add_argument(
         "legacy_command",
         nargs="?",
@@ -256,11 +279,14 @@ def main() -> None:
         return
 
     results = run_pipeline(
-        video_count=args.count,
+        short_count=args.count,
+        long_count=args.long_count,
         upload=args.upload,
         topic=args.topic,
         theme=args.theme,
         language=args.language,
+        test_long=args.test_long,
+        use_pexels=args.use_pexels,
     )
     if args.schedule_upload:
         scheduled = schedule_pending_uploads(videos_per_day=args.videos_per_day)

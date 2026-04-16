@@ -15,11 +15,14 @@ from PIL import Image, ImageDraw, ImageFont
 from moviepy import (
     AudioFileClip,
     ColorClip,
+    CompositeAudioClip,
     CompositeVideoClip,
     ImageClip,
     VideoFileClip,
+    concatenate_audioclips,
     concatenate_videoclips,
     vfx,
+    afx,
 )
 
 from config import AppConfig
@@ -45,12 +48,31 @@ class VideoGenerator:
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
         audio_clip = AudioFileClip(str(audio_path))
+        
+        bg_music_path = self._get_random_background_music()
+        if bg_music_path:
+            LOGGER.info("Adding background music: %s", bg_music_path.name)
+            try:
+                music_clip = AudioFileClip(str(bg_music_path)).with_volume_scaled(0.4)
+                if music_clip.duration < audio_clip.duration:
+                    import math
+                    repeats = math.ceil(audio_clip.duration / max(music_clip.duration, 1.0))
+                    music_clip = concatenate_audioclips([music_clip] * repeats)
+                music_clip = music_clip.subclipped(0, audio_clip.duration)
+                audio_clip = CompositeAudioClip([audio_clip, music_clip])
+            except Exception as e:
+                LOGGER.warning("Could not add background music: %s", e)
+
         background_clip = self._build_base_visual(script=script, duration=audio_clip.duration)
         subtitle_clips = self._build_subtitle_clips(subtitles.segments, audio_clip.duration, script=script)
         title_clip = self._build_title_clip(script.title, audio_clip.duration)
         extra_clips = self._build_story_clips(script, audio_clip.duration)
 
-        final = CompositeVideoClip([background_clip, title_clip, *extra_clips, *subtitle_clips], size=(1080, 1920))
+        is_long = getattr(script, 'video_type', 'short') == 'long'
+        vid_w = 1920 if is_long else 1080
+        vid_h = 1080 if is_long else 1920
+
+        final = CompositeVideoClip([background_clip, title_clip, *extra_clips, *subtitle_clips], size=(vid_w, vid_h))
         final = final.with_audio(audio_clip)
 
         final.write_videofile(
@@ -65,25 +87,34 @@ class VideoGenerator:
         return output_path
 
     def _build_base_visual(self, script: VideoScript, duration: float):
+        is_long = getattr(script, 'video_type', 'short') == 'long'
+        
+        if is_long or getattr(self.config, 'use_pexels_for_shorts', False):
+            return self._build_pexels_background(script, duration)
+
         local_video_clip = self._build_local_video_background(script=script, duration=duration)
         if local_video_clip is not None:
             return local_video_clip
 
-        return self._build_background(duration)
+        return self._build_background(script, duration)
 
     def _build_local_video_background(self, script: VideoScript, duration: float):
         assets = self._match_local_video_assets(script)
         if not assets:
             return None
 
+        is_long = getattr(script, 'video_type', 'short') == 'long'
+        vid_w = 1920 if is_long else 1080
+        vid_h = 1080 if is_long else 1920
+
         clips = []
         for asset in assets:
             clip = VideoFileClip(str(asset))
             clip = clip.without_audio()
-            clip = clip.resized(height=1920)
-            if clip.w < 1080:
-                clip = clip.resized(width=1080)
-            clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=1080, height=1920)
+            clip = clip.resized(height=vid_h)
+            if clip.w < vid_w:
+                clip = clip.resized(width=vid_w)
+            clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
             clips.append(clip)
 
         if not clips:
@@ -106,12 +137,12 @@ class VideoGenerator:
         keyword = (script.primary_keyword or "gym motivation").strip()
         if visual_style == "yoga":
             candidates = [
-                f"{keyword} sunrise yoga portrait",
-                f"{title_phrase} yoga flow vertical",
-                "woman yoga breathing portrait",
+                f"{keyword} sunrise yoga",
+                f"{title_phrase} yoga flow",
+                "woman yoga breathing",
                 "calm yoga stretch cinematic",
                 "mindful meditation body flow",
-                "yoga posture healing vertical",
+                "yoga posture healing",
             ]
         else:
             candidates = [
@@ -120,7 +151,7 @@ class VideoGenerator:
                 f"{title_phrase} gym",
                 f"{title_phrase} fitness motivation",
                 "intense workout motivation",
-                "athlete training vertical",
+                "athlete training",
             ]
         deduped: list[str] = []
         for item in candidates:
@@ -128,7 +159,41 @@ class VideoGenerator:
             if cleaned and cleaned.lower() not in {value.lower() for value in deduped}:
                 deduped.append(cleaned)
         random.shuffle(deduped)
-        return deduped[:4]
+        return deduped[:5]
+
+    def _build_pexels_background(self, script: VideoScript, duration: float):
+        queries = self._build_visual_queries(script)
+        clips = []
+        is_long = getattr(script, 'video_type', 'short') == 'long'
+        vid_w = 1920 if is_long else 1080
+        vid_h = 1080 if is_long else 1920
+        
+        for query in queries:
+            path = self._fetch_pexels_video(query, is_long=is_long)
+            if path and path.exists():
+                clip = VideoFileClip(str(path)).without_audio()
+                clip = clip.resized(height=vid_h)
+                if clip.w < vid_w:
+                    clip = clip.resized(width=vid_w)
+                clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
+                clips.append(clip)
+            if len(clips) >= (4 if is_long else 2):
+                break
+                
+        if not clips:
+            LOGGER.warning("Pexels failed to return videos, falling back to static background")
+            return self._build_background(script, duration)
+            
+        sequence = list(clips)
+        total_duration = sum(clip.duration for clip in sequence)
+        base_duration = max(total_duration, 0.1)
+        
+        while total_duration < duration:
+            sequence.extend(clips)
+            total_duration += base_duration
+            
+        combined = concatenate_videoclips(sequence, method="compose")
+        return combined.subclipped(0, duration)
 
     def _generate_veo_video(self, prompt: str) -> Path | None:
         if not self.config.gemini_api_key: return None
@@ -155,11 +220,12 @@ class VideoGenerator:
             LOGGER.warning("Veo generation failed, falling back: %s", e)
         return None
 
-    def _fetch_pexels_video(self, query: str) -> Path | None:
+    def _fetch_pexels_video(self, query: str, is_long: bool = False) -> Path | None:
         if not self.config.pexels_api_key: return None
         try:
-            LOGGER.info("Fetching video from Pexels for query: %s", query)
-            url = f"https://api.pexels.com/videos/search?query={urllib.parse.quote(query)}&orientation=portrait&size=large"
+            orientation = "landscape" if is_long else "portrait"
+            LOGGER.info("Fetching %s video from Pexels for query: %s", orientation, query)
+            url = f"https://api.pexels.com/videos/search?query={urllib.parse.quote(query)}&orientation={orientation}&size=large"
             headers = {"Authorization": self.config.pexels_api_key}
             resp = requests.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
@@ -204,12 +270,16 @@ class VideoGenerator:
             LOGGER.warning("Pixabay fetch failed: %s", e)
         return None
 
-    def _build_background(self, duration: float):
+    def _build_background(self, script: VideoScript, duration: float):
         assets = list(self._iter_background_assets())
         if not assets:
             LOGGER.warning("No background assets found, using designed fallback card")
-            frame = self._render_gradient_background()
+            frame = self._render_gradient_background(script)
             return ImageClip(frame, duration=duration)
+
+        is_long = getattr(script, 'video_type', 'short') == 'long'
+        vid_w = 1920 if is_long else 1080
+        vid_h = 1080 if is_long else 1920
 
         clips = []
         slice_duration = max(duration / max(len(assets), 1), 3)
@@ -219,10 +289,10 @@ class VideoGenerator:
                 clip = clip.subclipped(0, min(slice_duration, clip.duration))
             else:
                 clip = ImageClip(str(asset), duration=slice_duration)
-            clip = clip.resized(height=1920)
-            if clip.w < 1080:
-                clip = clip.resized(width=1080)
-            clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=1080, height=1920)
+            clip = clip.resized(height=vid_h)
+            if clip.w < vid_w:
+                clip = clip.resized(width=vid_w)
+            clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
             clips.append(clip.with_duration(slice_duration).crossfadein(0.2))
 
         combined = concatenate_videoclips(clips, method="compose")
@@ -248,10 +318,11 @@ class VideoGenerator:
                 continue
             color = "#facc15" if any(keyword in text for keyword in keywords) else "white"
             is_romanized = self._is_romanized_script(script)
+            is_long = getattr(script, 'video_type', 'short') == 'long'
             clip = ImageClip(
                 self._render_text_card(
                     text=text,
-                    width=960,
+                    width=1400 if is_long else 960,
                     font_size=54 if is_romanized else 56,
                     text_color=color,
                     bg_color=(9, 15, 23, 185) if is_romanized else (7, 16, 31, 205),
@@ -262,6 +333,9 @@ class VideoGenerator:
             )
             clip = clip.with_start(segment["start"]).with_end(min(segment["end"], duration))
             base_y = 1460 if is_romanized else 1380
+            if is_long:
+                base_y = 860 if is_romanized else 800
+            
             clip = clip.with_position(lambda t, base_y=base_y: ("center", base_y + max(0, int(40 - (t * 140)))))
             subtitle_clips.append(clip)
         return subtitle_clips
@@ -283,13 +357,14 @@ class VideoGenerator:
 
     def _build_story_clips(self, script: VideoScript, duration: float) -> list:
         clips = []
+        is_long = getattr(script, 'video_type', 'short') == 'long'
         beats = self._story_beats(script, duration)
         accent = self._accent_palette(script)
         for index, beat in enumerate(beats):
             card = ImageClip(
                 self._render_text_card(
                     text=beat["text"],
-                    width=820,
+                    width=1200 if is_long else 820,
                     font_size=52 if beat["kind"] == "hook" else 46,
                     text_color=accent["text"],
                     bg_color=beat["bg"],
@@ -327,10 +402,12 @@ class VideoGenerator:
                         text_color=accent["badge_text"],
                     )
                 )
+                offset_y = -400 if is_long else 0
+                tag_x = (200 if index % 2 == 0 else 1400) if is_long else (90 if index % 2 == 0 else 720)
                 tag = (
                     tag.with_start(beat["start"])
                     .with_end(beat["end"])
-                    .with_position((90 if index % 2 == 0 else 720, 1040 + (index * 46)))
+                    .with_position((tag_x, 1040 + (index * 46) + offset_y))
                 )
                 clips.append(tag)
         return clips
@@ -382,13 +459,25 @@ class VideoGenerator:
         random.shuffle(remaining)
         return [available[remaining[0]]] if remaining else []
 
-    def _render_gradient_background(self) -> np.ndarray:
-        image = Image.new("RGBA", (1080, 1920), "#091a2f")
+    def _get_random_background_music(self) -> Path | None:
+        if not hasattr(self.config, 'music_dir') or not self.config.music_dir.exists():
+            return None
+        music_files = [p for p in self.config.music_dir.iterdir() if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".aac"}]
+        if not music_files:
+            return None
+        import random
+        return random.choice(music_files)
+
+    def _render_gradient_background(self, script: VideoScript) -> np.ndarray:
+        is_long = getattr(script, 'video_type', 'short') == 'long'
+        vid_w = 1920 if is_long else 1080
+        vid_h = 1080 if is_long else 1920
+        image = Image.new("RGBA", (vid_w, vid_h), "#091a2f")
         draw = ImageDraw.Draw(image, "RGBA")
-        draw.rounded_rectangle((50, 70, 1030, 1850), radius=42, fill=(14, 30, 57, 255))
-        draw.ellipse((760, 120, 1120, 480), fill=(32, 76, 150, 70))
+        draw.rounded_rectangle((50, 70, vid_w - 50, vid_h - 70), radius=42, fill=(14, 30, 57, 255))
+        draw.ellipse((vid_w - 320, 120, vid_w + 40, 480), fill=(32, 76, 150, 70))
         draw.ellipse((-80, 300, 260, 640), fill=(202, 34, 52, 70))
-        draw.rounded_rectangle((80, 980, 1000, 1300), radius=36, fill=(255, 255, 255, 14))
+        draw.rounded_rectangle((80, vid_h - 940, vid_w - 80, vid_h - 620), radius=36, fill=(255, 255, 255, 14))
         return np.array(image)
 
     def _render_badge(self, text: str, fill: tuple[int, int, int, int], text_color: str) -> np.ndarray:
@@ -547,41 +636,52 @@ class VideoGenerator:
 
     def _story_beats(self, script: VideoScript, duration: float) -> list[dict]:
         style = self._visual_style(script)
+        
+        # Calculate dynamic timings based on percentages of typical script structure
+        # Hook: ~10%, Problem: ~15%, Insight: ~20%, Solution: ~45%, CTA: ~10%
+        t_hook = min(duration * 0.1, 5.0)
+        t_prob = min(t_hook + duration * 0.15, 12.0)
+        t_insight = min(t_prob + duration * 0.20, 25.0)
+        t_solution = max(duration - 4.0, t_insight + 5.0)
+        
+        is_long = getattr(script, "video_type", "short") == "long"
+        y_offset = -400 if is_long else 0
+        
         beats = [
             {
                 "kind": "hook",
                 "label": "Stop Scroll" if style == "fitness" else "Pause & Breathe",
                 "text": script.hook,
                 "start": 0.0,
-                "end": min(4.2, duration),
-                "position": ("center", 510),
+                "end": t_hook,
+                "position": ("center", 510 + y_offset),
                 "bg": (168, 34, 34, 215) if style == "fitness" else (14, 116, 144, 205),
             },
             {
                 "kind": "problem",
                 "label": "Why It Fails" if style == "fitness" else "What You Feel",
                 "text": script.problem,
-                "start": min(4.0, duration),
-                "end": min(11.0, duration),
-                "position": ("center", 900),
+                "start": max(0.0, t_hook - 0.2),
+                "end": t_prob,
+                "position": ("center", 900 + y_offset),
                 "bg": (15, 23, 42, 198),
             },
             {
                 "kind": "insight",
                 "label": "Truth",
                 "text": script.insight,
-                "start": min(11.0, duration),
-                "end": min(19.5, duration),
-                "position": ("center", 720),
+                "start": t_prob,
+                "end": t_insight,
+                "position": ("center", 720 + y_offset),
                 "bg": (88, 28, 135, 194) if style == "fitness" else (30, 64, 175, 190),
             },
             {
                 "kind": "solution",
                 "label": "Do This",
                 "text": script.solution,
-                "start": min(19.5, duration),
-                "end": min(duration - 3.0, max(24.0, duration * 0.82)),
-                "position": ("center", 1080),
+                "start": t_insight,
+                "end": t_solution,
+                "position": ("center", 1080 + y_offset),
                 "bg": (21, 128, 61, 194) if style == "fitness" else (13, 148, 136, 188),
             },
             {
@@ -590,7 +690,7 @@ class VideoGenerator:
                 "text": script.cta,
                 "start": max(0.0, duration - 4.0),
                 "end": duration,
-                "position": ("center", 1260),
+                "position": ("center", 1260 + y_offset),
                 "bg": (245, 158, 11, 212),
             },
         ]

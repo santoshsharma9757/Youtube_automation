@@ -26,6 +26,7 @@ class VideoScript:
     estimated_duration_seconds: int
     primary_keyword: str
     retention_note: str
+    video_type: str = "short"
 
 
 class ScriptGenerator:
@@ -34,7 +35,12 @@ class ScriptGenerator:
         self.llm = LlmFallbackClient(config)
 
     def generate_script(self, idea: VideoIdea) -> VideoScript:
-        LOGGER.info("Generating script for idea '%s'", idea.title)
+        is_long = getattr(idea, "video_type", "short") == "long"
+        duration_desc = "80-90 second YouTube video" if is_long else "30-45 second YouTube Shorts"
+        min_duration = 80 if is_long else 31
+        word_count_desc = "200-240 words" if is_long else "95-125 words"
+
+        LOGGER.info("Generating script for idea '%s' (type: %s)", idea.title, getattr(idea, "video_type", "short"))
         style = self._determine_style(idea)
         language_direction = self._language_direction(style, getattr(idea, "language_preference", "hinglish"))
         tone_direction = self._tone_direction(style)
@@ -42,7 +48,7 @@ class ScriptGenerator:
         theme_hint = getattr(idea, "theme_hint", "")
         prompt = textwrap.dedent(
             f"""
-            Write a highly engaging, viral 30-45 second YouTube Shorts script for the channel 'DailyFitX'.
+            Write a highly engaging, viral {duration_desc} script for the channel 'DailyFitX'.
             {language_direction}
             {tone_direction}
             {payoff_direction}
@@ -58,14 +64,15 @@ class ScriptGenerator:
             - Return strict JSON with keys:
               title, hook, problem, insight, solution, cta, estimated_duration_seconds,
               primary_keyword, retention_note
-            - Make the spoken script long enough for at least 30 seconds of voiceover
-            - Combined hook + problem + insight + solution + cta should be about 95-125 words
-            - Hook must create curiosity in the first 2 seconds and avoid generic greetings
-            - First line should feel like a pattern interrupt that makes people stop scrolling
-            - Emphasize practical, biological, or physiological changes and tips (e.g. exactly how muscles respond over 30 days, actual diet effects).
-            - Give specific, outcome-driven value, avoid vague 'you can do it' motivational fluff.
-            - Make the script feel like one flowing story: pain/curiosity, mechanism, exact fix, result.
-            - Provide real action steps, not just mindset tips.
+            - Make the spoken script long enough for at least {min_duration} seconds of voiceover
+            - Combined hook + problem + insight + solution + cta should be about {word_count_desc}
+            - Hook must create INSTANT curiosity in the first 2 seconds and completely avoid generic greetings
+            - Make sure the script is A-grade content: highly attractive, deeply engaging, and incredibly helpful to the viewer
+            - The solution MUST provide highly specific, actionable, and life-improving value. Provide real fixes to their struggles.
+            - Provide a practical action plan or a hidden insight that gives the viewer an immediate "aha!" moment
+            - Emphasize scientifically-backed or logical real-world facts (e.g., exact physiological changes, proven methods)
+            - Make the script feel like a high-value masterclass compressed into a flowing story: pain, mechanism, exact fix, result.
+            - NO vague "you can do it" motivational fluff. Give them real utility they can apply right now.
             - Avoid fake timelines, miracle claims, and medical promises
             - Use short spoken lines with emotional rhythm for TTS and subtitles
             - Avoid filler like 'in this video' or 'let me tell you'
@@ -75,7 +82,7 @@ class ScriptGenerator:
             - CTA must be action-driven and feel native to Shorts
             - Use one high-intent search keyword for fitness, yoga, or motivation
             - Retention note should briefly explain why the opening should hold attention
-            - Output should sound credible, sharp, and helpful enough that viewers save it
+            - Output should sound credible, sharp, and genuinely helpful enough that viewers save it
             """
         ).strip()
 
@@ -111,9 +118,10 @@ class ScriptGenerator:
             solution=solution,
             cta=cta,
             full_script=full_script,
-            estimated_duration_seconds=max(MIN_DURATION_SECONDS, int(payload.get("estimated_duration_seconds", 35))),
+            estimated_duration_seconds=max(min_duration, min(90, int(payload.get("estimated_duration_seconds", min_duration + 5)))),
             primary_keyword=payload["primary_keyword"].strip(),
             retention_note=payload["retention_note"].strip(),
+            video_type=getattr(idea, "video_type", "short"),
         )
 
     @staticmethod
@@ -154,7 +162,7 @@ class ScriptGenerator:
             "insight": insight,
             "solution": solution,
             "cta": ScriptGenerator._fallback_cta(style),
-            "estimated_duration_seconds": 35,
+            "estimated_duration_seconds": 85 if getattr(idea, "video_type", "short") == "long" else 35,
             "primary_keyword": primary_keyword,
             "retention_note": ScriptGenerator._fallback_retention_note(style),
         }
@@ -162,7 +170,9 @@ class ScriptGenerator:
     @staticmethod
     def _extend_script_if_needed(full_script: str, idea: VideoIdea) -> str:
         words = full_script.split()
-        if len(words) >= MIN_SCRIPT_WORDS:
+        is_long = getattr(idea, "video_type", "short") == "long"
+        min_words = 175 if is_long else MIN_SCRIPT_WORDS
+        if len(words) >= min_words:
             return full_script
 
         style = ScriptGenerator._determine_style(idea)
@@ -177,7 +187,7 @@ class ScriptGenerator:
                 f"If you master {idea.topic.lower()} with patience, intensity, and repetition, your confidence changes first and your physique follows next."
             )
         expanded = f"{full_script}{extension}"
-        if len(expanded.split()) < MIN_SCRIPT_WORDS:
+        if len(expanded.split()) < min_words:
             extra = (
                 "Kal ka wait mat karo. Aaj body ko presence do, breath ko control do, aur routine ko respect do."
                 if style == "yoga"
