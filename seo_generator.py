@@ -49,12 +49,16 @@ class SeoGenerator:
             f"Your strict goal is to completely maximize virality and optimize for {discovery_focus}. "
             "Return strict JSON with keys title, description, tags, hashtags, primary_keyword. "
             "Title should be under 60 characters and create massive curiosity or urgency without sounding fake. "
-            "Description should front-load the keyword in the first sentence, explain the viewer payoff quickly, and feel native to the video format. "
-            "Tags should mix incredibly strong evergreen search terms with viral trending phrases. "
-            "Hashtags must include brand and category tags. "
-            "Use only Roman script written with normal English letters. "
-            "Do not use clickbait that the script does not support. "
-            "Prefer SEO that matches what viewers would actually search to solve the problem the hook introduces."
+            + ("Description for this SHORT: write exactly 1-2 lines, under 120 characters. Start with the payoff. End with: Save this or Follow DailyFitX. No filler. "
+               if not is_long else
+               "Description should front-load the keyword, explain the viewer payoff in 2-3 sentences, and feel native to the long-form format. ")
+            + "Tags should be exact phrases people search. Mix high-volume evergreen with specific niche phrases. No vanity tags. "
+            + ("Hashtags: provide exactly 8. Must include #shorts and #ytshorts. Add 6 specific viral tags for the topic. "
+               if not is_long else
+               "Hashtags: provide exactly 5. Include brand, niche, and category tags. ")
+            + "Use only Roman script with normal English letters. "
+            + "Do not use clickbait the script does not support. "
+            + "Prefer SEO that matches what viewers actually search to solve the problem the hook introduces."
             f"\n{language_line}"
             f"\nContent style: {content_style}"
             f"\nPrimary keyword from script: {script.primary_keyword}"
@@ -131,7 +135,8 @@ class SeoGenerator:
                 continue
             if value.lower() not in {item.lower() for item in cleaned}:
                 cleaned.append(value)
-        return cleaned[:5]
+        limit = 5 if is_long else 8
+        return cleaned[:limit]
 
     @staticmethod
     def _detect_content_style(script: VideoScript) -> str:
@@ -158,64 +163,45 @@ class SeoGenerator:
         keyword = self._clean_ascii_text(script.primary_keyword or script.title)
         if content_style == "yoga":
             return (
-                f"{keyword} for Calm Mornings"
+                f"Why {keyword} Works When Nothing Else Does"
                 if language_code == "en"
-                else f"{keyword} se Stress Reset"
+                else f"{keyword}: Iska Result Tab Milta Hai Jab Yeh Karo"
             )[:60]
         if content_style == "fat_loss":
             return (
-                f"The {keyword} Mistake People Repeat"
+                f"The {keyword} Truth Nobody Tells Beginners"
                 if language_code == "en"
-                else f"{keyword} Ki Sabse Badi Galti"
+                else f"{keyword}: Yeh Galti Sabse Zyada Log Karte Hain"
             )[:60]
         if content_style == "strength":
             return (
-                f"{keyword} That Builds Real Strength"
+                f"{keyword}: The Form Cue That Changes Everything"
                 if language_code == "en"
-                else f"{keyword} se Real Strength Banao"
+                else f"{keyword} se Real Strength: Yeh Cue Try Karo"
             )[:60]
         return (
-            f"{keyword} That Gets Results Faster"
+            f"Why Most People Fail at {keyword} (And How to Fix It)"
             if language_code == "en"
-            else f"{keyword} se Fast Results Kaise"
+            else f"{keyword}: Kyun Fail Hote Hain Aur Kaise Bachein"
         )[:60]
 
     def _fallback_description(self, script: VideoScript, keyword: str, content_style: str, language_code: str) -> str:
-        opener = (
-            f"{keyword}: "
-            if language_code == "en"
-            else f"{keyword} ke liye "
-        )
-        if content_style == "yoga":
-            body = (
-                "A calm but powerful short for stress relief, better posture, and daily balance."
-                if language_code == "en"
-                else "yeh short stress relief, better posture, aur calm mind ke liye banaya gaya hai."
-            )
-        elif content_style == "fat_loss":
-            body = (
-                "A sharp short on fat loss mistakes, smarter routines, and sustainable discipline."
-                if language_code == "en"
-                else "yeh short fat loss mistakes, smart routine, aur sustainable discipline par focused hai."
-            )
-        elif content_style == "strength":
-            body = (
-                "A high-retention short on form, strength, muscle gain, and better execution."
-                if language_code == "en"
-                else "yeh short strength, muscle gain, form, aur better execution par focused hai."
-            )
+        """Shorts: max 1-2 punchy lines. Top channels keep descriptions ultra-short with a CTA."""
+        if language_code == "hi":
+            lines = {
+                "yoga": f"{keyword} — yeh karo aur fark khud dikhega. Save karo.",
+                "fat_loss": f"{keyword} ki yeh galti band karo. Real results aate hain. Save karo.",
+                "strength": f"{keyword} — ek cue jo sab badal dega. Aaj try karo. Save karo.",
+                "fitness": f"{keyword} — yeh short tumhara perspective change kar dega. Save karo.",
+            }
         else:
-            body = (
-                "A high-retention short on fitness, mindset, discipline, and visible progress."
-                if language_code == "en"
-                else "yeh short fitness, mindset, discipline, aur visible progress ke liye banaya gaya hai."
-            )
-        close = (
-            "Watch till the end for the real takeaway."
-            if language_code == "en"
-            else "End tak dekho for the real takeaway."
-        )
-        return f"{opener}{body} {close}"
+            lines = {
+                "yoga": f"{keyword}: the one move most people skip. Try it tonight. Save this.",
+                "fat_loss": f"{keyword} mistake is costing you results. Fix it today. Save this.",
+                "strength": f"{keyword}: one cue that unlocks real gains. Use it next session. Save.",
+                "fitness": f"{keyword}: the truth nobody tells beginners. Watch and save.",
+            }
+        return lines.get(content_style, lines["fitness"])
 
     def _fallback_tags(self, script: VideoScript, keyword: str, content_style: str, language_code: str, is_long: bool = False) -> List[str]:
         tags = self._baseline_tags(content_style, keyword, is_long)
@@ -231,28 +217,85 @@ class SeoGenerator:
 
     @staticmethod
     def _fallback_hashtags(content_style: str, language_code: str, is_long: bool = False) -> List[str]:
-        base = ["#DailyFitX", "#hinglish" if language_code == "hi" else ("#wellness" if content_style=="yoga" else "#fitness")]
-        if not is_long:
-            base.append("#shorts")
-            
+        if is_long:
+            style_tags = {
+                "yoga": ["#DailyFitX", "#yoga", "#yogaforstressrelief", "#fitness", "#wellness"],
+                "fat_loss": ["#DailyFitX", "#fatloss", "#weightloss", "#fitness", "#fatlosstips"],
+                "strength": ["#DailyFitX", "#strength", "#musclebuilding", "#gym", "#gymtips"],
+                "fitness": ["#DailyFitX", "#fitness", "#workout", "#motivation", "#fitnessmotivation"],
+            }
+            return style_tags.get(content_style, style_tags["fitness"])
+
+        # Shorts: 8 tags — #shorts + #ytshorts are mandatory for Shorts feed placement
+        lang_tag = "#hinglishfitness" if language_code == "hi" else "#fitnessmotivation"
         style_tags = {
-            "yoga": ["#yoga", "#stressrelief"],
-            "fat_loss": ["#fatloss", "#fitness"],
-            "strength": ["#strength", "#gym"],
-            "fitness": ["#fitness", "#motivation"],
+            "yoga": [
+                "#shorts", "#ytshorts", "#DailyFitX", "#yoga",
+                "#yogashorts", "#stressrelief", "#morningyoga", lang_tag,
+            ],
+            "fat_loss": [
+                "#shorts", "#ytshorts", "#DailyFitX", "#fatloss",
+                "#weightloss", "#fatlosstips", "#fitness", lang_tag,
+            ],
+            "strength": [
+                "#shorts", "#ytshorts", "#DailyFitX", "#gym",
+                "#musclebuilding", "#strengthtraining", "#gymtips", lang_tag,
+            ],
+            "fitness": [
+                "#shorts", "#ytshorts", "#DailyFitX", "#fitness",
+                "#workout", "#gymlife", "#fitnessmotivation", lang_tag,
+            ],
         }
-        return [*base, *style_tags.get(content_style, style_tags["fitness"])]
+        return style_tags.get(content_style, style_tags["fitness"])
 
     def _baseline_tags(self, content_style: str, primary_keyword: str, is_long: bool = False) -> List[str]:
-        common = ["DailyFitX", primary_keyword, "fitness routine", "fitness channel"]
+        # Use actual search-intent phrases people TYPE, not vanity tags
         if not is_long:
-            common = ["DailyFitX", primary_keyword, "viral fitness shorts", "shorts feed fitness"]
-            
+            common = [
+                primary_keyword,
+                f"{primary_keyword} hindi",
+                f"{primary_keyword} for beginners",
+                "fitness shorts india",
+                "DailyFitX",
+            ]
+        else:
+            common = [
+                primary_keyword,
+                f"{primary_keyword} explained",
+                f"{primary_keyword} india",
+                "fitness channel india",
+                "DailyFitX",
+            ]
+
         by_style = {
-            "yoga": ["yoga motivation hindi", "morning yoga", "stress relief yoga", "yoga for beginners", "mindful movement"],
-            "fat_loss": ["fat loss motivation", "weight loss tips", "fat loss routine", "fitness discipline", "body transformation"],
-            "strength": ["strength training motivation", "muscle gain tips", "gym motivation hindi", "better workout form", "real strength"],
-            "fitness": ["fitness motivation", "gym motivation hindi", "workout motivation", "discipline mindset", "transformation tips"],
+            "yoga": [
+                "yoga for beginners in hindi",
+                "yoga for stress relief",
+                "morning yoga routine",
+                "yoga poses for flexibility",
+                "daily yoga hindi",
+            ],
+            "fat_loss": [
+                "fat loss tips hindi",
+                "belly fat reduce kaise karein",
+                "weight loss diet india",
+                "fat loss for beginners india",
+                "how to lose fat fast hindi",
+            ],
+            "strength": [
+                "muscle building tips hindi",
+                "gym workout for beginners india",
+                "how to build muscle at home",
+                "strength training hindi",
+                "gym motivation hindi",
+            ],
+            "fitness": [
+                "fitness tips for beginners india",
+                "workout motivation hindi",
+                "how to stay consistent gym",
+                "discipline mindset hindi",
+                "daily workout routine india",
+            ],
         }
         return [*by_style.get(content_style, by_style["fitness"]), *common]
 

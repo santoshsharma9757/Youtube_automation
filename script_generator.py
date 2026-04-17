@@ -242,9 +242,22 @@ class ScriptGenerator:
 
     @staticmethod
     def _fallback_hook(idea: VideoIdea, style: str) -> str:
+        if idea.hook and len(idea.hook.split()) > 4:
+            return idea.hook
+        topic = idea.topic.lower().replace(" ", " ")
+        angle = idea.angle.lower()
+        # Dynamic hooks based on angle type for higher stop-the-scroll rate
+        if "comparison" in angle or "vs" in topic:
+            return f"Bahut log choose karte hain {topic} — lekin dono mein se ek tumhara time waste kar raha hai."
+        if "myth" in angle or "truth" in angle:
+            return f"{idea.title.split(':')[0].strip()} ke baare mein jo tum sochte ho, woh bilkul galat hai."
+        if "beginner" in angle or "start" in topic:
+            return f"Shuru karna mushkil nahi hai. Sirf ek wrong step hai jo sabko rok deta hai."
+        if "form" in angle or "mistake" in topic:
+            return f"Yeh {topic.split()[0]} mistake 90 percent log karte hain. Aur yahi reason hai progress nahi hota."
         if style == "yoga":
-            return idea.hook or "Agar tumhara mind heavy hai, shayad tumhe rest nahi, yoga ki need hai."
-        return idea.hook or "Ruko. Tum motivation nahi, ek better system miss kar rahe ho."
+            return idea.hook or "Agar tumhara mind heavy hai, shayad tumhe rest nahi — sirf 5 minute ka yeh yoga chahiye."
+        return idea.hook or f"{idea.title.split(':')[0].strip()} — yeh un logon ke liye hai jo actually result chahte hain, excuses nahi."
 
     @staticmethod
     def _fallback_cta(style: str) -> str:

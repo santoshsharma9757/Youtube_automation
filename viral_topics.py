@@ -110,8 +110,36 @@ VIRAL_TOPIC_BANK: list[dict[str, str]] = [
     {"title": "The Ultimate 90-Second Full Body Reset", "angle": "Lifestyle", "topic": "full body reset", "audience_value": "Quick physiological reset"},
     {"title": "Why You Keep Failing Your Fitness Goals", "angle": "Psychology", "topic": "fitness psychology", "audience_value": "Mastering the mental aspect of fitness"},
     {"title": "Sleep Loss Destroys Muscle Growth", "angle": "Health", "topic": "sleep muscle connection", "audience_value": "Why sleeping is better than another set"},
+
+    # --- High-CTR New Topics (Trending angles for Indian fitness audience) ---
+    {"title": "Maine 30 Din Roz Pushups Kiye - Yeh Hua", "angle": "Challenge", "topic": "30 day pushup challenge result", "audience_value": "See real body changes and mental shifts from a simple 30-day habit"},
+    {"title": "Indian Diet Mein Yeh Ek Cheez Sabse Zyada Harm Karti Hai", "angle": "Myth Busting", "topic": "indian diet fat loss mistake", "audience_value": "Identify the hidden diet mistake ruining your health without knowing"},
+    {"title": "Dopamine Detox Aur Fitness: Connection Kya Hai?", "angle": "Mindset", "topic": "dopamine detox fitness", "audience_value": "Understand why reducing phone use directly improves gym performance"},
+    {"title": "Gym Nahi Ja Sakte? Ghar Par Yeh Karo", "angle": "Beginner Guide", "topic": "home workout no gym india", "audience_value": "Get a complete no-equipment plan for anyone stuck at home"},
+    {"title": "Why Your Body Stops Changing After 3 Months", "angle": "Truth Bomb", "topic": "fitness plateau after 3 months", "audience_value": "Break through the dreaded adaptation plateau with one simple shift"},
+    {"title": "Protein Ki Kitni Zaroorat Hai Ek Indian Ko?", "angle": "Diet & Health", "topic": "protein requirement indian diet", "audience_value": "Get a clear, practical daily protein target without expensive supplements"},
+    {"title": "The Real Reason You Feel Tired After Workout", "angle": "Recovery", "topic": "post workout fatigue cause", "audience_value": "Fix energy crashes after training with one overlooked recovery habit"},
+    {"title": "Kya Roti Khane Se Motapa Hota Hai? Sach Kya Hai", "angle": "Myth Busting", "topic": "roti and fat gain myth", "audience_value": "End the confusion about carbs and traditional Indian food for good"},
+    {"title": "Subah Khali Pet Exercise Karna Sahi Hai Ya Galat?", "angle": "Comparison", "topic": "fasted morning workout hindi", "audience_value": "Make the right choice for your energy level and fat loss goals"},
+    {"title": "I Tried Working Out at 5 AM for 21 Days - Here Is What Happened", "angle": "Challenge", "topic": "5am workout challenge results", "audience_value": "Get honest insight into whether early morning training is worth it"},
+    {"title": "Yeh Ek Cheez Jo Tumhara Gym Streak Tod Rahi Hai", "angle": "Psychology", "topic": "gym streak killer habit", "audience_value": "Identify and remove the hidden habit that kills consistency"},
+    {"title": "Ab Muscles Nahi Ban Rahe? Yeh Wajah Hai", "angle": "Truth Bomb", "topic": "why muscles stopped growing", "audience_value": "Diagnose the exact reason your muscle gains have stalled"},
+    {"title": "Skinny Log Muscle Kaise Banayein? Real Plan", "angle": "Beginner Guide", "topic": "skinny to muscular indian beginner", "audience_value": "Get a beginner-friendly muscle-building plan designed for hardgainers"},
+    {"title": "The Gym Habit That Takes 2 Minutes But Changes Everything", "angle": "Habit", "topic": "2 minute gym habit", "audience_value": "Build a tiny ritual that makes skipping the gym almost impossible"},
+    {"title": "Kya Tum Galat Time Pe Workout Kar Rahe Ho?", "angle": "Science", "topic": "best time to workout hindi", "audience_value": "Find the workout window that matches your natural energy rhythm"},
+    {"title": "Body Transformation Ka Pehla Hafte Mein Kya Hota Hai", "angle": "Body Transformation", "topic": "first week body transformation truth", "audience_value": "Set realistic expectations so you don't quit after week one"},
+    {"title": "Ye Ek Mindset Shift Gym Ko Asan Bana Degi", "angle": "Mindset", "topic": "gym mindset shift", "audience_value": "Reframe discipline from punishment to self-investment"},
+    {"title": "Why You Train Hard But Look the Same", "angle": "Truth Bomb", "topic": "training hard no results", "audience_value": "Fix the invisible gap between effort and visible physical change"},
+    {"title": "Shaadi Ke Baad Log Fit Kyun Nahi Rehte?", "angle": "Relatable", "topic": "fitness after marriage india", "audience_value": "Build a sustainable workout habit that survives life changes"},
+    {"title": "Ice Bath Ka Sach Jo Koi Nahi Batata", "angle": "Myth Busting", "topic": "ice bath recovery truth", "audience_value": "Decide if cold recovery is right for you based on real evidence"},
+    {"title": "The 3-Day Rule That Keeps Your Fitness Streak Alive", "angle": "Habit", "topic": "3 day fitness rule", "audience_value": "Use one simple rule to never start over from zero again"},
+    {"title": "Yeh 5 Foods Indian Log Healthy Samajh Ke Khaate Hain Par Hain Nahi", "angle": "Diet & Health", "topic": "unhealthy foods mistaken for healthy india", "audience_value": "Stop wasting calories on fake health foods hiding in plain sight"},
+    {"title": "What Happens to Your Body in the First 10 Minutes of Exercise", "angle": "Science", "topic": "exercise first 10 minutes physiology", "audience_value": "Understand what is happening inside your body when you start moving"},
+    {"title": "Gym Shuru Karne Se Pehle Yeh Ek Cheez Zaroor Karo", "angle": "Beginner Guide", "topic": "before starting gym tip hindi", "audience_value": "Set yourself up for long-term success from day one with one smart move"},
+    {"title": "Why Discipline Beats Motivation Every Single Time", "angle": "Motivation", "topic": "discipline vs motivation", "audience_value": "Build a system that keeps you training even when you feel nothing"},
 ]
 
+  
 
 def filter_viral_topics(theme: str | None = None) -> list[dict[str, str]]:
     if not theme:

@@ -24,7 +24,7 @@ def build_daily_slots(videos_per_day: int) -> list[int]:
     if videos_per_day <= 1:
         return [12]
     if videos_per_day == 2:
-        return [8, 20]
+        return [6, 20]  # 6 AM and 8 PM IST — peak Indian fitness audience slots
     if videos_per_day == 3:
         return [8, 14, 20]
     step = max(1, 12 // max(videos_per_day - 1, 1))

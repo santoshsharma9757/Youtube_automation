@@ -295,9 +295,10 @@
     "video_path": "D:\\youtube_videos\\output\\videos\\20260412_093021_morning-yoga-for-stress-relief-कन-महततवपरण-छ.mp4",
     "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260412_093021_morning-yoga-for-stress-relief-कन-महततवपरण-छ.srt",
     "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260412_093021_morning-yoga-for-stress-relief-कन-महततवपरण-छ.json",
-    "uploaded": false,
+    "uploaded": true,
     "upload_response": null,
-    "created_at": "2026-04-12T09:51:11.220417+00:00"
+    "created_at": "2026-04-12T09:51:11.220417+00:00",
+    "skipped_because_missing": true
   },
   {
     "idea_title": "morning yoga for stress relief",
@@ -2137,9 +2138,10 @@
     "video_path": "D:\\youtube_videos\\output\\videos\\20260416_122422_30-days-of-intense-running-changes-your-body.mp4",
     "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260416_122422_30-days-of-intense-running-changes-your-body.srt",
     "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260416_122422_30-days-of-intense-running-changes-your-body.json",
-    "uploaded": false,
+    "uploaded": true,
     "upload_response": null,
-    "created_at": "2026-04-16T12:46:44.263814+00:00"
+    "created_at": "2026-04-16T12:46:44.263814+00:00",
+    "skipped_because_missing": true
   },
   {
     "idea_title": "Sleep Loss Destroys Muscle Growth",
@@ -2205,9 +2207,10 @@
     "video_path": "D:\\youtube_videos\\output\\videos\\20260416_161551_sleep-loss-destroys-muscle-growth.mp4",
     "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260416_161551_sleep-loss-destroys-muscle-growth.srt",
     "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260416_161551_sleep-loss-destroys-muscle-growth.json",
-    "uploaded": false,
+    "uploaded": true,
     "upload_response": null,
-    "created_at": "2026-04-16T16:33:59.734819+00:00"
+    "created_at": "2026-04-16T16:33:59.734819+00:00",
+    "skipped_because_missing": true
   },
   {
     "idea_title": "The Posture Cue That Improves Shoulder Press",
@@ -2603,6 +2606,408 @@
     },
     "created_at": "2026-04-16T17:40:06.254518+00:00",
     "scheduled_time": "2026-04-20T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Subah Khali Pet Exercise Karna Sahi Hai Ya Galat?",
+    "idea": {
+      "idea_id": "014cde9e-ee0f-4429-964e-affda72c22ef",
+      "title": "Subah Khali Pet Exercise Karna Sahi Hai Ya Galat?",
+      "angle": "Comparison",
+      "hook": "Subah Khali Pet Exercise Karna Sahi Hai Ya Galat?. Try yeh tonight.",
+      "topic": "fasted morning workout hindi",
+      "audience_value": "Make the right choice for your energy level and fat loss goals",
+      "source_prompt": "static-bank",
+      "created_at": "2026-04-17T16:35:18.527415+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Subah Khali Pet Exercise Karna Sahi Hai Ya Galat?",
+      "hook": "Subah khali pet exercise karna sahi hai ya galat? Aaj hi jaan lo!",
+      "problem": "Bohot log confused hain ki fasted workout se fat loss hoga ya nahi. Ruk mat, is confusion ka solution hai!",
+      "insight": "Fasted workouts se body fat use karti hai for energy, par yeh tabhi hota hai jab aapki energy levels sahi hain. Agar aap thake hue hain, toh aapka performance kharab hoga.",
+      "solution": "Agar aap fat loss chahte hain, toh subah khali pet workout karo, lekin make sure sahi sleep aur hydration ho. Ek quick snack pehle try karo agar aapko lagta hai energy low hai. Focus rakho, discipline se consistency build karo!",
+      "cta": "Toh agle din subah khali pet workout try karo, aur results dekhna mat bhoolna! Comment mein apne experiences share karo.",
+      "full_script": "Subah khali pet exercise karna sahi hai ya galat? Aaj hi jaan lo! Bohot log confused hain ki fasted workout se fat loss hoga ya nahi. Ruk mat, is confusion ka solution hai! Fasted workouts se body fat use karti hai for energy, par yeh tabhi hota hai jab aapki energy levels sahi hain. Agar aap thake hue hain, toh aapka performance kharab hoga. Agar aap fat loss chahte hain, toh subah khali pet workout karo, lekin make sure sahi sleep aur hydration ho. Ek quick snack pehle try karo agar aapko lagta hai energy low hai. Focus rakho, discipline se consistency build karo! Toh agle din subah khali pet workout try karo, aur results dekhna mat bhoolna! Comment mein apne experiences share karo.",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "fasted morning workout",
+      "retention_note": "Opening question sparks curiosity and addresses a common dilemma, ensuring viewers stay engaged for actionable insights.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Fasted Morning Workout: Sahi Ya Galat? Pata Karo!",
+      "description": "Fasted workouts se fat loss hota hai, lekin kya aap ready hain? Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fastedworkout #fatlossjourney #morningworkout #fitnessmotivation #exercise #healthylifestyle",
+      "tags": [
+        "fasted morning workout",
+        "benefits of fasted workouts",
+        "fat loss tips",
+        "morning exercise motivation",
+        "workout intensity",
+        "how to lose fat fast",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "fasted morning workout hindi",
+        "fasted morning workout for beg",
+        "fitness shorts india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fastedworkout",
+        "#fatlossjourney",
+        "#morningworkout",
+        "#fitnessmotivation",
+        "#exercise",
+        "#healthylifestyle"
+      ],
+      "primary_keyword": "fasted morning workout",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260417_163518_subah-khali-pet-exercise-karna-sahi-hai-ya-galat.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260417_163518_subah-khali-pet-exercise-karna-sahi-hai-ya-galat.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260417_163518_subah-khali-pet-exercise-karna-sahi-hai-ya-galat.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260417_163518_subah-khali-pet-exercise-karna-sahi-hai-ya-galat.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "ww2EMh6uvLNxvw6At6E8Alt4a7s",
+      "id": "cssiu0msP-I",
+      "snippet": {
+        "publishedAt": "2026-04-17T17:41:29Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Fasted Morning Workout: Sahi Ya Galat? Pata Karo!",
+        "description": "Fasted workouts se fat loss hota hai, lekin kya aap ready hain? Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fastedworkout #fatlossjourney #morningworkout #fitnessmotivation #exercise #healthylifestyle",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/cssiu0msP-I/default.jpg?sqp=CPDgic8G&rs=AOn4CLDbLiNOsYq1c0nrvg4GmV2Fg4RldQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/cssiu0msP-I/mqdefault.jpg?sqp=CPDgic8G&rs=AOn4CLBUKY6m3apWbFeHmWy3lOsRyFdP8A",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/cssiu0msP-I/hqdefault.jpg?sqp=CPDgic8G&rs=AOn4CLAPagekkbKmAyytMyhFSZo4GwN4kw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "benefits of fasted workouts",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fasted morning workout",
+          "fasted morning workout for beg",
+          "fasted morning workout hindi",
+          "fat loss tips",
+          "fitness shorts india",
+          "fitness tips for beginners ind",
+          "how to lose fat fast",
+          "how to stay consistent gym",
+          "morning exercise motivation",
+          "workout intensity",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Fasted Morning Workout: Sahi Ya Galat? Pata Karo!",
+          "description": "Fasted workouts se fat loss hota hai, lekin kya aap ready hain? Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fastedworkout #fatlossjourney #morningworkout #fitnessmotivation #exercise #healthylifestyle"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-20T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-17T16:49:37.125685+00:00",
+    "scheduled_time": "2026-04-20T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Why Your Body Stops Changing After 3 Months",
+    "idea": {
+      "idea_id": "93ab757c-b0d0-497e-8c2a-a68af44d862a",
+      "title": "Why Your Body Stops Changing After 3 Months",
+      "angle": "Truth Bomb",
+      "hook": "Why Your Body Stops Changing After 3 Months. Nobody tells tum yeh.",
+      "topic": "fitness plateau after 3 months",
+      "audience_value": "Break through the dreaded adaptation plateau with one simple shift",
+      "source_prompt": "static-bank",
+      "created_at": "2026-04-17T16:35:18.527458+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Why Your Body Stops Changing After 3 Months",
+      "hook": "Why Your Body Stops Changing After 3 Months. Nobody tells tum yeh.",
+      "problem": "Kya tumhe lagta hai tumhara progress slow ho gaya hai? Yeh hota hai sabse zyada. Teen mahine ke baad humara body plateau pe aa jata hai.",
+      "insight": "Yeh sab hota hai kyunki tumhara body adapts kar leta hai. Simple hai - pehle tumhara body react karta hai, lekin phir woh sochta hai ki yeh toh routine hai. Toh, yaani body ko weak nahi samajhta hai.",
+      "solution": "Secret kya hai? Ruk mat! Apne workouts ko mix karo. High-intensity intervals, different exercises, kuch bhi jo body ko challenge kare. Yeh changes tumhe wahi progress wapas laayenge jo tumhara body bhool gaya hai.",
+      "cta": "Aaj se apna routine badlo! Abhi se start karo, aur dekho kitna major change aata hai. Share karo aur dusron ko inspire karo!",
+      "full_script": "Why Your Body Stops Changing After 3 Months. Nobody tells tum yeh. Kya tumhe lagta hai tumhara progress slow ho gaya hai? Yeh hota hai sabse zyada. Teen mahine ke baad humara body plateau pe aa jata hai. Yeh sab hota hai kyunki tumhara body adapts kar leta hai. Simple hai - pehle tumhara body react karta hai, lekin phir woh sochta hai ki yeh toh routine hai. Toh, yaani body ko weak nahi samajhta hai. Secret kya hai? Ruk mat! Apne workouts ko mix karo. High-intensity intervals, different exercises, kuch bhi jo body ko challenge kare. Yeh changes tumhe wahi progress wapas laayenge jo tumhara body bhool gaya hai. Aaj se apna routine badlo! Abhi se start karo, aur dekho kitna major change aata hai. Share karo aur dusron ko inspire karo!",
+      "estimated_duration_seconds": 38,
+      "primary_keyword": "fitness plateau",
+      "retention_note": "Opening creates urgency by addressing a common frustration, making viewers want to discover the solution.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Kya Aapka Fitness Plateau Nahi Tod Rahe? Toh Ye Karen!",
+      "description": "Fitness plateau todne ke liye yeh tips aaj hi apnao! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #workouttips #fitnesstraining #bodygoals #healthylifestyle #stayfit",
+      "tags": [
+        "fitness plateau",
+        "how to break fitness plateau",
+        "weight loss tips",
+        "fitness motivation",
+        "workout routine",
+        "build muscle",
+        "high-intensity workouts",
+        "body adaptation",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "fitness plateau hindi",
+        "fitness plateau for beginners"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fitnessmotivation",
+        "#workouttips",
+        "#fitnesstraining",
+        "#bodygoals",
+        "#healthylifestyle",
+        "#stayfit"
+      ],
+      "primary_keyword": "fitness plateau",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260417_164937_why-your-body-stops-changing-after-3-months.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260417_164937_why-your-body-stops-changing-after-3-months.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260417_164937_why-your-body-stops-changing-after-3-months.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260417_164937_why-your-body-stops-changing-after-3-months.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "uvPhB0qWSKFeHEcv5z8yKfmcc0s",
+      "id": "sku8UInuYKc",
+      "snippet": {
+        "publishedAt": "2026-04-17T17:42:01Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Aapka Fitness Plateau Nahi Tod Rahe? Toh Ye Karen!",
+        "description": "Fitness plateau todne ke liye yeh tips aaj hi apnao! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #workouttips #fitnesstraining #bodygoals #healthylifestyle #stayfit",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/sku8UInuYKc/default.jpg?sqp=CPDgic8G&rs=AOn4CLDIRmiJbSxvT4Yu6xEXop-oqijsqQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/sku8UInuYKc/mqdefault.jpg?sqp=CPDgic8G&rs=AOn4CLClyVUVEbGK3taW1tHtnZPCQCw1gg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/sku8UInuYKc/hqdefault.jpg?sqp=CPDgic8G&rs=AOn4CLD8wakS5O3SBz8br8bmYXmeO6sdWw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "body adaptation",
+          "build muscle",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fitness motivation",
+          "fitness plateau",
+          "fitness plateau for beginners",
+          "fitness plateau hindi",
+          "fitness tips for beginners ind",
+          "high-intensity workouts",
+          "how to break fitness plateau",
+          "how to stay consistent gym",
+          "weight loss tips",
+          "workout motivation hindi",
+          "workout routine"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Aapka Fitness Plateau Nahi Tod Rahe? Toh Ye Karen!",
+          "description": "Fitness plateau todne ke liye yeh tips aaj hi apnao! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #workouttips #fitnesstraining #bodygoals #healthylifestyle #stayfit"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-21T00:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-17T17:13:46.453509+00:00",
+    "scheduled_time": "2026-04-21T00:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Skinny Log Muscle Kaise Banayein? Real Plan",
+    "idea": {
+      "idea_id": "9fdbed0c-6277-4b5b-b4e2-00b3a2f68e8c",
+      "title": "Skinny Log Muscle Kaise Banayein? Real Plan",
+      "angle": "Beginner Guide",
+      "hook": "Skinny Log Muscle Kaise Banayein? Real Plan. Nobody tells tum yeh.",
+      "topic": "skinny to muscular indian beginner",
+      "audience_value": "Get a beginner-friendly muscle-building plan designed for hardgainers",
+      "source_prompt": "static-bank",
+      "created_at": "2026-04-17T16:35:18.527551+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long"
+    },
+    "script": {
+      "title": "Skinny Log Muscle Kaise Banayein? Real Plan",
+      "hook": "Skinny log muscle kaise banayein? Real plan. Nobody tells tum yeh.",
+      "problem": "Har skinny insaan ko lagta hai, kya main kabhi muscular ban paunga? Koi clear roadmap nahi hai, sirf vague tips milte hain. Bina samajh ke kya exercise karein aur kaise diet lein, sab confusion! Poori duniya gym jaa rahi hai, par toh kya agar tumhaare paas woh right guidance nahi hai?",
+      "insight": "Sabse pehli cheez, tumhe samajhna hai ki muscle gain ek science hai. Jab tum muscle ko stress doge, wo grow hota hai. Par, ye sirf exercise se nahi hota, diet se bhi hota hai. Tumhaari body ko extra calories aur protein chahiye hote hain - aur ye nahi milega, toh tumhar muscle nahi banenge. Discipline aur focus hona chahiye, warna effort waste ho jayega.",
+      "solution": "Real plan chalo shuru karte hain! 1. Strength training: Push-ups, squats, aur deadlifts se shuru karo. 3 sets of 8-12 reps, har exercise. 2. Diet: Har din mein protein-rich khana chuno - daal, chicken, ya eggs. Protein ka intake 1.5-2 grams per kg body weight chahiye. 3. Consistency: Roz gym jao, week ke 5 din! Har week apna weight aur reps badhao, apne progress ko track karo.",
+      "cta": "Toh ab ruk mat, aaj se hi apne muscle-building safar ki shuruaat karo. Like, share, aur jo log skinny hain unhein tag karo! Apna progress batao comments mein.",
+      "full_script": "Skinny log muscle kaise banayein? Real plan. Nobody tells tum yeh. Har skinny insaan ko lagta hai, kya main kabhi muscular ban paunga? Koi clear roadmap nahi hai, sirf vague tips milte hain. Bina samajh ke kya exercise karein aur kaise diet lein, sab confusion! Poori duniya gym jaa rahi hai, par toh kya agar tumhaare paas woh right guidance nahi hai? Sabse pehli cheez, tumhe samajhna hai ki muscle gain ek science hai. Jab tum muscle ko stress doge, wo grow hota hai. Par, ye sirf exercise se nahi hota, diet se bhi hota hai. Tumhaari body ko extra calories aur protein chahiye hote hain - aur ye nahi milega, toh tumhar muscle nahi banenge. Discipline aur focus hona chahiye, warna effort waste ho jayega. Real plan chalo shuru karte hain! 1. Strength training: Push-ups, squats, aur deadlifts se shuru karo. 3 sets of 8-12 reps, har exercise. 2. Diet: Har din mein protein-rich khana chuno - daal, chicken, ya eggs. Protein ka intake 1.5-2 grams per kg body weight chahiye. 3. Consistency: Roz gym jao, week ke 5 din! Har week apna weight aur reps badhao, apne progress ko track karo. Toh ab ruk mat, aaj se hi apne muscle-building safar ki shuruaat karo. Like, share, aur jo log skinny hain unhein tag karo! Apna progress batao comments mein.",
+      "estimated_duration_seconds": 90,
+      "primary_keyword": "muscle gain for beginners",
+      "retention_note": "Opening statement poses a strong question that directly resonates with viewers' struggles, instantly hooking their attention and motivating them to find practical solutions.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Kya Aap Bhi Skinny Hain? Muscle Gain Ka Secret Jaanein!",
+      "description": "Muscle gain for beginners ke liye aaj hum ek ultimate roadmap share kar rahe hain! Agar aap confused hain ki kaise muscular banein, toh yeh video aapke liye hai. Hum baat karenge strength training, diet plans, aur consistency ki - sab kuch wahi jo aapko chahiye apne muscle-building journey mein succeed karne ke liye!\n\n#MuscleGain #FitnessMotivation #GymJourney #HealthyEating #StrengthTraining",
+      "tags": [
+        "muscle gain for beginners",
+        "kaise muscle banayein",
+        "weight gain workout",
+        "fitness tips for skinny guys",
+        "protein rich foods",
+        "strength training exercises",
+        "bodybuilding tips for beginner",
+        "gym diet plan",
+        "muscle-building strategies",
+        "consistency in fitness",
+        "muscle building tips hindi",
+        "gym workout for beginners indi",
+        "how to build muscle at home",
+        "strength training hindi",
+        "gym motivation hindi"
+      ],
+      "hashtags": [
+        "#MuscleGain",
+        "#FitnessMotivation",
+        "#GymJourney",
+        "#HealthyEating",
+        "#StrengthTraining"
+      ],
+      "primary_keyword": "muscle gain for beginners",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260417_171346_skinny-log-muscle-kaise-banayein-real-plan.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260417_171346_skinny-log-muscle-kaise-banayein-real-plan.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260417_171346_skinny-log-muscle-kaise-banayein-real-plan.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260417_171346_skinny-log-muscle-kaise-banayein-real-plan.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "RYkRde0WS7Te40IpbynwLF2FIDo",
+      "id": "yrDqZcvlRlI",
+      "snippet": {
+        "publishedAt": "2026-04-17T17:42:14Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Aap Bhi Skinny Hain? Muscle Gain Ka Secret Jaanein!",
+        "description": "Muscle gain for beginners ke liye aaj hum ek ultimate roadmap share kar rahe hain! Agar aap confused hain ki kaise muscular banein, toh yeh video aapke liye hai. Hum baat karenge strength training, diet plans, aur consistency ki - sab kuch wahi jo aapko chahiye apne muscle-building journey mein succeed karne ke liye!\n\n#MuscleGain #FitnessMotivation #GymJourney #HealthyEating #StrengthTraining",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/yrDqZcvlRlI/default.jpg?sqp=CPDgic8G&rs=AOn4CLAFeCgWa6MYGvxqda65REIvwZWJ6Q",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/yrDqZcvlRlI/mqdefault.jpg?sqp=CPDgic8G&rs=AOn4CLBRFifeJnjucXYr2wM0XKAEhlTpmQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/yrDqZcvlRlI/hqdefault.jpg?sqp=CPDgic8G&rs=AOn4CLCXosInsaY6i_EijzXqPklXmSUO9w",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "bodybuilding tips for beginner",
+          "consistency in fitness",
+          "fitness tips for skinny guys",
+          "gym diet plan",
+          "gym motivation hindi",
+          "gym workout for beginners indi",
+          "how to build muscle at home",
+          "kaise muscle banayein",
+          "muscle building tips hindi",
+          "muscle gain for beginners",
+          "muscle-building strategies",
+          "protein rich foods",
+          "strength training exercises",
+          "strength training hindi",
+          "weight gain workout"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Aap Bhi Skinny Hain? Muscle Gain Ka Secret Jaanein!",
+          "description": "Muscle gain for beginners ke liye aaj hum ek ultimate roadmap share kar rahe hain! Agar aap confused hain ki kaise muscular banein, toh yeh video aapke liye hai. Hum baat karenge strength training, diet plans, aur consistency ki - sab kuch wahi jo aapko chahiye apne muscle-building journey mein succeed karne ke liye!\n\n#MuscleGain #FitnessMotivation #GymJourney #HealthyEating #StrengthTraining"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-21T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-17T17:28:04.889106+00:00",
+    "scheduled_time": "2026-04-21T14:30:00Z",
     "local_video_deleted": true
   }
 ]
