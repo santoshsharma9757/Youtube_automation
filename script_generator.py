@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 import textwrap
 from dataclasses import dataclass
 
@@ -77,7 +78,7 @@ class ScriptGenerator:
             - Use short spoken lines with emotional rhythm for TTS and subtitles
             - Avoid filler like 'in this video' or 'let me tell you'
             - Use only Roman script written with normal English letters
-            - Do not use Devanagari, Nepali, Hindi script, emojis, or special symbols
+            - Do not use Devanagari, Hindi script, emojis, or special symbols
             - Hindi lines must be Roman Hindi only, mixed naturally with English
             - CTA must be action-driven and feel native to Shorts
             - Use one high-intent search keyword for fitness, yoga, or motivation
@@ -109,9 +110,10 @@ class ScriptGenerator:
             cta = payload["cta"].strip()
         full_script = " ".join([hook, problem, insight, solution, cta])
         full_script = self._extend_script_if_needed(full_script, idea)
+        clean_title = self._clean_display_text(payload["title"].strip()) or self._clean_display_text(idea.title)
 
         return VideoScript(
-            title=payload["title"].strip(),
+            title=clean_title,
             hook=hook,
             problem=problem,
             insight=insight,
@@ -156,7 +158,7 @@ class ScriptGenerator:
             primary_keyword = f"{idea.topic} motivation hindi"
 
         return {
-            "title": idea.title,
+            "title": ScriptGenerator._clean_display_text(idea.title),
             "hook": ScriptGenerator._fallback_hook(idea, style),
             "problem": problem,
             "insight": insight,
@@ -274,3 +276,10 @@ class ScriptGenerator:
     @staticmethod
     def _contains_non_ascii_text(value: str) -> bool:
         return any(ord(char) > 127 for char in value)
+
+    @staticmethod
+    def _clean_display_text(value: str) -> str:
+        text = re.sub(r"\b\d{8,}\b", "", value)
+        text = "".join(char for char in text if ord(char) < 128)
+        text = re.sub(r"\s+", " ", text).strip(" -_")
+        return text.strip()

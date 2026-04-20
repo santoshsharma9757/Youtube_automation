@@ -74,7 +74,7 @@ class AppConfig:
     )
     youtube_token_file: str = field(default_factory=lambda: os.getenv("YOUTUBE_TOKEN_FILE", "youtube_token.json"))
     youtube_api_key: str = field(default_factory=lambda: os.getenv("YOUTUBE_API_KEY", ""))
-    youtube_category_id: str = field(default_factory=lambda: os.getenv("YOUTUBE_CATEGORY_ID", "17"))  # 17=Sports (correct for fitness)
+    youtube_category_id: str = field(default_factory=lambda: os.getenv("YOUTUBE_CATEGORY_ID", "26"))  # 26=Howto & Style fits workout, yoga, and explainer-style fitness shorts better than Sports
     default_privacy_status: str = field(default_factory=lambda: os.getenv("YOUTUBE_PRIVACY_STATUS", "public"))
     gemini_api_key: str = field(default_factory=lambda: os.getenv("GEMINI_API_KEY", ""))
     pexels_api_key: str = field(default_factory=lambda: os.getenv("PEXELS_API_KEY", ""))

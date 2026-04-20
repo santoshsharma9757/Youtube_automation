@@ -3009,5 +3009,1211 @@
     "created_at": "2026-04-17T17:28:04.889106+00:00",
     "scheduled_time": "2026-04-21T14:30:00Z",
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Sleep Better, Live Better! 😴✨",
+    "idea": {
+      "idea_id": "e8c1b50f-cb2c-43d9-933a-e522b37c2cf8",
+      "title": "Sleep Better, Live Better! 😴✨",
+      "angle": "Sleep Quality Improvement",
+      "hook": "Kya aap achhi neend lete hain?",
+      "topic": "Sleep and Recovery",
+      "audience_value": "Importance of good sleep for fitness",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T19:06:15.972278+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Sleep Better, Live Better!",
+      "hook": "Kya aap achhi neend lete hain?",
+      "problem": "Bura neend ka asar sirf aapke mood par nahi, aapki fitness par bhi hota hai. Aapka body recovery nahi kar pata. Strength kam ho jati hai, aur motivation bhi.",
+      "insight": "Neend ke dauran humare body mein growth hormone release hota hai, jo muscle recovery aur fat loss ke liye crucial hai. Jitni achhi neend, utna zyada recovery.",
+      "solution": "Solution simple hai: Raat ko 7-8 ghante ki neend le. Soone se pehle screen time kam karein. Ek consistent sleep routine banayein. Raatein dark karein, takki melatonin release ho sake.",
+      "cta": "Ab kisi bhi excuse ko mat suno. Kal se yeh strategy apnao aur notice karo apne body mein changes!",
+      "full_script": "Kya aap achhi neend lete hain? Bura neend ka asar sirf aapke mood par nahi, aapki fitness par bhi hota hai. Aapka body recovery nahi kar pata. Strength kam ho jati hai, aur motivation bhi. Neend ke dauran humare body mein growth hormone release hota hai, jo muscle recovery aur fat loss ke liye crucial hai. Jitni achhi neend, utna zyada recovery. Solution simple hai: Raat ko 7-8 ghante ki neend le. Soone se pehle screen time kam karein. Ek consistent sleep routine banayein. Raatein dark karein, takki melatonin release ho sake. Ab kisi bhi excuse ko mat suno. Kal se yeh strategy apnao aur notice karo apne body mein changes!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "fitness",
+      "retention_note": "The opening question sparks curiosity about a common issue, compelling viewers to reflect on their own sleep habits.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Kya Aapki Neend Aapki Fitness Ko Jaga Rahi Hai?",
+      "description": "Neend ka asar fitness par hai! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitness #fatloss #sleepwell #healthtips #musclerecovery #motivation",
+      "tags": [
+        "fitness",
+        "neend aur fitness",
+        "fat loss tips",
+        "sleep effects on body",
+        "muscle recovery",
+        "healthy sleep habits",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "fitness hindi",
+        "fitness for beginners",
+        "fitness shorts india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fitness",
+        "#fatloss",
+        "#sleepwell",
+        "#healthtips",
+        "#musclerecovery",
+        "#motivation"
+      ],
+      "primary_keyword": "fitness",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_190615_sleep-better-live-better.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_190615_sleep-better-live-better.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_190615_sleep-better-live-better.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_190615_sleep-better-live-better.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "aAbeF9h1_Zh2QbCh19i7NFikwB4",
+      "id": "cwq5tU1xGN4",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:31:23Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Aapki Neend Aapki Fitness Ko Jaga Rahi Hai?",
+        "description": "Neend ka asar fitness par hai! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitness #fatloss #sleepwell #healthtips #musclerecovery #motivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/cwq5tU1xGN4/default.jpg?sqp=CMiZms8G&rs=AOn4CLBA7pYoGAts5c8kTQesdo8P5q49WQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/cwq5tU1xGN4/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLAFxxQk6vlCvdu2SvEQvvAr3jiwyg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/cwq5tU1xGN4/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLBCfXlhvmvaoIc1uTllllE9Uu6eDw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fat loss tips",
+          "fitness",
+          "fitness for beginners",
+          "fitness hindi",
+          "fitness shorts india",
+          "fitness tips for beginners ind",
+          "healthy sleep habits",
+          "how to stay consistent gym",
+          "muscle recovery",
+          "neend aur fitness",
+          "sleep effects on body",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Aapki Neend Aapki Fitness Ko Jaga Rahi Hai?",
+          "description": "Neend ka asar fitness par hai! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitness #fatloss #sleepwell #healthtips #musclerecovery #motivation"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-22T00:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T19:16:16.437419+00:00",
+    "scheduled_time": "2026-04-22T00:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Chana vs Eggs: Kaun Hoga Fit? 💪🥚",
+    "idea": {
+      "idea_id": "1d9d3456-f094-40cd-8ad1-71efff31cd3e",
+      "title": "Chana vs Eggs: Kaun Hoga Fit? 💪🥚",
+      "angle": "Healthy Food Battle",
+      "hook": "Chalo dekhte hain kinhe milega Win!",
+      "topic": "Nutrition and Fitness",
+      "audience_value": "Healthy Eating for Fitness Enthusiasts",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T19:06:15.972447+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Chana vs Eggs: Kaun Hoga Fit?",
+      "hook": "Kya chana ya anda? Fitness ki jung mein kaun jeetega? Chalo dekhte hain kinhe milega Win!",
+      "problem": "Logon ko confuse karta hai unhealthy choices. Fat loss ki khwahish hai, magar asli power khana kaha hai?",
+      "insight": "Chana hai protein ka powerhouse, bina cholesterol ke. Lekin anda, high-quality protein aur essential nutrients se bhara hai. Par focus karna hai apne goals par!",
+      "solution": "Agar fat loss hai goal, mix karein chana ka fiber aur anda ka protein. Consistency abhi se shuru karein! Subah chana aur anda ka scramble karke khana. Yeh aapke metabolism ko turbocharge karega! Har bite se aapki body banegi aur bhi strong.",
+      "cta": "Aaj se healthy eating ki taraf badhein! Dono ko apne meals mein daalna shuru karein. Comments mein batana mat bhoolna, aapka favorite kya hai?",
+      "full_script": "Kya chana ya anda? Fitness ki jung mein kaun jeetega? Chalo dekhte hain kinhe milega Win! Logon ko confuse karta hai unhealthy choices. Fat loss ki khwahish hai, magar asli power khana kaha hai? Chana hai protein ka powerhouse, bina cholesterol ke. Lekin anda, high-quality protein aur essential nutrients se bhara hai. Par focus karna hai apne goals par! Agar fat loss hai goal, mix karein chana ka fiber aur anda ka protein. Consistency abhi se shuru karein! Subah chana aur anda ka scramble karke khana. Yeh aapke metabolism ko turbocharge karega! Har bite se aapki body banegi aur bhi strong. Aaj se healthy eating ki taraf badhein! Dono ko apne meals mein daalna shuru karein. Comments mein batana mat bhoolna, aapka favorite kya hai?",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "healthy eating",
+      "retention_note": "Opening creates instant curiosity by presenting a relatable dilemma, encouraging viewers to stay for the impactful nutrition comparison.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Kya Chana ya Anda? Jeetega Kaun?",
+      "description": "Healthy khana chunne ka waqt aa gaya! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #healthyfood #fitnessmotivation #fatloss #nutrition #proteinpower #diettips",
+      "tags": [
+        "healthy eating",
+        "fat loss tips",
+        "best protein sources",
+        "chana vs anda",
+        "nutrition for fitness",
+        "weight loss diet",
+        "meal prep ideas",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "healthy eating hindi",
+        "healthy eating for beginners",
+        "fitness shorts india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#healthyfood",
+        "#fitnessmotivation",
+        "#fatloss",
+        "#nutrition",
+        "#proteinpower",
+        "#diettips"
+      ],
+      "primary_keyword": "healthy eating",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_191616_chana-vs-eggs-kaun-hoga-fit.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_191616_chana-vs-eggs-kaun-hoga-fit.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_191616_chana-vs-eggs-kaun-hoga-fit.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_191616_chana-vs-eggs-kaun-hoga-fit.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "12d-xIa6X1ar23dBdkGoUa3wlqM",
+      "id": "23bnYFYF3rk",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:31:33Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Chana ya Anda? Jeetega Kaun?",
+        "description": "Healthy khana chunne ka waqt aa gaya! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #healthyfood #fitnessmotivation #fatloss #nutrition #proteinpower #diettips",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/23bnYFYF3rk/default.jpg?sqp=CMiZms8G&rs=AOn4CLBHMGmG56hk9Oe7WvzjEK6alUzMHQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/23bnYFYF3rk/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLDIc1aWxawlSY2ioOqCeIP17LKdDA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/23bnYFYF3rk/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLAmHLUiXdzVMRjKEMcfl-QjFMqA7Q",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "best protein sources",
+          "chana vs anda",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fat loss tips",
+          "fitness shorts india",
+          "fitness tips for beginners ind",
+          "healthy eating",
+          "healthy eating for beginners",
+          "healthy eating hindi",
+          "how to stay consistent gym",
+          "meal prep ideas",
+          "nutrition for fitness",
+          "weight loss diet",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Chana ya Anda? Jeetega Kaun?",
+          "description": "Healthy khana chunne ka waqt aa gaya! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #healthyfood #fitnessmotivation #fatloss #nutrition #proteinpower #diettips"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-22T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T19:27:40.334824+00:00",
+    "scheduled_time": "2026-04-22T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Motivation: Aao Banaye Powerful Routine! ✨",
+    "idea": {
+      "idea_id": "f8ed781c-b5b6-44fa-b9b0-d304cb9d5c1d",
+      "title": "Motivation: Aao Banaye Powerful Routine! ✨",
+      "angle": "Building a Powerful Fitness Routine",
+      "hook": "Kya hai wo cheeze jo aapko aage badh sakti hai?",
+      "topic": "Fitness Motivation",
+      "audience_value": "Creating a sustainable fitness routine",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T19:06:15.972596+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Motivation: Aao Banaye Powerful Routine!",
+      "hook": "Kya hai wo cheeze jo aapko aage badh sakti hai?",
+      "problem": "Most people fail at fitness motivation because they rely on emotion instead of a repeatable system.",
+      "insight": "Real building a powerful fitness routine starts on the days when your body says quit but your identity says keep going.",
+      "solution": "Pick one small non-negotiable action, repeat it daily, track it weekly, and let creating a sustainable fitness routine become your edge.",
+      "cta": "Follow DailyFitX and build discipline that shows in your body and mind.",
+      "full_script": "Kya hai wo cheeze jo aapko aage badh sakti hai? Most people fail at fitness motivation because they rely on emotion instead of a repeatable system. Real building a powerful fitness routine starts on the days when your body says quit but your identity says keep going. Pick one small non-negotiable action, repeat it daily, track it weekly, and let creating a sustainable fitness routine become your edge. Follow DailyFitX and build discipline that shows in your body and mind. Most people chase results, but champions chase systems. If you master fitness motivation with patience, intensity, and repetition, your confidence changes first and your physique follows next.",
+      "estimated_duration_seconds": 35,
+      "primary_keyword": "Fitness Motivation motivation hindi",
+      "retention_note": "Pattern-interrupt hook, short punchy lines, and a concrete payoff support higher retention.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Master Your Fitness Motivation Today!",
+      "description": "Unlock your best self with this simple fitness tip! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #motivationalvideo #workouttips #fitnessjourney #fitnesstips #healthylifestyle",
+      "tags": [
+        "fitness motivation",
+        "motivation hindi",
+        "build fitness routine",
+        "fitness discipline",
+        "sustainable fitness",
+        "motivation for workouts",
+        "daily fitness habits",
+        "fitness system",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "Fitness Motivation motivation ",
+        "Fitness Motivation motivation "
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fitnessmotivation",
+        "#motivationalvideo",
+        "#workouttips",
+        "#fitnessjourney",
+        "#fitnesstips",
+        "#healthylifestyle"
+      ],
+      "primary_keyword": "Fitness Motivation motivation hindi",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_192740_motivation-aao-banaye-powerful-routine.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_192740_motivation-aao-banaye-powerful-routine.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_192740_motivation-aao-banaye-powerful-routine.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_192740_motivation-aao-banaye-powerful-routine.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "vCTDQpnZuzTixWoBjRaGkBujIz8",
+      "id": "SXKHjIPoL_c",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:31:45Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Master Your Fitness Motivation Today!",
+        "description": "Unlock your best self with this simple fitness tip! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #motivationalvideo #workouttips #fitnessjourney #fitnesstips #healthylifestyle",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/SXKHjIPoL_c/default.jpg?sqp=CMiZms8G&rs=AOn4CLAZzmBcDosodtHScC6ejw9mAx4Gxw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/SXKHjIPoL_c/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLB1HFrXOYdv5S5r5tZHa8OWi2EiHg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/SXKHjIPoL_c/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLBUmKHjFAuLPoUaZJS-7pQKC-M4YQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "Fitness Motivation motivation",
+          "build fitness routine",
+          "daily fitness habits",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fitness discipline",
+          "fitness motivation",
+          "fitness system",
+          "fitness tips for beginners ind",
+          "how to stay consistent gym",
+          "motivation for workouts",
+          "motivation hindi",
+          "sustainable fitness",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Master Your Fitness Motivation Today!",
+          "description": "Unlock your best self with this simple fitness tip! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #motivationalvideo #workouttips #fitnessjourney #fitnesstips #healthylifestyle"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-23T00:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T19:37:51.580720+00:00",
+    "scheduled_time": "2026-04-23T00:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Indian Genetics vs Foreign: Kya Hai Farq? 💪",
+    "idea": {
+      "idea_id": "69909659-32c6-44be-ba4d-83710e9a0189",
+      "title": "Indian Genetics vs Foreign: Kya Hai Farq? 💪",
+      "angle": "Fitness genetics discussion",
+      "hook": "Kya aap bhi sochte hain ki genetics matter karte hain?",
+      "topic": "Fitness Genetics",
+      "audience_value": "Engages viewers in a relatable fitness conversation.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T19:38:13.934299+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Indian Genetics vs Foreign: Kya Hai Farq?",
+      "hook": "Kya aap bhi sochte hain ki genetics matter karte hain?",
+      "problem": "Most people fail at fitness genetics because they rely on emotion instead of a repeatable system.",
+      "insight": "Real fitness genetics discussion starts on the days when your body says quit but your identity says keep going.",
+      "solution": "Pick one small non-negotiable action, repeat it daily, track it weekly, and let engages viewers in a relatable fitness conversation. become your edge.",
+      "cta": "Follow DailyFitX and build discipline that shows in your body and mind.",
+      "full_script": "Kya aap bhi sochte hain ki genetics matter karte hain? Most people fail at fitness genetics because they rely on emotion instead of a repeatable system. Real fitness genetics discussion starts on the days when your body says quit but your identity says keep going. Pick one small non-negotiable action, repeat it daily, track it weekly, and let engages viewers in a relatable fitness conversation. become your edge. Follow DailyFitX and build discipline that shows in your body and mind. Most people chase results, but champions chase systems. If you master fitness genetics with patience, intensity, and repetition, your confidence changes first and your physique follows next.",
+      "estimated_duration_seconds": 35,
+      "primary_keyword": "Fitness Genetics motivation hindi",
+      "retention_note": "Pattern-interrupt hook, short punchy lines, and a concrete payoff support higher retention.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Unlock Your Fitness Genetics Now!",
+      "description": "Master fitness with daily actions for lasting change. Save this or Follow DailyFitX.\n\n#FitnessGenetics #Motivation #Fitness #Shorts #YTShorts #FitnessStrategies #DailyFitX #Mindset",
+      "tags": [
+        "fitness genetics motivation hi",
+        "how genetics affect fitness",
+        "daily fitness motivation",
+        "discipline in fitness",
+        "building fitness habits",
+        "overcoming fitness challenges",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "Fitness Genetics motivation hi",
+        "Fitness Genetics motivation hi",
+        "Fitness Genetics motivation hi",
+        "fitness shorts india"
+      ],
+      "hashtags": [
+        "#FitnessGenetics",
+        "#Motivation",
+        "#Fitness",
+        "#Shorts",
+        "#YTShorts",
+        "#FitnessStrategies",
+        "#DailyFitX",
+        "#Mindset"
+      ],
+      "primary_keyword": "Fitness Genetics motivation hindi",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_193813_indian-genetics-vs-foreign-kya-hai-farq.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_193813_indian-genetics-vs-foreign-kya-hai-farq.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_193813_indian-genetics-vs-foreign-kya-hai-farq.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_193813_indian-genetics-vs-foreign-kya-hai-farq.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "qTWR9nmlYg2Pn1Z-brIX8eSOZH8",
+      "id": "auPIr22KlSM",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:31:54Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Unlock Your Fitness Genetics Now!",
+        "description": "Master fitness with daily actions for lasting change. Save this or Follow DailyFitX.\n\n#FitnessGenetics #Motivation #Fitness #Shorts #YTShorts #FitnessStrategies #DailyFitX #Mindset",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/auPIr22KlSM/default.jpg?sqp=CMiZms8G&rs=AOn4CLBhpCcs-CQUVMfwE7Hw1KX_JQbSSg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/auPIr22KlSM/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLDTb8RzSen9RJ4Q5QYC5iJ4GIiNmw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/auPIr22KlSM/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLBBVOwzJcqO5P98GQMIj2ICStv9pQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "Fitness Genetics motivation hi",
+          "building fitness habits",
+          "daily fitness motivation",
+          "daily workout routine india",
+          "discipline in fitness",
+          "discipline mindset hindi",
+          "fitness genetics motivation hi",
+          "fitness shorts india",
+          "fitness tips for beginners ind",
+          "how genetics affect fitness",
+          "how to stay consistent gym",
+          "overcoming fitness challenges",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Unlock Your Fitness Genetics Now!",
+          "description": "Master fitness with daily actions for lasting change. Save this or Follow DailyFitX.\n\n#FitnessGenetics #Motivation #Fitness #Shorts #YTShorts #FitnessStrategies #DailyFitX #Mindset"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-23T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T19:47:42.748214+00:00",
+    "scheduled_time": "2026-04-23T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Chana Ya Eggs: Kaunsa Hai Best Muscle Builder? 💪",
+    "idea": {
+      "idea_id": "0324172d-69e6-4561-adde-57f3e71a1fe2",
+      "title": "Chana Ya Eggs: Kaunsa Hai Best Muscle Builder? 💪",
+      "angle": "Healthy food comparison",
+      "hook": "Chalo jaan lete hain, kaunsa khana banaega aapko super strong!",
+      "topic": "Nutrition",
+      "audience_value": "Educates viewers on protein sources for fitness.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T19:38:13.934457+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Chana Ya Eggs: Kaunsa Hai Best Muscle Builder?",
+      "hook": "Chalo jaan lete hain, kaunsa khana banaega aapko super strong!",
+      "problem": "Most people chase heavy weight before they earn control, tension, and recovery.",
+      "insight": "Strength and size grow faster when technique, overload, and sleep work together.",
+      "solution": "Master a few big lifts, track reps honestly, and use educates viewers on protein sources for fitness. as the result of better execution.",
+      "cta": "Follow DailyFitX and build discipline that shows in your body and mind.",
+      "full_script": "Chalo jaan lete hain, kaunsa khana banaega aapko super strong! Most people chase heavy weight before they earn control, tension, and recovery. Strength and size grow faster when technique, overload, and sleep work together. Master a few big lifts, track reps honestly, and use educates viewers on protein sources for fitness. as the result of better execution. Follow DailyFitX and build discipline that shows in your body and mind. Most people chase results, but champions chase systems. If you master nutrition with patience, intensity, and repetition, your confidence changes first and your physique follows next.",
+      "estimated_duration_seconds": 35,
+      "primary_keyword": "strength training motivation hindi",
+      "retention_note": "Pattern-interrupt hook, short punchy lines, and a concrete payoff support higher retention.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Unlock Your Super Strength Now!",
+      "description": "Master the right techniques for explosive gains! #shorts #ytshorts\n\n#shorts #ytshorts #strengthtraining #fitnessmotivation #musclebuilding #workouttips #nutritiontips #fitnesstraining",
+      "tags": [
+        "strength training motivation h",
+        "strength training diet",
+        "weight lifting tips",
+        "muscle growth secrets",
+        "fitness motivation",
+        "daily workout tips",
+        "strength training techniques",
+        "effective strength training",
+        "muscle building tips hindi",
+        "gym workout for beginners indi",
+        "how to build muscle at home",
+        "strength training hindi",
+        "gym motivation hindi",
+        "strength training motivation h",
+        "strength training motivation h"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#strengthtraining",
+        "#fitnessmotivation",
+        "#musclebuilding",
+        "#workouttips",
+        "#nutritiontips",
+        "#fitnesstraining"
+      ],
+      "primary_keyword": "strength training motivation hindi",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_194742_chana-ya-eggs-kaunsa-hai-best-muscle-builder.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_194742_chana-ya-eggs-kaunsa-hai-best-muscle-builder.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_194742_chana-ya-eggs-kaunsa-hai-best-muscle-builder.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_194742_chana-ya-eggs-kaunsa-hai-best-muscle-builder.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "AdNb7idYo-pp4kqvMrgOFWWA6VM",
+      "id": "NsRow1htuxE",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:32:04Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Unlock Your Super Strength Now!",
+        "description": "Master the right techniques for explosive gains! #shorts #ytshorts\n\n#shorts #ytshorts #strengthtraining #fitnessmotivation #musclebuilding #workouttips #nutritiontips #fitnesstraining",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/NsRow1htuxE/default.jpg?sqp=CMiZms8G&rs=AOn4CLCNuJKe2SL-ZHDcy3-MP2q95WC18Q",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/NsRow1htuxE/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLBGxByxPYvaiDMjFoE7YqPwVHfy9g",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/NsRow1htuxE/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLAHhfActR5PMlK-RwKiXsi7uvf_yw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "daily workout tips",
+          "effective strength training",
+          "fitness motivation",
+          "gym motivation hindi",
+          "gym workout for beginners indi",
+          "how to build muscle at home",
+          "muscle building tips hindi",
+          "muscle growth secrets",
+          "strength training diet",
+          "strength training hindi",
+          "strength training motivation h",
+          "strength training techniques",
+          "weight lifting tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Unlock Your Super Strength Now!",
+          "description": "Master the right techniques for explosive gains! #shorts #ytshorts\n\n#shorts #ytshorts #strengthtraining #fitnessmotivation #musclebuilding #workouttips #nutritiontips #fitnesstraining"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-24T00:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T19:54:54.464647+00:00",
+    "scheduled_time": "2026-04-24T00:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Daily Motivation: Start Strong! 🚀",
+    "idea": {
+      "idea_id": "c308247b-4f24-407a-8a8f-6b5044747c28",
+      "title": "Daily Motivation: Start Strong! 🚀",
+      "angle": "Daily motivational quotes.",
+      "hook": "Aaj ka din hai badlav ka, bas aage badhein!",
+      "topic": "Motivation, Daily Reminders",
+      "audience_value": "Daily encouragement to stay motivated.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T19:55:13.960983+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Daily Motivation: Start Strong!",
+      "hook": "Aaj ka din hai badlav ka, bas aage badhein!",
+      "problem": "Log aksar sochte hain, 'Kyun main aage nahi badh raha?', lekin asli problem hai discipline ki kami.",
+      "insight": "Jab aap focus nahi karte, to aap apni energy ko waste karte hain! Kaam shuru karne ka sahi time hota hai, par kitne log use miss kar dete hain?",
+      "solution": "Daily exercise routine ko apne schedule mein daal lo. Strength training se aapki metabolism accelerate hoti hai. 15 minutes of HIIT ek gamechanger hai! Yeh aapke fat loss ko speed up karega aur confidence ko boost karega.",
+      "cta": "Aaj se shuruat karo! Ek action plan banao, aur har din consistent raho. Yeh badlav tumhe zaroor milega!",
+      "full_script": "Aaj ka din hai badlav ka, bas aage badhein! Log aksar sochte hain, 'Kyun main aage nahi badh raha?', lekin asli problem hai discipline ki kami. Jab aap focus nahi karte, to aap apni energy ko waste karte hain! Kaam shuru karne ka sahi time hota hai, par kitne log use miss kar dete hain? Daily exercise routine ko apne schedule mein daal lo. Strength training se aapki metabolism accelerate hoti hai. 15 minutes of HIIT ek gamechanger hai! Yeh aapke fat loss ko speed up karega aur confidence ko boost karega. Aaj se shuruat karo! Ek action plan banao, aur har din consistent raho. Yeh badlav tumhe zaroor milega!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "fitness motivation",
+      "retention_note": "Opening grabs attention by promising immediate change, creating urgency for the viewer to continue listening.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Aaj Se Badlav Laao Fitness Mein!",
+      "description": "Tayyari shuru karen, fat loss ke liye action lo! Save this or Follow DailyFitX.\n\n#fitnessmotivation #fatloss #workouttips #discipline #hiit #strengthtraining #shorts #ytshorts",
+      "tags": [
+        "fitness motivation",
+        "fat loss tips",
+        "weight loss journey",
+        "fitness discipline",
+        "HIIT workout",
+        "strength training benefits",
+        "daily exercise routine",
+        "metabolism booster",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "fitness motivation hindi",
+        "fitness motivation for beginne"
+      ],
+      "hashtags": [
+        "#fitnessmotivation",
+        "#fatloss",
+        "#workouttips",
+        "#discipline",
+        "#hiit",
+        "#strengthtraining",
+        "#shorts",
+        "#ytshorts"
+      ],
+      "primary_keyword": "fitness motivation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_195513_daily-motivation-start-strong.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_195513_daily-motivation-start-strong.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_195513_daily-motivation-start-strong.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_195513_daily-motivation-start-strong.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "B9WyHg1JFN9bTaYZyEjf18BhLEI",
+      "id": "-q6q9r9iKUU",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:32:17Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Aaj Se Badlav Laao Fitness Mein!",
+        "description": "Tayyari shuru karen, fat loss ke liye action lo! Save this or Follow DailyFitX.\n\n#fitnessmotivation #fatloss #workouttips #discipline #hiit #strengthtraining #shorts #ytshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/-q6q9r9iKUU/default.jpg?sqp=CMiZms8G&rs=AOn4CLA0h3SQTTijlKB8vkSdhUT0U-S5rA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/-q6q9r9iKUU/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLDMvIYORjgoVxhpm_nJ00CZgtSmUA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/-q6q9r9iKUU/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLC35mxGcui5tIX5T_eYCrO62CMYDQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "HIIT workout",
+          "daily exercise routine",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fat loss tips",
+          "fitness discipline",
+          "fitness motivation",
+          "fitness motivation for beginne",
+          "fitness motivation hindi",
+          "fitness tips for beginners ind",
+          "how to stay consistent gym",
+          "metabolism booster",
+          "strength training benefits",
+          "weight loss journey",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Aaj Se Badlav Laao Fitness Mein!",
+          "description": "Tayyari shuru karen, fat loss ke liye action lo! Save this or Follow DailyFitX.\n\n#fitnessmotivation #fatloss #workouttips #discipline #hiit #strengthtraining #shorts #ytshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-24T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T20:02:46.365070+00:00",
+    "scheduled_time": "2026-04-24T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Transform Your Life in 30 Days! 🏋️",
+    "idea": {
+      "idea_id": "e0d85fad-47d6-41a5-9c39-258b05441af5",
+      "title": "Transform Your Life in 30 Days! 🏋️",
+      "angle": "Quick transformation tips.",
+      "hook": "Ek mahine mein aap kya achieve kar sakte hain?",
+      "topic": "Fitness Transformation",
+      "audience_value": "Motivational strategies for quick results.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T19:55:13.961077+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long"
+    },
+    "script": {
+      "title": "Transform Your Life in 30 Days!",
+      "hook": "Ek mahine mein aap kya achieve kar sakte hain?",
+      "problem": "Most people fail at fitness transformation because they rely on emotion instead of a repeatable system.",
+      "insight": "Real quick transformation tips. starts on the days when your body says quit but your identity says keep going.",
+      "solution": "Pick one small non-negotiable action, repeat it daily, track it weekly, and let motivational strategies for quick results. become your edge.",
+      "cta": "Follow DailyFitX and build discipline that shows in your body and mind.",
+      "full_script": "Ek mahine mein aap kya achieve kar sakte hain? Most people fail at fitness transformation because they rely on emotion instead of a repeatable system. Real quick transformation tips. starts on the days when your body says quit but your identity says keep going. Pick one small non-negotiable action, repeat it daily, track it weekly, and let motivational strategies for quick results. become your edge. Follow DailyFitX and build discipline that shows in your body and mind. Most people chase results, but champions chase systems. If you master fitness transformation with patience, intensity, and repetition, your confidence changes first and your physique follows next. Stop negotiating with yourself. Show up, finish the rep, respect the process, and let consistency do what motivation never could. Most people chase results, but champions chase systems. If you master fitness transformation with patience, intensity, and repetition, your confidence changes first and your physique follows next. Stop negotiating with yourself. Show up, finish the rep, respect the process, and let consistency do what motivation never could.",
+      "estimated_duration_seconds": 85,
+      "primary_keyword": "Fitness Transformation motivation hindi",
+      "retention_note": "Pattern-interrupt hook, short punchy lines, and a concrete payoff support higher retention.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Achieve Fitness Transformation in 30 Days!",
+      "description": "Fitness transformation motivation hindi is your guide to revolutionize your fitness journey in just one month! Learn how to build discipline, establish daily non-negotiable actions, and leverage motivational strategies for incredible results. This long-form video provides you with the tools to shift your mindset and master your transformation with patience and intensity.\n\n#FitnessTransformation #MotivationHindi #DailyFitX #FitnessJourney #DisciplineAndResults",
+      "tags": [
+        "fitness transformation motivat",
+        "fitness journey tips",
+        "motivation for fitness",
+        "fitness discipline strategies",
+        "quick transformation tips",
+        "build confidence through fitne",
+        "daily fitness routines",
+        "mindset for fitness success",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "Fitness Transformation motivat",
+        "Fitness Transformation motivat"
+      ],
+      "hashtags": [
+        "#FitnessTransformation",
+        "#MotivationHindi",
+        "#DailyFitX",
+        "#FitnessJourney",
+        "#DisciplineAndResults"
+      ],
+      "primary_keyword": "Fitness Transformation motivation hindi",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_200246_transform-your-life-in-30-days.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_200246_transform-your-life-in-30-days.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_200246_transform-your-life-in-30-days.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_200246_transform-your-life-in-30-days.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "IS2Cz0PwZHfPab7QhXshcs6PRHM",
+      "id": "yIH9ZWWmFWE",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:32:27Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Achieve Fitness Transformation in 30 Days!",
+        "description": "Fitness transformation motivation hindi is your guide to revolutionize your fitness journey in just one month! Learn how to build discipline, establish daily non-negotiable actions, and leverage motivational strategies for incredible results. This long-form video provides you with the tools to shift your mindset and master your transformation with patience and intensity.\n\n#FitnessTransformation #MotivationHindi #DailyFitX #FitnessJourney #DisciplineAndResults",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/yIH9ZWWmFWE/default.jpg?sqp=CMiZms8G&rs=AOn4CLBfJr5coQiFqLf5SMwfRibq_6V9mQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/yIH9ZWWmFWE/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLC5S0xbd1scLEb7Y3_Pk7qZ4HO4BQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/yIH9ZWWmFWE/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLBREgI-AjnZvaKoE6mxGBbWhGo6ZQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "Fitness Transformation motivat",
+          "build confidence through fitne",
+          "daily fitness routines",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fitness discipline strategies",
+          "fitness journey tips",
+          "fitness tips for beginners ind",
+          "fitness transformation motivat",
+          "how to stay consistent gym",
+          "mindset for fitness success",
+          "motivation for fitness",
+          "quick transformation tips",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Achieve Fitness Transformation in 30 Days!",
+          "description": "Fitness transformation motivation hindi is your guide to revolutionize your fitness journey in just one month! Learn how to build discipline, establish daily non-negotiable actions, and leverage motivational strategies for incredible results. This long-form video provides you with the tools to shift your mindset and master your transformation with patience and intensity.\n\n#FitnessTransformation #MotivationHindi #DailyFitX #FitnessJourney #DisciplineAndResults"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-25T00:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T20:14:46.873250+00:00",
+    "scheduled_time": "2026-04-25T00:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Breathwork ka Asar: Stress Se Mukti🚀",
+    "idea": {
+      "idea_id": "877362f6-ed42-4713-8d1e-084f38e95c2d",
+      "title": "Breathwork ka Asar: Stress Se Mukti🚀",
+      "angle": "Breath Techniques",
+      "hook": "Kaise stress ko karein bhaga?",
+      "topic": "Breathwork & Stress Relief",
+      "audience_value": "Individuals seeking relaxation and stress management techniques.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T20:15:08.099138+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Breathwork ka Asar: Stress Se Mukti",
+      "hook": "Kaise stress ko karein bhaga?",
+      "problem": "Bahut log yoga ko sirf stretching samajhte hain, phir unka body calm bhi nahi hota aur posture bhi change nahi hota.",
+      "insight": "Real yoga tab kaam karta hai jab breath, balance, and awareness ek saath move karein. Wahin se strength bhi aati hai, shanti bhi.",
+      "solution": "Roz bas 10 mindful minutes do. Slow inhale, strong hold, clean posture. Fir individuals seeking relaxation and stress management techniques. naturally dikhne lagta hai.",
+      "cta": "DailyFitX ko follow karo, kal nahi, aaj se apne body aur breath ko respect dena shuru karo.",
+      "full_script": "Kaise stress ko karein bhaga? Bahut log yoga ko sirf stretching samajhte hain, phir unka body calm bhi nahi hota aur posture bhi change nahi hota. Real yoga tab kaam karta hai jab breath, balance, and awareness ek saath move karein. Wahin se strength bhi aati hai, shanti bhi. Roz bas 10 mindful minutes do. Slow inhale, strong hold, clean posture. Fir individuals seeking relaxation and stress management techniques. naturally dikhne lagta hai. DailyFitX ko follow karo, kal nahi, aaj se apne body aur breath ko respect dena shuru karo.",
+      "estimated_duration_seconds": 35,
+      "primary_keyword": "yoga motivation hindi",
+      "retention_note": "Hindi-first emotional hook opens with pain relief and promises calm plus visible body change.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "10 Minutes for Stress Relief: Start Now!",
+      "description": "Breathe, balance, and find calm in just 10 mins. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #yogamotivation #relaxationyoga #mindfulness #yogatips #stressmanagement #yogaforbeginners",
+      "tags": [
+        "yoga motivation hindi",
+        "stress relief yoga",
+        "mindful yoga routine",
+        "yoga for body calm",
+        "breath awareness yoga",
+        "yoga for relaxation",
+        "yoga for beginners in hindi",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga poses for flexibility",
+        "daily yoga hindi",
+        "yoga motivation hindi hindi",
+        "yoga motivation hindi for begi",
+        "fitness shorts india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#yogamotivation",
+        "#relaxationyoga",
+        "#mindfulness",
+        "#yogatips",
+        "#stressmanagement",
+        "#yogaforbeginners"
+      ],
+      "primary_keyword": "yoga motivation hindi",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_201508_breathwork-ka-asar-stress-se-mukti.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_201508_breathwork-ka-asar-stress-se-mukti.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_201508_breathwork-ka-asar-stress-se-mukti.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_201508_breathwork-ka-asar-stress-se-mukti.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "7_xHUK7tNZ9SM6Mi4fy55KA9YgY",
+      "id": "e62Jo4dmUkI",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:32:55Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "10 Minutes for Stress Relief: Start Now!",
+        "description": "Breathe, balance, and find calm in just 10 mins. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #yogamotivation #relaxationyoga #mindfulness #yogatips #stressmanagement #yogaforbeginners",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/e62Jo4dmUkI/default.jpg?sqp=CMiZms8G&rs=AOn4CLBIz190PTB_EYjW7M-inCS9TZIosw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/e62Jo4dmUkI/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLCA1Czh6cEw6ThNdzbAcHavWwVZUw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/e62Jo4dmUkI/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLDC6q7GbsGWKm6e7pevh-_yUX-_eA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "breath awareness yoga",
+          "daily yoga hindi",
+          "fitness shorts india",
+          "mindful yoga routine",
+          "morning yoga routine",
+          "stress relief yoga",
+          "yoga for beginners in hindi",
+          "yoga for body calm",
+          "yoga for relaxation",
+          "yoga for stress relief",
+          "yoga motivation hindi",
+          "yoga motivation hindi for begi",
+          "yoga motivation hindi hindi",
+          "yoga poses for flexibility"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "10 Minutes for Stress Relief: Start Now!",
+          "description": "Breathe, balance, and find calm in just 10 mins. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #yogamotivation #relaxationyoga #mindfulness #yogatips #stressmanagement #yogaforbeginners"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-25T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T20:22:29.883363+00:00",
+    "scheduled_time": "2026-04-25T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Apne Umeed Se Na Kabhi Haaro!💪",
+    "idea": {
+      "idea_id": "e3e780ae-2133-4085-9f30-6fd0686153b0",
+      "title": "Apne Umeed Se Na Kabhi Haaro!💪",
+      "angle": "Motivational Boost",
+      "hook": "Kyunki aapke sapne bade hain!",
+      "topic": "Fitness Motivation",
+      "audience_value": "Anyone needing a motivational push to continue their fitness journey.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-20T20:15:08.099200+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Apne Umeed Se Na Kabhi Haaro!",
+      "hook": "Kyunki aapke sapne bade hain!",
+      "problem": "Jab tak aapka hard work na ho, koi bhi goal pura nahi hota. Fat loss ya strength, sab kuch patience aur consistency pe depend karta hai.",
+      "insight": "Aksar hum focus kho dete hain, motivation chhod dete hain. Lekin dosto, yeh ek baat yaad rakhna - discipline aapko aage le jaega!",
+      "solution": "Toh kya karna hai? Apni workout routine ko badlo. Har week ek naya exercise add karo. Consistency ka mantra yaad rakho! 14 din bina break di, aur aapki body khud aapko jawab degi. Strength build hoga, confidence aayega, aur body badlegi.",
+      "cta": "Ab se, apne har workout ko ek target samjho. Challenge accept karo, aur judo aaj se shuru karo! Subscribe karo DailyFitX ke liye aur apne fitness journey ko redefine karo!",
+      "full_script": "Kyunki aapke sapne bade hain! Jab tak aapka hard work na ho, koi bhi goal pura nahi hota. Fat loss ya strength, sab kuch patience aur consistency pe depend karta hai. Aksar hum focus kho dete hain, motivation chhod dete hain. Lekin dosto, yeh ek baat yaad rakhna - discipline aapko aage le jaega! Toh kya karna hai? Apni workout routine ko badlo. Har week ek naya exercise add karo. Consistency ka mantra yaad rakho! 14 din bina break di, aur aapki body khud aapko jawab degi. Strength build hoga, confidence aayega, aur body badlegi. Ab se, apne har workout ko ek target samjho. Challenge accept karo, aur judo aaj se shuru karo! Subscribe karo DailyFitX ke liye aur apne fitness journey ko redefine karo!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "fitness motivation",
+      "retention_note": "Opening creates instant relatability, tapping into the viewer's desire to achieve large fitness goals, thereby gripping their attention immediately.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Fitness Goals: Wo Discipline Jo Badal De!",
+      "description": "Apne sapno ko haqiqat banao. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #fatlosstips #workoutroutine #consistency #strengthtraining #fitnesstips",
+      "tags": [
+        "fitness motivation",
+        "fat loss tips",
+        "workout routine",
+        "consistency in fitness",
+        "strength training motivation",
+        "build strength",
+        "exercise for fat loss",
+        "stay motivated in fitness",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "fitness motivation hindi",
+        "fitness motivation for beginne"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fitnessmotivation",
+        "#fatlosstips",
+        "#workoutroutine",
+        "#consistency",
+        "#strengthtraining",
+        "#fitnesstips"
+      ],
+      "primary_keyword": "fitness motivation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260420_202229_apne-umeed-se-na-kabhi-haaro.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260420_202229_apne-umeed-se-na-kabhi-haaro.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260420_202229_apne-umeed-se-na-kabhi-haaro.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260420_202229_apne-umeed-se-na-kabhi-haaro.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "8Y4K5ORI1GqiG-ZRGXzO5VXE7sc",
+      "id": "PZ_NHHCYfcM",
+      "snippet": {
+        "publishedAt": "2026-04-20T20:33:06Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Fitness Goals: Wo Discipline Jo Badal De!",
+        "description": "Apne sapno ko haqiqat banao. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #fatlosstips #workoutroutine #consistency #strengthtraining #fitnesstips",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/PZ_NHHCYfcM/default.jpg?sqp=CMiZms8G&rs=AOn4CLDw9jy8NP8qKm3gDb7W0n4phnccTQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/PZ_NHHCYfcM/mqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLAK4-6UKmKgCVJUTFA9zJjr43Vzlw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/PZ_NHHCYfcM/hqdefault.jpg?sqp=CMiZms8G&rs=AOn4CLBMjjHT1GFA-GEu0VGABUjOwEJ6CQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "build strength",
+          "consistency in fitness",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "exercise for fat loss",
+          "fat loss tips",
+          "fitness motivation",
+          "fitness motivation for beginne",
+          "fitness motivation hindi",
+          "fitness tips for beginners ind",
+          "how to stay consistent gym",
+          "stay motivated in fitness",
+          "strength training motivation",
+          "workout motivation hindi",
+          "workout routine"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Fitness Goals: Wo Discipline Jo Badal De!",
+          "description": "Apne sapno ko haqiqat banao. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #fatlosstips #workoutroutine #consistency #strengthtraining #fitnesstips"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-26T00:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-20T20:31:21.680438+00:00",
+    "scheduled_time": "2026-04-26T00:30:00Z",
+    "local_video_deleted": true
   }
 ]

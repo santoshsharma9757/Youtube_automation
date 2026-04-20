@@ -1,6 +1,50 @@
 from __future__ import annotations
 
 
+TRENDING_SIGNAL_TERMS_2026_Q2: list[dict[str, object]] = [
+    {
+        "label": "walking-yoga",
+        "weight": 5,
+        "keywords": ["walking yoga", "walk and breathe", "mindful walking", "walking meditation"],
+    },
+    {
+        "label": "breathwork-reset",
+        "weight": 5,
+        "keywords": ["box breathing", "breathing trick", "nervous system", "stress reset", "breathwork"],
+    },
+    {
+        "label": "micro-workout",
+        "weight": 4,
+        "keywords": ["10 minute", "2 minute", "tiny workout", "small workouts", "full body reset"],
+    },
+    {
+        "label": "plateau-fix",
+        "weight": 4,
+        "keywords": ["plateau", "body stops changing", "no results", "stuck progress"],
+    },
+    {
+        "label": "fasted-workout",
+        "weight": 4,
+        "keywords": ["fasted", "khali pet", "morning workout", "empty stomach workout"],
+    },
+    {
+        "label": "protein-indian-diet",
+        "weight": 4,
+        "keywords": ["protein", "indian diet", "roti", "healthy foods", "muscle gain"],
+    },
+    {
+        "label": "discipline-over-motivation",
+        "weight": 3,
+        "keywords": ["discipline", "motivation", "bad days", "consistency", "identity"],
+    },
+    {
+        "label": "sleep-recovery",
+        "weight": 3,
+        "keywords": ["sleep", "recovery", "sleep loss", "sleep yoga"],
+    },
+]
+
+
 VIRAL_TOPIC_BANK: list[dict[str, str]] = [
     {"title": "What Happens to Your Body After 30 Days of Pushups", "angle": "Body Transformation", "topic": "30 days pushups result", "audience_value": "Explain exact biological and aesthetic changes from daily pushups"},
     {"title": "30 Din Tak Roz Squats Karne Se Kya Hota Hai?", "angle": "Body Transformation", "topic": "30 days squats result", "audience_value": "Break down leg muscle growth and core stability from daily squats"},
@@ -154,6 +198,24 @@ def filter_viral_topics(theme: str | None = None) -> list[dict[str, str]]:
     ]
     unmatched = [t for t in VIRAL_TOPIC_BANK if t not in filtered]
     return filtered + unmatched
+
+
+def prioritize_viral_topics(theme: str | None = None) -> list[dict[str, str]]:
+    ranked_items: list[tuple[int, int, dict[str, str]]] = []
+    for index, topic in enumerate(filter_viral_topics(theme)):
+        blob = " ".join(str(value).lower() for value in topic.values())
+        score = 0
+        for signal in TRENDING_SIGNAL_TERMS_2026_Q2:
+            keywords = signal["keywords"]
+            if any(keyword in blob for keyword in keywords):
+                score += int(signal["weight"])
+        if any(term in blob for term in ("myth", "truth", "mistake", "why", "what happens", "kaise", "sahi ya galat")):
+            score += 2
+        if any(term in blob for term in ("challenge", "30 din", "30 day", "7 din", "21 days")):
+            score += 2
+        ranked_items.append((score, -index, topic))
+    ranked_items.sort(reverse=True)
+    return [item for _, _, item in ranked_items]
 
 
 def sample_topic_titles(items: list[dict[str, str]], limit: int = 18) -> list[str]:

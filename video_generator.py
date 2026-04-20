@@ -139,9 +139,13 @@ class VideoGenerator:
             candidates = [
                 f"{keyword} sunrise yoga",
                 f"{title_phrase} yoga flow",
+                "woman yoga breathing portrait",
+                "man yoga breathing portrait",
                 "woman yoga breathing",
+                "man yoga stretch",
                 "calm yoga stretch cinematic",
                 "mindful meditation body flow",
+                "meditation portrait breathing",
                 "yoga posture healing",
             ]
         else:
@@ -150,6 +154,10 @@ class VideoGenerator:
                 f"{keyword} athlete training",
                 f"{title_phrase} gym",
                 f"{title_phrase} fitness motivation",
+                "female fitness workout portrait",
+                "male fitness workout portrait",
+                "woman home workout vertical",
+                "man home workout vertical",
                 "intense workout motivation",
                 "athlete training",
             ]
@@ -170,6 +178,8 @@ class VideoGenerator:
         
         for query in queries:
             path = self._fetch_pexels_video(query, is_long=is_long)
+            if path is None:
+                path = self._fetch_pixabay_video(query)
             if path and path.exists():
                 clip = VideoFileClip(str(path)).without_audio()
                 clip = clip.resized(height=vid_h)
@@ -249,7 +259,7 @@ class VideoGenerator:
             LOGGER.warning("Pexels fetch failed: %s", e)
         return None
 
-    def _fetch_pixabay_video(self, query: str) -> Path | None:
+    def _fetch_pixabay_video(self, query: str, is_long: bool = False) -> Path | None:
         if not self.config.pixabay_api_key: return None
         try:
             LOGGER.info("Fetching video from Pixabay for query: %s", query)

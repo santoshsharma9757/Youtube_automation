@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from dataclasses import dataclass
 from typing import List
 
@@ -48,12 +49,12 @@ class SeoGenerator:
             f"You are creating metadata for a {video_format_type}. "
             f"Your strict goal is to completely maximize virality and optimize for {discovery_focus}. "
             "Return strict JSON with keys title, description, tags, hashtags, primary_keyword. "
-            "Title should be under 60 characters and create massive curiosity or urgency without sounding fake. "
-            + ("Description for this SHORT: write exactly 1-2 lines, under 120 characters. Start with the payoff. End with: Save this or Follow DailyFitX. No filler. "
+            "Title should be under 48 characters, easy to read fast, and create massive curiosity or urgency without sounding fake. "
+            + ("Description for this SHORT: write exactly 1-2 lines, under 100 characters before hashtags. Start with the payoff. End with: Save this or Follow DailyFitX. No filler. "
                if not is_long else
                "Description should front-load the keyword, explain the viewer payoff in 2-3 sentences, and feel native to the long-form format. ")
             + "Tags should be exact phrases people search. Mix high-volume evergreen with specific niche phrases. No vanity tags. "
-            + ("Hashtags: provide exactly 8. Must include #shorts and #ytshorts. Add 6 specific viral tags for the topic. "
+            + ("Hashtags: provide exactly 8. Must include #shorts and #ytshorts. Add 6 specific viral tags for the topic. Prioritize search-aligned viral tags over generic tags. "
                if not is_long else
                "Hashtags: provide exactly 5. Include brand, niche, and category tags. ")
             + "Use only Roman script with normal English letters. "
@@ -77,9 +78,11 @@ class SeoGenerator:
         hashtags = self._normalize_hashtags(payload.get("hashtags", []), content_style, language_code, is_long)
         description = self._clean_ascii_text(payload["description"].strip())
         hashtag_text = " ".join(hashtags)
+        if not is_long:
+            description = self._compress_short_description(description)
         if hashtag_text.lower() not in description.lower():
             description = f"{description}\n\n{hashtag_text}"
-        title = self._clean_ascii_text(payload["title"].strip())[:60]
+        title = self._clean_title(payload["title"].strip(), script.title)
         primary_keyword = self._clean_ascii_text(payload.get("primary_keyword", script.primary_keyword).strip())
         return SeoPackage(
             title=title,
@@ -159,6 +162,24 @@ class SeoGenerator:
     def _clean_ascii_text(value: str) -> str:
         return "".join(char for char in value if ord(char) < 128).strip()
 
+    @classmethod
+    def _clean_title(cls, value: str, fallback: str) -> str:
+        cleaned = cls._clean_ascii_text(re.sub(r"\b\d{8,}\b", "", value))
+        cleaned = re.sub(r"\s+", " ", cleaned).strip(" -_")
+        if len(cleaned) < 12:
+            cleaned = cls._clean_ascii_text(re.sub(r"\b\d{8,}\b", "", fallback))
+        return cleaned[:48]
+
+    @staticmethod
+    def _compress_short_description(value: str) -> str:
+        compact = re.sub(r"\s+", " ", value).strip()
+        if len(compact) <= 100:
+            return compact
+        cut = compact[:100].rstrip(" ,.-_")
+        if " " in cut:
+            cut = cut.rsplit(" ", 1)[0]
+        return cut
+
     def _fallback_title(self, script: VideoScript, content_style: str, language_code: str) -> str:
         keyword = self._clean_ascii_text(script.primary_keyword or script.title)
         if content_style == "yoga":
@@ -231,19 +252,19 @@ class SeoGenerator:
         style_tags = {
             "yoga": [
                 "#shorts", "#ytshorts", "#DailyFitX", "#yoga",
-                "#yogashorts", "#stressrelief", "#morningyoga", lang_tag,
+                "#stressrelief", "#morningyoga", "#yogaflow", lang_tag,
             ],
             "fat_loss": [
                 "#shorts", "#ytshorts", "#DailyFitX", "#fatloss",
-                "#weightloss", "#fatlosstips", "#fitness", lang_tag,
+                "#weightloss", "#fatlosstips", "#bellyfat", lang_tag,
             ],
             "strength": [
                 "#shorts", "#ytshorts", "#DailyFitX", "#gym",
-                "#musclebuilding", "#strengthtraining", "#gymtips", lang_tag,
+                "#musclebuilding", "#strengthtraining", "#workouttips", lang_tag,
             ],
             "fitness": [
                 "#shorts", "#ytshorts", "#DailyFitX", "#fitness",
-                "#workout", "#gymlife", "#fitnessmotivation", lang_tag,
+                "#workouttips", "#viralshorts", "#fitnessmotivation", lang_tag,
             ],
         }
         return style_tags.get(content_style, style_tags["fitness"])
