@@ -76,9 +76,7 @@ def run_pipeline(
     use_pexels: bool = False,
 ) -> list[dict]:
     config = get_config()
-    # Only force Pexels when the CLI flag is explicitly passed.
-    # This keeps standard Shorts on local assets as described in the cheatsheet.
-    config.use_pexels_for_shorts = use_pexels
+    config.use_pexels_for_shorts = use_pexels or bool(config.pexels_api_key)
     total_count = short_count + long_count
     if total_count < 1 or total_count > 30:
         raise ValueError("Total video count must be between 1 and 30.")

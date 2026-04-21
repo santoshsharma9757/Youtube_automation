@@ -4215,5 +4215,277 @@
     "created_at": "2026-04-20T20:31:21.680438+00:00",
     "scheduled_time": "2026-04-26T00:30:00Z",
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Workout Fail Moments: Hasi Aur Fitness! 😂",
+    "idea": {
+      "idea_id": "4d0c9eb5-1ce3-4a16-ac79-867d861b94aa",
+      "title": "Workout Fail Moments: Hasi Aur Fitness! 😂",
+      "angle": "Fun take on workout fails",
+      "hook": "Workout galtiyan hamesha funny hoti hain!",
+      "topic": "motivation",
+      "audience_value": "Humor to motivate and create a relatable fitness community.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-21T16:43:31.337897+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Workout Fail Moments: Hasi Aur Fitness!",
+      "overlay_text": "Workout Fail Hansi Ka Cure!",
+      "hook": "Workout galtiyan hamesha funny hoti hain! Lekin kya yeh aapko rok nahi sakta?",
+      "problem": "Har koi kabhi na kabhi workout karte waqt fail hota hai. Koi girta hai, koi weights girate hain. Aur pura gym hansi se bhar jata hai! Lekin yeh galtiyan aapka focus tod deti hain.",
+      "insight": "Jab aapko samajh aata hai ki yeh failures sirf ajeeb nahi, balki aapko seekhne ka mauka dete hain, tab aapka mindset badal jata hai. Hasi ke saath discipline hona chahiye!",
+      "solution": "Isko samajhne ke liye, next time jab aap fall karein, ya weights giraye, use ek signal samjhen. Yeh sirf ek part hai aapke journey ka. Focus karein! Strength banate rahiye, kyunki consistency se hi aap behter hote hain.",
+      "cta": "Ab bas, hasi ke saath workout shuru karo aur fail hone se mat ghabrao! Apne workout fails ko share karo aur ek naye community ka hissa bano!",
+      "full_script": "Workout galtiyan hamesha funny hoti hain! Lekin kya yeh aapko rok nahi sakta? Har koi kabhi na kabhi workout karte waqt fail hota hai. Koi girta hai, koi weights girate hain. Aur pura gym hansi se bhar jata hai! Lekin yeh galtiyan aapka focus tod deti hain. Jab aapko samajh aata hai ki yeh failures sirf ajeeb nahi, balki aapko seekhne ka mauka dete hain, tab aapka mindset badal jata hai. Hasi ke saath discipline hona chahiye! Isko samajhne ke liye, next time jab aap fall karein, ya weights giraye, use ek signal samjhen. Yeh sirf ek part hai aapke journey ka. Focus karein! Strength banate rahiye, kyunki consistency se hi aap behter hote hain. Ab bas, hasi ke saath workout shuru karo aur fail hone se mat ghabrao! Apne workout fails ko share karo aur ek naye community ka hissa bano!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "fitness motivation",
+      "retention_note": "The opening hook taps into humor, making viewers relate instantly to their own gym experiences, creating an immediate connection and keeping them engaged.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Workout Galtiyan: Hansi Nahi, Seekhne Ka Mauka!",
+      "description": "Workout mauke hi mauke hain! Galtiyaan aapko aur mazboot bana sakti hain. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #viralshorts #gymhumor #workoutfails #strengthtraining #lifestyle",
+      "tags": [
+        "fitness motivation",
+        "workout fails",
+        "gym humor",
+        "strength training",
+        "fitness journey",
+        "funny gym moments",
+        "consistency in fitness",
+        "workout discipline",
+        "discipline motivation hindi",
+        "mindset motivation shorts",
+        "self improvement hindi",
+        "consistency motivation",
+        "how to stay disciplined",
+        "fitness motivation hindi",
+        "fitness motivation for beginne"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fitnessmotivation",
+        "#viralshorts",
+        "#gymhumor",
+        "#workoutfails",
+        "#strengthtraining",
+        "#lifestyle"
+      ],
+      "primary_keyword": "fitness motivation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260421_164331_workout-fail-moments-hasi-aur-fitness.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260421_164331_workout-fail-moments-hasi-aur-fitness.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260421_164331_workout-fail-moments-hasi-aur-fitness.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260421_164331_workout-fail-moments-hasi-aur-fitness.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "2fMPVWsEW8TrrA5HfZMit20dQUc",
+      "id": "JY5pUv4cp48",
+      "snippet": {
+        "publishedAt": "2026-04-21T17:13:44Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Workout Galtiyan: Hansi Nahi, Seekhne Ka Mauka!",
+        "description": "Workout mauke hi mauke hain! Galtiyaan aapko aur mazboot bana sakti hain. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #viralshorts #gymhumor #workoutfails #strengthtraining #lifestyle",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/JY5pUv4cp48/default.jpg?sqp=COjens8G&rs=AOn4CLB5RF64_caq3WEdvsKFO1SJ4S7wiQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/JY5pUv4cp48/mqdefault.jpg?sqp=COjens8G&rs=AOn4CLC9gteivnvbO0Vv7uUWmSbSVvlhxQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/JY5pUv4cp48/hqdefault.jpg?sqp=COjens8G&rs=AOn4CLBCXyxQd_B_8M4miiod8fCMU1Ohfw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "consistency in fitness",
+          "consistency motivation",
+          "discipline motivation hindi",
+          "fitness journey",
+          "fitness motivation",
+          "fitness motivation for beginne",
+          "fitness motivation hindi",
+          "funny gym moments",
+          "gym humor",
+          "how to stay disciplined",
+          "mindset motivation shorts",
+          "self improvement hindi",
+          "strength training",
+          "workout discipline",
+          "workout fails"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Workout Galtiyan: Hansi Nahi, Seekhne Ka Mauka!",
+          "description": "Workout mauke hi mauke hain! Galtiyaan aapko aur mazboot bana sakti hain. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #viralshorts #gymhumor #workoutfails #strengthtraining #lifestyle"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-26T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-21T16:57:28.549939+00:00",
+    "scheduled_time": "2026-04-26T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Suno Dhyan Se: Meditation Ka Sahi Tarika! 🎧",
+    "idea": {
+      "idea_id": "b78ead1a-4ab3-4415-b121-2b95a7afa4c5",
+      "title": "Suno Dhyan Se: Meditation Ka Sahi Tarika! 🎧",
+      "angle": "Guidance on effective meditation practices",
+      "hook": "Meditation ki duniya mein kadam rakho!",
+      "topic": "meditation",
+      "audience_value": "Provide insight into accessible meditation techniques.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-21T16:43:31.338056+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Suno Dhyan Se: Meditation Ka Sahi Tarika!",
+      "overlay_text": "Meditation ka aasaan tareeka",
+      "hook": "Meditation ki duniya mein kadam rakho!",
+      "problem": "Jab stress badhta hai, tab dimaag bhatak jata hai. Kabhi focus nahi hota, sahaj mindfulness bhi mushkil hota hai.",
+      "insight": "Lekin, ek sahi technique se aap apne vicharo ko sambhal sakte ho. Sirf 5 minute ki sahi practice se aapka stress door ho sakta hai.",
+      "solution": "Bas, ek shant jagah par baitho. Apne saans par focus karo, inhale karo 4 seconds tak, phir 4 seconds hold karo, aur exhale karo 6 seconds tak. Is flow se aapka body aur mind balance hota hai.",
+      "cta": "Aaj se is technique ko apna kar apni life me shanti layein. Like aur share karein agar aapko yeh pasand aaye!",
+      "full_script": "Meditation ki duniya mein kadam rakho! Jab stress badhta hai, tab dimaag bhatak jata hai. Kabhi focus nahi hota, sahaj mindfulness bhi mushkil hota hai. Lekin, ek sahi technique se aap apne vicharo ko sambhal sakte ho. Sirf 5 minute ki sahi practice se aapka stress door ho sakta hai. Bas, ek shant jagah par baitho. Apne saans par focus karo, inhale karo 4 seconds tak, phir 4 seconds hold karo, aur exhale karo 6 seconds tak. Is flow se aapka body aur mind balance hota hai. Aaj se is technique ko apna kar apni life me shanti layein. Like aur share karein agar aapko yeh pasand aaye!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "meditation techniques",
+      "retention_note": "Opening line builds instant curiosity about meditation benefits, prompting viewers to stay for actionable techniques.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Meditation Ka Magic: 5 Minute Stress Relief!",
+      "description": "Stress ko bhagao, sirf 5 minute mein shanti pao! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #viralshorts #motivation #meditation #stressrelief #mindfulness #mentalhealth",
+      "tags": [
+        "meditation techniques",
+        "stress relief techniques",
+        "mindfulness practice",
+        "how to meditate",
+        "meditation for beginners",
+        "improve focus",
+        "mental health tips",
+        "best meditation methods",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "meditation techniques hindi",
+        "meditation techniques for begi"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#viralshorts",
+        "#motivation",
+        "#meditation",
+        "#stressrelief",
+        "#mindfulness",
+        "#mentalhealth"
+      ],
+      "primary_keyword": "meditation techniques",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "motivation"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260421_165728_suno-dhyan-se-meditation-ka-sahi-tarika.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260421_165728_suno-dhyan-se-meditation-ka-sahi-tarika.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260421_165728_suno-dhyan-se-meditation-ka-sahi-tarika.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260421_165728_suno-dhyan-se-meditation-ka-sahi-tarika.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "LOElArIrTXQdysnPTqQIOepIe04",
+      "id": "RllDc0ZJ81o",
+      "snippet": {
+        "publishedAt": "2026-04-21T17:14:19Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Meditation Ka Magic: 5 Minute Stress Relief!",
+        "description": "Stress ko bhagao, sirf 5 minute mein shanti pao! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #viralshorts #motivation #meditation #stressrelief #mindfulness #mentalhealth",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/RllDc0ZJ81o/default.jpg?sqp=COjens8G&rs=AOn4CLCoSlZZtbJ7cpHmhARxOxZM_IWP9A",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/RllDc0ZJ81o/mqdefault.jpg?sqp=COjens8G&rs=AOn4CLDpVGJOi-PlGeDovizBNlPp_1nUew",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/RllDc0ZJ81o/hqdefault.jpg?sqp=COjens8G&rs=AOn4CLCHerjIN19D1tdxVplskq9t4On6MQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "best meditation methods",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fitness tips for beginners ind",
+          "how to meditate",
+          "how to stay consistent gym",
+          "improve focus",
+          "meditation for beginners",
+          "meditation techniques",
+          "meditation techniques for begi",
+          "meditation techniques hindi",
+          "mental health tips",
+          "mindfulness practice",
+          "stress relief techniques",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Meditation Ka Magic: 5 Minute Stress Relief!",
+          "description": "Stress ko bhagao, sirf 5 minute mein shanti pao! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #viralshorts #motivation #meditation #stressrelief #mindfulness #mentalhealth"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-27T00:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-21T17:12:28.302526+00:00",
+    "scheduled_time": "2026-04-27T00:30:00Z",
+    "local_video_deleted": true
   }
 ]

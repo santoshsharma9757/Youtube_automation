@@ -84,21 +84,6 @@ class SeoGenerator:
         if hashtag_text.lower() not in description.lower():
             description = f"{description}\n\n{hashtag_text}"
         title = self._clean_title(payload["title"].strip(), script.title)
-        if not is_long:
-            # Append 1-2 viral hashtags to the title for Shorts Feed boost
-            # Prioritize #shorts and the first niche-specific one
-            title_hashtags = ["#shorts"]
-            niche_hashtags = [
-                h for h in hashtags 
-                if h.lower() not in {"#shorts", "#ytshorts", "#dailyfitx", "#viralshorts"}
-            ]
-            if niche_hashtags:
-                title_hashtags.append(niche_hashtags[0])
-            
-            suffix = " ".join(title_hashtags)
-            if len(title) + len(suffix) + 1 <= 95:
-                title = f"{title} {suffix}"
-
         primary_keyword = self._clean_ascii_text(payload.get("primary_keyword", script.primary_keyword).strip())
         return SeoPackage(
             title=title,
