@@ -4487,5 +4487,139 @@
     "created_at": "2026-04-21T17:12:28.302526+00:00",
     "scheduled_time": "2026-04-27T00:30:00Z",
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Calisthenics Se Badhao Strength Aur Flexibility!🔥💪",
+    "idea": {
+      "idea_id": "cdc648a9-c45b-417f-9604-6459d0328fe4",
+      "title": "Calisthenics Se Badhao Strength Aur Flexibility!🔥💪",
+      "angle": "Using bodyweight to enhance fitness",
+      "hook": "Apne weight se banao body ka powerhouse!",
+      "topic": "Calisthenics, Strength",
+      "audience_value": "Building strength without equipment",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-04-21T18:03:58.486212+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Calisthenics Se Badhao Strength Aur Flexibility!",
+      "overlay_text": "Result chahiye toh dekho",
+      "hook": "Apne weight se banao body ka powerhouse!",
+      "problem": "Most people chase heavy weight before they earn control, tension, and recovery.",
+      "insight": "Strength and size grow faster when technique, overload, and sleep work together.",
+      "solution": "Master a few big lifts, track reps honestly, and use building strength without equipment as the result of better execution.",
+      "cta": "Follow DailyFitX and build discipline that shows in your body and mind.",
+      "full_script": "Apne weight se banao body ka powerhouse! Most people chase heavy weight before they earn control, tension, and recovery. Strength and size grow faster when technique, overload, and sleep work together. Master a few big lifts, track reps honestly, and use building strength without equipment as the result of better execution. Follow DailyFitX and build discipline that shows in your body and mind. Most people chase results, but champions chase systems. If you master calisthenics, strength with patience, intensity, and repetition, your confidence changes first and your physique follows next.",
+      "estimated_duration_seconds": 35,
+      "primary_keyword": "strength training motivation hindi",
+      "retention_note": "Pattern-interrupt hook, short punchy lines, and a concrete payoff support higher retention.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Strength Training Secrets for Real Results! #shorts #strengthtraining",
+      "description": "Transform your body through technique, not just weight! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #strengthtraining #calisthenics #fitnessmotivation #gymshorts #viralshorts #buildingstrength",
+      "tags": [
+        "strength training motivation h",
+        "body transformation tips",
+        "calisthenics workout",
+        "gym techniques for size",
+        "increase strength without weig",
+        "building discipline in fitness",
+        "overload training methods",
+        "gym motivation",
+        "muscle building tips hindi",
+        "gym workout for beginners indi",
+        "how to build muscle at home",
+        "strength training hindi",
+        "gym motivation hindi",
+        "strength training motivation h",
+        "strength training motivation h"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#strengthtraining",
+        "#calisthenics",
+        "#fitnessmotivation",
+        "#gymshorts",
+        "#viralshorts",
+        "#buildingstrength"
+      ],
+      "primary_keyword": "strength training motivation hindi",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\youtube_videos\\output\\audio\\20260421_180358_calisthenics-se-badhao-strength-aur-flexibility.mp3",
+    "video_path": "D:\\youtube_videos\\output\\videos\\20260421_180358_calisthenics-se-badhao-strength-aur-flexibility.mp4",
+    "subtitle_srt": "D:\\youtube_videos\\output\\subtitles\\20260421_180358_calisthenics-se-badhao-strength-aur-flexibility.srt",
+    "subtitle_json": "D:\\youtube_videos\\output\\subtitles\\20260421_180358_calisthenics-se-badhao-strength-aur-flexibility.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "1b2ZZ_ZUu9qQdMca6yDzitwUxj8",
+      "id": "c1yU7Oqvcqw",
+      "snippet": {
+        "publishedAt": "2026-04-21T18:19:24Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Strength Training Secrets for Real Results! #shorts #strengthtraining",
+        "description": "Transform your body through technique, not just weight! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #strengthtraining #calisthenics #fitnessmotivation #gymshorts #viralshorts #buildingstrength",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/c1yU7Oqvcqw/default.jpg?sqp=CKT9ns8G&rs=AOn4CLBilot2phT2QgCKRliX6ytJjxeG1w",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/c1yU7Oqvcqw/mqdefault.jpg?sqp=CKT9ns8G&rs=AOn4CLAgoZjAEdfIDQZ-qpYhuggNd2zgVw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/c1yU7Oqvcqw/hqdefault.jpg?sqp=CKT9ns8G&rs=AOn4CLBMU1awfSAG2eD4k0EzFsR5CtZ8kQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "body transformation tips",
+          "building discipline in fitness",
+          "calisthenics workout",
+          "gym motivation",
+          "gym motivation hindi",
+          "gym techniques for size",
+          "gym workout for beginners indi",
+          "how to build muscle at home",
+          "increase strength without weig",
+          "muscle building tips hindi",
+          "overload training methods",
+          "strength training hindi",
+          "strength training motivation h"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Strength Training Secrets for Real Results! #shorts #strengthtraining",
+          "description": "Transform your body through technique, not just weight! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #strengthtraining #calisthenics #fitnessmotivation #gymshorts #viralshorts #buildingstrength"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-04-27T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-04-21T18:14:20.919851+00:00",
+    "scheduled_time": "2026-04-27T14:30:00Z",
+    "local_video_deleted": true
   }
 ]
