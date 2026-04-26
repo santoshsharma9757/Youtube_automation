@@ -234,9 +234,9 @@ class IdeaGenerator:
         engagement = (like_count * 4) + (comment_count * 10)
         title_blob = f"{title.lower()} {query.lower()}"
         hook_bonus = 0
-        if any(term in title_blob for term in ("why", "how", "mistake", "truth", "best", "vs", "sahi", "galat", "reset", "challenge")):
+        if any(term in title_blob for term in ("why", "how", "mistake", "truth", "best", "vs", "sahi", "galat", "reset", "challenge", "diet", "healthy")):
             hook_bonus += 250
-        if any(term in title_blob for term in ("walking yoga", "breath", "pranayama", "5 minute", "2 minute", "protein", "fasted", "plateau")):
+        if any(term in title_blob for term in ("walking yoga", "breath", "pranayama", "5 minute", "2 minute", "protein", "fasted", "plateau", "gut health", "bloating", "intermittent")):
             hook_bonus += 350
         return float(velocity + engagement + hook_bonus)
 
@@ -346,7 +346,10 @@ class IdeaGenerator:
             "yoga shorts india",
             "meditation shorts",
             "motivation shorts workout",
-            "breathwork shorts",
+            "diet shorts india",
+            "weight loss diet shorts",
+            "gut health shorts",
+            "indian protein sources shorts",
             "home workout shorts",
             "fat loss shorts india",
             "walking yoga",

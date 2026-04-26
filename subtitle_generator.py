@@ -53,8 +53,9 @@ class SubtitleGenerator:
         text = script.full_script if script else "Discipline is doing what needs to be done, even when you don't feel like it."
         words = text.split()
         segments = []
-        words_per_segment = max(2, len(words) // (int(duration) // 2 or 1))
-        duration_per_segment = max(duration / (len(words) / words_per_segment or 1), 0.5)
+        # Limit to 3-5 words per segment as requested for better engagement
+        words_per_segment = 4 
+        duration_per_segment = max(duration / (len(words) / words_per_segment or 1), 0.8)
         
         for i in range(0, len(words), words_per_segment):
             chunk = " ".join(words[i : i + words_per_segment])

@@ -22,11 +22,11 @@ def cleanup_local_video(video_path: Path, record: dict) -> None:
 
 def build_daily_slots(videos_per_day: int) -> list[int]:
     if videos_per_day <= 1:
-        return [12]
+        return [13] # Midday is best for single daily videos
     if videos_per_day == 2:
-        return [6, 20]  # 6 AM and 8 PM IST — peak Indian fitness audience slots
+        return [7, 19]  # 7 AM and 7 PM IST — peak Indian audience
     if videos_per_day == 3:
-        return [8, 14, 20]
+        return [7, 13, 20] # Morning, Midday, and Night
     step = max(1, 12 // max(videos_per_day - 1, 1))
     start = 8
     slots = []

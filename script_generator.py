@@ -71,19 +71,22 @@ class ScriptGenerator:
             - Hook must create INSTANT curiosity in the first 2 seconds and completely avoid generic greetings
             - overlay_text must be 3 to 7 words, ultra-clear, and look natural as small top-screen text on a Short
             - Make sure the script is A-grade content: highly attractive, deeply engaging, and incredibly helpful to the viewer
+            - Use "Curiosity Loops": open a question in the hook and promise the answer in the solution
+            - Use "Pattern Interrupts": change the tone or angle every 10-15 words to keep the brain engaged
             - The solution MUST provide highly specific, actionable, and life-improving value. Provide real fixes to their struggles.
             - Provide a practical action plan or a hidden insight that gives the viewer an immediate "aha!" moment
             - Emphasize scientifically-backed or logical real-world facts (e.g., exact physiological changes, proven methods)
             - Make the script feel like a high-value masterclass compressed into a flowing story: pain, mechanism, exact fix, result.
             - NO vague "you can do it" motivational fluff. Give them real utility they can apply right now.
             - Avoid fake timelines, miracle claims, and medical promises
-            - Use short spoken lines with emotional rhythm for TTS and subtitles
+            - Use short, punchy spoken lines with high-energy emotional rhythm for TTS and subtitles
+            - Use "Hook -> Context -> Problem -> Secret Insight -> Actionable Solution -> High-Energy CTA" flow
             - Avoid filler like 'in this video' or 'let me tell you'
             - Use only Roman script written with normal English letters
             - Do not use Devanagari, Hindi script, emojis, or special symbols
             - Hindi lines must be Roman Hindi only, mixed naturally with English
-            - CTA must be action-driven and feel native to Shorts
-            - Use one high-intent search keyword for fitness, yoga, or motivation
+            - CTA must be action-driven, urgent, and feel native to Shorts (e.g., "Ruk mat, start kar aaj se!")
+            - Use one high-intent search keyword for fitness, yoga, diet, or health
             - Retention note should briefly explain why the opening should hold attention
             - Output should sound credible, sharp, and genuinely helpful enough that viewers save it
             """
@@ -147,6 +150,16 @@ class ScriptGenerator:
                 f"Roz bas 10 mindful minutes do. Slow inhale, strong hold, clean posture. Fir {idea.audience_value.lower()} naturally dikhne lagta hai."
             )
             primary_keyword = "yoga motivation hindi"
+        elif "diet" in title_key or "food" in title_key or "khane" in title_key or "protein" in title_key:
+            problem = "Bahut log diet ko sirf kam khana samajhte hain, phir unki energy crash hoti hai aur cravings badhti hain."
+            insight = "Real weight loss tab hota hai jab aap calories kam karein par volume aur nutrients badha dein. Gut health is the secret."
+            solution = f"Apne khane mein protein aur fibers add karo. {idea.audience_value.lower()} se aapka metabolism aur digestion dono boost honge."
+            primary_keyword = "indian diet tips weight loss"
+        elif "health" in title_key or "bloating" in title_key or "sleep" in title_key:
+            problem = "Modern lifestyle mein hum bhool jate hain ki body ko basic care chahiye. Stress aur fatigue normal nahi hain."
+            insight = "Choti aadatein jaise sahi time pe sona aur gut health ka dhyan rakhna aapki life quality badal sakti hain."
+            solution = f"Roz bas yeh ek health shift follow karo. {idea.audience_value.lower()} se aap fit aur active feel karenge."
+            primary_keyword = "health tips hindi"
         elif "fat loss" in title_key or "cardio" in title_key:
             problem = "Most people attack fat loss with more suffering, then wonder why they rebound fast."
             insight = "The real issue is not effort. It is poor recovery, weak food structure, and random cardio."
@@ -209,7 +222,13 @@ class ScriptGenerator:
     def _determine_style(idea: VideoIdea) -> str:
         haystack = f"{idea.title} {idea.angle} {idea.topic} {idea.hook} {idea.audience_value}".lower()
         yoga_terms = {"yoga", "asana", "breath", "breathing", "mobility", "stretch", "meditation", "pranayam", "pranayama"}
-        return "yoga" if any(term in haystack for term in yoga_terms) else "fitness"
+        diet_terms = {"diet", "food", "khana", "protein", "calories", "fat loss", "weight loss", "sugar", "eating", "meal"}
+        health_terms = {"health", "gut", "digestion", "pachan", "bloating", "sleep", "fatigue", "energy", "skin"}
+        
+        if any(term in haystack for term in yoga_terms): return "yoga"
+        if any(term in haystack for term in diet_terms): return "diet"
+        if any(term in haystack for term in health_terms): return "health"
+        return "fitness"
 
     @staticmethod
     def _language_direction(style: str, language_preference: str) -> str:
@@ -225,6 +244,10 @@ class ScriptGenerator:
             return (
                 "The language should be Hindi-first Hinglish. Prefer simple spoken Hindi with a few natural English words like breath, balance, posture, focus, and flow."
             )
+        if style in ("diet", "health"):
+            return (
+                "The language should be helpful, expert-style Hinglish. Use natural Indian terms for food like 'dal', 'paneer', 'pachan' mixed with English terms like 'metabolism', 'nutrients', and 'cravings'."
+            )
         return (
             "The language should be Hinglish with short Hindi lines and some English punch words. Use phrases like 'ruk mat', 'discipline', 'focus', 'strength', and 'consistency' naturally."
         )
@@ -235,6 +258,14 @@ class ScriptGenerator:
             return (
                 "The tone must feel beautiful, soulful, and motivating. Calm power, inner healing, body awareness, and graceful discipline should come through."
             )
+        if style == "diet":
+            return (
+                "The tone must be informative, eye-opening, and practical. Use a 'did you know?' or 'secret revealed' style that makes the viewer feel smarter."
+            )
+        if style == "health":
+            return (
+                "The tone must be caring, scientific yet simple, and deeply helpful. Focus on long-term wellness and energy."
+            )
         return (
             "The tone must be intense, memorable, and highly shareable with a direct, no-excuses edge."
         )
@@ -244,6 +275,14 @@ class ScriptGenerator:
         if style == "yoga":
             return (
                 "Focus on one clear payoff like stress relief, posture improvement, body flexibility, emotional calm, or core strength."
+            )
+        if style == "diet":
+            return (
+                "Focus on one clear payoff like faster metabolism, easier weight loss, better digestion, or budget-friendly healthy eating."
+            )
+        if style == "health":
+            return (
+                "Focus on one clear payoff like deep sleep, clear skin, high energy, or better digestion."
             )
         return (
             "Focus on one clear payoff like fat loss, strength, confidence, better form, or discipline."

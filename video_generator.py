@@ -53,7 +53,7 @@ class VideoGenerator:
         if bg_music_path:
             LOGGER.info("Adding background music: %s", bg_music_path.name)
             try:
-                music_clip = AudioFileClip(str(bg_music_path)).with_volume_scaled(0.4)
+                music_clip = AudioFileClip(str(bg_music_path)).with_volume_scaled(0.2)
                 if music_clip.duration < audio_clip.duration:
                     import math
                     repeats = math.ceil(audio_clip.duration / max(music_clip.duration, 1.0))
@@ -72,7 +72,7 @@ class VideoGenerator:
         vid_w = 1920 if is_long else 1080
         vid_h = 1080 if is_long else 1920
 
-        final = CompositeVideoClip([background_clip, title_clip, *extra_clips, *subtitle_clips], size=(vid_w, vid_h))
+        final = CompositeVideoClip([background_clip, title_clip, *subtitle_clips], size=(vid_w, vid_h))
         final = final.with_audio(audio_clip)
 
         final.write_videofile(
@@ -186,6 +186,13 @@ class VideoGenerator:
                 if clip.w < vid_w:
                     clip = clip.resized(width=vid_w)
                 clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
+                
+                # Dynamic zoom for engagement
+                try:
+                    clip = clip.resized(lambda t: 1.0 + (0.02 * t))
+                except:
+                    pass
+                    
                 clips.append(clip)
             if len(clips) >= (4 if is_long else 2):
                 break
@@ -292,7 +299,8 @@ class VideoGenerator:
         vid_h = 1080 if is_long else 1920
 
         clips = []
-        slice_duration = max(duration / max(len(assets), 1), 3)
+        # Faster cuts (1.5-2.2s) increase retention for Shorts
+        slice_duration = max(duration / max(len(assets), 1), 1.8)
         for asset in assets:
             if asset.suffix.lower() in {".mp4", ".mov", ".mkv"}:
                 clip = VideoFileClip(str(asset))
@@ -303,6 +311,12 @@ class VideoGenerator:
             if clip.w < vid_w:
                 clip = clip.resized(width=vid_w)
             clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
+            
+            # Add a slow zoom-in effect (Ken Burns) for more dynamic visuals
+            try:
+                clip = clip.resized(lambda t: 1.0 + (0.02 * t))
+            except:
+                pass
             clips.append(clip.with_duration(slice_duration).crossfadein(0.2))
 
         combined = concatenate_videoclips(clips, method="compose")
@@ -310,59 +324,96 @@ class VideoGenerator:
 
     def _build_subtitle_clips(self, segments: list[dict], duration: float, script: VideoScript) -> list:
         subtitle_clips = []
-        keywords = {
-            "workout",
-            "gym",
-            "fitness",
-            "muscle",
-            "discipline",
-            "mindset",
-            "grind",
-            "power",
-            "strength",
-            "success",
-        }
         for segment in segments:
             text = segment.get("text", "").strip()
             if not text:
                 continue
-            color = "#facc15" if any(keyword in text for keyword in keywords) else "white"
+            
+            # Expanded viral keyword list for more dynamic highlighting
+            viral_keywords = {
+                "workout", "gym", "fitness", "muscle", "discipline", "mindset", "grind", 
+                "power", "strength", "success", "motivation", "beast", "hard", "work",
+                "stop", "fail", "win", "growth", "results", "believe", "impossible",
+                "routine", "secret", "truth", "money", "rich", "wealth", "healthy",
+            }
+            
+            color = "#facc15" if any(kw in text.lower() for kw in viral_keywords) else "white"
             is_romanized = self._is_romanized_script(script)
             is_long = getattr(script, 'video_type', 'short') == 'long'
-            clip = ImageClip(
-                self._render_text_card(
-                    text=text,
-                    width=1400 if is_long else 960,
-                    font_size=54 if is_romanized else 56,
-                    text_color=color,
-                    bg_color=(9, 15, 23, 185) if is_romanized else (7, 16, 31, 205),
-                    stroke_color="#05111f",
-                    stroke_width=2,
-                    padding=28,
-                )
-            )
-            clip = clip.with_start(segment["start"]).with_end(min(segment["end"], duration))
-            base_y = 1460 if is_romanized else 1380
-            if is_long:
-                base_y = 860 if is_romanized else 800
             
-            clip = clip.with_position(lambda t, base_y=base_y: ("center", base_y + max(0, int(40 - (t * 140)))))
+            # Create the text card
+            card = self._render_text_card(
+                text=text.upper(), # Uppercase is more impactful for viral videos
+                width=1400 if is_long else 960,
+                font_size=68 if is_romanized else 70, # Bold and large
+                text_color=color,
+                bg_color=(0, 0, 0, 0),
+                stroke_color="#000000",
+                stroke_width=5, # Heavier stroke for impact
+                padding=10,
+            )
+            
+            clip = ImageClip(card)
+            duration_seg = min(segment["end"], duration) - segment["start"]
+            clip = clip.with_start(segment["start"]).with_duration(duration_seg)
+            
+            # Positioning
+            # Move subtitles to a balanced spot: above the bottom but strictly below the middle (middle is 960)
+            base_y = 1200 if is_romanized else 1150
+            if is_long:
+                base_y = 750 if is_romanized else 700
+            
+            # 1. Rising Animation
+            # 2. Pop-in Scaling Animation (Dynamic resize from 0.8 to 1.0 in first 0.15s)
+            def anim(t):
+                # Vertical position rise
+                y = base_y + max(0, int(30 - (t * 150)))
+                return ("center", y)
+            
+            def scale_anim(t):
+                if t < 0.12:
+                    return 0.8 + (t * 1.66) # 0.8 -> 1.0
+                return 1.0
+            
+            clip = clip.with_position(anim)
+            # MoviePy 2.x uses resize differently, applying it as a transformation
+            try:
+                clip = clip.transformed_by_time(lambda img, t: clip.get_frame(t), apply_to=[]) # Placeholder for complex transforms if needed
+                # For simplicity in MoviePy 2.0 with the current setup:
+                clip = clip.resized(lambda t: scale_anim(t))
+            except:
+                pass # Fallback to static if dynamic resize fails
+                
             subtitle_clips.append(clip)
         return subtitle_clips
 
     def _build_title_clip(self, script: VideoScript, duration: float):
         title = (getattr(script, "overlay_text", "") or script.title).strip()
+        
+        # Extract emojis from the full title to preserve them
+        emojis = "".join(re.findall(r"[\U00010000-\U0010ffff\u2600-\u27ff]", title))
+        
+        # Limit top text to 3-5 words
+        title_words = [w for w in title.split() if not any(c in emojis for c in w)]
+        short_title = " ".join(title_words[:4])
+        
+        # Re-attach emojis (existing or fallback)
+        if not emojis:
+            emojis = "🔥💪" # Fallback viral emojis
+        
+        final_title = f"{short_title} {emojis}".strip()
+        
         is_long = getattr(script, "video_type", "short") == "long"
         title_text = ImageClip(
             self._render_text_card(
-                text=title,
+                text=final_title,
                 width=1100 if is_long else 760,
                 font_size=54 if is_long else 42,
                 text_color="#f8fafc",
-                bg_color=(15, 23, 42, 145),
-                stroke_color="#0f172a",
-                stroke_width=1,
-                padding=18,
+                bg_color=(0, 0, 0, 0),
+                stroke_color="#000000",
+                stroke_width=3,
+                padding=10,
             )
         )
         y_pos = 80 if is_long else 130
@@ -381,10 +432,10 @@ class VideoGenerator:
                     width=1200 if is_long else 820,
                     font_size=52 if beat["kind"] == "hook" else 46,
                     text_color=accent["text"],
-                    bg_color=beat["bg"],
-                    stroke_color=accent["stroke"],
-                    stroke_width=2,
-                    padding=26,
+                    bg_color=(0, 0, 0, 0),
+                    stroke_color="#000000",
+                    stroke_width=3,
+                    padding=10,
                 )
             )
             card = (
@@ -584,7 +635,8 @@ class VideoGenerator:
         height = int(bbox[3] - bbox[1] + padding * 2)
         image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image, "RGBA")
-        draw.rounded_rectangle((0, 0, width, height), radius=26, fill=bg_color)
+        if bg_color and bg_color[3] > 0:
+            draw.rounded_rectangle((0, 0, width, height), radius=26, fill=bg_color)
         draw.multiline_text(
             (width / 2, padding),
             wrapped,

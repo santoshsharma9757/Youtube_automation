@@ -24,6 +24,15 @@ def start_scheduler(config: AppConfig) -> None:
         replace_existing=True,
     )
 
+    # Midday Peak: 1:00 PM (13:00)
+    scheduler.add_job(
+        func=lambda: run_pipeline(video_count=config.daily_video_count, upload=config.upload_enabled),
+        trigger=CronTrigger(hour=13, minute=0),
+        id="midday_shorts_pipeline",
+        max_instances=1,
+        replace_existing=True,
+    )
+
     # Evening Peak: 7:00 PM (19:00)
     scheduler.add_job(
         func=lambda: run_pipeline(video_count=config.daily_video_count, upload=config.upload_enabled),

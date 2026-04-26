@@ -14,7 +14,11 @@ from seo_generator import SeoPackage
 
 
 LOGGER = logging.getLogger(__name__)
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+SCOPES = [
+    "https://www.googleapis.com/auth/youtube.upload",
+    "https://www.googleapis.com/auth/youtube.force-ssl",
+    "https://www.googleapis.com/auth/youtube"
+]
 
 
 class YouTubeUploader:
@@ -37,24 +41,43 @@ class YouTubeUploader:
         if publish_at:
             status_body["publishAt"] = publish_at
 
-        request = youtube.videos().insert(
-            part="snippet,status",
-            body={
-                "snippet": {
-                    "title": seo.title,
-                    "description": seo.description,
-                    "tags": seo.tags,
-                    "categoryId": self.config.youtube_category_id,
-                    "defaultLanguage": seo.language_code,
-                    "defaultAudioLanguage": seo.audio_language_code,
-                },
-                "status": status_body,
+        body = {
+            "snippet": {
+                "title": seo.title,
+                "description": seo.description,
+                "tags": seo.tags,
+                "categoryId": self.config.youtube_category_id,
+                "defaultLanguage": seo.language_code,
+                "defaultAudioLanguage": seo.audio_language_code,
             },
-            media_body=MediaFileUpload(str(video_path), chunksize=-1, resumable=True),
-        )
-        response = None
-        while response is None:
-            _, response = request.next_chunk()
+            "status": status_body,
+        }
+
+        # Attempt to enable monetization if the user is a partner
+        # We try this first; if it fails with 403, we fall back to a standard upload
+        try:
+            request = youtube.videos().insert(
+                part="snippet,status,monetizationDetails",
+                body={**body, "monetizationDetails": {"access": {"monetization": "true"}}},
+                media_body=MediaFileUpload(str(video_path), chunksize=-1, resumable=True),
+            )
+            response = None
+            while response is None:
+                _, response = request.next_chunk()
+        except Exception as e:
+            if "forbidden" in str(e).lower() or "403" in str(e):
+                LOGGER.warning("Monetization access denied (channel might not be a Partner). Falling back to standard upload.")
+                request = youtube.videos().insert(
+                    part="snippet,status",
+                    body=body,
+                    media_body=MediaFileUpload(str(video_path), chunksize=-1, resumable=True),
+                )
+                response = None
+                while response is None:
+                    _, response = request.next_chunk()
+            else:
+                raise e
+
         LOGGER.info("Upload complete with video id %s", response["id"])
         return response
 

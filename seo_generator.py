@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import random
 import re
 from dataclasses import dataclass
 from typing import List
@@ -49,15 +50,15 @@ class SeoGenerator:
             f"You are creating metadata for a {video_format_type}. "
             f"Your strict goal is to completely maximize virality and optimize for {discovery_focus}. "
             "Return strict JSON with keys title, description, tags, hashtags, primary_keyword. "
-            "Title should be under 52 characters, easy to read in one glance, and feel emotionally punchy without sounding fake. "
-            + ("Description for this SHORT: write 2 very short lines, under 140 characters before hashtags. Start with the payoff. End with: Save this or Follow DailyFitX. No filler. "
+            + "Title should be under 52 characters, easy to read in one glance, include 1-2 relevant emojis (like 🔥, 💪), and feel emotionally punchy. "
+            + ("Description for this SHORT: write 2 very short lines, under 140 characters before hashtags. Start with the payoff and a relevant emoji. End with: Save this or Follow DailyFitX. No filler. "
                if not is_long else
                "Description should front-load the keyword, explain the viewer payoff in 2-3 sentences, and feel native to the long-form format. ")
             + "Tags should be exact phrases people search. Mix high-volume evergreen with specific niche phrases. No vanity tags. "
             + ("Hashtags: provide exactly 8. Must include #shorts and #ytshorts. Add topic-specific tags plus one broad discovery tag like #viralshorts or #motivationshorts when relevant. "
                if not is_long else
                "Hashtags: provide exactly 5. Include brand, niche, and category tags. ")
-            + "Use only Roman script with normal English letters. "
+            + "Use normal English letters for text, but you MUST use emojis to increase CTR. "
             + "Do not use clickbait the script does not support. "
             + "Prefer title patterns that work in Shorts: truth bomb, warning, challenge, identity, emotional payoff, or strong curiosity."
             + "Prefer SEO that matches what viewers actually search to solve the problem the hook introduces."
@@ -95,6 +96,11 @@ class SeoGenerator:
             if niche_hashtags:
                 title_hashtags.append(niche_hashtags[0])
             
+            # Ensure at least one emoji if the AI didn't provide one
+            if not any(ord(c) > 127 for c in title):
+                emojis = ["🔥", "💪", "🚀", "😱", "✅", "⚠️"]
+                title = f"{title} {random.choice(emojis)}"
+
             suffix = " ".join(title_hashtags)
             if len(title) + len(suffix) + 1 <= 95:
                 title = f"{title} {suffix}"
