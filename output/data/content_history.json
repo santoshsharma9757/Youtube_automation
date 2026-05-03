@@ -6106,5 +6106,1357 @@
     "created_at": "2026-04-26T08:36:22.373014+00:00",
     "scheduled_time": "2026-05-03T01:30:00Z",
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Transform Your Body in 30 Days: My Journey! 📆💪",
+    "idea": {
+      "idea_id": "185f7964-aec2-4549-a303-9ce3f6c90375",
+      "title": "Transform Your Body in 30 Days: My Journey! 📆💪",
+      "angle": "Transformation Story + Motivation",
+      "hook": "30 din, ek nai zindagi - kya aap hausla rakhte hain?",
+      "topic": "Fitness Transformation",
+      "audience_value": "Individuals inspired by real transformation stories.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-01T18:20:20.154884+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Transform Your Body in 30 Days: My Journey!",
+      "overlay_text": "30 din ek nai zindagi",
+      "hook": "30 din, ek nai zindagi - kya aap hausla rakhte hain?",
+      "problem": "Kayi logon ko fat loss mein mushkil hoti hai. Akele gym jana ya diet follow karna tedious lagta hai.",
+      "insight": "Lekin, kya aap jante hain, sirf 30 din ka discipline aur focus aapko woh transformation de sakta hai?",
+      "solution": "Yeh hai mera formula: rozana 30 minutes ki workout, strength training ke saath, aur clean diet. Consistency se aap apne fat ko burn kar sakte hain, aur body ko sculpt karne mein madad milegi. Plus, tracking se aap apne progress ko dekh sakte hain - jo motivation badhata hai!",
+      "cta": "Ruk mat, start kar aaj se! Aapka transformation aapki haath mein hai!",
+      "full_script": "30 din, ek nai zindagi - kya aap hausla rakhte hain? Kayi logon ko fat loss mein mushkil hoti hai. Akele gym jana ya diet follow karna tedious lagta hai. Lekin, kya aap jante hain, sirf 30 din ka discipline aur focus aapko woh transformation de sakta hai? Yeh hai mera formula: rozana 30 minutes ki workout, strength training ke saath, aur clean diet. Consistency se aap apne fat ko burn kar sakte hain, aur body ko sculpt karne mein madad milegi. Plus, tracking se aap apne progress ko dekh sakte hain - jo motivation badhata hai! Ruk mat, start kar aaj se! Aapka transformation aapki haath mein hai!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "fat loss",
+      "retention_note": "Opening grabs attention by posing a direct challenge, compelling viewers to consider their potential for change.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "30 Din, Badlo Apni Zindagi! ⚠️ #shorts #fatloss",
+      "description": "Transform apne body ko sirf 30 din mein! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fatloss #fitnessmotivation #30daychallenge #weightlossjourney #gym #viralshorts",
+      "tags": [
+        "fat loss",
+        "weight loss journey",
+        "fitness motivation",
+        "30 day challenge",
+        "gym workout tips",
+        "healthy diet plan",
+        "consistency in fitness",
+        "strength training",
+        "fat loss tips hindi",
+        "belly fat reduce kaise karein",
+        "weight loss diet india",
+        "fat loss for beginners india",
+        "how to lose fat fast hindi",
+        "fat loss hindi",
+        "fat loss for beginners"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fatloss",
+        "#fitnessmotivation",
+        "#30daychallenge",
+        "#weightlossjourney",
+        "#gym",
+        "#viralshorts"
+      ],
+      "primary_keyword": "fat loss",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260501_182020_transform-your-body-in-30-days-my-journey.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260501_182020_transform-your-body-in-30-days-my-journey.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260501_182020_transform-your-body-in-30-days-my-journey.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260501_182020_transform-your-body-in-30-days-my-journey.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "R9EQgkKA1SIc2AcfgEeGzM8rrxQ",
+      "id": "slHKJz3w-zw",
+      "snippet": {
+        "publishedAt": "2026-05-01T19:16:00Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "30 Din, Badlo Apni Zindagi! ⚠️ #shorts #fatloss",
+        "description": "Transform apne body ko sirf 30 din mein! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fatloss #fitnessmotivation #30daychallenge #weightlossjourney #gym #viralshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/slHKJz3w-zw/default.jpg?sqp=CLT3088G&rs=AOn4CLBSks99CqOmS1tlGC-5Jkqf6hx8HQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/slHKJz3w-zw/mqdefault.jpg?sqp=CLT3088G&rs=AOn4CLDCIEvJ99qttRMrJhpgKcld5vFxIw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/slHKJz3w-zw/hqdefault.jpg?sqp=CLT3088G&rs=AOn4CLCeOHWKTlcX3X-rMWBUmjuDTVP0oQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "30 day challenge",
+          "belly fat reduce kaise karein",
+          "consistency in fitness",
+          "fat loss",
+          "fat loss for beginners",
+          "fat loss for beginners india",
+          "fat loss hindi",
+          "fat loss tips hindi",
+          "fitness motivation",
+          "gym workout tips",
+          "healthy diet plan",
+          "how to lose fat fast hindi",
+          "strength training",
+          "weight loss diet india",
+          "weight loss journey"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "30 Din, Badlo Apni Zindagi! ⚠️ #shorts #fatloss",
+          "description": "Transform apne body ko sirf 30 din mein! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fatloss #fitnessmotivation #30daychallenge #weightlossjourney #gym #viralshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-03T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-01T18:33:58.051869+00:00",
+    "scheduled_time": "2026-05-03T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Healthy Snacks for Weight Loss: Quick Recipes! 🍏💚",
+    "idea": {
+      "idea_id": "d05739b9-6db2-4757-9a75-2fbea0100822",
+      "title": "Healthy Snacks for Weight Loss: Quick Recipes! 🍏💚",
+      "angle": "Healthy Eating + Quick Recipes",
+      "hook": "Swaad bhi, sehat bhi - quick snacks banao!",
+      "topic": "Healthy Snacks",
+      "audience_value": "Health-conscious individuals looking for snack ideas.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-01T18:20:20.154960+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Healthy Snacks for Weight Loss: Quick Recipes!",
+      "overlay_text": "Swaad bhi sehat bhi!",
+      "hook": "Kya aapko pata hai aise snacks jo aapke cravings ko bhi control kar sakte hain?",
+      "problem": "Hum sabko snacks chahiye, par junk food se weight badh jaata hai. Yeh hai ek bada samasya!",
+      "insight": "Research kehti hai sahi snacks se aapka metabolism aasan ho sakta hai aur weight loss mein madad milti hai.",
+      "solution": "Toh, quick recipe lo: ek bowl mein curd, thoda chopped cucumber, aur chaat masala mix karo. Isse badmash cravings ko curb karte hue nutrients bhi milte hain. Ya phir, roasted chickpeas ko sprinkle karo thode spices ke saath. Protein aur fiber se bhara, yeh super healthy hai!",
+      "cta": "Ruk mat, in snacks ko try kar aaj se hi aur dekho kya hota hai!",
+      "full_script": "Kya aapko pata hai aise snacks jo aapke cravings ko bhi control kar sakte hain? Hum sabko snacks chahiye, par junk food se weight badh jaata hai. Yeh hai ek bada samasya! Research kehti hai sahi snacks se aapka metabolism aasan ho sakta hai aur weight loss mein madad milti hai. Toh, quick recipe lo: ek bowl mein curd, thoda chopped cucumber, aur chaat masala mix karo. Isse badmash cravings ko curb karte hue nutrients bhi milte hain. Ya phir, roasted chickpeas ko sprinkle karo thode spices ke saath. Protein aur fiber se bhara, yeh super healthy hai! Ruk mat, in snacks ko try kar aaj se hi aur dekho kya hota hai!",
+      "estimated_duration_seconds": 38,
+      "primary_keyword": "healthy snacks",
+      "retention_note": "Opening question grabs attention and connects cravings with healthy options, enticing viewers to stay for the solution.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Snack Se Weight Loss! 🚀 #shorts #healthysnacks",
+      "description": "Aapki cravings ka perfect jawab! Healthy snacks ke saath fit rehna sabse aasan! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #healthysnacks #fatloss #snacktime #motivation #viralshorts #fitness",
+      "tags": [
+        "healthy snacks",
+        "weight loss snacks",
+        "snack recipes",
+        "fat loss tips",
+        "curb cravings",
+        "quick snacks",
+        "fitness lifestyle",
+        "healthy eating",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "healthy snacks hindi",
+        "healthy snacks for beginners"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#healthysnacks",
+        "#fatloss",
+        "#snacktime",
+        "#motivation",
+        "#viralshorts",
+        "#fitness"
+      ],
+      "primary_keyword": "healthy snacks",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260501_183358_healthy-snacks-for-weight-loss-quick-recipes.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260501_183358_healthy-snacks-for-weight-loss-quick-recipes.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260501_183358_healthy-snacks-for-weight-loss-quick-recipes.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260501_183358_healthy-snacks-for-weight-loss-quick-recipes.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "3ivj5R7DVeN4W46GpIxM16QnR8k",
+      "id": "V2B7vzjBOBA",
+      "snippet": {
+        "publishedAt": "2026-05-01T19:16:10Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Snack Se Weight Loss! 🚀 #shorts #healthysnacks",
+        "description": "Aapki cravings ka perfect jawab! Healthy snacks ke saath fit rehna sabse aasan! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #healthysnacks #fatloss #snacktime #motivation #viralshorts #fitness",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/V2B7vzjBOBA/default.jpg?sqp=CLT3088G&rs=AOn4CLDbV1xTkxRjwxOkEU4hAqKFqJKoAw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/V2B7vzjBOBA/mqdefault.jpg?sqp=CLT3088G&rs=AOn4CLCKojnm5W8uTtygC8Cs0YKtURDlYQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/V2B7vzjBOBA/hqdefault.jpg?sqp=CLT3088G&rs=AOn4CLD95htjz3nDbzm7GEpregIf7s_Mog",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "curb cravings",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fat loss tips",
+          "fitness lifestyle",
+          "fitness tips for beginners ind",
+          "healthy eating",
+          "healthy snacks",
+          "healthy snacks for beginners",
+          "healthy snacks hindi",
+          "how to stay consistent gym",
+          "quick snacks",
+          "snack recipes",
+          "weight loss snacks",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Snack Se Weight Loss! 🚀 #shorts #healthysnacks",
+          "description": "Aapki cravings ka perfect jawab! Healthy snacks ke saath fit rehna sabse aasan! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #healthysnacks #fatloss #snacktime #motivation #viralshorts #fitness"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-04T01:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-01T18:47:47.218414+00:00",
+    "scheduled_time": "2026-05-04T01:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Motivational Monday: Take Charge of Your Fitness! 🚀💪",
+    "idea": {
+      "idea_id": "935ada13-40e5-47a4-b648-718dc53505f5",
+      "title": "Motivational Monday: Take Charge of Your Fitness! 🚀💪",
+      "angle": "Motivation + Weekly Goals",
+      "hook": "Naye sapne, naye goals - shuru karo aaj!",
+      "topic": "Motivation",
+      "audience_value": "People seeking a boost to kickstart their week.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-01T18:20:20.155015+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long"
+    },
+    "script": {
+      "title": "Motivational Monday: Take Charge of Your Fitness!",
+      "overlay_text": "Naye sapne naye goals!",
+      "hook": "Naye sapne, naye goals - shuru karo aaj! Kya tum tayaar ho?",
+      "problem": "Har Monday ek nai umeed hoti hai lekin kuch log wahi purana cycle chalu karte hain. Gym jaate nahi, diet follow nahi karte... aur phir sirf sapne dekhte reh jaate hain. Ruk mat! Yeh waqt hai action lene ka.",
+      "insight": "Kya tumne socha hai ke fitness ka asli raaz kya hai? Consistency! Research kehti hai ke jo log roz thoda thoda karte hain, unka muscle growth aur fat loss fast hota hai. Tumhara discipline hi tumhe yahaan se aage le jaa sakta hai!",
+      "solution": "Chalo, ek actionable plan banate hain. Subah, sirf 10 minute stretching karo. Aakhir, agar tum shuruaat nahi karoge, to kabhi nahi karoge. Uske baad, din mein sirf ek healthy meal add karo. Jis bhi phase mein ho, aaj se apne objectives likho - yeh cheezein tumhe track karne mein madad karengi. Focus karo, aur koi bhi distraction ko hata do. Remember, one step at a time!",
+      "cta": "Toh, kya tum tayaar ho action lene ke liye? Ruk mat, start kar aaj se! Apne friends ke saath share karo aur sabko motivate karo!",
+      "full_script": "Naye sapne, naye goals - shuru karo aaj! Kya tum tayaar ho? Har Monday ek nai umeed hoti hai lekin kuch log wahi purana cycle chalu karte hain. Gym jaate nahi, diet follow nahi karte... aur phir sirf sapne dekhte reh jaate hain. Ruk mat! Yeh waqt hai action lene ka. Kya tumne socha hai ke fitness ka asli raaz kya hai? Consistency! Research kehti hai ke jo log roz thoda thoda karte hain, unka muscle growth aur fat loss fast hota hai. Tumhara discipline hi tumhe yahaan se aage le jaa sakta hai! Chalo, ek actionable plan banate hain. Subah, sirf 10 minute stretching karo. Aakhir, agar tum shuruaat nahi karoge, to kabhi nahi karoge. Uske baad, din mein sirf ek healthy meal add karo. Jis bhi phase mein ho, aaj se apne objectives likho - yeh cheezein tumhe track karne mein madad karengi. Focus karo, aur koi bhi distraction ko hata do. Remember, one step at a time! Toh, kya tum tayaar ho action lene ke liye? Ruk mat, start kar aaj se! Apne friends ke saath share karo aur sabko motivate karo!",
+      "estimated_duration_seconds": 85,
+      "primary_keyword": "fitness motivation",
+      "retention_note": "Opening lines quickly engage the viewer with a relatable struggle, setting the stage for actionable insights that resonate.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Fitness Motivation: Start Today!",
+      "description": "Fitness motivation se apne naye goals ko achieve karo! Kya aap tayaar hain action lene ke liye? Is video mein aapko milegi actionable tips aur consistency ka real raaz. Agar aap sirf sapne dekhte reh jaate hain, toh khud ko badalne ka waqt aagaya hai. Aaj se hi shuruaat karo aur apni fitness journey ko transform karo!\n\n#FitnessMotivation #FatLoss #HealthyLifestyle #GymLife #Motivation",
+      "tags": [
+        "fitness motivation",
+        "fat loss tips",
+        "gym motivation",
+        "healthy lifestyle",
+        "weight loss journey",
+        "discipline and consistency",
+        "exercise routine",
+        "nutrition tips",
+        "discipline motivation hindi",
+        "self improvement hindi",
+        "consistency motivation",
+        "how to stay disciplined",
+        "fitness motivation explained",
+        "fitness motivation india",
+        "fitness channel india"
+      ],
+      "hashtags": [
+        "#FitnessMotivation",
+        "#FatLoss",
+        "#HealthyLifestyle",
+        "#GymLife",
+        "#Motivation"
+      ],
+      "primary_keyword": "fitness motivation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260501_184747_motivational-monday-take-charge-of-your-fitness.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260501_184747_motivational-monday-take-charge-of-your-fitness.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260501_184747_motivational-monday-take-charge-of-your-fitness.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260501_184747_motivational-monday-take-charge-of-your-fitness.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "Qm07utghZGfzqtnQijF_xhtaAdI",
+      "id": "kohPkCArtI0",
+      "snippet": {
+        "publishedAt": "2026-05-01T19:16:37Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Fitness Motivation: Start Today!",
+        "description": "Fitness motivation se apne naye goals ko achieve karo! Kya aap tayaar hain action lene ke liye? Is video mein aapko milegi actionable tips aur consistency ka real raaz. Agar aap sirf sapne dekhte reh jaate hain, toh khud ko badalne ka waqt aagaya hai. Aaj se hi shuruaat karo aur apni fitness journey ko transform karo!\n\n#FitnessMotivation #FatLoss #HealthyLifestyle #GymLife #Motivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/kohPkCArtI0/default.jpg?sqp=CLT3088G&rs=AOn4CLC48hKAsXXw0ypVbWrC-KuM6ZfRpw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/kohPkCArtI0/mqdefault.jpg?sqp=CLT3088G&rs=AOn4CLD9lI7-oR-Od2J0cnR444VqBDxXlw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/kohPkCArtI0/hqdefault.jpg?sqp=CLT3088G&rs=AOn4CLDzKM-_ZdQ8RLmgf0JgHNLdmLV2Zw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "consistency motivation",
+          "discipline and consistency",
+          "discipline motivation hindi",
+          "exercise routine",
+          "fat loss tips",
+          "fitness channel india",
+          "fitness motivation",
+          "fitness motivation explained",
+          "fitness motivation india",
+          "gym motivation",
+          "healthy lifestyle",
+          "how to stay disciplined",
+          "nutrition tips",
+          "self improvement hindi",
+          "weight loss journey"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Fitness Motivation: Start Today!",
+          "description": "Fitness motivation se apne naye goals ko achieve karo! Kya aap tayaar hain action lene ke liye? Is video mein aapko milegi actionable tips aur consistency ka real raaz. Agar aap sirf sapne dekhte reh jaate hain, toh khud ko badalne ka waqt aagaya hai. Aaj se hi shuruaat karo aur apni fitness journey ko transform karo!\n\n#FitnessMotivation #FatLoss #HealthyLifestyle #GymLife #Motivation"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-04T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-01T19:15:56.115497+00:00",
+    "scheduled_time": "2026-05-04T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Post-Workout Snacks: Best Choices! 🥗",
+    "idea": {
+      "idea_id": "b54870c6-17f1-4f8b-93fc-e65ec0e2bd74",
+      "title": "Post-Workout Snacks: Best Choices! 🥗",
+      "angle": "Healthy snack recommendations after workouts",
+      "hook": "Workout ke baad kya khana chahiye? Best options yahaan hain!",
+      "topic": "Nutrition",
+      "audience_value": "Fitness enthusiasts looking for recovery snacks",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-03T10:18:15.825073+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Best Post-Workout Snacks!",
+      "overlay_text": "Best PostWorkout Snacks",
+      "hook": "Workout ke baad kya khana chahiye? Best options yahaan hain!",
+      "problem": "Bahut log workout ke baad sahi snack nahi chunte, jo recovery aur energy ke liye badhiya ho!",
+      "insight": "Did you know, agar aap protein aur carbs ko sahi tarike se milate hain, toh aapka metabolism fast hota hai?",
+      "solution": "Khaas taur par, paneer aur dal ka sandwich ya protein shake le lo! Yeh muscle recovery mein madad karega. Aur ghar ke banaaye chaat pehle se plan kar lo, isse aap ke cravings control mein rahengi.",
+      "cta": "Toh aaj se in snacks ko apni routine mein shamil karo! Abhi kuch khaas try karo!",
+      "full_script": "Workout ke baad kya khana chahiye? Best options yahaan hain! Bahut log workout ke baad sahi snack nahi chunte, jo recovery aur energy ke liye badhiya ho! Did you know, agar aap protein aur carbs ko sahi tarike se milate hain, toh aapka metabolism fast hota hai? Khaas taur par, paneer aur dal ka sandwich ya protein shake le lo! Yeh muscle recovery mein madad karega. Aur ghar ke banaaye chaat pehle se plan kar lo, isse aap ke cravings control mein rahengi. Toh aaj se in snacks ko apni routine mein shamil karo! Abhi kuch khaas try karo!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "post-workout nutrition",
+      "retention_note": "Opening is highly engaging, prompting viewers to reflect on their post-workout nutrition choices.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Post-Workout Nutrition Secrets Unveiled!",
+      "description": "Workout ke baad sahi khana khana hamesha zaroori hai. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #postworkoutsnacks #fitnessmotivation #healthyeating #workoutrecovery #nutritiontips #viralshorts",
+      "tags": [
+        "post-workout nutrition",
+        "best post-workout snacks",
+        "protein and carbs",
+        "muscle recovery foods",
+        "healthy snacks after workout",
+        "fitness nutrition tips",
+        "workout recovery",
+        "exercise nutrition",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "post-workout nutrition hindi",
+        "post-workout nutrition for beg"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#postworkoutsnacks",
+        "#fitnessmotivation",
+        "#healthyeating",
+        "#workoutrecovery",
+        "#nutritiontips",
+        "#viralshorts"
+      ],
+      "primary_keyword": "post-workout nutrition",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260503_101815_post-workout-snacks-best-choices.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260503_101815_post-workout-snacks-best-choices.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_101815_post-workout-snacks-best-choices.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_101815_post-workout-snacks-best-choices.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "Y-i7iMM2Zi_F16gIUea_4M-v8Po",
+      "id": "yn6YCCelWC8",
+      "snippet": {
+        "publishedAt": "2026-05-03T11:42:48Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Post-Workout Nutrition Secrets Unveiled!",
+        "description": "Workout ke baad sahi khana khana hamesha zaroori hai. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #postworkoutsnacks #fitnessmotivation #healthyeating #workoutrecovery #nutritiontips #viralshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/yn6YCCelWC8/default.jpg?sqp=CJDo3M8G&rs=AOn4CLCJZwDaSMxErvmb76fMBkYeZcILwA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/yn6YCCelWC8/mqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLBZf5Rw-9JLE3ISNvDlAxonpx4m2Q",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/yn6YCCelWC8/hqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLCmSTKOBopZ4_wdimg-rXrLDY0LpQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "best post-workout snacks",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "exercise nutrition",
+          "fitness nutrition tips",
+          "fitness tips for beginners ind",
+          "healthy snacks after workout",
+          "how to stay consistent gym",
+          "muscle recovery foods",
+          "post-workout nutrition",
+          "post-workout nutrition for beg",
+          "post-workout nutrition hindi",
+          "protein and carbs",
+          "workout motivation hindi",
+          "workout recovery"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Post-Workout Nutrition Secrets Unveiled!",
+          "description": "Workout ke baad sahi khana khana hamesha zaroori hai. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #postworkoutsnacks #fitnessmotivation #healthyeating #workoutrecovery #nutritiontips #viralshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-04T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-03T10:25:02.945992+00:00",
+    "scheduled_time": "2026-05-04T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Budhape Se Pehle Fit Ho Jao! 🎯",
+    "idea": {
+      "idea_id": "bb4fbcbb-7ef9-49be-88d1-da47c4096e7d",
+      "title": "Budhape Se Pehle Fit Ho Jao! 🎯",
+      "angle": "Promoting long-term fitness benefits",
+      "hook": "Budhape ka dard kam karo, aaj se workout shuru karo!",
+      "topic": "Long-term Fitness",
+      "audience_value": "Young adults and middle-aged",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-03T10:18:15.825171+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Budhape Se Pehle Fit Ho Jao!",
+      "overlay_text": "Fit Rahna Hai? Shuru Karo!",
+      "hook": "Budhape ka dard kam karo, aaj se workout shuru karo!",
+      "problem": "Kya aapko yeh nahi lagta ki aging se pehle fit hona zaroori hai? Aam zindagi mein fit rehna mushkil hota hai, aur yeh aapki life ko kharaj karke rakh deta hai. Jaan lo, jaisi umar badhti hai, waise haamari strength aur flexibility kam hone lagti hai.",
+      "insight": "Lekin kya aap jante hain ki sirf 20 minutes ka workout rozana aapki muscles ko revive kar sakta hai? Isse aapki age-related issues door ho sakte hain!",
+      "solution": "Bas do cheezen yaad rakho. Pehla: Strength training ko shuru karo - dumbbells ya bodyweight exercises! Dusra: Cardio, jaise cycling ya brisk walking, har din hona chahiye. Yeh aapke metabolic rate ko boost karega. Results dekhogay, bas ek mahine mein!",
+      "cta": "Toh abhi shuru karo. Workout ka time nikaalo aur budhape ko look do ba-bye!",
+      "full_script": "Budhape ka dard kam karo, aaj se workout shuru karo! Kya aapko yeh nahi lagta ki aging se pehle fit hona zaroori hai? Aam zindagi mein fit rehna mushkil hota hai, aur yeh aapki life ko kharaj karke rakh deta hai. Jaan lo, jaisi umar badhti hai, waise haamari strength aur flexibility kam hone lagti hai. Lekin kya aap jante hain ki sirf 20 minutes ka workout rozana aapki muscles ko revive kar sakta hai? Isse aapki age-related issues door ho sakte hain! Bas do cheezen yaad rakho. Pehla: Strength training ko shuru karo - dumbbells ya bodyweight exercises! Dusra: Cardio, jaise cycling ya brisk walking, har din hona chahiye. Yeh aapke metabolic rate ko boost karega. Results dekhogay, bas ek mahine mein! Toh abhi shuru karo. Workout ka time nikaalo aur budhape ko look do ba-bye!",
+      "estimated_duration_seconds": 45,
+      "primary_keyword": "long-term fitness",
+      "retention_note": "Opening immediately addresses a relatable pain point that draws viewers in, ensuring they want to learn how to take charge of their health now.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Fit Rehna Zindagi Ka Asas!",
+      "description": "Budhape ka dard kam karne ka asan tareqa! Workout shuru karo aur results dekho! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #fatlosstips #aginggracefully #workouttips #viralshorts #strengthtraining",
+      "tags": [
+        "long-term fitness",
+        "fitness motivation",
+        "fat loss tips",
+        "strength training",
+        "cardio workout",
+        "healthy lifestyle",
+        "age-related fitness",
+        "fitness for seniors",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "long-term fitness hindi",
+        "long-term fitness for beginner"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fitnessmotivation",
+        "#fatlosstips",
+        "#aginggracefully",
+        "#workouttips",
+        "#viralshorts",
+        "#strengthtraining"
+      ],
+      "primary_keyword": "long-term fitness",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260503_102502_budhape-se-pehle-fit-ho-jao.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260503_102502_budhape-se-pehle-fit-ho-jao.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_102502_budhape-se-pehle-fit-ho-jao.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_102502_budhape-se-pehle-fit-ho-jao.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "SZ9l09SfFAnyWJaRLsB4RgZRLa8",
+      "id": "Zeu0CzlWBME",
+      "snippet": {
+        "publishedAt": "2026-05-03T11:43:18Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Fit Rehna Zindagi Ka Asas!",
+        "description": "Budhape ka dard kam karne ka asan tareqa! Workout shuru karo aur results dekho! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #fatlosstips #aginggracefully #workouttips #viralshorts #strengthtraining",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/Zeu0CzlWBME/default.jpg?sqp=CJDo3M8G&rs=AOn4CLAJmgVB45DoeLOrHu4gU8UP8GY_bA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/Zeu0CzlWBME/mqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLBipldJjWCmbAtr6OFlZ5WL67OycQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/Zeu0CzlWBME/hqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLCQprkkbGl3UwSkkWekTtWIMYuShQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "age-related fitness",
+          "cardio workout",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fat loss tips",
+          "fitness for seniors",
+          "fitness motivation",
+          "fitness tips for beginners ind",
+          "healthy lifestyle",
+          "how to stay consistent gym",
+          "long-term fitness",
+          "long-term fitness for beginner",
+          "long-term fitness hindi",
+          "strength training",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Fit Rehna Zindagi Ka Asas!",
+          "description": "Budhape ka dard kam karne ka asan tareqa! Workout shuru karo aur results dekho! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #fitnessmotivation #fatlosstips #aginggracefully #workouttips #viralshorts #strengthtraining"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-05T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-03T10:37:01.278877+00:00",
+    "scheduled_time": "2026-05-05T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Tension Ko Door Karo Breathwork Se! 🌬️",
+    "idea": {
+      "idea_id": "e7488169-a0cc-4069-9565-4882167ede20",
+      "title": "Tension Ko Door Karo Breathwork Se! 🌬️",
+      "angle": "Breathwork techniques for relaxation",
+      "hook": "2 techniques jo aapka stress door bhaga degi!",
+      "topic": "Breathwork",
+      "audience_value": "Stress-prone individuals",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-03T10:18:15.825240+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Tension Ko Door Karo Breathwork Se!",
+      "overlay_text": "Stress ko door karne ke",
+      "hook": "Kya aapko stress har roz feel hota hai? Chaliye, isse door karne ke 2 powerful techniques jaan lete hain!",
+      "problem": "Stress humare body aur mind dono par bura asar daalta hai. Hamari saans ka flow, posture, aur focus sab kharab ho jate hain.",
+      "insight": "Lekin, aapki breathing technique ko sudharne se aap stress ko control kar sakte hain. Yeh baat science bhi kehata hai!",
+      "solution": "Pehla, '4-7-8 Technique': 4 seconds tak saans lo, 7 seconds tak roko, phir 8 seconds tak chhodo. Dusra, 'Box Breathing': 4 seconds tak saans lo, 4 seconds tak ruko, 4 seconds tak chhodo, phir phir se 4 seconds inhale karo. In dono exercises se na sirf aapka stress door hoga, balki aapka posture aur core strength bhi improve hoga.",
+      "cta": "Toh aaj se hi yeh karein aur dekhein kaise aapki life badalti hai! Is technique ko apne din mein shamil karein.",
+      "full_script": "Kya aapko stress har roz feel hota hai? Chaliye, isse door karne ke 2 powerful techniques jaan lete hain! Stress humare body aur mind dono par bura asar daalta hai. Hamari saans ka flow, posture, aur focus sab kharab ho jate hain. Lekin, aapki breathing technique ko sudharne se aap stress ko control kar sakte hain. Yeh baat science bhi kehata hai! Pehla, '4-7-8 Technique': 4 seconds tak saans lo, 7 seconds tak roko, phir 8 seconds tak chhodo. Dusra, 'Box Breathing': 4 seconds tak saans lo, 4 seconds tak ruko, 4 seconds tak chhodo, phir phir se 4 seconds inhale karo. In dono exercises se na sirf aapka stress door hoga, balki aapka posture aur core strength bhi improve hoga. Toh aaj se hi yeh karein aur dekhein kaise aapki life badalti hai! Is technique ko apne din mein shamil karein.",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "breathwork techniques",
+      "retention_note": "Opening mein direct stress se relate karke curiosity jagate hain, jo logon ko dikhaata hai ke unki dikkat samjhi gayi hai.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Stress Ko Door Karne Ki 2 Techniques!",
+      "description": "Kya aap roz stress feel karte hain? Yeh 2 techniques aapko madad kar sakti hain! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #stressrelief #breathwork #yogatechniques #mindfulness #viralshorts #fitnessmotivation",
+      "tags": [
+        "breathwork techniques",
+        "stress relief exercises",
+        "yoga for stress",
+        "breathing techniques",
+        "mindfulness practices",
+        "improve posture",
+        "core strength exercises",
+        "yoga stress relief",
+        "yoga for beginners in hindi",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga poses for flexibility",
+        "daily yoga hindi",
+        "breathwork techniques hindi",
+        "breathwork techniques for begi"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#stressrelief",
+        "#breathwork",
+        "#yogatechniques",
+        "#mindfulness",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "breathwork techniques",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260503_103701_tension-ko-door-karo-breathwork-se.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260503_103701_tension-ko-door-karo-breathwork-se.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_103701_tension-ko-door-karo-breathwork-se.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_103701_tension-ko-door-karo-breathwork-se.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "P7TssqPz1zFq9CgeTIPMxLjGXkw",
+      "id": "Ex5NRswt44s",
+      "snippet": {
+        "publishedAt": "2026-05-03T11:43:50Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Stress Ko Door Karne Ki 2 Techniques!",
+        "description": "Kya aap roz stress feel karte hain? Yeh 2 techniques aapko madad kar sakti hain! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #stressrelief #breathwork #yogatechniques #mindfulness #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/Ex5NRswt44s/default.jpg?sqp=CJDo3M8G&rs=AOn4CLCs7XWIk847hbkStIHjJ3jkv8Tm9A",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/Ex5NRswt44s/mqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLCTY_GUFN4PWKMAf3CMt_RvZmFoVA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/Ex5NRswt44s/hqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLBIdwVrDUPEc31hK1-0JYUuPCNRtg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "breathing techniques",
+          "breathwork techniques",
+          "breathwork techniques for begi",
+          "breathwork techniques hindi",
+          "core strength exercises",
+          "daily yoga hindi",
+          "improve posture",
+          "mindfulness practices",
+          "morning yoga routine",
+          "stress relief exercises",
+          "yoga for beginners in hindi",
+          "yoga for stress",
+          "yoga for stress relief",
+          "yoga poses for flexibility",
+          "yoga stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Stress Ko Door Karne Ki 2 Techniques!",
+          "description": "Kya aap roz stress feel karte hain? Yeh 2 techniques aapko madad kar sakti hain! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #stressrelief #breathwork #yogatechniques #mindfulness #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-05T15:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-03T10:48:12.065295+00:00",
+    "scheduled_time": "2026-05-05T15:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Workout Se Pehle Kya Na Karo! 🤯",
+    "idea": {
+      "idea_id": "5e10a996-905c-4710-b4fa-66b4190ba98f",
+      "title": "Workout Se Pehle Kya Na Karo! 🤯",
+      "angle": "Education and motivation about workout preparation",
+      "hook": "Workout shuru karne se pehle ye na bhoolo!",
+      "topic": "Workout Tips",
+      "audience_value": "Gym goers and fitness enthusiasts",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-03T10:18:15.825313+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Workout Se Pehle Kya Na Karo!",
+      "overlay_text": "Workout Preparation ke Secre",
+      "hook": "Workout shuru karne se pehle ye na bhoolo!",
+      "problem": "Jab aap gym jaate ho, sabse badi galti kya hoti hai? Warm-up ko ignore karna!",
+      "insight": "Aapke muscles ko setup hona zaroori hai, warna injuries se face ho sakta hai. Index card se strong moves bhi ho jayenge weak!",
+      "solution": "Pehla: 5-10 minute dynamic stretches se body ko heat karo. Dusra: Compound movements se pehle light weights uthao. Yeh not only aapki performance increase karega but also injury risk kum karega!",
+      "cta": "Toh ab chaalu karo smart workout techniques! Like karo, share karo, aur aaj se workouts ko level up karo!",
+      "full_script": "Workout shuru karne se pehle ye na bhoolo! Jab aap gym jaate ho, sabse badi galti kya hoti hai? Warm-up ko ignore karna! Aapke muscles ko setup hona zaroori hai, warna injuries se face ho sakta hai. Index card se strong moves bhi ho jayenge weak! Pehla: 5-10 minute dynamic stretches se body ko heat karo. Dusra: Compound movements se pehle light weights uthao. Yeh not only aapki performance increase karega but also injury risk kum karega! Toh ab chaalu karo smart workout techniques! Like karo, share karo, aur aaj se workouts ko level up karo!",
+      "estimated_duration_seconds": 39,
+      "primary_keyword": "Workout Tips",
+      "retention_note": "Attention grab karne se shuruaat hoti hai, jo instant curiosity create karti hai aur aapko viewer ke focus ko banaye rakhti hai!",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Workout Tips: Kya Aap Warm-Up Kar Rahe Hai?",
+      "description": "Injuries se bacho, warm-up karna mat bhoolo! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #workouttips #fitnessmotivation #gymlife #injuryprevention #viralshorts #dynamicstretching",
+      "tags": [
+        "workout tips",
+        "warm-up exercises",
+        "dynamic stretching",
+        "injury prevention",
+        "gym mistakes to avoid",
+        "compound movements",
+        "light weights workout",
+        "fitness motivation",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "Workout Tips hindi",
+        "Workout Tips for beginners"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#workouttips",
+        "#fitnessmotivation",
+        "#gymlife",
+        "#injuryprevention",
+        "#viralshorts",
+        "#dynamicstretching"
+      ],
+      "primary_keyword": "Workout Tips",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260503_104812_workout-se-pehle-kya-na-karo.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260503_104812_workout-se-pehle-kya-na-karo.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_104812_workout-se-pehle-kya-na-karo.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_104812_workout-se-pehle-kya-na-karo.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "h0saXUXAa35qXLEpSluxj92RFw4",
+      "id": "CK0Fgc8tgaU",
+      "snippet": {
+        "publishedAt": "2026-05-03T11:44:13Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Workout Tips: Kya Aap Warm-Up Kar Rahe Hai?",
+        "description": "Injuries se bacho, warm-up karna mat bhoolo! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #workouttips #fitnessmotivation #gymlife #injuryprevention #viralshorts #dynamicstretching",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/CK0Fgc8tgaU/default.jpg?sqp=CJDo3M8G&rs=AOn4CLD35JBQNeh5MPyAf0OIEoyueRfp0Q",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/CK0Fgc8tgaU/mqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLBBcxOagYRXRw9HEzxkM8PXWkLSeA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/CK0Fgc8tgaU/hqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLDAuHphljw_6Jqc6aFbfRD3k0S-Xw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "Workout Tips for beginners",
+          "Workout Tips hindi",
+          "compound movements",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "dynamic stretching",
+          "fitness motivation",
+          "fitness tips for beginners ind",
+          "gym mistakes to avoid",
+          "how to stay consistent gym",
+          "injury prevention",
+          "light weights workout",
+          "warm-up exercises",
+          "workout motivation hindi",
+          "workout tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Workout Tips: Kya Aap Warm-Up Kar Rahe Hai?",
+          "description": "Injuries se bacho, warm-up karna mat bhoolo! Save this or Follow DailyFitX.\n\n#shorts #ytshorts #workouttips #fitnessmotivation #gymlife #injuryprevention #viralshorts #dynamicstretching"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-06T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-03T10:56:54.867353+00:00",
+    "scheduled_time": "2026-05-06T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Motivation Ka Secret Mantra! 🚀",
+    "idea": {
+      "idea_id": "de593643-b5a3-44ac-8c49-023922d97d77",
+      "title": "Motivation Ka Secret Mantra! 🚀",
+      "angle": "Unveiling a motivational quote/process",
+      "hook": "Is mantra se badlegi aapki fitness journey!",
+      "topic": "Motivation",
+      "audience_value": "Anyone seeking motivation in fitness",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-03T10:18:15.825371+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Motivation Ka Secret Mantra!",
+      "overlay_text": "Badlegi Aapki Fitness Journe",
+      "hook": "Kya aapko kabhi motivation ki kami mehsoos hui hai?",
+      "problem": "Har jagah 'kar lo' aur 'badal lo', par kya sach mein yeh kuch kaam karta hai?",
+      "insight": "Sahi approach chahiye, doston! Ek simple technique hai jo aapki soch badal sakti hai.",
+      "solution": "Pehla, apne goals ko chhote parts mein baanto. Ek specific goal le lo, jaise 5 kg weight loss ya 10 push-ups daily. Dusra, apna progress track karo. Ek daily journal rakho. Ye dono cheezein aapko accountability denge. Ab jab goal chhota hoga, toh aapka focus bada hoga!",
+      "cta": "Toh, aaj se apna fitness journey start karo! Comment your first goal below!",
+      "full_script": "Kya aapko kabhi motivation ki kami mehsoos hui hai? Har jagah 'kar lo' aur 'badal lo', par kya sach mein yeh kuch kaam karta hai? Sahi approach chahiye, doston! Ek simple technique hai jo aapki soch badal sakti hai. Pehla, apne goals ko chhote parts mein baanto. Ek specific goal le lo, jaise 5 kg weight loss ya 10 push-ups daily. Dusra, apna progress track karo. Ek daily journal rakho. Ye dono cheezein aapko accountability denge. Ab jab goal chhota hoga, toh aapka focus bada hoga! Toh, aaj se apna fitness journey start karo! Comment your first goal below!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "motivation",
+      "retention_note": "Opening question keeps viewers curious about their own struggles, prompting them to stay engaged for practical solutions.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Motivation Ki Kami? Yeh Aasan Upay Karo!",
+      "description": "Chhote goals se badi success paani hai! Focus badhao aur journey shuru karo. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #motivationshorts #fitnessmotivation #fatloss #weightlosstips #healthyhabits #viralshorts",
+      "tags": [
+        "how to stay motivated",
+        "motivation techniques",
+        "goal setting for fitness",
+        "daily workout motivation",
+        "fitness accountability",
+        "weight loss tips",
+        "progress tracking",
+        "fat loss strategies",
+        "discipline motivation hindi",
+        "mindset motivation shorts",
+        "self improvement hindi",
+        "consistency motivation",
+        "how to stay disciplined",
+        "motivation",
+        "motivation hindi"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#motivationshorts",
+        "#fitnessmotivation",
+        "#fatloss",
+        "#weightlosstips",
+        "#healthyhabits",
+        "#viralshorts"
+      ],
+      "primary_keyword": "motivation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260503_105654_motivation-ka-secret-mantra.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260503_105654_motivation-ka-secret-mantra.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_105654_motivation-ka-secret-mantra.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_105654_motivation-ka-secret-mantra.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "siS9yXRpBDI9DOJzgWSOCEsMNdk",
+      "id": "7tzbI3ev8wU",
+      "snippet": {
+        "publishedAt": "2026-05-03T11:44:32Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Motivation Ki Kami? Yeh Aasan Upay Karo!",
+        "description": "Chhote goals se badi success paani hai! Focus badhao aur journey shuru karo. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #motivationshorts #fitnessmotivation #fatloss #weightlosstips #healthyhabits #viralshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/7tzbI3ev8wU/default.jpg?sqp=CJDo3M8G&rs=AOn4CLBX-g481lGS6XsiHY5kUs0PLvILWw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/7tzbI3ev8wU/mqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLBOHl4tBJAXg1v-jZobydxc-Hv81g",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/7tzbI3ev8wU/hqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLBqYZ7dufH7DbUnjjAnPSpebf1_fw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "consistency motivation",
+          "daily workout motivation",
+          "discipline motivation hindi",
+          "fat loss strategies",
+          "fitness accountability",
+          "goal setting for fitness",
+          "how to stay disciplined",
+          "how to stay motivated",
+          "mindset motivation shorts",
+          "motivation",
+          "motivation hindi",
+          "motivation techniques",
+          "progress tracking",
+          "self improvement hindi",
+          "weight loss tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Motivation Ki Kami? Yeh Aasan Upay Karo!",
+          "description": "Chhote goals se badi success paani hai! Focus badhao aur journey shuru karo. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #motivationshorts #fitnessmotivation #fatloss #weightlosstips #healthyhabits #viralshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-06T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-03T11:07:13.295668+00:00",
+    "scheduled_time": "2026-05-06T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Reset Your Mind with 5 Mins Meditation 🧘‍♂️",
+    "idea": {
+      "idea_id": "48585e81-7498-43de-89e0-ef6ef1e21944",
+      "title": "Reset Your Mind with 5 Mins Meditation 🧘‍♂️",
+      "angle": "Short meditation practice for stress relief",
+      "hook": "5 minute me khud ko kaise reset kar sakte ho? Jaano!",
+      "topic": "Meditation",
+      "audience_value": "Busy professionals and students",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-03T10:18:15.825445+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short"
+    },
+    "script": {
+      "title": "Reset Your Mind with 5 Mins Meditation",
+      "overlay_text": "Stress Relief in 5 Mins",
+      "hook": "5 minute me khud ko kaise reset kar sakte ho? Jaano!",
+      "problem": "Sab busy hai, stress bhara life mein hum bhool jaate hain khud ko sunna.",
+      "insight": "Stress se humari body aur mind dono disturb hote hain, lekin sirf 5 minute me aap yeh badal sakte ho.",
+      "solution": "Aayiye, shuru karte hain ek simple meditation. Pehla step: baith jao, seedha postures rakho. Agla: gehri saans lo, 4 seconds tak inhale karo. Ab 4 seconds tak hold karo, aur phir 4 seconds tak exhale karo. Yeh cycle do baar dohrao. Yeh aapki body aur mind ko balance karega aur stress ko door karega.",
+      "cta": "Abhi is practice ko try karo aur apna experience share karo!",
+      "full_script": "5 minute me khud ko kaise reset kar sakte ho? Jaano! Sab busy hai, stress bhara life mein hum bhool jaate hain khud ko sunna. Stress se humari body aur mind dono disturb hote hain, lekin sirf 5 minute me aap yeh badal sakte ho. Aayiye, shuru karte hain ek simple meditation. Pehla step: baith jao, seedha postures rakho. Agla: gehri saans lo, 4 seconds tak inhale karo. Ab 4 seconds tak hold karo, aur phir 4 seconds tak exhale karo. Yeh cycle do baar dohrao. Yeh aapki body aur mind ko balance karega aur stress ko door karega. Abhi is practice ko try karo aur apna experience share karo!",
+      "estimated_duration_seconds": 45,
+      "primary_keyword": "stress relief meditation",
+      "retention_note": "Opening creates curiosity by promising a quick solution to a common issue, ensuring viewers stay engaged.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "5 Minutes for Stress Relief? Try This Meditation!",
+      "description": "Reset your mind and body in just 5 minutes! Experience the calming impact now. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #stressrelief #meditation #mindfulness #viralshorts #calm #relaxation",
+      "tags": [
+        "stress relief meditation",
+        "quick stress relief",
+        "5 minute meditation",
+        "mindfulness techniques",
+        "how to meditate",
+        "calm your mind",
+        "relaxation strategies",
+        "meditation for beginners",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "stress relief meditation hindi",
+        "stress relief meditation for b"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#stressrelief",
+        "#meditation",
+        "#mindfulness",
+        "#viralshorts",
+        "#calm",
+        "#relaxation"
+      ],
+      "primary_keyword": "stress relief meditation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260503_110713_reset-your-mind-with-5-mins-meditation.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260503_110713_reset-your-mind-with-5-mins-meditation.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_110713_reset-your-mind-with-5-mins-meditation.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_110713_reset-your-mind-with-5-mins-meditation.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "V6dxzj-V97Dp-D3Y6MMOZ96Bt80",
+      "id": "B4TgEvpbGqw",
+      "snippet": {
+        "publishedAt": "2026-05-03T11:44:53Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "5 Minutes for Stress Relief? Try This Meditation!",
+        "description": "Reset your mind and body in just 5 minutes! Experience the calming impact now. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #stressrelief #meditation #mindfulness #viralshorts #calm #relaxation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/B4TgEvpbGqw/default.jpg?sqp=CJDo3M8G&rs=AOn4CLAzgMSTYRDq4cjsS4LiWOxyUfr_lA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/B4TgEvpbGqw/mqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLDocfII2DVU2c59O8y3PYBcIl4l9g",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/B4TgEvpbGqw/hqdefault.jpg?sqp=CJDo3M8G&rs=AOn4CLB1bO3Lo23qWo1pa25Z4_nrjDjP6w",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "5 minute meditation",
+          "calm your mind",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fitness tips for beginners ind",
+          "how to meditate",
+          "how to stay consistent gym",
+          "meditation for beginners",
+          "mindfulness techniques",
+          "quick stress relief",
+          "relaxation strategies",
+          "stress relief meditation",
+          "stress relief meditation for b",
+          "stress relief meditation hindi",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "5 Minutes for Stress Relief? Try This Meditation!",
+          "description": "Reset your mind and body in just 5 minutes! Experience the calming impact now. Save this or Follow DailyFitX.\n\n#shorts #ytshorts #stressrelief #meditation #mindfulness #viralshorts #calm #relaxation"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-07T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-03T11:20:04.794319+00:00",
+    "scheduled_time": "2026-05-07T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Meditation for Better Sleep 🌙",
+    "idea": {
+      "idea_id": "3f3f30cb-6ca2-410a-91c1-d70a39bb8cdf",
+      "title": "Meditation for Better Sleep 🌙",
+      "angle": "Using meditation to improve sleep quality",
+      "hook": "Achhi neend ke liye 3 meditation techniques!",
+      "topic": "Meditation and Sleep",
+      "audience_value": "Individuals facing sleep issues",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-03T10:18:15.825516+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long"
+    },
+    "script": {
+      "title": "Meditation for Better Sleep",
+      "overlay_text": "Achhi neend ke liye meditati",
+      "hook": "Kya aapko raat neend nahi aati? Sleep issues ka kya hai hal?",
+      "problem": "Aaj kal, stress, anxiety, aur distractions ki wajah se achhi neend paana mushkil ho raha hai. Kya aap bhi isi problem se joojh rahe hain?",
+      "insight": "Science yeh batata hai ki meditation se humara body aur brain calm hota hai. Jab humare thoughts settle hote hain, then humari neend bhi deep hoti hai. Yeh sab ek nayi soch se shuru hota hai.",
+      "solution": "Toh chaliye, aaj hum teen simple meditation techniques seekhte hain jo aapko achhi neend dene mein madad karengi. Pehli technique hai Breath Awareness. Apne saans par focus karein, deep breath lein, aur chhodte waqt tense muscles ko relax karein. Dusri technique hai Guided Visualization. Apne dimag mein peaceful scene, jaise ek sundar samundar ya khoobsurat jungle visualize karein. Yeh aapki anxiety ko door karega. Aur teesri technique hai Body Scan. Apne body ke kisi bhi hissay pe focus karein, tension ko release karein. Yeh not only aapki neend improve karega, balki overall peace bhi dega.",
+      "cta": "Aaj se in teeno techniques ko apni raat ki routine mein include karein, aur dekhein kaise aapki neend badalti hai!",
+      "full_script": "Kya aapko raat neend nahi aati? Sleep issues ka kya hai hal? Aaj kal, stress, anxiety, aur distractions ki wajah se achhi neend paana mushkil ho raha hai. Kya aap bhi isi problem se joojh rahe hain? Science yeh batata hai ki meditation se humara body aur brain calm hota hai. Jab humare thoughts settle hote hain, then humari neend bhi deep hoti hai. Yeh sab ek nayi soch se shuru hota hai. Toh chaliye, aaj hum teen simple meditation techniques seekhte hain jo aapko achhi neend dene mein madad karengi. Pehli technique hai Breath Awareness. Apne saans par focus karein, deep breath lein, aur chhodte waqt tense muscles ko relax karein. Dusri technique hai Guided Visualization. Apne dimag mein peaceful scene, jaise ek sundar samundar ya khoobsurat jungle visualize karein. Yeh aapki anxiety ko door karega. Aur teesri technique hai Body Scan. Apne body ke kisi bhi hissay pe focus karein, tension ko release karein. Yeh not only aapki neend improve karega, balki overall peace bhi dega. Aaj se in teeno techniques ko apni raat ki routine mein include karein, aur dekhein kaise aapki neend badalti hai!",
+      "estimated_duration_seconds": 89,
+      "primary_keyword": "Meditation for better sleep",
+      "retention_note": "Hook instantly connects with viewers facing sleep issues, making them curious for practical solutions.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Meditation for Better Sleep: Aaj Raat Seekhein!",
+      "description": "Meditation for better sleep ko samjhiye aur jaaniye 3 simple techniques jo aapki neend ko behatar karne mein madad karengi. Stress aur anxiety se door rahkar in tips ke saath aaj se achi neend lena shuru karein! Change dekhiye apni raat ki routine mein aur khud ko relax kijiye.\n\n#MeditationForBetterSleep #Yoga #SleepBetter #StressRelief #Wellness",
+      "tags": [
+        "Meditation for better sleep",
+        "sleep issues solutions",
+        "stress relief meditation",
+        "sleep improvement techniques",
+        "yoga for sleep",
+        "fitness tips for beginners ind",
+        "workout motivation hindi",
+        "how to stay consistent gym",
+        "discipline mindset hindi",
+        "daily workout routine india",
+        "Meditation for better sleep ex",
+        "Meditation for better sleep in",
+        "fitness channel india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#MeditationForBetterSleep",
+        "#Yoga",
+        "#SleepBetter",
+        "#StressRelief",
+        "#Wellness"
+      ],
+      "primary_keyword": "Meditation for better sleep",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260503_112004_meditation-for-better-sleep.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260503_112004_meditation-for-better-sleep.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_112004_meditation-for-better-sleep.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260503_112004_meditation-for-better-sleep.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "ptAHqW4vd8lVbfBmQKoN4S5uo9Y",
+      "id": "QtLdbsbkkj4",
+      "snippet": {
+        "publishedAt": "2026-05-03T11:45:28Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Meditation for Better Sleep: Aaj Raat Seekhein!",
+        "description": "Meditation for better sleep ko samjhiye aur jaaniye 3 simple techniques jo aapki neend ko behatar karne mein madad karengi. Stress aur anxiety se door rahkar in tips ke saath aaj se achi neend lena shuru karein! Change dekhiye apni raat ki routine mein aur khud ko relax kijiye.\n\n#MeditationForBetterSleep #Yoga #SleepBetter #StressRelief #Wellness",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/QtLdbsbkkj4/default.jpg?sqp=CLzq3M8G&rs=AOn4CLDbTewlar9VWSIRdbOWR9O8pBbz9w",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/QtLdbsbkkj4/mqdefault.jpg?sqp=CLzq3M8G&rs=AOn4CLC3LSbqlgDozhBw6AH4azbtU9-HGw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/QtLdbsbkkj4/hqdefault.jpg?sqp=CLzq3M8G&rs=AOn4CLBrb0lNv_oQmSY-U0sI07DbCs272w",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "Meditation for better sleep",
+          "Meditation for better sleep ex",
+          "Meditation for better sleep in",
+          "daily workout routine india",
+          "discipline mindset hindi",
+          "fitness channel india",
+          "fitness tips for beginners ind",
+          "how to stay consistent gym",
+          "sleep improvement techniques",
+          "sleep issues solutions",
+          "stress relief meditation",
+          "workout motivation hindi",
+          "yoga for sleep"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Meditation for Better Sleep: Aaj Raat Seekhein!",
+          "description": "Meditation for better sleep ko samjhiye aur jaaniye 3 simple techniques jo aapki neend ko behatar karne mein madad karengi. Stress aur anxiety se door rahkar in tips ke saath aaj se achi neend lena shuru karein! Change dekhiye apni raat ki routine mein aur khud ko relax kijiye.\n\n#MeditationForBetterSleep #Yoga #SleepBetter #StressRelief #Wellness"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-07T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-03T11:38:22.479387+00:00",
+    "scheduled_time": "2026-05-07T14:30:00Z",
+    "local_video_deleted": true
   }
 ]

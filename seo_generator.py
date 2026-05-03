@@ -423,3 +423,80 @@ class SeoGenerator:
         if "running" in keyword or "performance" in keyword or "stamina" in keyword or "athlete" in keyword:
             return "sports_fitness"
         return "fitness"
+
+    def generate(self, script: VideoScript) -> SeoPackage:
+        LOGGER.info("Generating SEO package")
+        is_long = getattr(script, "video_type", "short") == "long"
+
+        video_format_type = "Long-form cinematic video (16:9 Landscape)" if is_long else "YouTube Short (9:16 Vertical)"
+        discovery_focus = "YouTube Search traffic, Suggested Videos, and high-CTR thumbnail clickability" if is_long else "the Shorts Feed, instant swipe-stop curiosity, and high replay retention"
+
+        language_code = self._detect_language_code(script)
+        content_style = self._detect_content_style(script)
+        language_line = (
+            "The output language should be English."
+            if language_code == "en"
+            else "The output language should be Hinglish in Roman script only, mixing Hindi and English naturally."
+        )
+        prompt = (
+            "You are a master YouTube packaging strategist specializing in fitness, gym, motivation, lifestyle, and sports-fitness Shorts. "
+            f"You are creating metadata for a {video_format_type}. "
+            f"Your strict goal is to completely maximize virality and optimize for {discovery_focus}. "
+            "Return strict JSON with keys title, description, tags, hashtags, primary_keyword. "
+            + "Title should be under 52 characters, easy to read in one glance, and feel emotionally punchy. "
+            + ("Description for this SHORT: write 2 very short lines, under 140 characters before hashtags. Start with the payoff. End with: Save this or Follow DailyFitX. No filler. "
+               if not is_long else
+               "Description should front-load the keyword, explain the viewer payoff in 2-3 sentences, and feel native to the long-form format. ")
+            + "Tags should be exact phrases people search. Mix high-volume evergreen with specific niche phrases. No vanity tags. "
+            + ("Hashtags: provide exactly 8. Must include #shorts and #ytshorts. Add topic-specific tags plus one broad discovery tag like #viralshorts or #motivationshorts when relevant. "
+               if not is_long else
+               "Hashtags: provide exactly 5. Include brand, niche, and category tags. ")
+            + "Use normal English letters for text. "
+            + "Do not use clickbait the script does not support. "
+            + "Prefer title patterns that work in Shorts: truth bomb, warning, challenge, identity, emotional payoff, or strong curiosity."
+            + "Prefer SEO that matches what viewers actually search to solve the problem the hook introduces."
+            f"\n{language_line}"
+            f"\nContent style: {content_style}"
+            f"\nPrimary keyword from script: {script.primary_keyword}"
+            f"\nRetention note from AI script writer: {script.retention_note}"
+            f"\n\nScript for Context:\n{script.full_script}"
+        )
+        payload, provider_used = build_json_with_fallback(
+            self.llm,
+            prompt,
+            lambda: self._fallback_payload(script),
+            "static-seo",
+        )
+        LOGGER.info("SEO generation provider used: %s", provider_used)
+
+        tags = self._normalize_tags(payload.get("tags", []), script.primary_keyword, is_long)
+        hashtags = self._normalize_hashtags(payload.get("hashtags", []), content_style, language_code, is_long)
+        description = self._clean_ascii_text(payload["description"].strip())
+        hashtag_text = " ".join(hashtags)
+        if not is_long:
+            description = self._compress_short_description(description)
+        if hashtag_text.lower() not in description.lower():
+            description = f"{description}\n\n{hashtag_text}"
+        title = self._clean_title(payload["title"].strip(), script.title)
+
+        primary_keyword = self._clean_ascii_text(payload.get("primary_keyword", script.primary_keyword).strip())
+        return SeoPackage(
+            title=title,
+            description=description,
+            tags=tags,
+            hashtags=hashtags,
+            primary_keyword=primary_keyword,
+            language_code=language_code,
+            audio_language_code=language_code,
+            content_style=content_style,
+        )
+
+    @classmethod
+    def _clean_title(cls, value: str, fallback: str) -> str:
+        cleaned = cls._clean_ascii_text(re.sub(r"\b\d{6,}\b", "", value))
+        cleaned = re.sub(r"#\w+", "", cleaned)
+        cleaned = re.sub(r"[_-]\d{4,}\b", "", cleaned)
+        cleaned = re.sub(r"\s+", " ", cleaned).strip(" -_")
+        if len(cleaned) < 12:
+            cleaned = cls._clean_ascii_text(re.sub(r"\b\d{6,}\b", "", fallback))
+        return cleaned[:55]

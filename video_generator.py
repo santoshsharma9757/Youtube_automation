@@ -66,13 +66,15 @@ class VideoGenerator:
         background_clip = self._build_base_visual(script=script, duration=audio_clip.duration)
         subtitle_clips = self._build_subtitle_clips(subtitles.segments, audio_clip.duration, script=script)
         title_clip = self._build_title_clip(script, audio_clip.duration)
-        extra_clips = self._build_story_clips(script, audio_clip.duration)
 
         is_long = getattr(script, 'video_type', 'short') == 'long'
         vid_w = 1920 if is_long else 1080
         vid_h = 1080 if is_long else 1920
 
-        final = CompositeVideoClip([background_clip, title_clip, *subtitle_clips], size=(vid_w, vid_h))
+        layers = [background_clip, *subtitle_clips]
+        if title_clip is not None:
+            layers.insert(1, title_clip)
+        final = CompositeVideoClip(layers, size=(vid_w, vid_h))
         final = final.with_audio(audio_clip)
 
         final.write_videofile(
@@ -341,15 +343,15 @@ class VideoGenerator:
             is_romanized = self._is_romanized_script(script)
             is_long = getattr(script, 'video_type', 'short') == 'long'
             
-            # Create the text card
+            compact_text = self._limit_subtitle_lines(text.upper(), max_words_per_line=4)
             card = self._render_text_card(
-                text=text.upper(), # Uppercase is more impactful for viral videos
-                width=1400 if is_long else 960,
-                font_size=68 if is_romanized else 70, # Bold and large
+                text=compact_text,
+                width=1320 if is_long else 900,
+                font_size=62 if is_romanized else 64,
                 text_color=color,
                 bg_color=(0, 0, 0, 0),
                 stroke_color="#000000",
-                stroke_width=5, # Heavier stroke for impact
+                stroke_width=5,
                 padding=10,
             )
             
@@ -357,11 +359,10 @@ class VideoGenerator:
             duration_seg = min(segment["end"], duration) - segment["start"]
             clip = clip.with_start(segment["start"]).with_duration(duration_seg)
             
-            # Positioning
-            # Move subtitles to a balanced spot: above the bottom but strictly below the middle (middle is 960)
-            base_y = 1200 if is_romanized else 1150
+            # Keep spoken captions in the bottom-safe area only.
+            base_y = 1455 if is_romanized else 1415
             if is_long:
-                base_y = 750 if is_romanized else 700
+                base_y = 840 if is_romanized else 800
             
             # 1. Rising Animation
             # 2. Pop-in Scaling Animation (Dynamic resize from 0.8 to 1.0 in first 0.15s)
@@ -778,3 +779,41 @@ class VideoGenerator:
             "tag_fill": (127, 29, 29, 220),
             "badge_text": "#111827",
         }
+
+    @staticmethod
+    def _limit_subtitle_lines(text: str, max_words_per_line: int = 4) -> str:
+        words = text.split()
+        if not words:
+            return ""
+        lines = [
+            " ".join(words[index:index + max_words_per_line])
+            for index in range(0, len(words), max_words_per_line)
+        ]
+        return "\n".join(lines[:2])
+
+    def _build_title_clip(self, script: VideoScript, duration: float):
+        title = (getattr(script, "overlay_text", "") or script.title).strip()
+        if not title:
+            return None
+
+        title_words = re.sub(r"[^\w\s?!]", " ", title).split()
+        final_title = " ".join(title_words[:4]).strip()
+        if not final_title:
+            return None
+
+        is_long = getattr(script, "video_type", "short") == "long"
+        title_text = ImageClip(
+            self._render_text_card(
+                text=final_title,
+                width=980 if is_long else 640,
+                font_size=50 if is_long else 34,
+                text_color="#f8fafc",
+                bg_color=(0, 0, 0, 0),
+                stroke_color="#000000",
+                stroke_width=3,
+                padding=10,
+            )
+        )
+        y_pos = 80 if is_long else 130
+        clip_duration = min(duration, 3.4 if is_long else 2.8)
+        return title_text.with_position(("center", y_pos)).with_duration(clip_duration)

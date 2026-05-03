@@ -88,7 +88,7 @@ class AppConfig:
     font_file: Path = field(default_factory=lambda: resolve_font_path())
     subtitle_store_dir: Path = field(default_factory=lambda: SUBTITLE_DIR)
     scheduler_timezone: str = field(default_factory=lambda: os.getenv("SCHEDULER_TIMEZONE", "Asia/Kolkata"))
-    daily_video_count: int = field(default_factory=lambda: int(os.getenv("DAILY_VIDEO_COUNT", "1")))
+    daily_video_count: int = field(default_factory=lambda: int(os.getenv("DAILY_VIDEO_COUNT", "2")))
     upload_enabled: bool = field(default_factory=lambda: os.getenv("UPLOAD_ENABLED", "false").lower() == "true")
     use_pexels_for_shorts: bool = field(default=False)
 

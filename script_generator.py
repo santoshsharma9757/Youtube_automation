@@ -71,6 +71,7 @@ class ScriptGenerator:
             - Hook must create INSTANT curiosity in the first 2 seconds and completely avoid generic greetings
             - overlay_text must be 3 to 7 words, ultra-clear, and look natural as small top-screen text on a Short
             - Make sure the script is A-grade content: highly attractive, deeply engaging, and incredibly helpful to the viewer
+            - Every script must feel fresh. Avoid repeating channel cliches, avoid repeating the same CTA pattern, and avoid recycled lines like "ruk mat", "consistency hi sab kuch hai", or "show up every day" unless the topic truly needs it
             - Use "Curiosity Loops": open a question in the hook and promise the answer in the solution
             - Use "Pattern Interrupts": change the tone or angle every 10-15 words to keep the brain engaged
             - The solution MUST provide highly specific, actionable, and life-improving value. Provide real fixes to their struggles.
@@ -85,7 +86,9 @@ class ScriptGenerator:
             - Use only Roman script written with normal English letters
             - Do not use Devanagari, Hindi script, emojis, or special symbols
             - Hindi lines must be Roman Hindi only, mixed naturally with English
-            - CTA must be action-driven, urgent, and feel native to Shorts (e.g., "Ruk mat, start kar aaj se!")
+            - CTA must be action-driven, urgent, and feel native to Shorts, but it must vary from video to video
+            - The solution section must teach at least 2 concrete steps, checks, or corrections the viewer can apply immediately
+            - Prefer scripts that make the viewer feel smarter in 20 seconds, not just more motivated
             - Use one high-intent search keyword for fitness, yoga, diet, or health
             - Retention note should briefly explain why the opening should hold attention
             - Output should sound credible, sharp, and genuinely helpful enough that viewers save it
@@ -100,21 +103,16 @@ class ScriptGenerator:
         )
         LOGGER.info("Script generation provider used: %s", provider_used)
 
+        payload = self._normalize_payload(payload)
+        if not self._payload_is_usable(payload):
+            LOGGER.warning("LLM payload was incomplete or too weak; switching to structured fallback for '%s'", idea.title)
+            payload = self._fallback_script_payload(idea)
         hook = payload["hook"].strip()
         problem = payload["problem"].strip()
         insight = payload["insight"].strip()
         solution = payload["solution"].strip()
         cta = payload["cta"].strip()
         overlay_text = payload.get("overlay_text", "").strip()
-        if any(self._contains_non_ascii_text(value) for value in (payload["title"], overlay_text, hook, problem, insight, solution, cta)):
-            LOGGER.warning("LLM returned non-Roman text; switching to Roman-script fallback for '%s'", idea.title)
-            payload = self._fallback_script_payload(idea)
-            overlay_text = payload["overlay_text"].strip()
-            hook = payload["hook"].strip()
-            problem = payload["problem"].strip()
-            insight = payload["insight"].strip()
-            solution = payload["solution"].strip()
-            cta = payload["cta"].strip()
         full_script = " ".join([hook, problem, insight, solution, cta])
         full_script = self._extend_script_if_needed(full_script, idea)
         clean_title = self._clean_display_text(payload["title"].strip()) or self._clean_display_text(idea.title)
@@ -172,8 +170,8 @@ class ScriptGenerator:
             primary_keyword = "strength training motivation hindi"
         else:
             problem = f"Most people fail at {idea.topic.lower()} because they rely on emotion instead of a repeatable system."
-            insight = f"Real {idea.angle.lower()} starts on the days when your body says quit but your identity says keep going."
-            solution = f"Pick one small non-negotiable action, repeat it daily, track it weekly, and let {idea.audience_value.lower()} become your edge."
+            insight = f"The real problem is usually poor structure, not low motivation. Without one clear trigger and one measurable action, progress stays random."
+            solution = f"Pick one trigger, one action, and one score. Example: same workout time, same first exercise, and track reps or minutes for 7 days. That is how {idea.audience_value.lower()} becomes real."
             primary_keyword = f"{idea.topic} motivation hindi"
 
         return {
@@ -203,18 +201,24 @@ class ScriptGenerator:
                 " Yoga sirf body shape nahi badalta, yeh andar ka noise bhi dheere dheere shaant karta hai. "
                 f"Jab tum {idea.topic.lower()} ko breath ke saath practice karte ho, confidence aur grace dono saath grow karte hain."
             )
+        elif style in ("diet", "health"):
+            extension = (
+                f" Ek simple rule yaad rakho: pehle trigger identify karo, fir fix lagao. "
+                f"Agar issue {idea.topic.lower()} se juda hai, toh random hacks nahi, daily repeat hone wala system kaam karega."
+            )
         else:
             extension = (
-                f" Most people chase results, but champions chase systems. "
-                f"If you master {idea.topic.lower()} with patience, intensity, and repetition, your confidence changes first and your physique follows next."
+                f" Most people stay stuck because unka plan measurable hi nahi hota. "
+                f"If you turn {idea.topic.lower()} into one repeatable system, results stop feeling random and start compounding."
             )
         expanded = f"{full_script}{extension}"
         if len(expanded.split()) < min_words:
-            extra = (
-                "Kal ka wait mat karo. Aaj body ko presence do, breath ko control do, aur routine ko respect do."
-                if style == "yoga"
-                else "Stop negotiating with yourself. Show up, finish the rep, respect the process, and let consistency do what motivation never could."
-            )
+            if style == "yoga":
+                extra = "Kal ka wait mat karo. Aaj body ko presence do, breath ko control do, aur routine ko respect do."
+            elif style in ("diet", "health"):
+                extra = "Aaj se ek small food ya recovery change test karo, 7 din observe karo, aur jo kaam kare sirf usi ko repeat karo."
+            else:
+                extra = "Aaj hi ek baseline set karo, next 7 din compare karo, aur sirf woh habits rakho jo actual result deti hain."
             expanded = f"{expanded} {extra}"
         return expanded
 
@@ -249,7 +253,7 @@ class ScriptGenerator:
                 "The language should be helpful, expert-style Hinglish. Use natural Indian terms for food like 'dal', 'paneer', 'pachan' mixed with English terms like 'metabolism', 'nutrients', and 'cravings'."
             )
         return (
-            "The language should be Hinglish with short Hindi lines and some English punch words. Use phrases like 'ruk mat', 'discipline', 'focus', 'strength', and 'consistency' naturally."
+            "The language should be Hinglish with short Hindi lines and sharp English punch words. Keep it natural, modern, and varied. Avoid relying on the same signature phrases in every script."
         )
 
     @staticmethod
@@ -310,8 +314,12 @@ class ScriptGenerator:
     @staticmethod
     def _fallback_cta(style: str) -> str:
         if style == "yoga":
-            return "DailyFitX ko follow karo, kal nahi, aaj se apne body aur breath ko respect dena shuru karo."
-        return "Follow DailyFitX and build discipline that shows in your body and mind."
+            return "Agar yeh useful laga, DailyFitX follow karo aur kal se nahi, aaj se 5 mindful minutes lock karo."
+        if style == "diet":
+            return "Isko save karo, next meal se ek change lagao, aur DailyFitX follow karo for practical fat loss."
+        if style == "health":
+            return "Is tip ko save karo, 7 din test karo, aur DailyFitX follow karo for simple health fixes."
+        return "Isko save karo, next workout mein apply karo, aur DailyFitX follow karo for sharper fitness scripts."
 
     @staticmethod
     def _fallback_overlay_text(idea: VideoIdea, style: str) -> str:
@@ -331,7 +339,31 @@ class ScriptGenerator:
     def _fallback_retention_note(style: str) -> str:
         if style == "yoga":
             return "Hindi-first emotional hook opens with pain relief and promises calm plus visible body change."
-        return "Pattern-interrupt hook, short punchy lines, and a concrete payoff support higher retention."
+        if style in ("diet", "health"):
+            return "The opening creates a problem-solution gap fast and promises a usable fix, which improves saves and retention."
+        return "The opening challenges a common mistake fast, then pays it off with concrete steps instead of generic hype."
+
+    @classmethod
+    def _normalize_payload(cls, payload: dict) -> dict:
+        normalized = dict(payload)
+        for key in ("title", "overlay_text", "hook", "problem", "insight", "solution", "cta", "primary_keyword", "retention_note"):
+            normalized[key] = cls._clean_display_text(str(normalized.get(key, "")))
+        return normalized
+
+    @staticmethod
+    def _payload_is_usable(payload: dict) -> bool:
+        required_keys = ("title", "hook", "problem", "insight", "solution", "cta", "primary_keyword", "retention_note")
+        if any(not str(payload.get(key, "")).strip() for key in required_keys):
+            return False
+        combined = " ".join(str(payload.get(key, "")) for key in ("hook", "problem", "insight", "solution", "cta")).lower()
+        banned_repetition = (
+            "ruk mat",
+            "show up every day",
+            "consistency is everything",
+        )
+        if sum(1 for phrase in banned_repetition if phrase in combined) >= 2:
+            return False
+        return len(combined.split()) >= 45
 
     @staticmethod
     def _contains_non_ascii_text(value: str) -> bool:
@@ -339,8 +371,10 @@ class ScriptGenerator:
 
     @staticmethod
     def _clean_display_text(value: str) -> str:
-        text = re.sub(r"\b\d{8,}\b", "", value)
+        text = re.sub(r"\b\d{6,}\b", "", value)
+        text = re.sub(r"[_-]\d{4,}\b", "", text)
         text = "".join(char for char in text if ord(char) < 128)
+        text = re.sub(r"\s*[|:]\s*\d+\s*$", "", text)
         text = re.sub(r"\s+", " ", text).strip(" -_")
         return text.strip()
 
@@ -350,5 +384,5 @@ class ScriptGenerator:
         text = re.sub(r"[^\w\s?!]", "", text)
         words = text.split()
         if not words:
-            return "Watch this first"
-        return " ".join(words[:7])[:36].strip()
+            return "Watch this"
+        return " ".join(words[:5])[:28].strip()

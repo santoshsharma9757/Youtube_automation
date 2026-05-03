@@ -20,21 +20,28 @@ def cleanup_local_video(video_path: Path, record: dict) -> None:
         print(f"Uploaded but could not delete local video {video_path.name}: {exc}")
 
 
-def build_daily_slots(videos_per_day: int) -> list[int]:
-    if videos_per_day <= 1:
-        return [13] # Midday is best for single daily videos
-    if videos_per_day == 2:
-        return [7, 19]  # 7 AM and 7 PM IST — peak Indian audience
-    if videos_per_day == 3:
-        return [7, 13, 20] # Morning, Midday, and Night
-    step = max(1, 12 // max(videos_per_day - 1, 1))
-    start = 8
-    slots = []
-    for index in range(videos_per_day):
-        hour = min(22, start + (index * step))
-        if hour not in slots:
-            slots.append(hour)
-    return slots
+def get_daily_slots(weekday: int, videos_per_day: int) -> list[int]:
+    # Priorities based on best times to post (0=Monday, 6=Sunday):
+    # Sunday: 7 p.m., 8 p.m., 5 p.m.
+    # Monday: 8 p.m., 5 p.m., 6 p.m.
+    # Tuesday: 8 p.m., 9 p.m., 7 p.m.
+    # Wednesday: 7 p.m., 8 p.m., 9 p.m.
+    # Thursday: 7 p.m., 8 p.m., 9 p.m.
+    # Friday: 4 p.m., 6 p.m., 7 p.m.
+    # Saturday: 7 p.m., 11 a.m., 6 p.m.
+    priorities = {
+        0: [20, 17, 18],
+        1: [20, 21, 19],
+        2: [19, 20, 21],
+        3: [19, 20, 21],
+        4: [16, 18, 19],
+        5: [19, 11, 18],
+        6: [19, 20, 17],
+    }
+    
+    selected_slots = priorities.get(weekday, [19, 20])[:videos_per_day]
+    # Return sorted chronologically to ensure earlier times are checked first
+    return sorted(selected_slots)
 
 
 def schedule_pending_uploads(videos_per_day: int = 2) -> int:
@@ -51,7 +58,6 @@ def schedule_pending_uploads(videos_per_day: int = 2) -> int:
     
     tz = pytz.timezone(config.scheduler_timezone)
     now = datetime.now(tz)
-    slots = build_daily_slots(videos_per_day)
     count_uploaded = 0
     missing_files = 0
     current_time_pointer = now + timedelta(minutes=30)
@@ -78,10 +84,11 @@ def schedule_pending_uploads(videos_per_day: int = 2) -> int:
                 missing_files += 1
                 continue
                 
-            # Find the next available 7 AM or 7 PM slot
+            # Find the next available slot based on day of week
             next_slot = None
             temp_date = current_time_pointer.date()
             while next_slot is None:
+                slots = get_daily_slots(temp_date.weekday(), videos_per_day)
                 for s_hour in slots:
                     candidate = tz.localize(datetime.combine(temp_date, time(hour=s_hour)))
                     if candidate > current_time_pointer:
@@ -120,6 +127,9 @@ def schedule_pending_uploads(videos_per_day: int = 2) -> int:
 
 def main():
     schedule_pending_uploads(videos_per_day=2)
+
+
+
 
 if __name__ == "__main__":
     main()

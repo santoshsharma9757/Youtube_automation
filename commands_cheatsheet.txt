@@ -27,6 +27,9 @@ python main.py --count 1 --use-pexels
 # Generate 2 Shorts and 1 Long Video (Everything uses Pexels)
 python main.py --count 2 --long-count 1 --use-pexels
 
+python main.py --count 6 --long-count 1 --use-pexels --schedule-upload --videos-per-day 2
+
+
 ----------------------------------------------
  3. MANUAL / CUSTOM TOPICS
 ----------------------------------------------
@@ -45,6 +48,9 @@ python main.py --count 2 --upload
 # Just run the scheduler program to upload pending videos
 python main.py --schedule-upload
 
+# Generate 6 Shorts + 1 Long and schedule the uploads in stronger daily slots
+python main.py --count 6 --long-count 1 --use-pexels --schedule-upload --videos-per-day 3
+https://buffer.com/resources/best-time-to-post-on-youtube/
 # 7 videso at a time
 python main.py --count 3 --use-pexels
 python main.py --count 2
