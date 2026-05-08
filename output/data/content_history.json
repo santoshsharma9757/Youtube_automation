@@ -7458,5 +7458,401 @@
     "created_at": "2026-05-03T11:38:22.479387+00:00",
     "scheduled_time": "2026-05-07T14:30:00Z",
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260508_183723_4am-workout-kya-sacchi-hai",
+    "idea": {
+      "idea_id": "20260508_183723_4am-workout-kya-sacchi-hai",
+      "title": "20260508_183723_4am-workout-kya-sacchi-hai",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260508_183723_4am-workout-kya-sacchi-hai",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260508_183723_4am-workout-kya-sacchi-hai",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "4Am Workout Kya Sacchi Hai",
+      "description": "4Am Workout Kya Sacchi Hai.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "4am workout kya sacchi hai",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "4am workout kya sacchi hai",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260508_183723_4am-workout-kya-sacchi-hai.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "t33iBaJuXXhFrXrOLDGnBKkshJg",
+      "id": "jKBiMbgvJq0",
+      "snippet": {
+        "publishedAt": "2026-05-08T19:47:47Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "4Am Workout Kya Sacchi Hai",
+        "description": "4Am Workout Kya Sacchi Hai.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/jKBiMbgvJq0/default.jpg?sqp=CLz6-M8G&rs=AOn4CLAu-VnbeAOjlbTZG8QzqtKjESczzA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/jKBiMbgvJq0/mqdefault.jpg?sqp=CLz6-M8G&rs=AOn4CLDBUESChK-W4Zi6gctbBTt40zJbCg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/jKBiMbgvJq0/hqdefault.jpg?sqp=CLz6-M8G&rs=AOn4CLDKVJDHUP2924o3knVYbi09Z5O6zg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "4am workout kya sacchi hai",
+          "DailyFitX",
+          "fitness shorts",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "4Am Workout Kya Sacchi Hai",
+          "description": "4Am Workout Kya Sacchi Hai.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-09T05:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-09T05:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260508_185808_lose-side-fat-quickly",
+    "idea": {
+      "idea_id": "20260508_185808_lose-side-fat-quickly",
+      "title": "20260508_185808_lose-side-fat-quickly",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260508_185808_lose-side-fat-quickly",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260508_185808_lose-side-fat-quickly",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Lose Side Fat Quickly",
+      "description": "Lose Side Fat Quickly.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "lose side fat quickly",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "lose side fat quickly",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260508_185808_lose-side-fat-quickly.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "qJVskD3JpQhTTsjt40H1XGLwFSA",
+      "id": "oqyqgh8AYOQ",
+      "snippet": {
+        "publishedAt": "2026-05-08T19:48:00Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Lose Side Fat Quickly",
+        "description": "Lose Side Fat Quickly.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/oqyqgh8AYOQ/default.jpg?sqp=CLz6-M8G&rs=AOn4CLCa2R2JiBfXQcUvbABbRoV-7o8ENQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/oqyqgh8AYOQ/mqdefault.jpg?sqp=CLz6-M8G&rs=AOn4CLAAQXjvVp6VHSoXkz3knKrDN9IBuQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/oqyqgh8AYOQ/hqdefault.jpg?sqp=CLz6-M8G&rs=AOn4CLB7ayu-tE92sDjORQj-RIleT1Tkow",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "lose side fat quickly",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Lose Side Fat Quickly",
+          "description": "Lose Side Fat Quickly.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-09T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-09T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260508_192525_smart-choices-ek-meal-ka-jadoo",
+    "idea": {
+      "idea_id": "20260508_192525_smart-choices-ek-meal-ka-jadoo",
+      "title": "20260508_192525_smart-choices-ek-meal-ka-jadoo",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260508_192525_smart-choices-ek-meal-ka-jadoo",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260508_192525_smart-choices-ek-meal-ka-jadoo",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Smart Choices Ek Meal Ka Jadoo",
+      "description": "Smart Choices Ek Meal Ka Jadoo.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "smart choices ek meal ka jadoo",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "smart choices ek meal ka jadoo",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260508_192525_smart-choices-ek-meal-ka-jadoo.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "6eArJwodUk_OaP817x1AYzVjkXY",
+      "id": "uER_CPi8K7s",
+      "snippet": {
+        "publishedAt": "2026-05-08T19:48:17Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Smart Choices Ek Meal Ka Jadoo",
+        "description": "Smart Choices Ek Meal Ka Jadoo.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/uER_CPi8K7s/default.jpg?sqp=CLz6-M8G&rs=AOn4CLB8xe1vIhYOHXcE44Z-zjDD-Lbwzw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/uER_CPi8K7s/mqdefault.jpg?sqp=CLz6-M8G&rs=AOn4CLA209Nnur8oX4EdAtFcWBkIdwsohA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/uER_CPi8K7s/hqdefault.jpg?sqp=CLz6-M8G&rs=AOn4CLB_hRfc2SEf3QJzteVM6xholkY0JA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "smart choices ek meal ka jadoo",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Smart Choices Ek Meal Ka Jadoo",
+          "description": "Smart Choices Ek Meal Ka Jadoo.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-10T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-10T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260508_193916_power-of-calisthenics-bodyweight-se-fit",
+    "idea": {
+      "idea_id": "20260508_193916_power-of-calisthenics-bodyweight-se-fit",
+      "title": "20260508_193916_power-of-calisthenics-bodyweight-se-fit",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260508_193916_power-of-calisthenics-bodyweight-se-fit",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260508_193916_power-of-calisthenics-bodyweight-se-fit",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Power Of Calisthenics Bodyweight Se Fit",
+      "description": "Power Of Calisthenics Bodyweight Se Fit.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "power of calisthenics bodyweight se fit",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "power of calisthenics bodyweight se fit",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260508_193916_power-of-calisthenics-bodyweight-se-fit.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": null,
+    "created_at": "",
+    "recovered_for_upload": true,
+    "local_video_deleted": true,
+    "skipped_because_missing_after_recovery": true
   }
 ]
