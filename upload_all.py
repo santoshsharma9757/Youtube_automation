@@ -5,6 +5,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from config import VIDEO_DIR, get_config
+from posting_schedule import get_daily_slots
 from seo_generator import SeoPackage
 from uploader import YouTubeUploader
 
@@ -132,31 +133,7 @@ def cleanup_local_video(video_path: Path, record: dict) -> None:
         print(f"Uploaded but could not delete local video {video_path.name}: {exc}")
 
 
-def get_daily_slots(weekday: int, videos_per_day: int) -> list[int]:
-    # Priorities based on best times to post (0=Monday, 6=Sunday):
-    # Sunday: 7 p.m., 8 p.m., 5 p.m.
-    # Monday: 8 p.m., 5 p.m., 6 p.m.
-    # Tuesday: 8 p.m., 9 p.m., 7 p.m.
-    # Wednesday: 7 p.m., 8 p.m., 9 p.m.
-    # Thursday: 7 p.m., 8 p.m., 9 p.m.
-    # Friday: 4 p.m., 6 p.m., 7 p.m.
-    # Saturday: 7 p.m., 11 a.m., 6 p.m.
-    priorities = {
-        0: [20, 17, 18],
-        1: [20, 21, 19],
-        2: [19, 20, 21],
-        3: [19, 20, 21],
-        4: [16, 18, 19],
-        5: [19, 11, 18],
-        6: [19, 20, 17],
-    }
-    
-    selected_slots = priorities.get(weekday, [19, 20])[:videos_per_day]
-    # Return sorted chronologically to ensure earlier times are checked first
-    return sorted(selected_slots)
-
-
-def schedule_pending_uploads(videos_per_day: int = 2) -> int:
+def schedule_pending_uploads(videos_per_day: int = 3) -> int:
     import pytz
     from datetime import datetime, timedelta, time
     config = get_config()
@@ -208,7 +185,10 @@ def schedule_pending_uploads(videos_per_day: int = 2) -> int:
             next_slot = None
             temp_date = current_time_pointer.date()
             while next_slot is None:
-                slots = get_daily_slots(temp_date.weekday(), videos_per_day)
+                video_type = str(record.get("script", {}).get("video_type", "short")).lower()
+                if video_type not in {"short", "long"}:
+                    video_type = "short"
+                slots = get_daily_slots(temp_date.weekday(), videos_per_day, video_type=video_type)
                 for s_hour in slots:
                     candidate = tz.localize(datetime.combine(temp_date, time(hour=s_hour)))
                     if candidate > current_time_pointer:
@@ -246,7 +226,7 @@ def schedule_pending_uploads(videos_per_day: int = 2) -> int:
 
 
 def main():
-    schedule_pending_uploads(videos_per_day=2)
+    schedule_pending_uploads(videos_per_day=3)
 
 
 

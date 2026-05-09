@@ -264,7 +264,9 @@ class IdeaGenerator:
             "- Improve the trend into a better DailyFitX title instead of copying it.\n"
             "- Favor the highest-scoring live trends first.\n"
             "- Titles must be Shorts-style and usually 28 to 48 characters.\n"
-            "- Focus only on fitness, yoga, meditation, motivation, fat loss, sleep, breathwork, mobility, and home workouts.\n"
+            "- Focus only on yoga, gym, exercise, fitness, meditation, health, fat loss, sleep, breathwork, mobility, and home workouts.\n"
+            "- Prioritize topics with strong YouTube search intent and Explore potential, especially myth busting, mistakes, transformations, comparisons, quick fixes, and routines viewers save.\n"
+            "- Prefer titles/search angles like yoga for stress, gym mistakes, workout form, meditation for sleep, protein, belly fat, posture, mobility, gut health, and morning/evening fitness habits.\n"
             "- Prefer India-friendly Shorts topics.\n"
             "- Use Roman script only.\n"
             "- Never generate politics or non-fitness content.\n"
@@ -342,15 +344,23 @@ class IdeaGenerator:
     @staticmethod
     def _youtube_queries(theme: str | None = None) -> list[str]:
         base_queries = [
-            "fitness shorts india",
             "yoga shorts india",
+            "gym shorts india",
+            "exercise shorts india",
+            "fitness shorts india",
+            "fitness motivation shorts",
+            "home workout shorts india",
             "meditation shorts",
+            "health tips shorts india",
             "motivation shorts workout",
             "diet shorts india",
             "weight loss diet shorts",
             "gut health shorts",
             "indian protein sources shorts",
-            "home workout shorts",
+            "gym mistakes shorts",
+            "workout mistakes shorts",
+            "yoga for stress shorts",
+            "meditation for sleep shorts",
             "fat loss shorts india",
             "walking yoga",
         ]

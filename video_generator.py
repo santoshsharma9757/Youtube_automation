@@ -90,15 +90,42 @@ class VideoGenerator:
 
     def _build_base_visual(self, script: VideoScript, duration: float):
         is_long = getattr(script, 'video_type', 'short') == 'long'
-        
-        if is_long or getattr(self.config, 'use_pexels_for_shorts', False):
+
+        if is_long:
             return self._build_pexels_background(script, duration)
+
+        if getattr(self.config, 'use_pexels_for_shorts', False):
+            return self._build_mixed_background(script, duration)
 
         local_video_clip = self._build_local_video_background(script=script, duration=duration)
         if local_video_clip is not None:
             return local_video_clip
 
         return self._build_background(script, duration)
+
+    def _build_mixed_background(self, script: VideoScript, duration: float):
+        local_clip = self._build_local_video_background(script=script, duration=duration)
+        pexels_clip = self._build_pexels_background(script=script, duration=duration)
+
+        if local_clip is None and pexels_clip is None:
+            return self._build_background(script, duration)
+        if local_clip is None:
+            return pexels_clip
+        if pexels_clip is None:
+            return local_clip
+
+        local_duration = max(1.5, round(duration * 0.45, 2))
+        pexels_duration = max(1.5, duration - local_duration)
+        local_part = local_clip.subclipped(0, min(local_duration, local_clip.duration))
+        pexels_part = pexels_clip.subclipped(0, min(pexels_duration, pexels_clip.duration))
+        combined = concatenate_videoclips([local_part, pexels_part], method="compose")
+        if combined.duration < duration:
+            tail = pexels_clip if pexels_clip.duration >= (duration - combined.duration) else local_clip
+            combined = concatenate_videoclips(
+                [combined, tail.subclipped(0, min(duration - combined.duration, tail.duration))],
+                method="compose",
+            )
+        return combined.subclipped(0, duration)
 
     def _build_local_video_background(self, script: VideoScript, duration: float):
         assets = self._match_local_video_assets(script)

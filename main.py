@@ -247,7 +247,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--videos-per-day",
         type=int,
-        default=2,
+        default=3,
         help="How many videos to schedule per day when using --schedule-upload",
     )
     parser.add_argument("--test-long", action="store_true", help="Generate a long video for testing")
