@@ -157,53 +157,16 @@ class ScriptGenerator:
             The spoken language for the Voiceover MUST be in Hindi.
             
             Return ONLY a valid JSON object with the following keys:
-            - "prompt": The raw text prompt for Veo.
+            - "clip_1_prompt": The Veo text prompt for ONLY Scene 1 (What is BAD for the organ).
+            - "clip_2_prompt": The Veo text prompt for ONLY Scene 2 (What is GOOD for the organ).
+            - "clip_3_prompt": The Veo text prompt for ONLY Scene 3 (The organ healing and HAPPY).
             - "seo_title": A high-retention YouTube Shorts title (under 60 chars) including emojis.
             - "seo_description": A 2-sentence description with 5 hashtags.
             - "seo_tags": An array of 15 highly targeted YouTube search tags.
 
-            The "prompt" string MUST exactly match this structure:
-
-            Create a 24-second cinematic ultra realistic CGI video for YouTube Shorts about [Organ Name] health.
-
-            The narration and all spoken voice must be in Hindi language.
-
-            STYLE:
-            Ultra realistic medical CGI
-            Hollywood cinematic lighting
-            Dark dramatic atmosphere
-            Smooth camera movement
-            Volumetric lighting
-            High detail anatomy
-            Emotional cinematic tone
-            Vertical format 9:16
-            YouTube Shorts pacing
-            Photorealistic rendering
-
-            SCENE 1 (0-8 sec):
-            [Detailed visual description of the BAD food/habit harming the organ]
-            Hindi Voiceover: "[Hindi dialogue about what is destroying the organ]"
-
-            SCENE 2 (8-16 sec):
-            [Detailed visual description of the GOOD food/habit healing the organ]
-            Hindi Voiceover: "[Hindi dialogue about what to eat/do to fix it]"
-
-            SCENE 3 (16-24 sec):
-            [Detailed visual description of the organ glowing, healthy, and looking VERY HAPPY]
-            Hindi Voiceover: "[Hindi dialogue about the organ being fully healed and happy]"
-
-            CAMERA:
-            Dynamic cinematic camera
-            Smooth transitions
-            Depth of field
-            Macro shots
-            Slow motion effects
-
-            QUALITY:
-            Photorealistic
-            4K resolution
-            Highly detailed
-            Professional documentary style
+            Each clip prompt MUST be self-contained and formatted like this:
+            
+            "Ultra realistic medical CGI, 4K, vertical 9:16. [Visual description of the scene]. Hindi Voiceover: '[Hindi dialogue here]'"
             """
         )
         
@@ -223,7 +186,9 @@ class ScriptGenerator:
         except Exception as exc:
             LOGGER.error("Failed to generate Veo Prompt: %s", exc)
             return {
-                "prompt": f"Create a 24-second cinematic ultra realistic video about {idea.title}...",
+                "clip_1_prompt": f"Ultra realistic medical CGI, 4K, vertical 9:16. {idea.title} part 1. Hindi Voiceover: '...'",
+                "clip_2_prompt": f"Ultra realistic medical CGI, 4K, vertical 9:16. {idea.title} part 2. Hindi Voiceover: '...'",
+                "clip_3_prompt": f"Ultra realistic medical CGI, 4K, vertical 9:16. {idea.title} part 3. Hindi Voiceover: '...'",
                 "seo_title": idea.title,
                 "seo_description": idea.topic,
                 "seo_tags": [idea.topic]

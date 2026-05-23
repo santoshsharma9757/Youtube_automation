@@ -13,14 +13,14 @@ from idea_generator import IdeaGenerator, VideoIdea, canonicalize_text, canonica
 from manual_content import build_manual_content
 from music_downloader import ensure_music_library
 from script_generator import ScriptGenerator
-from seo_generator import SeoGenerator
+from seo_generator import SeoGenerator, SeoPackage
 from subtitle_generator import SubtitleGenerator
 from tts import TextToSpeechEngine
 from upload_all import schedule_pending_uploads
 from uploader import YouTubeUploader
 from video_downloader import ensure_video_library
 from video_generator import VideoGenerator
-
+from moviepy import VideoFileClip, concatenate_videoclips
 
 LOGGER = logging.getLogger(__name__)
 
@@ -90,11 +90,6 @@ def run_pipeline(
             LOGGER.error("metadata.json not found in %s! Cannot deploy without SEO metadata.", veo_dir)
             return []
             
-        import json
-        from moviepy import VideoFileClip, concatenate_videoclips
-        from seo_generator import SeoPackage
-        from uploader import YouTubeUploader
-        
         metadata = json.loads(metadata_file.read_text(encoding="utf-8"))
         clips_paths = sorted([p for p in veo_dir.glob("*.mp4")])
         
@@ -245,7 +240,20 @@ def run_pipeline(
                 veo_dir = Path("output/veo_prompts")
                 veo_dir.mkdir(parents=True, exist_ok=True)
                 veo_path = veo_dir / f"{base_name}.txt"
-                veo_path.write_text(veo_data["prompt"], encoding="utf-8")
+                
+                # Format perfectly for the user to copy/paste
+                clean_prompt = (
+                    "🔥 CLIP 1 PROMPT (Copy to Veo):\n"
+                    f"{veo_data.get('clip_1_prompt', '')}\n\n"
+                    "--------------------------------------------------\n\n"
+                    "🔥 CLIP 2 PROMPT (Copy to Veo):\n"
+                    f"{veo_data.get('clip_2_prompt', '')}\n\n"
+                    "--------------------------------------------------\n\n"
+                    "🔥 CLIP 3 PROMPT (Copy to Veo):\n"
+                    f"{veo_data.get('clip_3_prompt', '')}\n"
+                )
+                
+                veo_path.write_text(clean_prompt, encoding="utf-8")
                 LOGGER.info("Saved Veo Prompt to %s", veo_path)
                 
                 input_dir = Path("input/veo_clips")
