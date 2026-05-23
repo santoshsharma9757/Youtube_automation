@@ -67,18 +67,6 @@ def select_fresh_ideas(
     return ideas[:count]
 
 
-def build_short_visual_modes(short_count: int, use_pexels: bool = False, mix: bool = False) -> list[str]:
-    if short_count <= 0:
-        return []
-    if mix:
-        local_count = (short_count + 1) // 2
-        pexels_count = short_count // 2
-        return (["local"] * local_count) + (["pexels"] * pexels_count)
-    if use_pexels:
-        return ["mix"] * short_count
-    return ["local"] * short_count
-
-
 def run_pipeline(
     short_count: int = 1,
     long_count: int = 0,
@@ -87,9 +75,82 @@ def run_pipeline(
     theme: str | None = None,
     language: str = "hinglish",
     test_long: bool = False,
+    veo_prompt: bool = False,
+    deploy_veo: bool = False,
 ) -> list[dict]:
     config = get_config()
     total_count = short_count + long_count
+
+    if deploy_veo:
+        LOGGER.info("Deploying manually generated Veo clips...")
+        veo_dir = Path("input/veo_clips")
+        metadata_file = veo_dir / "metadata.json"
+        
+        if not metadata_file.exists():
+            LOGGER.error("metadata.json not found in %s! Cannot deploy without SEO metadata.", veo_dir)
+            return []
+            
+        import json
+        from moviepy import VideoFileClip, concatenate_videoclips
+        from seo_generator import SeoPackage
+        from uploader import YouTubeUploader
+        
+        metadata = json.loads(metadata_file.read_text(encoding="utf-8"))
+        clips_paths = sorted([p for p in veo_dir.glob("*.mp4")])
+        
+        if not clips_paths:
+            LOGGER.error("No .mp4 files found in %s!", veo_dir)
+            return []
+            
+        LOGGER.info("Found %s clips to combine.", len(clips_paths))
+        try:
+            clips = [VideoFileClip(str(p)) for p in clips_paths]
+            final_clip = concatenate_videoclips(clips, method="compose")
+            
+            output_dir = Path("output/final_videos")
+            output_dir.mkdir(parents=True, exist_ok=True)
+            output_path = output_dir / f"veo_final_{datetime.now().strftime('%Y%m%d_%H%M%S')}.mp4"
+            
+            LOGGER.info("Rendering combined video...")
+            final_clip.write_videofile(
+                str(output_path),
+                codec="libx264",
+                audio_codec="aac",
+                fps=30,
+                threads=4,
+                logger=None,
+            )
+            for c in clips:
+                c.close()
+            final_clip.close()
+            
+            seo = SeoPackage(
+                title=metadata["seo_title"],
+                description=metadata["seo_description"],
+                tags=metadata["seo_tags"],
+                hashtags=metadata.get("seo_tags", [])[:5],
+                primary_keyword=metadata.get("seo_tags", [""])[0] if metadata.get("seo_tags") else "video",
+                language_code="hi",
+                audio_language_code="hi",
+            )
+            
+            LOGGER.info("Uploading combined Veo video to YouTube...")
+            uploader = YouTubeUploader(config)
+            uploader.upload_short(output_path, seo)
+            
+            LOGGER.info("Upload complete. Cleaning up %s and final video...", veo_dir)
+            for p in clips_paths:
+                p.unlink()
+            if "prompt_path" in metadata:
+                Path(metadata["prompt_path"]).unlink(missing_ok=True)
+            metadata_file.unlink()
+            output_path.unlink(missing_ok=True)
+            LOGGER.info("Veo deployment finished successfully!")
+            
+        except Exception as exc:
+            LOGGER.error("Failed to deploy Veo video: %s", exc)
+        return []
+
     if total_count < 1 or total_count > 30:
         raise ValueError("Total video count must be between 1 and 30.")
 
@@ -165,9 +226,6 @@ def run_pipeline(
     if test_long and ideas_to_process:
         ideas_to_process[0] = replace(ideas_to_process[0], video_type="long")
 
-    short_visual_modes = build_short_visual_modes(short_count=short_count, use_pexels=use_pexels, mix=mix)
-    short_visual_index = 0
-
     for idea in ideas_to_process:
         idea_signature = (
             canonicalize_title(idea.title),
@@ -180,6 +238,33 @@ def run_pipeline(
 
         base_name = f"{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{slugify(idea.title)}"
         try:
+            if veo_prompt:
+                # Veo Prompt Mode: Skip actual video generation
+                veo_data = script_generator.generate_veo_prompt(idea)
+                
+                veo_dir = Path("output/veo_prompts")
+                veo_dir.mkdir(parents=True, exist_ok=True)
+                veo_path = veo_dir / f"{base_name}.txt"
+                veo_path.write_text(veo_data["prompt"], encoding="utf-8")
+                LOGGER.info("Saved Veo Prompt to %s", veo_path)
+                
+                input_dir = Path("input/veo_clips")
+                input_dir.mkdir(parents=True, exist_ok=True)
+                metadata_path = input_dir / "metadata.json"
+                veo_data["prompt_path"] = str(veo_path.resolve())
+                import json
+                metadata_path.write_text(json.dumps(veo_data, indent=2, ensure_ascii=False), encoding="utf-8")
+                LOGGER.info("Saved SEO metadata to %s", metadata_path)
+                
+                record = {
+                    "idea_title": idea.title,
+                    "idea": asdict(idea),
+                    "veo_prompt_path": str(veo_path.resolve()),
+                    "created_at": datetime.now(timezone.utc).isoformat(),
+                }
+                results.append(record)
+                continue
+
             manual_package = build_manual_content(topic) if topic else None
             script = manual_package.script if manual_package else script_generator.generate_script(idea)
             is_long = getattr(idea, "video_type", "short") == "long"
@@ -276,6 +361,8 @@ def parse_args() -> argparse.Namespace:
         default=3,
         help="How many videos to schedule per day when using --schedule-upload",
     )
+    parser.add_argument("--veo-prompt", action="store_true", help="Generate text prompts for Google Veo instead of rendering videos")
+    parser.add_argument("--deploy-veo", action="store_true", help="Combine and upload manual AI videos from input/veo_clips/")
     parser.add_argument("--test-long", action="store_true", help="Generate a long video for testing")
     parser.add_argument(
         "legacy_command",
@@ -314,6 +401,8 @@ def main() -> None:
         theme=args.theme,
         language=args.language,
         test_long=args.test_long,
+        veo_prompt=args.veo_prompt,
+        deploy_veo=args.deploy_veo,
     )
     if args.schedule_upload:
         scheduled = schedule_pending_uploads(videos_per_day=args.videos_per_day)
