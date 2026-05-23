@@ -11,8 +11,8 @@ from llm_fallback import LlmFallbackClient, build_json_with_fallback
 
 
 LOGGER = logging.getLogger(__name__)
-MIN_SCRIPT_WORDS = 85
-MIN_DURATION_SECONDS = 31
+MIN_SCRIPT_WORDS = 120    # ~50 seconds of speech
+MIN_DURATION_SECONDS = 50
 
 
 @dataclass(slots=True)
@@ -38,9 +38,10 @@ class ScriptGenerator:
 
     def generate_script(self, idea: VideoIdea) -> VideoScript:
         is_long = getattr(idea, "video_type", "short") == "long"
-        duration_desc = "80-90 second YouTube video" if is_long else "30-45 second YouTube Shorts"
-        min_duration = 80 if is_long else 31
-        word_count_desc = "200-240 words" if is_long else "95-125 words"
+        duration_desc = "120-180 second YouTube video" if is_long else "45-55 second YouTube Shorts"
+        min_duration = 120 if is_long else 45
+        max_duration = 180 if is_long else 55
+        word_count_desc = "300-450 words" if is_long else "110-140 words"
 
         LOGGER.info("Generating script for idea '%s' (type: %s)", idea.title, getattr(idea, "video_type", "short"))
         style = self._determine_style(idea)
@@ -61,19 +62,21 @@ class ScriptGenerator:
             Hook suggestion: {idea.hook}
             Viewer value: {idea.audience_value}
             Theme hint: {theme_hint}
+            Search keyword to target: {getattr(idea, "search_keyword", idea.topic)}
+            Live trend source title: {getattr(idea, "source_video_title", "")}
 
             Constraints:
             - Return strict JSON with keys:
               title, overlay_text, hook, problem, insight, solution, cta, estimated_duration_seconds,
               primary_keyword, retention_note
-            - Make the spoken script long enough for at least {min_duration} seconds of voiceover
+            - Make the spoken script between {min_duration} and {max_duration} seconds of voiceover (NEVER exceed {max_duration} seconds)
             - Combined hook + problem + insight + solution + cta should be about {word_count_desc}
-            - Hook must create INSTANT curiosity in the first 2 seconds and completely avoid generic greetings
-            - overlay_text must be 3 to 7 words, ultra-clear, and look natural as small top-screen text on a Short
+            - Hook must create an UNRESOLVABLE CURIOSITY GAP in the first 2 seconds (e.g. start mid-sentence, state a shocking fact, or contradict a common belief). Completely avoid generic greetings.
+            - overlay_text must act as a secondary hook for users scrolling with sound off: 3 to 7 words, ultra-clear, provocative, and highly clickable.
             - Make sure the script is A-grade content: highly attractive, deeply engaging, and incredibly helpful to the viewer
             - Every script must feel fresh. Avoid repeating channel cliches, avoid repeating the same CTA pattern, and avoid recycled lines like "ruk mat", "consistency hi sab kuch hai", or "show up every day" unless the topic truly needs it
-            - Use "Curiosity Loops": open a question in the hook and promise the answer in the solution
-            - Use "Pattern Interrupts": change the tone or angle every 10-15 words to keep the brain engaged
+            - Use "Curiosity Loops": open a question in the hook and promise the answer in the solution, never giving away the answer too early.
+            - Use "Pattern Interrupts": change the emotional tone, pacing, or angle every 5-10 seconds to maximize dopamine hits and keep the brain engaged.
             - The solution MUST provide highly specific, actionable, and life-improving value. Provide real fixes to their struggles.
             - Provide a practical action plan or a hidden insight that gives the viewer an immediate "aha!" moment
             - Emphasize scientifically-backed or logical real-world facts (e.g., exact physiological changes, proven methods)
@@ -81,7 +84,7 @@ class ScriptGenerator:
             - NO vague "you can do it" motivational fluff. Give them real utility they can apply right now.
             - Avoid fake timelines, miracle claims, and medical promises
             - Use short, punchy spoken lines with high-energy emotional rhythm for TTS and subtitles
-            - Use "Hook -> Context -> Problem -> Secret Insight -> Actionable Solution -> High-Energy CTA" flow
+            - STRICT CONSTRAINT: Do not use the exact same format for every video. Vary the structure! Sometimes use a "Hook -> Story -> Lesson" flow, sometimes "Myth -> Truth -> Action", and sometimes "Problem -> Secret Insight -> Solution". The flow MUST feel completely natural and tailored to the specific topic.
             - Avoid filler like 'in this video' or 'let me tell you'
             - Use only Roman script written with normal English letters
             - Do not use Devanagari, Hindi script, emojis, or special symbols
@@ -90,6 +93,8 @@ class ScriptGenerator:
             - The solution section must teach at least 2 concrete steps, checks, or corrections the viewer can apply immediately
             - Prefer scripts that make the viewer feel smarter in 20 seconds, not just more motivated
             - Use one high-intent search keyword for fitness, yoga, diet, or health
+            - primary_keyword must stay very close to the search keyword above, not a generic replacement
+            - Make the script feel native to YouTube search intent around the topic above
             - Retention note should briefly explain why the opening should hold attention
             - Output should sound credible, sharp, and genuinely helpful enough that viewers save it
             """
@@ -137,6 +142,7 @@ class ScriptGenerator:
     def _fallback_script_payload(idea: VideoIdea) -> dict:
         title_key = idea.title.lower()
         style = ScriptGenerator._determine_style(idea)
+        search_keyword = ScriptGenerator._select_search_keyword(idea)
         if style == "yoga":
             problem = (
                 "Bahut log yoga ko sirf stretching samajhte hain, phir unka body calm bhi nahi hota aur posture bhi change nahi hota."
@@ -147,32 +153,32 @@ class ScriptGenerator:
             solution = (
                 f"Roz bas 10 mindful minutes do. Slow inhale, strong hold, clean posture. Fir {idea.audience_value.lower()} naturally dikhne lagta hai."
             )
-            primary_keyword = "yoga motivation hindi"
+            primary_keyword = search_keyword
         elif "diet" in title_key or "food" in title_key or "khane" in title_key or "protein" in title_key:
             problem = "Bahut log diet ko sirf kam khana samajhte hain, phir unki energy crash hoti hai aur cravings badhti hain."
             insight = "Real weight loss tab hota hai jab aap calories kam karein par volume aur nutrients badha dein. Gut health is the secret."
             solution = f"Apne khane mein protein aur fibers add karo. {idea.audience_value.lower()} se aapka metabolism aur digestion dono boost honge."
-            primary_keyword = "indian diet tips weight loss"
+            primary_keyword = search_keyword
         elif "health" in title_key or "bloating" in title_key or "sleep" in title_key:
             problem = "Modern lifestyle mein hum bhool jate hain ki body ko basic care chahiye. Stress aur fatigue normal nahi hain."
             insight = "Choti aadatein jaise sahi time pe sona aur gut health ka dhyan rakhna aapki life quality badal sakti hain."
             solution = f"Roz bas yeh ek health shift follow karo. {idea.audience_value.lower()} se aap fit aur active feel karenge."
-            primary_keyword = "health tips hindi"
+            primary_keyword = search_keyword
         elif "fat loss" in title_key or "cardio" in title_key:
             problem = "Most people attack fat loss with more suffering, then wonder why they rebound fast."
             insight = "The real issue is not effort. It is poor recovery, weak food structure, and random cardio."
             solution = f"Use a repeatable calorie plan, lift hard, walk daily, and let {idea.audience_value.lower()} come from consistency."
-            primary_keyword = "fat loss motivation hindi"
+            primary_keyword = search_keyword
         elif "muscle" in title_key or "strength" in title_key or "back" in title_key:
             problem = "Most people chase heavy weight before they earn control, tension, and recovery."
             insight = "Strength and size grow faster when technique, overload, and sleep work together."
             solution = f"Master a few big lifts, track reps honestly, and use {idea.audience_value.lower()} as the result of better execution."
-            primary_keyword = "strength training motivation hindi"
+            primary_keyword = search_keyword
         else:
             problem = f"Most people fail at {idea.topic.lower()} because they rely on emotion instead of a repeatable system."
             insight = f"The real problem is usually poor structure, not low motivation. Without one clear trigger and one measurable action, progress stays random."
             solution = f"Pick one trigger, one action, and one score. Example: same workout time, same first exercise, and track reps or minutes for 7 days. That is how {idea.audience_value.lower()} becomes real."
-            primary_keyword = f"{idea.topic} motivation hindi"
+            primary_keyword = search_keyword
 
         return {
             "title": ScriptGenerator._clean_display_text(idea.title),
@@ -188,10 +194,20 @@ class ScriptGenerator:
         }
 
     @staticmethod
+    def _select_search_keyword(idea: VideoIdea) -> str:
+        keyword = str(getattr(idea, "search_keyword", "")).strip()
+        if keyword:
+            return keyword
+        topic = str(getattr(idea, "topic", "")).strip()
+        if topic:
+            return topic
+        return ScriptGenerator._clean_display_text(idea.title) or "fitness tips india"
+
+    @staticmethod
     def _extend_script_if_needed(full_script: str, idea: VideoIdea) -> str:
         words = full_script.split()
         is_long = getattr(idea, "video_type", "short") == "long"
-        min_words = 175 if is_long else MIN_SCRIPT_WORDS
+        min_words = 175 if is_long else 120    # 120 words ≈ 50 seconds
         if len(words) >= min_words:
             return full_script
 

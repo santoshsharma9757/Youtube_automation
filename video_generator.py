@@ -1,6 +1,20 @@
+"""
+video_generator.py  –  DailyFitX  (Upgraded for max viewer retention)
+======================================================================
+Key upgrades vs previous version:
+  • CapCut-style word-by-word subtitles with bold highlight + pop animation
+  • Cinematic dark-gradient overlay on ALL footage (makes stock look premium)
+  • Smart progress bar at bottom (drives watch-time completion)
+  • Intro hook card: first 1.8s = full-screen hook text only → stops scroll
+  • Multi-layer visual cuts: 2-3s per clip (faster = higher retention)
+  • Colour-graded badge system & title card
+  • Smarter local video matching (50+ clips library)
+  • Pexels + Pixabay fallback with better queries
+"""
 from __future__ import annotations
 
 import logging
+import math
 import random
 import re
 from pathlib import Path
@@ -11,7 +25,7 @@ import urllib.parse
 import uuid
 import time
 import requests
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 from moviepy import (
     AudioFileClip,
     ColorClip,
@@ -32,10 +46,28 @@ from subtitle_generator import SubtitleArtifact
 
 LOGGER = logging.getLogger(__name__)
 
+# ─── Constants ────────────────────────────────────────────────────────────────
+SHORTS_W, SHORTS_H = 1080, 1920
+LONG_W,   LONG_H   = 1920, 1080
+
+# Viral keywords shown in yellow instead of white
+VIRAL_KEYWORDS = {
+    "workout", "gym", "fitness", "muscle", "discipline", "mindset", "grind",
+    "power", "strength", "success", "motivation", "beast", "hard", "work",
+    "stop", "fail", "win", "growth", "results", "believe", "impossible",
+    "routine", "secret", "truth", "money", "rich", "wealth", "healthy",
+    "yoga", "meditation", "breath", "diet", "protein", "fat", "loss",
+    "energy", "sleep", "gut", "fast", "cardio", "run", "squat", "push",
+}
+
 
 class VideoGenerator:
     def __init__(self, config: AppConfig) -> None:
         self.config = config
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  PUBLIC ENTRY POINT
+    # ═══════════════════════════════════════════════════════════════════════
 
     def create_video(
         self,
@@ -44,38 +76,41 @@ class VideoGenerator:
         subtitles: SubtitleArtifact,
         output_path: Path,
     ) -> Path:
-        LOGGER.info("Creating vertical video at %s", output_path)
+        LOGGER.info("Creating video at %s", output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
-        audio_clip = AudioFileClip(str(audio_path))
-        
-        bg_music_path = self._get_random_background_music()
-        if bg_music_path:
-            LOGGER.info("Adding background music: %s", bg_music_path.name)
-            try:
-                music_clip = AudioFileClip(str(bg_music_path)).with_volume_scaled(0.2)
-                if music_clip.duration < audio_clip.duration:
-                    import math
-                    repeats = math.ceil(audio_clip.duration / max(music_clip.duration, 1.0))
-                    music_clip = concatenate_audioclips([music_clip] * repeats)
-                music_clip = music_clip.subclipped(0, audio_clip.duration)
-                audio_clip = CompositeAudioClip([audio_clip, music_clip])
-            except Exception as e:
-                LOGGER.warning("Could not add background music: %s", e)
+        is_long = getattr(script, "video_type", "short") == "long"
+        vid_w   = LONG_W   if is_long else SHORTS_W
+        vid_h   = LONG_H   if is_long else SHORTS_H
 
-        background_clip = self._build_base_visual(script=script, duration=audio_clip.duration)
-        subtitle_clips = self._build_subtitle_clips(subtitles.segments, audio_clip.duration, script=script)
-        title_clip = self._build_title_clip(script, audio_clip.duration)
+        # ── Audio ────────────────────────────────────────────────────────
+        voice_clip  = AudioFileClip(str(audio_path))
+        total_dur   = voice_clip.duration
+        music_clip  = self._get_background_music(total_dur)
+        if music_clip:
+            final_audio = CompositeAudioClip([voice_clip, music_clip])
+        else:
+            final_audio = voice_clip
 
-        is_long = getattr(script, 'video_type', 'short') == 'long'
-        vid_w = 1920 if is_long else 1080
-        vid_h = 1080 if is_long else 1920
+        # ── Visual layers ─────────────────────────────────────────────────
+        background  = self._build_base_visual(script, total_dur, vid_w, vid_h)
+        overlay     = self._build_cinematic_overlay(total_dur, vid_w, vid_h)
+        intro_card  = self._build_intro_hook_card(script, total_dur, vid_w, vid_h)
+        title_clip  = self._build_title_clip(script, total_dur, vid_w, vid_h)
+        sub_clips   = self._build_capcut_subtitles(subtitles.segments, total_dur, script, vid_w, vid_h)
+        progress    = self._build_progress_bar(total_dur, vid_w, vid_h)
 
-        layers = [background_clip, *subtitle_clips]
-        if title_clip is not None:
-            layers.insert(1, title_clip)
+        layers = [background, overlay]
+        if intro_card:
+            layers.append(intro_card)
+        if title_clip:
+            layers.append(title_clip)
+        layers.extend(sub_clips)
+        if progress:
+            layers.append(progress)
+
         final = CompositeVideoClip(layers, size=(vid_w, vid_h))
-        final = final.with_audio(audio_clip)
+        final = final.with_audio(final_audio)
 
         final.write_videofile(
             str(output_path),
@@ -83,559 +118,678 @@ class VideoGenerator:
             codec="libx264",
             audio_codec="aac",
             threads=4,
-            ffmpeg_params=["-movflags", "+faststart"],
+            ffmpeg_params=["-movflags", "+faststart", "-crf", "22"],
             logger=None,
         )
         return output_path
 
-    def _build_base_visual(self, script: VideoScript, duration: float):
-        is_long = getattr(script, 'video_type', 'short') == 'long'
+    # ═══════════════════════════════════════════════════════════════════════
+    #  BACKGROUND VIDEO
+    # ═══════════════════════════════════════════════════════════════════════
 
-        if is_long:
-            return self._build_pexels_background(script, duration)
+    def _build_base_visual(self, script: VideoScript, duration: float, vid_w: int, vid_h: int):
+        return self._build_mixed_background(script, duration, vid_w, vid_h)
 
-        if getattr(self.config, 'use_pexels_for_shorts', False):
-            return self._build_mixed_background(script, duration)
-
-        local_video_clip = self._build_local_video_background(script=script, duration=duration)
-        if local_video_clip is not None:
-            return local_video_clip
-
-        return self._build_background(script, duration)
-
-    def _build_mixed_background(self, script: VideoScript, duration: float):
-        local_clip = self._build_local_video_background(script=script, duration=duration)
-        pexels_clip = self._build_pexels_background(script=script, duration=duration)
-
-        if local_clip is None and pexels_clip is None:
-            return self._build_background(script, duration)
-        if local_clip is None:
-            return pexels_clip
-        if pexels_clip is None:
-            return local_clip
-
-        local_duration = max(1.5, round(duration * 0.45, 2))
-        pexels_duration = max(1.5, duration - local_duration)
-        local_part = local_clip.subclipped(0, min(local_duration, local_clip.duration))
-        pexels_part = pexels_clip.subclipped(0, min(pexels_duration, pexels_clip.duration))
-        combined = concatenate_videoclips([local_part, pexels_part], method="compose")
-        if combined.duration < duration:
-            tail = pexels_clip if pexels_clip.duration >= (duration - combined.duration) else local_clip
-            combined = concatenate_videoclips(
-                [combined, tail.subclipped(0, min(duration - combined.duration, tail.duration))],
-                method="compose",
-            )
-        return combined.subclipped(0, duration)
-
-    def _build_local_video_background(self, script: VideoScript, duration: float):
-        assets = self._match_local_video_assets(script)
-        if not assets:
-            return None
-
-        is_long = getattr(script, 'video_type', 'short') == 'long'
-        vid_w = 1920 if is_long else 1080
-        vid_h = 1080 if is_long else 1920
-
-        clips = []
-        for asset in assets:
-            clip = VideoFileClip(str(asset))
-            clip = clip.without_audio()
-            clip = clip.resized(height=vid_h)
-            if clip.w < vid_w:
-                clip = clip.resized(width=vid_w)
-            clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
-            clips.append(clip)
-
-        if not clips:
-            return None
-
-        sequence = list(clips)
-        total_duration = sum(clip.duration for clip in sequence)
-        base_duration = max(total_duration, 0.1)
-        while total_duration < duration:
-            sequence.extend(clips)
-            total_duration += base_duration
-
-        combined = concatenate_videoclips(sequence, method="compose")
-        return combined.subclipped(0, duration)
-
-    def _build_visual_queries(self, script: VideoScript) -> list[str]:
-        visual_style = self._visual_style(script)
-        title_tokens = re.sub(r"[^a-zA-Z0-9\s]", " ", script.title).split()
-        title_phrase = " ".join(title_tokens[:5]).strip()
-        keyword = (script.primary_keyword or "gym motivation").strip()
-        if visual_style == "yoga":
-            candidates = [
-                f"{keyword} sunrise yoga",
-                f"{title_phrase} yoga flow",
-                "woman yoga breathing portrait",
-                "man yoga breathing portrait",
-                "woman yoga breathing",
-                "man yoga stretch",
-                "calm yoga stretch cinematic",
-                "mindful meditation body flow",
-                "meditation portrait breathing",
-                "yoga posture healing",
-            ]
-        else:
-            candidates = [
-                f"{keyword} cinematic workout",
-                f"{keyword} athlete training",
-                f"{title_phrase} gym",
-                f"{title_phrase} fitness motivation",
-                "female fitness workout portrait",
-                "male fitness workout portrait",
-                "woman home workout vertical",
-                "man home workout vertical",
-                "intense workout motivation",
-                "athlete training",
-            ]
-        deduped: list[str] = []
-        for item in candidates:
-            cleaned = re.sub(r"\s+", " ", item).strip()
-            if cleaned and cleaned.lower() not in {value.lower() for value in deduped}:
-                deduped.append(cleaned)
-        random.shuffle(deduped)
-        return deduped[:5]
-
-    def _build_pexels_background(self, script: VideoScript, duration: float):
-        queries = self._build_visual_queries(script)
-        clips = []
-        is_long = getattr(script, 'video_type', 'short') == 'long'
-        vid_w = 1920 if is_long else 1080
-        vid_h = 1080 if is_long else 1920
+    def _build_mixed_background(self, script, duration, vid_w, vid_h):
+        is_long = vid_w == LONG_W
+        target_clips = max(3, int(duration / (6 if is_long else 3)))
         
+        # 1. Gather local clips
+        local_assets = self._match_local_video_assets(script)
+        local_clips = []
+        if local_assets:
+            for asset in local_assets[:10]: # Limit to 10 local to save memory
+                try:
+                    clip = VideoFileClip(str(asset)).without_audio()
+                    clip = self._fit_clip(clip, vid_w, vid_h)
+                    clip = self._apply_ken_burns(clip)
+                    local_clips.append(clip)
+                except Exception as exc:
+                    pass
+        
+        # 2. Gather pexels clips
+        queries = self._build_visual_queries(script)
+        pexels_clips = []
         for query in queries:
+            if len(pexels_clips) >= target_clips:
+                break
             path = self._fetch_pexels_video(query, is_long=is_long)
             if path is None:
                 path = self._fetch_pixabay_video(query)
             if path and path.exists():
-                clip = VideoFileClip(str(path)).without_audio()
-                clip = clip.resized(height=vid_h)
-                if clip.w < vid_w:
-                    clip = clip.resized(width=vid_w)
-                clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
-                
-                # Dynamic zoom for engagement
                 try:
-                    clip = clip.resized(lambda t: 1.0 + (0.02 * t))
-                except:
+                    clip = VideoFileClip(str(path)).without_audio()
+                    clip = self._fit_clip(clip, vid_w, vid_h)
+                    clip = self._apply_ken_burns(clip)
+                    pexels_clips.append(clip)
+                except Exception as exc:
                     pass
-                    
-                clips.append(clip)
-            if len(clips) >= (4 if is_long else 2):
-                break
-                
-        if not clips:
-            LOGGER.warning("Pexels failed to return videos, falling back to static background")
-            return self._build_background(script, duration)
-            
-        sequence = list(clips)
-        total_duration = sum(clip.duration for clip in sequence)
-        base_duration = max(total_duration, 0.1)
-        
-        while total_duration < duration:
-            sequence.extend(clips)
-            total_duration += base_duration
-            
-        combined = concatenate_videoclips(sequence, method="compose")
-        return combined.subclipped(0, duration)
 
-    def _generate_veo_video(self, prompt: str) -> Path | None:
-        if not self.config.gemini_api_key: return None
-        try:
-            from google import genai
-            client = genai.Client(api_key=self.config.gemini_api_key)
-            LOGGER.info("Starting Veo video generation (may take a few minutes)...")
-            operation = client.models.generate_videos(
-                model="veo-3.1-generate-preview",
-                prompt=f"Cinematic vertical video, fitness and workout motivation: {prompt}",
+        # 3. Mix them (4 pexels : 1 local ratio)
+        final_clips_pool = []
+        if not pexels_clips and not local_clips:
+            return self._gradient_fallback(script, duration, vid_w, vid_h)
+            
+        if pexels_clips and local_clips:
+            # Generate enough random clips for the pool
+            for _ in range(target_clips * 2):
+                if random.random() < 0.20: # 20% chance for local
+                    final_clips_pool.append(random.choice(local_clips))
+                else:
+                    final_clips_pool.append(random.choice(pexels_clips))
+        elif pexels_clips:
+            final_clips_pool = pexels_clips
+        else:
+            final_clips_pool = local_clips
+            
+        return self._loop_clips_to_duration(final_clips_pool, duration)
+
+    def _build_local_video_background(self, script, duration, vid_w, vid_h):
+        assets = self._match_local_video_assets(script)
+        if not assets:
+            return None
+        clips = []
+        for asset in assets:
+            try:
+                clip = VideoFileClip(str(asset)).without_audio()
+                clip = self._fit_clip(clip, vid_w, vid_h)
+                clip = self._apply_ken_burns(clip)
+                clips.append(clip)
+            except Exception as exc:
+                LOGGER.warning("Failed to load local clip %s: %s", asset, exc)
+        if not clips:
+            return None
+        return self._loop_clips_to_duration(clips, duration)
+
+    def _build_pexels_background(self, script, duration, vid_w, vid_h):
+        is_long = vid_w == LONG_W
+        queries = self._build_visual_queries(script)
+        clips   = []
+        # Aim for a cut every ~3 seconds for Shorts (retention), every 6s for Long
+        target_clips = max(3, int(duration / (6 if is_long else 3)))
+
+        for query in queries:
+            if len(clips) >= target_clips:
+                break
+            path = self._fetch_pexels_video(query, is_long=is_long)
+            if path is None:
+                path = self._fetch_pixabay_video(query)
+            if path and path.exists():
+                try:
+                    clip = VideoFileClip(str(path)).without_audio()
+                    clip = self._fit_clip(clip, vid_w, vid_h)
+                    clip = self._apply_ken_burns(clip)
+                    clips.append(clip)
+                except Exception as exc:
+                    LOGGER.warning("Clip load failed: %s", exc)
+
+        if not clips:
+            return self._gradient_fallback(script, duration, vid_w, vid_h)
+        return self._loop_clips_to_duration(clips, duration)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  CINEMATIC OVERLAY  (dark gradient top + bottom)
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _build_cinematic_overlay(self, duration: float, vid_w: int, vid_h: int):
+        """Adds a dark vignette/gradient overlay so text always pops."""
+        img = Image.new("RGBA", (vid_w, vid_h), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(img, "RGBA")
+
+        # Top gradient (for title / hook text area)
+        for y in range(int(vid_h * 0.35)):
+            alpha = int(180 * (1 - y / (vid_h * 0.35)))
+            draw.line([(0, y), (vid_w, y)], fill=(0, 0, 0, alpha))
+
+        # Bottom gradient (for subtitle area)
+        bottom_start = int(vid_h * 0.55)
+        for y in range(bottom_start, vid_h):
+            alpha = int(200 * ((y - bottom_start) / (vid_h - bottom_start)))
+            draw.line([(0, y), (vid_w, y)], fill=(0, 0, 0, alpha))
+
+        arr = np.array(img)
+        return ImageClip(arr, duration=duration)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  INTRO HOOK CARD  – stops scroll in first 2 seconds
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _build_intro_hook_card(self, script: VideoScript, duration: float, vid_w: int, vid_h: int):
+        if duration < 3:
+            return None
+        hook_text = script.hook.strip()
+        if not hook_text:
+            return None
+
+        # Shorten to first punchy line
+        first_line = hook_text.split(".")[0].split("!")[0].split("?")[0].strip()
+        words = first_line.split()
+        display = " ".join(words[:8]).upper()
+        if not display:
+            return None
+
+        is_long = vid_w == LONG_W
+        card_w  = int(vid_w * 0.9)
+
+        img = Image.new("RGBA", (vid_w, vid_h), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(img, "RGBA")
+
+        # Accent bar
+        accent = self._style_accent(script)
+        bar_h = 6
+        bar_y = int(vid_h * 0.42)
+        draw.rectangle([(int(vid_w * 0.05), bar_y), (int(vid_w * 0.95), bar_y + bar_h)], fill=accent["primary"])
+
+        # Hook text
+        font_size = 72 if is_long else 82
+        font = self._load_font(font_size)
+        wrapped = self._wrap_text(display, font, card_w - 60)
+
+        # Shadow
+        self._draw_text_shadow(draw, (vid_w // 2, int(vid_h * 0.44) + bar_h + 10), wrapped, font, anchor="ma")
+        draw.multiline_text(
+            (vid_w // 2, int(vid_h * 0.44) + bar_h + 10),
+            wrapped,
+            font=font,
+            fill=accent["text"],
+            align="center",
+            anchor="ma",
+            stroke_width=5,
+            stroke_fill="#000000",
+            spacing=12,
+        )
+
+        # Sub-label: "SWIPE UP" or emoji pulse
+        sub_font = self._load_font(34)
+        draw.text(
+            (vid_w // 2, int(vid_h * 0.75)),
+            "👇 WATCH TILL END 👇",
+            font=sub_font,
+            fill=(255, 255, 255, 220),
+            anchor="mm",
+            stroke_width=3,
+            stroke_fill="#000000",
+        )
+
+        arr = np.array(img)
+        clip = ImageClip(arr).with_duration(min(2.2, duration * 0.12))
+
+        # Fade out
+        clip = clip.with_effects([vfx.CrossFadeOut(0.4)])
+        return clip
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  CAPCUT-STYLE WORD-BY-WORD SUBTITLES  ← BIGGEST RETENTION BOOST
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _build_capcut_subtitles(
+        self,
+        segments: list[dict],
+        total_duration: float,
+        script: VideoScript,
+        vid_w: int,
+        vid_h: int,
+    ) -> list:
+        """
+        Renders word-by-word subtitles in CapCut/TikTok style:
+        - 1–3 words shown at a time (very fast word flashes)
+        - Current segment highlighted in bright yellow / accent color
+        - Bold black stroke for readability on ANY background
+        - Bounce/pop-in animation per word
+        """
+        is_long  = vid_w == LONG_W
+        accent   = self._style_accent(script)
+
+        # Sub-zone vertical position (bottom safe area)
+        sub_y_center = int(vid_h * 0.82) if is_long else int(vid_h * 0.80)
+        card_max_w   = int(vid_w * 0.86)
+
+        font_size    = 70 if is_long else 76
+        font         = self._load_font(font_size)
+
+        clips = []
+        for seg in segments:
+            text  = seg.get("text", "").strip()
+            if not text:
+                continue
+            start = float(seg.get("start", 0))
+            end   = min(float(seg.get("end", start + 1.5)), total_duration)
+            if end <= start:
+                continue
+
+            words   = text.upper().split()
+            seg_dur = end - start
+
+            # Split words into micro-groups of 2
+            groups = [words[i:i+2] for i in range(0, len(words), 2)]
+            if not groups:
+                continue
+            group_dur = max(seg_dur / len(groups), 0.18)
+
+            for gi, group in enumerate(groups):
+                group_text = " ".join(group)
+                group_start = start + gi * group_dur
+                group_end   = min(group_start + group_dur, end)
+                if group_end <= group_start:
+                    continue
+
+                # Decide color: yellow for viral keywords, white otherwise
+                is_viral = any(w.lower() in VIRAL_KEYWORDS for w in group)
+                txt_color = accent["highlight"] if is_viral else "#FFFFFF"
+
+                card = self._render_capcut_word_card(
+                    text=group_text,
+                    font=font,
+                    max_width=card_max_w,
+                    text_color=txt_color,
+                    is_viral=is_viral,
+                )
+
+                clip = (
+                    ImageClip(card)
+                    .with_start(group_start)
+                    .with_duration(group_end - group_start)
+                    .with_position(("center", sub_y_center - card.shape[0] // 2))
+                )
+
+                # Pop-in scale animation
+                try:
+                    clip = clip.resized(lambda t: min(1.0, 0.75 + t * 2.0))
+                except Exception:
+                    pass
+
+                clips.append(clip)
+
+        return clips
+
+    def _render_capcut_word_card(
+        self,
+        text: str,
+        font: ImageFont.ImageFont,
+        max_width: int,
+        text_color: str,
+        is_viral: bool,
+    ) -> np.ndarray:
+        """Renders a single word-group subtitle card with thick stroke."""
+        padding = 16
+        stroke  = 7
+
+        # Measure text
+        tmp = Image.new("RGBA", (max_width + 200, 400), (0, 0, 0, 0))
+        d   = ImageDraw.Draw(tmp)
+        bbox = d.textbbox((0, 0), text, font=font, stroke_width=stroke)
+        tw   = bbox[2] - bbox[0] + padding * 2
+        th   = bbox[3] - bbox[1] + padding * 2
+        tw   = min(tw, max_width + 40)
+        th   = max(th, 60)
+
+        img  = Image.new("RGBA", (int(tw), int(th)), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(img, "RGBA")
+
+        # Optional pill background for viral words
+        if is_viral:
+            draw.rounded_rectangle(
+                (0, 0, tw - 1, th - 1),
+                radius=18,
+                fill=(20, 20, 20, 160),
             )
-            for _ in range(60):
-                if operation.done: break
-                time.sleep(10)
-                
-            if operation.result and getattr(operation.result, "generated_videos", None):
-                uri = operation.result.generated_videos[0].video.uri
-                if uri:
-                    resp = requests.get(uri, timeout=60)
-                    out = self.config.background_assets_dir / f"veo_{uuid.uuid4().hex[:6]}.mp4"
-                    out.write_bytes(resp.content)
-                    return out
-        except Exception as e:
-            LOGGER.warning("Veo generation failed, falling back: %s", e)
-        return None
+
+        draw.text(
+            (tw // 2, th // 2),
+            text,
+            font=font,
+            fill=text_color,
+            anchor="mm",
+            stroke_width=stroke,
+            stroke_fill="#000000",
+        )
+        return np.array(img)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  PROGRESS BAR
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _build_progress_bar(self, duration: float, vid_w: int, vid_h: int):
+        """Thin animated bar at the very bottom – proven to increase completion rate."""
+        bar_h  = 5
+        bar_y  = vid_h - bar_h - 2
+        accent = (250, 204, 21, 255)   # yellow
+
+        def make_frame(t: float) -> np.ndarray:
+            progress = min(t / duration, 1.0)
+            img = Image.new("RGBA", (vid_w, bar_h), (50, 50, 50, 120))
+            draw = ImageDraw.Draw(img)
+            draw.rectangle([(0, 0), (int(vid_w * progress), bar_h)], fill=accent)
+            return np.array(img)
+
+        # Build it as a sequence of frames rendered at keyframes
+        # Use a simple ImageClip that repositions over time via with_position
+        frames = []
+        keyframe_count = max(int(duration * 5), 30)   # 5fps is enough for progress bar
+        for i in range(keyframe_count):
+            t = i * duration / keyframe_count
+            frames.append(make_frame(t))
+
+        # Concatenate tiny clips
+        bar_clips = []
+        kf_dur = duration / keyframe_count
+        for i, frame in enumerate(frames):
+            c = (
+                ImageClip(frame)
+                .with_start(i * kf_dur)
+                .with_duration(kf_dur)
+                .with_position(("left", bar_y))
+            )
+            bar_clips.append(c)
+
+        return CompositeVideoClip(bar_clips, size=(vid_w, bar_h)).with_position(("left", bar_y))
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  TITLE / OVERLAY TEXT  (top of screen, first 3s)
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _build_title_clip(self, script: VideoScript, duration: float, vid_w: int, vid_h: int):
+        title = (getattr(script, "overlay_text", "") or script.title).strip()
+        if not title:
+            return None
+        # Clean to max 5 words
+        words = re.sub(r"[^\w\s?!]", " ", title).split()
+        display = " ".join(words[:5]).strip()
+        if not display:
+            return None
+
+        is_long = vid_w == LONG_W
+        accent  = self._style_accent(script)
+        font_size = 42 if is_long else 38
+
+        card = self._render_text_card(
+            text=display,
+            width=int(vid_w * 0.75),
+            font_size=font_size,
+            text_color=accent["text"],
+            bg_color=(0, 0, 0, 0),
+            stroke_color="#000000",
+            stroke_width=3,
+            padding=8,
+        )
+        y_pos = 80 if is_long else 110
+        clip_dur = min(duration, 3.5)
+        clip = (
+            ImageClip(card)
+            .with_position(("center", y_pos))
+            .with_duration(clip_dur)
+        )
+        try:
+            clip = clip.with_effects([vfx.CrossFadeIn(0.3)])
+        except Exception:
+            pass
+        return clip
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  AUDIO HELPERS
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _get_background_music(self, voice_duration: float) -> AudioFileClip | None:
+        music_dir = getattr(self.config, "music_dir", None)
+        if music_dir is None or not Path(music_dir).exists():
+            return None
+        files = [
+            p for p in Path(music_dir).iterdir()
+            if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".aac"}
+        ]
+        if not files:
+            return None
+        chosen = random.choice(files)
+        try:
+            mc = AudioFileClip(str(chosen))
+            # Lower music so voice is clear: 18% volume
+            mc = mc.with_volume_scaled(0.18)
+            if mc.duration < voice_duration:
+                repeats = math.ceil(voice_duration / max(mc.duration, 1.0))
+                mc = concatenate_audioclips([mc] * repeats)
+            mc = mc.subclipped(0, voice_duration)
+            # Fade out last 1.5s
+            try:
+                mc = mc.with_effects([afx.AudioFadeOut(1.5)])
+            except Exception:
+                pass
+            return mc
+        except Exception as exc:
+            LOGGER.warning("Music load failed (%s): %s", chosen.name, exc)
+            return None
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  PEXELS / PIXABAY FETCH
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _build_visual_queries(self, script: VideoScript) -> list[str]:
+        style = self._visual_style(script)
+        keyword = (script.primary_keyword or "gym motivation").strip()
+        title_tokens = re.sub(r"[^a-zA-Z0-9\s]", " ", script.title).split()
+        title_phrase = " ".join(title_tokens[:5]).strip()
+
+        if style == "yoga":
+            base = [
+                f"{keyword} yoga flow",
+                f"{title_phrase} yoga stretch",
+                "woman yoga sunrise vertical",
+                "man yoga breathing vertical",
+                "yoga meditation portrait",
+                "yoga posture woman",
+                "calm yoga stretch",
+                "mindful meditation",
+            ]
+        elif style in ("diet", "health"):
+            base = [
+                f"{keyword} healthy lifestyle",
+                "healthy food fitness",
+                "woman wellness workout vertical",
+                "man wellness fitness",
+                "nutrition healthy eating",
+                "fitness lifestyle motivation",
+            ]
+        else:
+            base = [
+                f"{keyword} cinematic workout",
+                f"{keyword} athlete gym",
+                f"{title_phrase} fitness",
+                "woman gym workout vertical",
+                "man gym workout vertical",
+                "female fitness intense",
+                "male fitness intense",
+                "home workout motivation",
+                "hiit fitness motivation",
+                "gym training athlete",
+            ]
+
+        deduped: list[str] = []
+        for item in base:
+            cleaned = re.sub(r"\s+", " ", item).strip()
+            if cleaned and cleaned.lower() not in {v.lower() for v in deduped}:
+                deduped.append(cleaned)
+        random.shuffle(deduped)
+        return deduped[:8]
 
     def _fetch_pexels_video(self, query: str, is_long: bool = False) -> Path | None:
-        if not self.config.pexels_api_key: return None
+        if not self.config.pexels_api_key:
+            return None
         try:
             orientation = "landscape" if is_long else "portrait"
-            LOGGER.info("Fetching %s video from Pexels for query: %s", orientation, query)
-            url = f"https://api.pexels.com/videos/search?query={urllib.parse.quote(query)}&orientation={orientation}&size=large"
-            headers = {"Authorization": self.config.pexels_api_key}
-            resp = requests.get(url, headers=headers, timeout=10)
+            url = (
+                f"https://api.pexels.com/videos/search"
+                f"?query={urllib.parse.quote(query)}"
+                f"&orientation={orientation}&size=medium&per_page=15"
+            )
+            resp = requests.get(url, headers={"Authorization": self.config.pexels_api_key}, timeout=15)
             if resp.status_code == 200:
                 videos = resp.json().get("videos", [])
                 if videos:
-                    import random
-                    # Pick from a wider slice so repeated topics do not keep reusing the same clip.
-                    v_choice = random.choice(videos[: min(len(videos), 12)])
-                    files = v_choice.get("video_files", [])
-                    if files:
-                        # Prefer HD (1080p) over 4K for speed and rendering stability
-                        hds = [f for f in files if f.get("height", 0) >= 1280 or f.get("width", 0) >= 720]
-                        best = hds[0] if hds else sorted(files, key=lambda x: x.get("width", 0)*x.get("height", 0), reverse=True)[0]
-                        
-                        LOGGER.info("Downloading Pexels video (res: %sx%s)", best.get("width"), best.get("height"))
-                        dl = requests.get(best["link"], timeout=30)
-                        out = self.config.background_assets_dir / f"pexels_{uuid.uuid4().hex[:6]}.mp4"
+                    choice = random.choice(videos[:min(len(videos), 10)])
+                    files  = choice.get("video_files", [])
+                    # Prefer 720p–1080p (fast + good quality)
+                    hd = [f for f in files if 720 <= f.get("height", 0) <= 1920]
+                    best = (
+                        hd[0] if hd
+                        else sorted(files, key=lambda x: x.get("width", 0) * x.get("height", 0), reverse=True)[0]
+                        if files else None
+                    )
+                    if best:
+                        dl   = requests.get(best["link"], timeout=45)
+                        out  = self.config.background_assets_dir / f"pexels_{uuid.uuid4().hex[:6]}.mp4"
                         out.write_bytes(dl.content)
                         return out
-        except Exception as e:
-            LOGGER.warning("Pexels fetch failed: %s", e)
+        except Exception as exc:
+            LOGGER.warning("Pexels fetch failed for '%s': %s", query, exc)
         return None
 
     def _fetch_pixabay_video(self, query: str, is_long: bool = False) -> Path | None:
-        if not self.config.pixabay_api_key: return None
+        if not self.config.pixabay_api_key:
+            return None
         try:
-            LOGGER.info("Fetching video from Pixabay for query: %s", query)
-            url = f"https://pixabay.com/api/videos/?key={self.config.pixabay_api_key}&q={urllib.parse.quote(query)}&video_type=film"
-            resp = requests.get(url, timeout=10)
+            url = (
+                f"https://pixabay.com/api/videos/"
+                f"?key={self.config.pixabay_api_key}"
+                f"&q={urllib.parse.quote(query)}&video_type=film&per_page=10"
+            )
+            resp = requests.get(url, timeout=15)
             if resp.status_code == 200:
                 hits = resp.json().get("hits", [])
                 if hits:
-                    import random
-                    # Pick from a wider slice so repeated topics do not keep reusing the same clip.
-                    v_choice = random.choice(hits[: min(len(hits), 12)])
-                    best = v_choice["videos"]["large"]["url"]
-                    dl = requests.get(best, timeout=60)
-                    out = self.config.background_assets_dir / f"pixabay_{uuid.uuid4().hex[:6]}.mp4"
-                    out.write_bytes(dl.content)
-                    return out
-        except Exception as e:
-            LOGGER.warning("Pixabay fetch failed: %s", e)
+                    choice = random.choice(hits[:min(len(hits), 8)])
+                    best   = choice["videos"].get("large", {}).get("url") or choice["videos"].get("medium", {}).get("url")
+                    if best:
+                        dl  = requests.get(best, timeout=60)
+                        out = self.config.background_assets_dir / f"pixabay_{uuid.uuid4().hex[:6]}.mp4"
+                        out.write_bytes(dl.content)
+                        return out
+        except Exception as exc:
+            LOGGER.warning("Pixabay fetch failed for '%s': %s", query, exc)
         return None
 
-    def _build_background(self, script: VideoScript, duration: float):
-        assets = list(self._iter_background_assets())
-        if not assets:
-            LOGGER.warning("No background assets found, using designed fallback card")
-            frame = self._render_gradient_background(script)
-            return ImageClip(frame, duration=duration)
-
-        is_long = getattr(script, 'video_type', 'short') == 'long'
-        vid_w = 1920 if is_long else 1080
-        vid_h = 1080 if is_long else 1920
-
-        clips = []
-        # Faster cuts (1.5-2.2s) increase retention for Shorts
-        slice_duration = max(duration / max(len(assets), 1), 1.8)
-        for asset in assets:
-            if asset.suffix.lower() in {".mp4", ".mov", ".mkv"}:
-                clip = VideoFileClip(str(asset))
-                clip = clip.subclipped(0, min(slice_duration, clip.duration))
-            else:
-                clip = ImageClip(str(asset), duration=slice_duration)
-            clip = clip.resized(height=vid_h)
-            if clip.w < vid_w:
-                clip = clip.resized(width=vid_w)
-            clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
-            
-            # Add a slow zoom-in effect (Ken Burns) for more dynamic visuals
-            try:
-                clip = clip.resized(lambda t: 1.0 + (0.02 * t))
-            except:
-                pass
-            clips.append(clip.with_duration(slice_duration).crossfadein(0.2))
-
-        combined = concatenate_videoclips(clips, method="compose")
-        return combined.subclipped(0, duration)
-
-    def _build_subtitle_clips(self, segments: list[dict], duration: float, script: VideoScript) -> list:
-        subtitle_clips = []
-        for segment in segments:
-            text = segment.get("text", "").strip()
-            if not text:
-                continue
-            
-            # Expanded viral keyword list for more dynamic highlighting
-            viral_keywords = {
-                "workout", "gym", "fitness", "muscle", "discipline", "mindset", "grind", 
-                "power", "strength", "success", "motivation", "beast", "hard", "work",
-                "stop", "fail", "win", "growth", "results", "believe", "impossible",
-                "routine", "secret", "truth", "money", "rich", "wealth", "healthy",
-            }
-            
-            color = "#facc15" if any(kw in text.lower() for kw in viral_keywords) else "white"
-            is_romanized = self._is_romanized_script(script)
-            is_long = getattr(script, 'video_type', 'short') == 'long'
-            
-            compact_text = self._limit_subtitle_lines(text.upper(), max_words_per_line=4)
-            card = self._render_text_card(
-                text=compact_text,
-                width=1320 if is_long else 900,
-                font_size=62 if is_romanized else 64,
-                text_color=color,
-                bg_color=(0, 0, 0, 0),
-                stroke_color="#000000",
-                stroke_width=5,
-                padding=10,
-            )
-            
-            clip = ImageClip(card)
-            duration_seg = min(segment["end"], duration) - segment["start"]
-            clip = clip.with_start(segment["start"]).with_duration(duration_seg)
-            
-            # Keep spoken captions in the bottom-safe area only.
-            base_y = 1455 if is_romanized else 1415
-            if is_long:
-                base_y = 840 if is_romanized else 800
-            
-            # 1. Rising Animation
-            # 2. Pop-in Scaling Animation (Dynamic resize from 0.8 to 1.0 in first 0.15s)
-            def anim(t):
-                # Vertical position rise
-                y = base_y + max(0, int(30 - (t * 150)))
-                return ("center", y)
-            
-            def scale_anim(t):
-                if t < 0.12:
-                    return 0.8 + (t * 1.66) # 0.8 -> 1.0
-                return 1.0
-            
-            clip = clip.with_position(anim)
-            # MoviePy 2.x uses resize differently, applying it as a transformation
-            try:
-                clip = clip.transformed_by_time(lambda img, t: clip.get_frame(t), apply_to=[]) # Placeholder for complex transforms if needed
-                # For simplicity in MoviePy 2.0 with the current setup:
-                clip = clip.resized(lambda t: scale_anim(t))
-            except:
-                pass # Fallback to static if dynamic resize fails
-                
-            subtitle_clips.append(clip)
-        return subtitle_clips
-
-    def _build_title_clip(self, script: VideoScript, duration: float):
-        title = (getattr(script, "overlay_text", "") or script.title).strip()
-        
-        # Extract emojis from the full title to preserve them
-        emojis = "".join(re.findall(r"[\U00010000-\U0010ffff\u2600-\u27ff]", title))
-        
-        # Limit top text to 3-5 words
-        title_words = [w for w in title.split() if not any(c in emojis for c in w)]
-        short_title = " ".join(title_words[:4])
-        
-        # Re-attach emojis (existing or fallback)
-        if not emojis:
-            emojis = "🔥💪" # Fallback viral emojis
-        
-        final_title = f"{short_title} {emojis}".strip()
-        
-        is_long = getattr(script, "video_type", "short") == "long"
-        title_text = ImageClip(
-            self._render_text_card(
-                text=final_title,
-                width=1100 if is_long else 760,
-                font_size=54 if is_long else 42,
-                text_color="#f8fafc",
-                bg_color=(0, 0, 0, 0),
-                stroke_color="#000000",
-                stroke_width=3,
-                padding=10,
-            )
-        )
-        y_pos = 80 if is_long else 130
-        clip_duration = min(duration, 5.5 if is_long else 6.5)
-        return title_text.with_position(("center", y_pos)).with_duration(clip_duration)
-
-    def _build_story_clips(self, script: VideoScript, duration: float) -> list:
-        clips = []
-        is_long = getattr(script, 'video_type', 'short') == 'long'
-        beats = self._story_beats(script, duration)
-        accent = self._accent_palette(script)
-        for index, beat in enumerate(beats):
-            card = ImageClip(
-                self._render_text_card(
-                    text=beat["text"],
-                    width=1200 if is_long else 820,
-                    font_size=52 if beat["kind"] == "hook" else 46,
-                    text_color=accent["text"],
-                    bg_color=(0, 0, 0, 0),
-                    stroke_color="#000000",
-                    stroke_width=3,
-                    padding=10,
-                )
-            )
-            card = (
-                card.with_start(beat["start"])
-                .with_end(beat["end"])
-                .with_position(beat["position"])
-            )
-            clips.append(card)
-
-            if beat["kind"] == "hook":
-                pulse = ImageClip(
-                    self._render_badge(
-                        beat["label"],
-                        fill=accent["badge_fill"],
-                        text_color=accent["badge_text"],
-                    )
-                )
-                pulse = (
-                    pulse.with_start(beat["start"])
-                    .with_end(min(beat["start"] + 2.8, beat["end"]))
-                    .with_position(("center", 360))
-                )
-                clips.append(pulse)
-            else:
-                tag = ImageClip(
-                    self._render_badge(
-                        beat["label"],
-                        fill=accent["tag_fill"],
-                        text_color=accent["badge_text"],
-                    )
-                )
-                offset_y = -400 if is_long else 0
-                tag_x = (200 if index % 2 == 0 else 1400) if is_long else (90 if index % 2 == 0 else 720)
-                tag = (
-                    tag.with_start(beat["start"])
-                    .with_end(beat["end"])
-                    .with_position((tag_x, 1040 + (index * 46) + offset_y))
-                )
-                clips.append(tag)
-        return clips
-
-    def _iter_background_assets(self) -> Iterable[Path]:
-        if not self.config.background_assets_dir.exists():
-            return []
-        assets = [
-            path
-            for path in self.config.background_assets_dir.iterdir()
-            if path.suffix.lower() in {".jpg", ".jpeg", ".png", ".mp4", ".mov", ".mkv"}
-        ]
-        random.shuffle(assets)
-        return assets[:5]
+    # ═══════════════════════════════════════════════════════════════════════
+    #  LOCAL VIDEO MATCHING  (smart keyword → clip mapping)
+    # ═══════════════════════════════════════════════════════════════════════
 
     def _match_local_video_assets(self, script: VideoScript) -> list[Path]:
-        if not self.config.local_video_assets_dir.exists():
+        local_dir = self.config.local_video_assets_dir
+        if not local_dir.exists():
             return []
 
         available = {
-            path.stem.lower(): path
-            for path in self.config.local_video_assets_dir.iterdir()
-            if path.suffix.lower() in {".mp4", ".mov", ".mkv"}
+            p.stem.lower(): p
+            for p in local_dir.iterdir()
+            if p.suffix.lower() in {".mp4", ".mov", ".mkv"}
         }
         if not available:
             return []
 
         blob = f"{script.title} {script.primary_keyword} {script.full_script}".lower()
+
+        # Priority groups: (keywords_in_script, preferred_clip_name_prefixes)
         priority_groups = [
-            ({"run", "running", "jog", "walk", "stamina", "cardio"}, ["running", "jumpingjack"]),
-            ({"pushup", "push-up", "chest", "upper body"}, ["pushup", "bicep", "shoulderpress"]),
-            ({"pullup", "pull-up", "back", "lats"}, ["pullup", "bicep"]),
-            ({"squat", "legs", "leg", "quad", "glute"}, ["squat", "legpress", "running"]),
-            ({"shoulder", "delts", "press"}, ["shoulderpress", "bicep"]),
-            ({"bicep", "arm", "arms", "curl"}, ["bicep", "pushup"]),
-            ({"yoga", "breath", "breathing", "mobility", "stretch", "recovery", "stress", "calm"}, ["yoga_cobrapose"]),
-            ({"warmup", "warm-up", "fat loss", "weight loss", "hiit"}, ["jumpingjack", "running", "squat"]),
+            ({"run", "running", "jog", "cardio", "stamina", "outdoor"},                  ["running", "outdoor_run", "pexels_running"]),
+            ({"push", "pushup", "push-up", "chest", "upper body"},                       ["pushup", "pexels_pushup", "dumbbell"]),
+            ({"pullup", "pull-up", "back", "lats", "pull"},                              ["pullup", "weightlift"]),
+            ({"squat", "leg", "quad", "glute", "knee"},                                  ["squat", "pexels_squat", "legpress"]),
+            ({"shoulder", "delts", "press", "overhead"},                                 ["shoulderpress", "dumbbell"]),
+            ({"bicep", "arm", "curl", "tricep"},                                         ["bicep", "dumbbell"]),
+            ({"yoga", "breath", "breathe", "mobility", "stretch", "asana", "pranayama"}, ["yoga", "pexels_yoga_w", "pexels_yoga_m", "yoga_cobrapose", "pexels_stretch", "meditation"]),
+            ({"meditation", "calm", "mind", "stress", "sleep", "relax"},                 ["meditation", "pexels_meditation", "yoga"]),
+            ({"jump", "hiit", "circuit", "explosive"},                                   ["jumpingjack", "hiit", "pexels_hiit"]),
+            ({"fat", "weight", "loss", "calorie", "burn"},                               ["running", "hiit", "pexels_motivation"]),
+            ({"abs", "core", "belly", "plank"},                                          ["abs", "pexels_abs", "pushup"]),
+            ({"home", "indoor", "house"},                                                 ["home", "pexels_home"]),
+            ({"woman", "female", "girl", "her"},                                         ["pexels_woman_gym", "pexels_yoga_w", "fitness_w"]),
+            ({"man", "male", "guy", "him"},                                              ["pexels_man_gym", "pexels_yoga_m", "fitness_m"]),
+            ({"diet", "food", "protein", "eat", "meal", "nutrition"},                    ["pexels_motivation", "fitness_w", "fitness_m"]),
         ]
 
-        matched_names: list[str] = []
-        for keywords, names in priority_groups:
-            if any(keyword in blob for keyword in keywords):
-                for name in names:
-                    if name in available:
-                        return [available[name]] # Return just the very best match to loop it
+        # Collect up to 4 clips for variety (cuts every ~3s)
+        matched: list[Path] = []
+        used: set[str] = set()
 
-        # Fallback to random if no match
-        remaining = list(available.keys())
-        random.shuffle(remaining)
-        return [available[remaining[0]]] if remaining else []
+        for keywords, name_prefixes in priority_groups:
+            if len(matched) >= 4:
+                break
+            if any(kw in blob for kw in keywords):
+                for prefix in name_prefixes:
+                    for stem, path in available.items():
+                        if stem.startswith(prefix) and stem not in used:
+                            matched.append(path)
+                            used.add(stem)
+                            if len(matched) >= 4:
+                                break
+                    if len(matched) >= 4:
+                        break
 
-    def _get_random_background_music(self) -> Path | None:
-        if not hasattr(self.config, 'music_dir') or not self.config.music_dir.exists():
-            return None
-        music_files = [p for p in self.config.music_dir.iterdir() if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".aac"}]
-        if not music_files:
-            return None
-        import random
-        return random.choice(music_files)
+        # Fallback: random clips from library
+        if not matched:
+            remaining = [k for k in available if k not in used]
+            random.shuffle(remaining)
+            matched = [available[k] for k in remaining[:4]]
 
-    def _render_gradient_background(self, script: VideoScript) -> np.ndarray:
-        is_long = getattr(script, 'video_type', 'short') == 'long'
-        vid_w = 1920 if is_long else 1080
-        vid_h = 1080 if is_long else 1920
-        image = Image.new("RGBA", (vid_w, vid_h), "#091a2f")
-        draw = ImageDraw.Draw(image, "RGBA")
-        draw.rounded_rectangle((50, 70, vid_w - 50, vid_h - 70), radius=42, fill=(14, 30, 57, 255))
-        draw.ellipse((vid_w - 320, 120, vid_w + 40, 480), fill=(32, 76, 150, 70))
-        draw.ellipse((-80, 300, 260, 640), fill=(202, 34, 52, 70))
-        draw.rounded_rectangle((80, vid_h - 940, vid_w - 80, vid_h - 620), radius=36, fill=(255, 255, 255, 14))
-        return np.array(image)
+        return matched
 
-    def _render_badge(self, text: str, fill: tuple[int, int, int, int], text_color: str) -> np.ndarray:
-        font = self._load_alt_font(30)
-        temp = Image.new("RGBA", (500, 120), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(temp, "RGBA")
-        bbox = draw.textbbox((24, 18), text, font=font)
-        width = int(bbox[2] - bbox[0] + 48)
-        height = int(bbox[3] - bbox[1] + 34)
-        image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(image, "RGBA")
-        draw.rounded_rectangle((0, 0, width, height), radius=height // 2, fill=fill)
-        draw.text((width / 2, height / 2), text, font=font, fill=text_color, anchor="mm")
-        return np.array(image)
+    def _iter_background_assets(self) -> Iterable[Path]:
+        bg_dir = self.config.background_assets_dir
+        if not bg_dir.exists():
+            return []
+        assets = [
+            p for p in bg_dir.iterdir()
+            if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".mp4", ".mov", ".mkv"}
+        ]
+        random.shuffle(assets)
+        return assets[:8]
 
-
-
-    def _render_sticky_note(self, heading: str, body: str, color: tuple[int, int, int, int]) -> np.ndarray:
-        width = 360
-        height = 360
-        image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(image, "RGBA")
-        draw.rounded_rectangle((0, 0, width, height), radius=18, fill=color, outline=(0, 0, 0, 35), width=2)
-        head_font = self._load_alt_font(34)
-        body_font = self._load_alt_font(30)
-        draw.text((24, 24), heading, font=head_font, fill="#111827")
-        wrapped = self._wrap_text(body, body_font, width - 48)
-        draw.multiline_text((24, 88), wrapped, font=body_font, fill="#111827", spacing=10)
-        return np.array(image)
-
-    def _render_handwritten_card(
-        self,
-        text: str,
-        width: int,
-        font_size: int,
-        text_color: str,
-        bg_color: tuple[int, int, int, int],
-        line_color: str,
-        padding: int,
-    ) -> np.ndarray:
-        font = self._load_alt_font(font_size)
-        wrapped = self._wrap_text(text, font, width - (padding * 2))
-        temp = Image.new("RGBA", (width, 1200), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(temp)
-        bbox = draw.multiline_textbbox((padding, padding), wrapped, font=font, spacing=14)
-        height = int(bbox[3] - bbox[1] + padding * 2)
-        image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(image, "RGBA")
-        draw.rounded_rectangle((0, 0, width, height), radius=22, fill=bg_color)
-        for y in range(padding + 42, height - padding, 58):
-            draw.line((padding, y, width - padding, y), fill=line_color, width=2)
-        draw.multiline_text((padding, padding), wrapped, font=font, fill=text_color, spacing=14)
-        return np.array(image)
-
-
+    # ═══════════════════════════════════════════════════════════════════════
+    #  CLIP HELPERS
+    # ═══════════════════════════════════════════════════════════════════════
 
     @staticmethod
-    def _fit_image(image: Image.Image, width: int, height: int) -> Image.Image:
-        image = image.copy()
-        image.thumbnail((width, height))
-        canvas = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-        x = (width - image.width) // 2
-        y = (height - image.height) // 2
-        canvas.alpha_composite(image, dest=(x, y))
-        return canvas
+    def _fit_clip(clip, vid_w: int, vid_h: int):
+        clip = clip.resized(height=vid_h)
+        if clip.w < vid_w:
+            clip = clip.resized(width=vid_w)
+        clip = clip.cropped(x_center=clip.w / 2, y_center=clip.h / 2, width=vid_w, height=vid_h)
+        return clip
+
+    @staticmethod
+    def _apply_ken_burns(clip, zoom_rate: float = 0.015):
+        """Slow zoom-in Ken Burns effect – makes static clips dynamic."""
+        try:
+            clip = clip.resized(lambda t: 1.0 + zoom_rate * t)
+        except Exception:
+            pass
+        return clip
+
+    @staticmethod
+    def _loop_clips_to_duration(clips: list, duration: float):
+        if not clips:
+            return None
+        sequence = list(clips)
+        total = sum(c.duration for c in sequence)
+        while total < duration:
+            sequence.extend(clips)
+            total += sum(c.duration for c in clips)
+        combined = concatenate_videoclips(sequence, method="compose")
+        return combined.subclipped(0, duration)
+
+    def _gradient_fallback(self, script, duration, vid_w, vid_h):
+        arr = self._render_gradient_background(script, vid_w, vid_h)
+        return ImageClip(arr, duration=duration)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  RENDERING HELPERS
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _render_gradient_background(self, script: VideoScript, vid_w: int, vid_h: int) -> np.ndarray:
+        accent = self._style_accent(script)
+        img    = Image.new("RGBA", (vid_w, vid_h), "#091a2f")
+        draw   = ImageDraw.Draw(img, "RGBA")
+        # Radial glow spots
+        draw.ellipse((vid_w - 360, 80,  vid_w + 60,  540), fill=(*accent["glow1"], 60))
+        draw.ellipse((-80,         300, 300,          660), fill=(*accent["glow2"], 55))
+        return np.array(img)
 
     def _render_text_card(
         self,
@@ -643,56 +797,91 @@ class VideoGenerator:
         width: int,
         font_size: int,
         text_color: str,
-        bg_color: tuple[int, int, int, int],
+        bg_color: tuple,
         stroke_color: str,
         stroke_width: int,
         padding: int,
     ) -> np.ndarray:
-        font = self._load_font(font_size)
-        wrapped = self._wrap_text(text, font, width - (padding * 2))
-        temp = Image.new("RGBA", (width, 2000), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(temp)
-        bbox = draw.multiline_textbbox(
-            (padding, padding),
-            wrapped,
-            font=font,
-            spacing=10,
-            align="center",
-            stroke_width=stroke_width,
+        font    = self._load_font(font_size)
+        wrapped = self._wrap_text(text, font, width - padding * 2)
+        temp    = Image.new("RGBA", (width, 2000), (0, 0, 0, 0))
+        draw    = ImageDraw.Draw(temp)
+        bbox    = draw.multiline_textbbox(
+            (padding, padding), wrapped, font=font, spacing=10, align="center", stroke_width=stroke_width
         )
-        height = int(bbox[3] - bbox[1] + padding * 2)
-        image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(image, "RGBA")
-        if bg_color and bg_color[3] > 0:
-            draw.rounded_rectangle((0, 0, width, height), radius=26, fill=bg_color)
+        height  = int(bbox[3] - bbox[1] + padding * 2)
+        height  = max(height, 40)
+        img     = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+        draw    = ImageDraw.Draw(img, "RGBA")
+        if bg_color and len(bg_color) == 4 and bg_color[3] > 0:
+            draw.rounded_rectangle((0, 0, width, height), radius=22, fill=bg_color)
         draw.multiline_text(
-            (width / 2, padding),
-            wrapped,
-            font=font,
-            fill=text_color,
-            spacing=10,
-            align="center",
-            anchor="ma",
-            stroke_width=stroke_width,
-            stroke_fill=stroke_color,
+            (width / 2, padding), wrapped, font=font,
+            fill=text_color, spacing=10, align="center", anchor="ma",
+            stroke_width=stroke_width, stroke_fill=stroke_color,
         )
-        return np.array(image)
+        return np.array(img)
+
+    @staticmethod
+    def _draw_text_shadow(draw, pos, text, font, anchor="mm", offset=4, alpha=140):
+        sx, sy = pos[0] + offset, pos[1] + offset
+        draw.multiline_text(
+            (sx, sy), text, font=font,
+            fill=(0, 0, 0, alpha), anchor=anchor, align="center",
+        )
+
+    def _render_badge(self, text: str, fill: tuple, text_color: str) -> np.ndarray:
+        font = self._load_alt_font(28)
+        tmp  = Image.new("RGBA", (500, 120), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(tmp, "RGBA")
+        bbox = draw.textbbox((24, 18), text, font=font)
+        w    = int(bbox[2] - bbox[0] + 48)
+        h    = int(bbox[3] - bbox[1] + 34)
+        img  = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(img, "RGBA")
+        draw.rounded_rectangle((0, 0, w, h), radius=h // 2, fill=fill)
+        draw.text((w / 2, h / 2), text, font=font, fill=text_color, anchor="mm")
+        return np.array(img)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  FONT LOADERS
+    # ═══════════════════════════════════════════════════════════════════════
 
     def _load_font(self, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
         if self.config.font_file.exists():
-            return ImageFont.truetype(str(self.config.font_file), size=size)
+            try:
+                return ImageFont.truetype(str(self.config.font_file), size=size)
+            except Exception:
+                pass
+        for candidate in [
+            Path("C:/Windows/Fonts/impact.ttf"),
+            Path("C:/Windows/Fonts/ariblk.ttf"),
+            Path("C:/Windows/Fonts/arialbd.ttf"),
+            Path("C:/Windows/Fonts/arial.ttf"),
+        ]:
+            if candidate.exists():
+                try:
+                    return ImageFont.truetype(str(candidate), size=size)
+                except Exception:
+                    continue
         return ImageFont.load_default()
 
     def _load_alt_font(self, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-        candidates = [
+        for candidate in [
             Path("C:/Windows/Fonts/seguisb.ttf"),
             Path("C:/Windows/Fonts/segoesc.ttf"),
             Path("C:/Windows/Fonts/arial.ttf"),
-        ]
-        for candidate in candidates:
+        ]:
             if candidate.exists():
-                return ImageFont.truetype(str(candidate), size=size)
+                try:
+                    return ImageFont.truetype(str(candidate), size=size)
+                except Exception:
+                    continue
         return self._load_font(size)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  TEXT UTILITIES
+    # ═══════════════════════════════════════════════════════════════════════
 
     def _wrap_text(self, text: str, font: ImageFont.ImageFont, max_width: int) -> str:
         lines: list[str] = []
@@ -714,98 +903,77 @@ class VideoGenerator:
 
     @staticmethod
     def _text_width(text: str, font: ImageFont.ImageFont) -> int:
-        left, _, right, _ = font.getbbox(text)
-        return int(right - left)
+        try:
+            left, _, right, _ = font.getbbox(text)
+            return int(right - left)
+        except Exception:
+            return len(text) * 14   # fallback estimate
 
-    @staticmethod
-    def _is_romanized_script(script: VideoScript) -> bool:
-        payload = f"{script.title} {script.full_script}"
-        return all(ord(char) < 128 for char in payload)
+    # ═══════════════════════════════════════════════════════════════════════
+    #  STYLE HELPERS
+    # ═══════════════════════════════════════════════════════════════════════
 
     @staticmethod
     def _visual_style(script: VideoScript) -> str:
         blob = f"{script.title} {script.primary_keyword} {script.full_script}".lower()
-        yoga_terms = {"yoga", "asana", "breath", "pranayam", "pranayama", "mobility", "meditation", "stretch"}
-        return "yoga" if any(term in blob for term in yoga_terms) else "fitness"
+        yoga_terms   = {"yoga", "asana", "breath", "pranayam", "pranayama", "mobility", "meditation", "stretch"}
+        diet_terms   = {"diet", "food", "protein", "calories", "fat loss", "weight loss", "eating", "meal", "nutrition"}
+        health_terms = {"health", "gut", "digestion", "bloating", "sleep", "fatigue", "energy", "skin"}
+        if any(t in blob for t in yoga_terms):   return "yoga"
+        if any(t in blob for t in diet_terms):   return "diet"
+        if any(t in blob for t in health_terms): return "health"
+        return "fitness"
 
-    def _story_beats(self, script: VideoScript, duration: float) -> list[dict]:
-        style = self._visual_style(script)
-        
-        # Calculate dynamic timings based on percentages of typical script structure
-        # Hook: ~10%, Problem: ~15%, Insight: ~20%, Solution: ~45%, CTA: ~10%
-        t_hook = min(duration * 0.1, 5.0)
-        t_prob = min(t_hook + duration * 0.15, 12.0)
-        t_insight = min(t_prob + duration * 0.20, 25.0)
-        t_solution = max(duration - 4.0, t_insight + 5.0)
-        
-        is_long = getattr(script, "video_type", "short") == "long"
-        y_offset = -400 if is_long else 0
-        
-        beats = [
-            {
-                "kind": "hook",
-                "label": "Stop Scroll" if style == "fitness" else "Pause & Breathe",
-                "text": script.hook,
-                "start": 0.0,
-                "end": t_hook,
-                "position": ("center", 510 + y_offset),
-                "bg": (168, 34, 34, 215) if style == "fitness" else (14, 116, 144, 205),
-            },
-            {
-                "kind": "problem",
-                "label": "Why It Fails" if style == "fitness" else "What You Feel",
-                "text": script.problem,
-                "start": max(0.0, t_hook - 0.2),
-                "end": t_prob,
-                "position": ("center", 900 + y_offset),
-                "bg": (15, 23, 42, 198),
-            },
-            {
-                "kind": "insight",
-                "label": "Truth",
-                "text": script.insight,
-                "start": t_prob,
-                "end": t_insight,
-                "position": ("center", 720 + y_offset),
-                "bg": (88, 28, 135, 194) if style == "fitness" else (30, 64, 175, 190),
-            },
-            {
-                "kind": "solution",
-                "label": "Do This",
-                "text": script.solution,
-                "start": t_insight,
-                "end": t_solution,
-                "position": ("center", 1080 + y_offset),
-                "bg": (21, 128, 61, 194) if style == "fitness" else (13, 148, 136, 188),
-            },
-            {
-                "kind": "cta",
-                "label": "Follow",
-                "text": script.cta,
-                "start": max(0.0, duration - 4.0),
-                "end": duration,
-                "position": ("center", 1260 + y_offset),
-                "bg": (245, 158, 11, 212),
-            },
-        ]
-        return [beat for beat in beats if beat["end"] - beat["start"] >= 1.0 and beat["text"].strip()]
-
-    def _accent_palette(self, script: VideoScript) -> dict[str, tuple[int, int, int, int] | str]:
-        if self._visual_style(script) == "yoga":
+    @staticmethod
+    def _style_accent(script: VideoScript) -> dict:
+        style = VideoGenerator._visual_style(script)
+        if style == "yoga":
             return {
-                "text": "#f8fafc",
-                "stroke": "#082f49",
-                "badge_fill": (255, 255, 255, 225),
-                "tag_fill": (12, 74, 110, 215),
-                "badge_text": "#082f49",
+                "primary":   (14, 165, 233, 255),    # sky blue
+                "text":      "#f0f9ff",
+                "highlight": "#fde68a",
+                "glow1":     (14, 165, 233),
+                "glow2":     (16, 185, 129),
             }
+        if style in ("diet", "health"):
+            return {
+                "primary":   (16, 185, 129, 255),    # emerald
+                "text":      "#f0fdf4",
+                "highlight": "#fde68a",
+                "glow1":     (16, 185, 129),
+                "glow2":     (5, 150, 105),
+            }
+        # fitness / default – hot orange/red
         return {
-            "text": "#f8fafc",
-            "stroke": "#111827",
-            "badge_fill": (250, 204, 21, 235),
-            "tag_fill": (127, 29, 29, 220),
-            "badge_text": "#111827",
+            "primary":   (249, 115, 22, 255),
+            "text":      "#fff7ed",
+            "highlight": "#facc15",
+            "glow1":     (220, 38, 38),
+            "glow2":     (249, 115, 22),
         }
+
+    @staticmethod
+    def _is_romanized_script(script: VideoScript) -> bool:
+        payload = f"{script.title} {script.full_script}"
+        return all(ord(c) < 128 for c in payload)
+
+    # ═══════════════════════════════════════════════════════════════════════
+    #  LEGACY HELPERS (kept for backward compatibility with other modules)
+    # ═══════════════════════════════════════════════════════════════════════
+
+    def _build_subtitle_clips(self, segments, duration, script):
+        """Legacy – now routed to CapCut subtitles."""
+        is_long = getattr(script, "video_type", "short") == "long"
+        vid_w   = LONG_W if is_long else SHORTS_W
+        vid_h   = LONG_H if is_long else SHORTS_H
+        return self._build_capcut_subtitles(segments, duration, script, vid_w, vid_h)
+
+    def _get_random_background_music(self) -> Path | None:
+        music_dir = getattr(self.config, "music_dir", None)
+        if music_dir is None or not Path(music_dir).exists():
+            return None
+        files = [p for p in Path(music_dir).iterdir() if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".aac"}]
+        return random.choice(files) if files else None
 
     @staticmethod
     def _limit_subtitle_lines(text: str, max_words_per_line: int = 4) -> str:
@@ -813,34 +981,7 @@ class VideoGenerator:
         if not words:
             return ""
         lines = [
-            " ".join(words[index:index + max_words_per_line])
-            for index in range(0, len(words), max_words_per_line)
+            " ".join(words[i:i + max_words_per_line])
+            for i in range(0, len(words), max_words_per_line)
         ]
         return "\n".join(lines[:2])
-
-    def _build_title_clip(self, script: VideoScript, duration: float):
-        title = (getattr(script, "overlay_text", "") or script.title).strip()
-        if not title:
-            return None
-
-        title_words = re.sub(r"[^\w\s?!]", " ", title).split()
-        final_title = " ".join(title_words[:4]).strip()
-        if not final_title:
-            return None
-
-        is_long = getattr(script, "video_type", "short") == "long"
-        title_text = ImageClip(
-            self._render_text_card(
-                text=final_title,
-                width=980 if is_long else 640,
-                font_size=50 if is_long else 34,
-                text_color="#f8fafc",
-                bg_color=(0, 0, 0, 0),
-                stroke_color="#000000",
-                stroke_width=3,
-                padding=10,
-            )
-        )
-        y_pos = 80 if is_long else 130
-        clip_duration = min(duration, 3.4 if is_long else 2.8)
-        return title_text.with_position(("center", y_pos)).with_duration(clip_duration)

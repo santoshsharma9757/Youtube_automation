@@ -7854,5 +7854,3383 @@
     "recovered_for_upload": true,
     "local_video_deleted": true,
     "skipped_because_missing_after_recovery": true
+  },
+  {
+    "idea_title": "Meditation Se Sleep Kaise Behtar Krein?",
+    "idea": {
+      "idea_id": "fdbfe4da-fac1-4658-8bb5-c09dc6b94b61",
+      "title": "Meditation Se Sleep Kaise Behtar Krein?",
+      "angle": "Sleep Improvement",
+      "hook": "Kya aapko raat mein koi problem hoti hai?",
+      "topic": "Meditation for Sleep",
+      "audience_value": "Nightly meditation tips for better sleep",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.092647+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "meditation for sleep",
+      "source_video_title": "Yoga for beginners ✅ #fitness #motivation #shorts"
+    },
+    "script": {
+      "title": "Meditation Se Sleep Kaise Behtar Krein?",
+      "overlay_text": "Achhi Neend Ke Liye Meditati",
+      "hook": "Kya aapko raat mein neend nahi aati?",
+      "problem": "Stress aur anxiety aaj ki duniya mein common hain, jo humari neend ko bhang kar dete hain.",
+      "insight": "Meditation se aapka mind relax hota hai, jo aapki neend ko enhance karta hai. Neuroscience kehta hai ki meditation se melatonin ki level badhti hai, jo aapko achhi neend dene mein madad karta hai.",
+      "solution": "Sabse pehle, 5 minute ka deep breathing exercise karein: inhale 4 seconds, hold 4 seconds, phir exhale 6 seconds. Dusra, ek simple body scan karein: apne sharir ke har hisse par dhyan dein, tension ko chhodein. Yeh tools aapki stress levels ko ghataane aur neend ko behatar karne mein madad karenge.",
+      "cta": "Abhi yeh apply karein aur aaj raat ki neend ka difference mehsoos karein!",
+      "full_script": "Kya aapko raat mein neend nahi aati? Stress aur anxiety aaj ki duniya mein common hain, jo humari neend ko bhang kar dete hain. Meditation se aapka mind relax hota hai, jo aapki neend ko enhance karta hai. Neuroscience kehta hai ki meditation se melatonin ki level badhti hai, jo aapko achhi neend dene mein madad karta hai. Sabse pehle, 5 minute ka deep breathing exercise karein: inhale 4 seconds, hold 4 seconds, phir exhale 6 seconds. Dusra, ek simple body scan karein: apne sharir ke har hisse par dhyan dein, tension ko chhodein. Yeh tools aapki stress levels ko ghataane aur neend ko behatar karne mein madad karenge. Abhi yeh apply karein aur aaj raat ki neend ka difference mehsoos karein!",
+      "estimated_duration_seconds": 37,
+      "primary_keyword": "meditation for sleep",
+      "retention_note": "Opening question instantly connects with viewers facing sleep issues, keeping them engaged.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Meditation for Sleep: Relax & Drift Off Easily",
+      "description": "meditation for sleep: Kya aapko raat mein neend nahi aati? Meditation for sleep se aap apni neend ko behatar kar sakte hain. Stress ko\n\n#shorts #ytshorts #meditationforsleep #deepbreathing #relaxation #sleeptips #meditation #selfcare",
+      "tags": [
+        "meditation for sleep",
+        "sleep meditation",
+        "guided meditation for sleep",
+        "deep breathing for relaxation",
+        "how to sleep better",
+        "improve sleep quality",
+        "night meditation",
+        "stress relief techniques",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "meditation for sleep india",
+        "meditation for sleep for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#meditationforsleep",
+        "#deepbreathing",
+        "#relaxation",
+        "#sleeptips",
+        "#meditation",
+        "#selfcare"
+      ],
+      "primary_keyword": "meditation for sleep",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_083700_meditation-se-sleep-kaise-behtar-krein.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_083700_meditation-se-sleep-kaise-behtar-krein.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_083700_meditation-se-sleep-kaise-behtar-krein.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_083700_meditation-se-sleep-kaise-behtar-krein.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "-wZawbVEhRrvRd2EZNezwaBRWzk",
+      "id": "kR6zFsgTHOk",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:04:28Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Meditation for Sleep: Relax & Drift Off Easily",
+        "description": "meditation for sleep: Kya aapko raat mein neend nahi aati? Meditation for sleep se aap apni neend ko behatar kar sakte hain. Stress ko\n\n#shorts #ytshorts #meditationforsleep #deepbreathing #relaxation #sleeptips #meditation #selfcare",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/kR6zFsgTHOk/default.jpg?sqp=CKCL_M8G&rs=AOn4CLA_O9XSRhztKFGO9tg1GSZGeVZN5w",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/kR6zFsgTHOk/mqdefault.jpg?sqp=CKCL_M8G&rs=AOn4CLB-kCd8hHcEuZAsekMBziHEOn21-g",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/kR6zFsgTHOk/hqdefault.jpg?sqp=CKCL_M8G&rs=AOn4CLBuYcgAKX2PPD436FWUgG7qtVs-Ig",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "deep breathing for relaxation",
+          "fitness tips india",
+          "guided meditation for sleep",
+          "how to sleep better",
+          "improve sleep quality",
+          "meditation and breathwork",
+          "meditation for sleep",
+          "meditation for sleep for beginners",
+          "meditation for sleep india",
+          "morning yoga routine",
+          "night meditation",
+          "sleep meditation",
+          "stress relief techniques",
+          "yoga for beginners",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Meditation for Sleep: Relax & Drift Off Easily",
+          "description": "meditation for sleep: Kya aapko raat mein neend nahi aati? Meditation for sleep se aap apni neend ko behatar kar sakte hain. Stress ko\n\n#shorts #ytshorts #meditationforsleep #deepbreathing #relaxation #sleeptips #meditation #selfcare"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-10T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-09T08:43:41.990953+00:00",
+    "scheduled_time": "2026-05-10T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Fat Loss Tips Jo Sabse Jyda Effective Hai!",
+    "idea": {
+      "idea_id": "77454265-5e7e-44da-9c84-243cd8bf7b76",
+      "title": "Fat Loss Tips Jo Sabse Jyda Effective Hai!",
+      "angle": "Transformation Journeys",
+      "hook": "Kya aap fat loss mein struggle kar rahe hain?",
+      "topic": "Fat Loss",
+      "audience_value": "Proven tips for achieving fat loss effectively",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.092769+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "effective fat loss tips",
+      "source_video_title": "Fitness Journey | Discipline Brought Results 🔥#fat #lossweight #shortsfeed #fatloss #transformation"
+    },
+    "script": {
+      "title": "Fat Loss Tips Jo Sabse Jyda Effective Hai!",
+      "overlay_text": "Fat Loss ke Top Tips!",
+      "hook": "Kya aap fat loss mein struggle kar rahe hain? Yeh tips aapko hairaan kar denge!",
+      "problem": "Har koi fat loss ki koshish kar raha hai, par kabhi bhi results nahi aate. Kya aap bhi isi confusion mein hain?",
+      "insight": "Did you know? Apne metabolism ko boost karne ka ek secret haisahi khana khana. Proper dal, paneer, aur sabziyan aapko nutrients deti hain, jo aapki body ko jaldi fat burn karne mein madad karti hain!",
+      "solution": "Chaliye, fat loss ke liye do solid steps lete hain: Pehla, apne meals ko protein-rich banaosabziyon mein daal aur paneer daalna mat bhoolo. Dusra, khana sab kuch chota-chota karke do, jaise snacks thodi thodi der mein le! Is se metabolism tezi se kaam karega!",
+      "cta": "Aaj se hi ye steps apnaao aur apni transformation journey shuru karo! Video ko share karo aur sikhne ke liye tayaar raho!",
+      "full_script": "Kya aap fat loss mein struggle kar rahe hain? Yeh tips aapko hairaan kar denge! Har koi fat loss ki koshish kar raha hai, par kabhi bhi results nahi aate. Kya aap bhi isi confusion mein hain? Did you know? Apne metabolism ko boost karne ka ek secret haisahi khana khana. Proper dal, paneer, aur sabziyan aapko nutrients deti hain, jo aapki body ko jaldi fat burn karne mein madad karti hain! Chaliye, fat loss ke liye do solid steps lete hain: Pehla, apne meals ko protein-rich banaosabziyon mein daal aur paneer daalna mat bhoolo. Dusra, khana sab kuch chota-chota karke do, jaise snacks thodi thodi der mein le! Is se metabolism tezi se kaam karega! Aaj se hi ye steps apnaao aur apni transformation journey shuru karo! Video ko share karo aur sikhne ke liye tayaar raho!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "effective fat loss tips",
+      "retention_note": "The hook immediately taps into the common struggles with fat loss, creating instant curiosity and relatability.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Effective Fat Loss Tips aapki Body Badal Dengi!",
+      "description": "Effective fat loss tips aapke liye hain! Yeh do steps khana khane ka tarika badalte hain aur fat loss ko boost karte hain. Kya aap tayyar\n\n#shorts #ytshorts #fatlosstips #healthtips #fitnessmotivation #weightlossjourney #healthyfood #metabolism",
+      "tags": [
+        "effective fat loss tips",
+        "fat loss tips",
+        "how to lose fat",
+        "weight loss tips",
+        "healthy eating tips",
+        "boost metabolism",
+        "best protein foods",
+        "fat burning foods",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "effective fat loss tips india",
+        "effective fat loss tips for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#fatlosstips",
+        "#healthtips",
+        "#fitnessmotivation",
+        "#weightlossjourney",
+        "#healthyfood",
+        "#metabolism"
+      ],
+      "primary_keyword": "effective fat loss tips",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_084341_fat-loss-tips-jo-sabse-jyda-effective-hai.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_084341_fat-loss-tips-jo-sabse-jyda-effective-hai.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_084341_fat-loss-tips-jo-sabse-jyda-effective-hai.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_084341_fat-loss-tips-jo-sabse-jyda-effective-hai.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "9XF9oqEgO9GL-u_RpRMzbefnrbQ",
+      "id": "pRaxcQDk2jM",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:04:42Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Effective Fat Loss Tips aapki Body Badal Dengi!",
+        "description": "Effective fat loss tips aapke liye hain! Yeh do steps khana khane ka tarika badalte hain aur fat loss ko boost karte hain. Kya aap tayyar\n\n#shorts #ytshorts #fatlosstips #healthtips #fitnessmotivation #weightlossjourney #healthyfood #metabolism",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/pRaxcQDk2jM/default.jpg?sqp=CKCL_M8G&rs=AOn4CLDX2Dx-AFKaVzMoDnAieI3f9MfY7Q",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/pRaxcQDk2jM/mqdefault.jpg?sqp=CKCL_M8G&rs=AOn4CLCdXiN_RWCYKvu7YPesgvG4iFcIpw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/pRaxcQDk2jM/hqdefault.jpg?sqp=CKCL_M8G&rs=AOn4CLDdsK3m_ZprhWaB__BYqrNDn0oT6g",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "belly fat reduce",
+          "best protein foods",
+          "boost metabolism",
+          "calorie deficit india",
+          "effective fat loss tips",
+          "effective fat loss tips for beginners",
+          "effective fat loss tips india",
+          "fat burning foods",
+          "fat loss tips",
+          "fat loss tips hindi",
+          "fitness tips india",
+          "healthy eating tips",
+          "how to lose fat",
+          "weight loss diet india",
+          "weight loss tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Effective Fat Loss Tips aapki Body Badal Dengi!",
+          "description": "Effective fat loss tips aapke liye hain! Yeh do steps khana khane ka tarika badalte hain aur fat loss ko boost karte hain. Kya aap tayyar\n\n#shorts #ytshorts #fatlosstips #healthtips #fitnessmotivation #weightlossjourney #healthyfood #metabolism"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-11T11:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-09T08:52:35.677284+00:00",
+    "scheduled_time": "2026-05-11T11:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Posture Ke Liye Correct Workout Guide!",
+    "idea": {
+      "idea_id": "7c747ff9-8d99-4546-a4d9-455fbbaf6b52",
+      "title": "Posture Ke Liye Correct Workout Guide!",
+      "angle": "Form Correction",
+      "hook": "Sahi posture kaise paayein gym mein?",
+      "topic": "Workout Form",
+      "audience_value": "Improving body posture during workouts",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093067+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "correct workout posture",
+      "source_video_title": "Best Home Gym Equipment! 🏋️‍♂️ SLOVIC Adjustable Dumbbells (2-24kg) #shorts #workout #dumbbell"
+    },
+    "script": {
+      "title": "Posture Ke Liye Correct Workout Guide!",
+      "overlay_text": "Sahi Posture Se Banaye Fark!",
+      "hook": "Sahi posture kaise paayein gym mein? Jaaniye abhi!",
+      "problem": "Galat posture se injuries hoti hain, aur progress bhi slow ho jati hai. Aaj tak aap kaunse mistakes karte aaye hain?",
+      "insight": "Agar aapki back straight nahi hai ya shoulders hamesha band hai, toh aapki body ka maximum potential nahi mil raha!",
+      "solution": "Sabse pehle, standing tall rahiye. Aapka head, shoulders, aur hips ek line mein hone chahiye. Doosra step, jab aap weights uthate hain, always engage your core! Core tight rakhe, strength control karne mein madad karega! Ye simple corrections aapki form ko 180 degree enhance kar sakte hain.",
+      "cta": "Apne workout ki quality badhane ke liye abhi inhe apply karein! Follow karein in tips ko aaj se!",
+      "full_script": "Sahi posture kaise paayein gym mein? Jaaniye abhi! Galat posture se injuries hoti hain, aur progress bhi slow ho jati hai. Aaj tak aap kaunse mistakes karte aaye hain? Agar aapki back straight nahi hai ya shoulders hamesha band hai, toh aapki body ka maximum potential nahi mil raha! Sabse pehle, standing tall rahiye. Aapka head, shoulders, aur hips ek line mein hone chahiye. Doosra step, jab aap weights uthate hain, always engage your core! Core tight rakhe, strength control karne mein madad karega! Ye simple corrections aapki form ko 180 degree enhance kar sakte hain. Apne workout ki quality badhane ke liye abhi inhe apply karein! Follow karein in tips ko aaj se!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "correct workout posture",
+      "retention_note": "Opening question creates immediate intrigue about correcting posture, keeping viewers engaged with potential solutions.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Sahi Posture Ke Liye Perfect Tips!",
+      "description": "Correct workout posture se aap injuries se bacheinge aur apne workout ka maximum result paayenge! Unhe apply karein aur body ko transform\n\n#correctworkoutposture #gymtips #fitness #yoga #workout #health #shorts #ytshorts",
+      "tags": [
+        "correct workout posture",
+        "gym posture tips",
+        "workout form corrections",
+        "injury prevention in gym",
+        "fitness tips for beginners",
+        "engaging core during workout",
+        "improve workout results",
+        "posture correction exercises",
+        "gym workout for beginners india",
+        "strength training hindi",
+        "workout form tips",
+        "muscle building tips",
+        "correct workout posture india",
+        "correct workout posture for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#correctworkoutposture",
+        "#gymtips",
+        "#fitness",
+        "#yoga",
+        "#workout",
+        "#health",
+        "#shorts",
+        "#ytshorts"
+      ],
+      "primary_keyword": "correct workout posture",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_085235_posture-ke-liye-correct-workout-guide.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_085235_posture-ke-liye-correct-workout-guide.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_085235_posture-ke-liye-correct-workout-guide.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_085235_posture-ke-liye-correct-workout-guide.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "SNR7jLqprNaZh-fhBNLA9do0tqA",
+      "id": "_jy6QJTDcFA",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:05:06Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Sahi Posture Ke Liye Perfect Tips!",
+        "description": "Correct workout posture se aap injuries se bacheinge aur apne workout ka maximum result paayenge! Unhe apply karein aur body ko transform\n\n#correctworkoutposture #gymtips #fitness #yoga #workout #health #shorts #ytshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/_jy6QJTDcFA/default.jpg?sqp=CMyN_M8G&rs=AOn4CLBf3bcgEKrtiAx43Q7CRe2odNO_fA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/_jy6QJTDcFA/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLDqMZDV0gFcAj0BI0FRHeqMKcftbA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/_jy6QJTDcFA/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLDD6Ng7DwORjk_2mwEBqTrMv2nL1w",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "correct workout posture",
+          "correct workout posture for beginners",
+          "correct workout posture india",
+          "engaging core during workout",
+          "fitness tips for beginners",
+          "fitness tips india",
+          "gym posture tips",
+          "gym workout for beginners india",
+          "improve workout results",
+          "injury prevention in gym",
+          "muscle building tips",
+          "posture correction exercises",
+          "strength training hindi",
+          "workout form corrections",
+          "workout form tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Sahi Posture Ke Liye Perfect Tips!",
+          "description": "Correct workout posture se aap injuries se bacheinge aur apne workout ka maximum result paayenge! Unhe apply karein aur body ko transform\n\n#correctworkoutposture #gymtips #fitness #yoga #workout #health #shorts #ytshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-11T12:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-09T09:00:23.927783+00:00",
+    "scheduled_time": "2026-05-11T12:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Healthy Snacks for Gym Goers",
+    "idea": {
+      "idea_id": "047d2cbe-c9bf-403c-b22e-ea95c9b5e61f",
+      "title": "Healthy Snacks for Gym Goers",
+      "angle": "Diet and Nutrition",
+      "hook": "Gym ke liye best healthy snack kya hai?",
+      "topic": "Nutrition",
+      "audience_value": "Quick and healthy snack ideas for workouts",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093166+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "healthy snack ideas for gym",
+      "source_video_title": "Perfect post workout smoothies for your goal🔥 #shorts#gym#fitness#diet#smoothie#india#fitnessmeal"
+    },
+    "script": {
+      "title": "Healthy Snacks for Gym Goers",
+      "overlay_text": "Best Healthy Snacks Revealed",
+      "hook": "Gym ke liye best healthy snack kya hai?",
+      "problem": "Aksar log workout se pehle ya baad snacks search karte hain, par unhealthy options kyun choose karein?",
+      "insight": "Kya aap jaante hain ki kuch snacks aapki metabolism ko boost kar sakte hain aur weight loss ko asaan bana sakte hain?",
+      "solution": "Bohat simple solutions hain! Pehla, high-protein paneer cubes ya boiled eggs le lo jo muscle repair mein madad karte hain. Dusra, oats ka ek energy ball banao, jisme dry fruits aur peanut butter hoye aapki energy ko instantly boost karega. Yeh snacks aapke cravings ko control karne mein bhi madad karte hain! Make sure aap inhe gym se pehle ya baad khayein!",
+      "cta": "In snacks ko aaj hi try karo aur workout ko next level pe le jao!",
+      "full_script": "Gym ke liye best healthy snack kya hai? Aksar log workout se pehle ya baad snacks search karte hain, par unhealthy options kyun choose karein? Kya aap jaante hain ki kuch snacks aapki metabolism ko boost kar sakte hain aur weight loss ko asaan bana sakte hain? Bohat simple solutions hain! Pehla, high-protein paneer cubes ya boiled eggs le lo jo muscle repair mein madad karte hain. Dusra, oats ka ek energy ball banao, jisme dry fruits aur peanut butter hoye aapki energy ko instantly boost karega. Yeh snacks aapke cravings ko control karne mein bhi madad karte hain! Make sure aap inhe gym se pehle ya baad khayein! In snacks ko aaj hi try karo aur workout ko next level pe le jao!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "healthy snack ideas for gym",
+      "retention_note": "Opening question intrigues viewers to learn effective snack options.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Healthy Snack Ideas for Gym: Boost Your Energy!",
+      "description": "Healthy snack ideas for gym ke liye perfect options hain! In snacks se aapki performance aur recovery dono improve honge. Try karne ka\n\n#shorts #ytshorts #healthysnacks #gains #fitnessmotivation #energyboost #gymfood #weightloss",
+      "tags": [
+        "healthy snack ideas for gym",
+        "best snacks for pre workout",
+        "post workout snack ideas",
+        "high protein snacks",
+        "energy snacks for gym",
+        "healthy snacks for fitness",
+        "snack ideas for weight loss",
+        "gym friendly snacks",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "healthy snack ideas for gym india",
+        "healthy snack ideas for gym for beginner",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#healthysnacks",
+        "#gains",
+        "#fitnessmotivation",
+        "#energyboost",
+        "#gymfood",
+        "#weightloss"
+      ],
+      "primary_keyword": "healthy snack ideas for gym",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_090023_healthy-snacks-for-gym-goers.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_090023_healthy-snacks-for-gym-goers.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_090023_healthy-snacks-for-gym-goers.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_090023_healthy-snacks-for-gym-goers.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "wvExt8cm4Vr5yOei7TrrDISa4-g",
+      "id": "GSQ2zcOijcs",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:05:26Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Healthy Snack Ideas for Gym: Boost Your Energy!",
+        "description": "Healthy snack ideas for gym ke liye perfect options hain! In snacks se aapki performance aur recovery dono improve honge. Try karne ka\n\n#shorts #ytshorts #healthysnacks #gains #fitnessmotivation #energyboost #gymfood #weightloss",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/GSQ2zcOijcs/default.jpg?sqp=CMyN_M8G&rs=AOn4CLBRy8QF4welHlKrrN7o5u7UFtHWYw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/GSQ2zcOijcs/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLA3_MmHC2oSyrKt1P5yMmJIRzNLYA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/GSQ2zcOijcs/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLDgimKzLj2oMjAU0L0JjNnhxIO7QQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "belly fat reduce",
+          "best snacks for pre workout",
+          "calorie deficit india",
+          "energy snacks for gym",
+          "fat loss tips hindi",
+          "fitness tips india",
+          "gym friendly snacks",
+          "healthy snack ideas for gym",
+          "healthy snack ideas for gym for beginner",
+          "healthy snack ideas for gym india",
+          "healthy snacks for fitness",
+          "high protein snacks",
+          "post workout snack ideas",
+          "snack ideas for weight loss",
+          "weight loss diet india"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Healthy Snack Ideas for Gym: Boost Your Energy!",
+          "description": "Healthy snack ideas for gym ke liye perfect options hain! In snacks se aapki performance aur recovery dono improve honge. Try karne ka\n\n#shorts #ytshorts #healthysnacks #gains #fitnessmotivation #energyboost #gymfood #weightloss"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-11T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-09T09:07:54.462785+00:00",
+    "scheduled_time": "2026-05-11T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Morning Fitness Habits for Energy!",
+    "idea": {
+      "idea_id": "14bae2ae-ebe7-4756-abaf-1b0efd9248b2",
+      "title": "Morning Fitness Habits for Energy!",
+      "angle": "Routine Development",
+      "hook": "Subah ki habits jo aapko active rakhein!",
+      "topic": "Morning Fitness Habits",
+      "audience_value": "Building energy-boosting morning routines",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093243+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "morning fitness habits",
+      "source_video_title": "Fitness Journey | Discipline Brought Results 🔥#fat #lossweight #shortsfeed #fatloss #transformation"
+    },
+    "script": {
+      "title": "Morning Fitness Habits for Energy!",
+      "overlay_text": "Subah ki habits for energy",
+      "hook": "Aapki subah ki habits kaise aapko active rakh sakti hain?",
+      "problem": "Booming energy levels se bhi zyada, kya aap subah energized feel nahi karte?",
+      "insight": "Research dikhati hai ki aapki morning routine aapki overall energy par asar daal sakti hai.",
+      "solution": "Sabse pehle, subah ek glass paani aur ek chamach honey lein. Yeh aapke metabolism ko boost karega. Dusra, 10 minute ke liye light stretching ya brisk walk, yeh aapke circulation ko badhata hai aur aapko fresh feel karata hai.",
+      "cta": "Aaj se yeh habits follow karein aur dekhein kaise aapki energy aur focus improve hoti hai!",
+      "full_script": "Aapki subah ki habits kaise aapko active rakh sakti hain? Booming energy levels se bhi zyada, kya aap subah energized feel nahi karte? Research dikhati hai ki aapki morning routine aapki overall energy par asar daal sakti hai. Sabse pehle, subah ek glass paani aur ek chamach honey lein. Yeh aapke metabolism ko boost karega. Dusra, 10 minute ke liye light stretching ya brisk walk, yeh aapke circulation ko badhata hai aur aapko fresh feel karata hai. Aaj se yeh habits follow karein aur dekhein kaise aapki energy aur focus improve hoti hai!",
+      "estimated_duration_seconds": 38,
+      "primary_keyword": "morning fitness habits",
+      "retention_note": "Opening mein curiosity generate ki hai; viewers ko yeh samajh aayega ki wo isse apne energy levels ko kaise badha sakte hain.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Morning Fitness Habits for Energy Boost",
+      "description": "Morning fitness habits aapko energy levels boost karne mein madad karti hain. Seekhiye kaise simple changes aapko fresh feel karayenge!\n\n#shorts #ytshorts #morningfitness #energylevels #healthtips #dailyhabits #fitnessjourney #stretching",
+      "tags": [
+        "morning fitness habits",
+        "energy boosting habits",
+        "healthy morning routine",
+        "fitness tips for mornings",
+        "how to feel energized",
+        "morning stretching exercise",
+        "brisk walk benefits",
+        "healthy lifestyle habits",
+        "health tips hindi",
+        "gut health india",
+        "sleep recovery tips",
+        "healthy habits india",
+        "morning fitness habits india",
+        "morning fitness habits for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#morningfitness",
+        "#energylevels",
+        "#healthtips",
+        "#dailyhabits",
+        "#fitnessjourney",
+        "#stretching"
+      ],
+      "primary_keyword": "morning fitness habits",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "health"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_090754_morning-fitness-habits-for-energy.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_090754_morning-fitness-habits-for-energy.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_090754_morning-fitness-habits-for-energy.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_090754_morning-fitness-habits-for-energy.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "R-DGvhnG8Wn0yD0hRunbUVbSKaI",
+      "id": "tkj4W-Nm538",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:05:45Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Morning Fitness Habits for Energy Boost",
+        "description": "Morning fitness habits aapko energy levels boost karne mein madad karti hain. Seekhiye kaise simple changes aapko fresh feel karayenge!\n\n#shorts #ytshorts #morningfitness #energylevels #healthtips #dailyhabits #fitnessjourney #stretching",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/tkj4W-Nm538/default.jpg?sqp=CMyN_M8G&rs=AOn4CLDc6OCX2bOP_J66eZFQ0Sljmz5Grw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/tkj4W-Nm538/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLBUn-l-YcWsqxB1MkQCDV-wlHmhuA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/tkj4W-Nm538/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLBSS3G2_Pi9kx04MmtcvxdT97KifA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "brisk walk benefits",
+          "energy boosting habits",
+          "fitness tips for mornings",
+          "fitness tips india",
+          "gut health india",
+          "health tips hindi",
+          "healthy habits india",
+          "healthy lifestyle habits",
+          "healthy morning routine",
+          "how to feel energized",
+          "morning fitness habits",
+          "morning fitness habits for beginners",
+          "morning fitness habits india",
+          "morning stretching exercise",
+          "sleep recovery tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Morning Fitness Habits for Energy Boost",
+          "description": "Morning fitness habits aapko energy levels boost karne mein madad karti hain. Seekhiye kaise simple changes aapko fresh feel karayenge!\n\n#shorts #ytshorts #morningfitness #energylevels #healthtips #dailyhabits #fitnessjourney #stretching"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-12T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-09T09:14:12.172238+00:00",
+    "scheduled_time": "2026-05-12T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Belly Fat Lose Karne Ke Behtareen Tarike!",
+    "idea": {
+      "idea_id": "c8cbb754-8df6-4b95-a79e-ead4ef77f6a5",
+      "title": "Belly Fat Lose Karne Ke Behtareen Tarike!",
+      "angle": "Quick Fixes",
+      "hook": "Belly fat ko khatam karne ka secret kya hai?",
+      "topic": "Belly Fat Loss",
+      "audience_value": "Effective strategies for losing belly fat",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093322+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "belly fat loss techniques",
+      "source_video_title": "Lose side fat and get in shape✅🔥 #wellness #exercise #bellyfatloss #fitnessmotivation #yoga #shorts"
+    },
+    "script": {
+      "title": "Belly Fat Lose Karne Ke Behtareen Tarike!",
+      "overlay_text": "Secret to Belly Fat Loss!",
+      "hook": "Belly fat ko khatam karne ka secret kya hai? Kya aap bhi chahte hain?",
+      "problem": "Jaante hain, sirf crunches se belly fat nahi jayega! Har baar sochte hain kyun nahi kam ho raha?",
+      "insight": "Research kehti hai ki aapka metabolism slow ho raha hai jab aap unhealthy khana khaate hain. Toh kya karna hai?",
+      "solution": "Sabse pehle, apne diet se refined sugar ko khatam karo! Iska substitute lo, jaise jaggery ya honey. Dusra, rozana ek bowl dal ya paneer ka khaana shamil karo. Ye protein-rich food aapka metabolism badhata hai aur cravings ko control karta hai!",
+      "cta": "Agar aap chahte hain aise aur tips, toh abhi subscribe karo aur apne doston ke saath share karo!",
+      "full_script": "Belly fat ko khatam karne ka secret kya hai? Kya aap bhi chahte hain? Jaante hain, sirf crunches se belly fat nahi jayega! Har baar sochte hain kyun nahi kam ho raha? Research kehti hai ki aapka metabolism slow ho raha hai jab aap unhealthy khana khaate hain. Toh kya karna hai? Sabse pehle, apne diet se refined sugar ko khatam karo! Iska substitute lo, jaise jaggery ya honey. Dusra, rozana ek bowl dal ya paneer ka khaana shamil karo. Ye protein-rich food aapka metabolism badhata hai aur cravings ko control karta hai! Agar aap chahte hain aise aur tips, toh abhi subscribe karo aur apne doston ke saath share karo!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "belly fat loss techniques",
+      "retention_note": "Opening instantly creates curiosity, prompting viewers to stay for actionable solutions.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Belly Fat Loss Techniques: Easy Ways to Slim Down",
+      "description": "Belly fat loss techniques ko jaaniye! Sirf crunches nahi, yeh tips aapko help karenge. Toh chaliye shuru karte hain! #fitness #health\n\n#bellyfat #fatloss #healthylifestyle #metabolism #diettips #yoga #shorts #ytshorts",
+      "tags": [
+        "belly fat loss techniques",
+        "effective belly fat loss",
+        "yoga for belly fat",
+        "workouts for belly fat",
+        "healthy diet for fat loss",
+        "tips for losing belly fat",
+        "helpful belly fat tips",
+        "fast belly fat reduction techniques",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "belly fat loss techniques india",
+        "belly fat loss techniques for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#bellyfat",
+        "#fatloss",
+        "#healthylifestyle",
+        "#metabolism",
+        "#diettips",
+        "#yoga",
+        "#shorts",
+        "#ytshorts"
+      ],
+      "primary_keyword": "belly fat loss techniques",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_091412_belly-fat-lose-karne-ke-behtareen-tarike.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_091412_belly-fat-lose-karne-ke-behtareen-tarike.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_091412_belly-fat-lose-karne-ke-behtareen-tarike.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_091412_belly-fat-lose-karne-ke-behtareen-tarike.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "gLWU3U6JeoXZuwrOmb1MiicpVUE",
+      "id": "IkpxMLVAznQ",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:06:03Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Belly Fat Loss Techniques: Easy Ways to Slim Down",
+        "description": "Belly fat loss techniques ko jaaniye! Sirf crunches nahi, yeh tips aapko help karenge. Toh chaliye shuru karte hain! #fitness #health\n\n#bellyfat #fatloss #healthylifestyle #metabolism #diettips #yoga #shorts #ytshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/IkpxMLVAznQ/default.jpg?sqp=CMyN_M8G&rs=AOn4CLBGaLEpvvVCZSJ6o9Ia9qKhbx2QZQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/IkpxMLVAznQ/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLDd2IYzPp6OdMm0RuxL-yOykUlMbQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/IkpxMLVAznQ/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLA96eeqALhtM-63Rrt4UfSyil2J_g",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "belly fat loss techniques",
+          "belly fat loss techniques for beginners",
+          "belly fat loss techniques india",
+          "belly fat reduce",
+          "calorie deficit india",
+          "effective belly fat loss",
+          "fast belly fat reduction techniques",
+          "fat loss tips hindi",
+          "fitness tips india",
+          "healthy diet for fat loss",
+          "helpful belly fat tips",
+          "tips for losing belly fat",
+          "weight loss diet india",
+          "workouts for belly fat",
+          "yoga for belly fat"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Belly Fat Loss Techniques: Easy Ways to Slim Down",
+          "description": "Belly fat loss techniques ko jaaniye! Sirf crunches nahi, yeh tips aapko help karenge. Toh chaliye shuru karte hain! #fitness #health\n\n#bellyfat #fatloss #healthylifestyle #metabolism #diettips #yoga #shorts #ytshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-12T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-09T09:24:00.856908+00:00",
+    "scheduled_time": "2026-05-12T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Gym Mistakes Jo Aap Kar Rahe Hain",
+    "idea": {
+      "idea_id": "b3756450-9668-41d5-a0e4-8b3a3902da17",
+      "title": "Gym Mistakes Jo Aap Kar Rahe Hain",
+      "angle": "Common Pitfalls",
+      "hook": "Gym jake bhi faayda nahi ho raha?",
+      "topic": "Gym Mistakes",
+      "audience_value": "Identifying and correcting common gym errors",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093392+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "common gym mistakes",
+      "source_video_title": "Fitness Journey | Discipline Brought Results 🔥#fat #lossweight #shortsfeed #fatloss #transformation"
+    },
+    "script": {
+      "title": "Gym Mistakes Jo Aap Kar Rahe Hain",
+      "overlay_text": "Gym Mistakes Ki List",
+      "hook": "Gym jake bhi faayda nahi ho raha? Aap yeh galtiyan toh nahi kar rahe?",
+      "problem": "Aksar hum sochte hain ki sirf workout karke fat loss ho jaega, par sab kuch nahi hai.",
+      "insight": "Ek ajeeb si reality haiform galat ho to mahnat vyarth ho jaati hai. Aur yeh hi problem hai!",
+      "solution": "Sabse pehle, form check karo. Ek mirror mein dekho ya kisi dost se madad lo. Dusra, workout ka structure. Compound exercises se shuru karojaise squats aur deadlifts. Isse aap zyada muscle engage karoge, fat loss tezi se hoga.",
+      "cta": "Ab time hai change ka! Apne workout ko optimize karo, aur results dekhne ke liye tayyar ho jao!",
+      "full_script": "Gym jake bhi faayda nahi ho raha? Aap yeh galtiyan toh nahi kar rahe? Aksar hum sochte hain ki sirf workout karke fat loss ho jaega, par sab kuch nahi hai. Ek ajeeb si reality haiform galat ho to mahnat vyarth ho jaati hai. Aur yeh hi problem hai! Sabse pehle, form check karo. Ek mirror mein dekho ya kisi dost se madad lo. Dusra, workout ka structure. Compound exercises se shuru karojaise squats aur deadlifts. Isse aap zyada muscle engage karoge, fat loss tezi se hoga. Ab time hai change ka! Apne workout ko optimize karo, aur results dekhne ke liye tayyar ho jao!",
+      "estimated_duration_seconds": 34,
+      "primary_keyword": "common gym mistakes",
+      "retention_note": "Opening line creates immediate intrigue by questioning the viewer's gym effectiveness, compelling them to reconsider their approach.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "5 Common Gym Mistakes That Ruin Fat Loss",
+      "description": "common gym mistakes: Kya aap common gym mistakes kar rahe hain? Inhe avoid karke aap apne fat loss goals ko jaldi achieve kar sakte hain!\n\n#commonGymMistakes #GymHacks #FatLossJourney #WorkoutTips #FitnessGoals #WeightLoss #HealthTips #shorts",
+      "tags": [
+        "common gym mistakes",
+        "gym mistakes",
+        "fat loss tips",
+        "workout mistakes",
+        "exercise errors",
+        "body transformation",
+        "fitness motivation",
+        "gym advice",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "common gym mistakes india",
+        "common gym mistakes for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#commonGymMistakes",
+        "#GymHacks",
+        "#FatLossJourney",
+        "#WorkoutTips",
+        "#FitnessGoals",
+        "#WeightLoss",
+        "#HealthTips",
+        "#shorts"
+      ],
+      "primary_keyword": "common gym mistakes",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_092400_gym-mistakes-jo-aap-kar-rahe-hain.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_092400_gym-mistakes-jo-aap-kar-rahe-hain.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_092400_gym-mistakes-jo-aap-kar-rahe-hain.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_092400_gym-mistakes-jo-aap-kar-rahe-hain.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "ZjuU24c9TYfFqy6M4dPo9hG75oc",
+      "id": "aai30ZUzKvc",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:06:19Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "5 Common Gym Mistakes That Ruin Fat Loss",
+        "description": "common gym mistakes: Kya aap common gym mistakes kar rahe hain? Inhe avoid karke aap apne fat loss goals ko jaldi achieve kar sakte hain!\n\n#commonGymMistakes #GymHacks #FatLossJourney #WorkoutTips #FitnessGoals #WeightLoss #HealthTips #shorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/aai30ZUzKvc/default.jpg?sqp=CMyN_M8G&rs=AOn4CLA_7RvEZtqr2LNgEW5VKN_w5h3A1A",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/aai30ZUzKvc/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLD_Tf_hM8_Zn0WU7Ut1bCtbHC9OpQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/aai30ZUzKvc/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLByMlY35pWbUBei28WCWXUReRHufw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "belly fat reduce",
+          "body transformation",
+          "calorie deficit india",
+          "common gym mistakes",
+          "common gym mistakes for beginners",
+          "common gym mistakes india",
+          "exercise errors",
+          "fat loss tips",
+          "fat loss tips hindi",
+          "fitness motivation",
+          "fitness tips india",
+          "gym advice",
+          "gym mistakes",
+          "weight loss diet india",
+          "workout mistakes"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "5 Common Gym Mistakes That Ruin Fat Loss",
+          "description": "common gym mistakes: Kya aap common gym mistakes kar rahe hain? Inhe avoid karke aap apne fat loss goals ko jaldi achieve kar sakte hain!\n\n#commonGymMistakes #GymHacks #FatLossJourney #WorkoutTips #FitnessGoals #WeightLoss #HealthTips #shorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-12T15:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-09T09:32:45.052958+00:00",
+    "scheduled_time": "2026-05-12T15:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Mobility Exercises Jo Aapko Karni Chahiye",
+    "idea": {
+      "idea_id": "ea02a3a3-121e-4c67-96a0-d31810bfbe94",
+      "title": "Mobility Exercises Jo Aapko Karni Chahiye",
+      "angle": "Daily Routines",
+      "hook": "Kya aapko body movement mein problem hai?",
+      "topic": "Mobility",
+      "audience_value": "Essential mobility exercises for daily health",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093461+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "mobility exercises at home",
+      "source_video_title": "Pahad 🏔️ ❎workout ✅#shorts #bobbythebodyguard #teratrigunshorts #motivation #finance"
+    },
+    "script": {
+      "title": "Mobility Exercises Jo Aapko Karni Chahiye",
+      "overlay_text": "Body Movement Mein Sudhaar",
+      "hook": "Kya aapko body movement mein problem hai?",
+      "problem": "Agar aap din ke kaam se ya stress se tang ho rahe hain, mobility bilkul compromise ho jaati hai.",
+      "insight": "Sahi mobility exercises se hum flexible aur pain-free reh sakte hain, lekin sab ko pata nahi hai unhe kaise karna hai.",
+      "solution": "Chaliye aapko do simple exercises dikhate hain: Pehla hai Cat-Cow stretch, isse aapka spine flexible hoga. Dusra hai Hip Circles, jo aapke hip joints ko relax karega. Har exercise ko sirf 30 seconds ke liye karein, aur feel karein apne body ka flow aur balance. Yeh aapko stress se relief dilane ke saath saath, posture bhi improve karega.",
+      "cta": "Aaj hi shuru karein, aapki body shukriya kah rahi hai!",
+      "full_script": "Kya aapko body movement mein problem hai? Agar aap din ke kaam se ya stress se tang ho rahe hain, mobility bilkul compromise ho jaati hai. Sahi mobility exercises se hum flexible aur pain-free reh sakte hain, lekin sab ko pata nahi hai unhe kaise karna hai. Chaliye aapko do simple exercises dikhate hain: Pehla hai Cat-Cow stretch, isse aapka spine flexible hoga. Dusra hai Hip Circles, jo aapke hip joints ko relax karega. Har exercise ko sirf 30 seconds ke liye karein, aur feel karein apne body ka flow aur balance. Yeh aapko stress se relief dilane ke saath saath, posture bhi improve karega. Aaj hi shuru karein, aapki body shukriya kah rahi hai!",
+      "estimated_duration_seconds": 43,
+      "primary_keyword": "mobility exercises at home",
+      "retention_note": "Opening mein direct question se curiosity banti hai, jo viewers ko engaging banata hai.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Mobility Exercises at Home: Aapki Flexibility Ke Liye",
+      "description": "Mobility exercises at home se aap apne body movement ko enhance kar sakte hain. Yeh do simple exercises se aap pain-free aur flexible ban\n\n#mobility #homeworkout #CatCow #HipCircles #fitness #health #shorts #ytshorts",
+      "tags": [
+        "mobility exercises at home",
+        "body movement exercises",
+        "Cat Cow stretch for flexibility",
+        "Hip Circles for hip joints",
+        "home workout for flexibility",
+        "stress relief mobility exercises",
+        "improve body posture",
+        "simple exercises at home",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "mobility exercises at home india",
+        "mobility exercises at home for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#mobility",
+        "#homeworkout",
+        "#CatCow",
+        "#HipCircles",
+        "#fitness",
+        "#health",
+        "#shorts",
+        "#ytshorts"
+      ],
+      "primary_keyword": "mobility exercises at home",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_093245_mobility-exercises-jo-aapko-karni-chahiye.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_093245_mobility-exercises-jo-aapko-karni-chahiye.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_093245_mobility-exercises-jo-aapko-karni-chahiye.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_093245_mobility-exercises-jo-aapko-karni-chahiye.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "feHChx0Vsoj1Y4nnJkL3_Fdk9gU",
+      "id": "k-a6zsimxkw",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:06:30Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Mobility Exercises at Home: Aapki Flexibility Ke Liye",
+        "description": "Mobility exercises at home se aap apne body movement ko enhance kar sakte hain. Yeh do simple exercises se aap pain-free aur flexible ban\n\n#mobility #homeworkout #CatCow #HipCircles #fitness #health #shorts #ytshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/k-a6zsimxkw/default.jpg?sqp=CMyN_M8G&rs=AOn4CLCCMyiPt2-6W5zI5dpkXE3CsJgzCw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/k-a6zsimxkw/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLClfPH1D04g-b0_e6SEXZQ82wJIiA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/k-a6zsimxkw/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLAGZN6esDNT6H24eQWpMPVSBfADUA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "Cat Cow stretch for flexibility",
+          "Hip Circles for hip joints",
+          "body movement exercises",
+          "fitness tips india",
+          "home workout for flexibility",
+          "improve body posture",
+          "meditation and breathwork",
+          "mobility exercises at home",
+          "mobility exercises at home for beginners",
+          "mobility exercises at home india",
+          "morning yoga routine",
+          "simple exercises at home",
+          "stress relief mobility exercises",
+          "yoga for beginners",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Mobility Exercises at Home: Aapki Flexibility Ke Liye",
+          "description": "Mobility exercises at home se aap apne body movement ko enhance kar sakte hain. Yeh do simple exercises se aap pain-free aur flexible ban\n\n#mobility #homeworkout #CatCow #HipCircles #fitness #health #shorts #ytshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-13T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-09T09:40:06.284959+00:00",
+    "scheduled_time": "2026-05-13T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Calmness Paaene Ke Liye Simple Breathing!",
+    "idea": {
+      "idea_id": "b3a6f944-ee0c-48e1-a050-27c2767c9a0c",
+      "title": "Calmness Paaene Ke Liye Simple Breathing!",
+      "angle": "Breathwork Techniques",
+      "hook": "Stress bhulaane ke liye breathing kaise karen?",
+      "topic": "Breathwork",
+      "audience_value": "Breathing techniques for stress relief",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093528+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "breathwork for relaxation",
+      "source_video_title": "Yoga for beginners ✅ #fitness #motivation #shorts"
+    },
+    "script": {
+      "title": "Calmness Paaene Ke Liye Simple Breathing!",
+      "overlay_text": "Stress bhulaane ke liye brea",
+      "hook": "Stress bhulaane ke liye breathing kaise karen?",
+      "problem": "Jab hum stress mein hote hain, hamari body tight ho jaati hai. Yeh stress humein physically aur emotionally drain karta hai.",
+      "insight": "Lekin, kya aap jante hain ki sirf 2-3 minute ki sahi breathing se aapka pura din badal sakta hai? Isse aapka mind stable hoga aur body relaxed.",
+      "solution": "Toh sabse pehle, ek gehri saans lein. Nose se saans andar le jaayein aur 4 seconds tak roke rakhein. Phir, 6 seconds tak zordaar exhale karein. Isse aapka focus badhega aur tension door hogi. Dusra, jab inhale karein, apne shoulders ko neeche rakhiye, taaki aapka posture bhi sudre. Yeh simple practice aapko immediate calmness dega.",
+      "cta": "Ab seedha karke yeh breathing try karein aur stress ko door bhagaain! Aur haan, agar yeh helpful laga, toh like aur share zaroor karein!",
+      "full_script": "Stress bhulaane ke liye breathing kaise karen? Jab hum stress mein hote hain, hamari body tight ho jaati hai. Yeh stress humein physically aur emotionally drain karta hai. Lekin, kya aap jante hain ki sirf 2-3 minute ki sahi breathing se aapka pura din badal sakta hai? Isse aapka mind stable hoga aur body relaxed. Toh sabse pehle, ek gehri saans lein. Nose se saans andar le jaayein aur 4 seconds tak roke rakhein. Phir, 6 seconds tak zordaar exhale karein. Isse aapka focus badhega aur tension door hogi. Dusra, jab inhale karein, apne shoulders ko neeche rakhiye, taaki aapka posture bhi sudre. Yeh simple practice aapko immediate calmness dega. Ab seedha karke yeh breathing try karein aur stress ko door bhagaain! Aur haan, agar yeh helpful laga, toh like aur share zaroor karein!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "breathwork for relaxation",
+      "retention_note": "Opening mein curiosity create karke, audience ko vital life-changing tips dene ka promise karta hai.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Breathwork for Relaxation: Stress Ko Khud Door Kijiye!",
+      "description": "Breathwork for relaxation se aap 2-3 minute mein stress bhula sakte hain. Yeh simple technique aapka day badal dega! #shorts #ytshorts\n\n#shorts #ytshorts #breathwork #relaxation #stressrelief #mindfulness #yogatips #healthylifestyle",
+      "tags": [
+        "breathwork for relaxation",
+        "breathwork techniques",
+        "stress relief breathing",
+        "yoga for relaxation",
+        "mindful breathing",
+        "relaxation techniques",
+        "calm your mind",
+        "improve focus",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "breathwork for relaxation india",
+        "breathwork for relaxation for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#breathwork",
+        "#relaxation",
+        "#stressrelief",
+        "#mindfulness",
+        "#yogatips",
+        "#healthylifestyle"
+      ],
+      "primary_keyword": "breathwork for relaxation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_094006_calmness-paaene-ke-liye-simple-breathing.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_094006_calmness-paaene-ke-liye-simple-breathing.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_094006_calmness-paaene-ke-liye-simple-breathing.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_094006_calmness-paaene-ke-liye-simple-breathing.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "CINk1DaPfK8AFOOMTD0JFiJMmTc",
+      "id": "GjUA_MMIdB8",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:06:45Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Breathwork for Relaxation: Stress Ko Khud Door Kijiye!",
+        "description": "Breathwork for relaxation se aap 2-3 minute mein stress bhula sakte hain. Yeh simple technique aapka day badal dega! #shorts #ytshorts\n\n#shorts #ytshorts #breathwork #relaxation #stressrelief #mindfulness #yogatips #healthylifestyle",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/GjUA_MMIdB8/default.jpg?sqp=CMyN_M8G&rs=AOn4CLBYGpvXoqviZToUtrw3v9cm-XBJCQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/GjUA_MMIdB8/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLApqqrBrFX9bhueo9pF-1K6E1s5rg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/GjUA_MMIdB8/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLBJZHQzD5WOXFQbAR8XiFPP6gktTQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "breathwork for relaxation",
+          "breathwork for relaxation for beginners",
+          "breathwork for relaxation india",
+          "breathwork techniques",
+          "calm your mind",
+          "fitness tips india",
+          "improve focus",
+          "meditation and breathwork",
+          "mindful breathing",
+          "morning yoga routine",
+          "relaxation techniques",
+          "stress relief breathing",
+          "yoga for beginners",
+          "yoga for relaxation",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Breathwork for Relaxation: Stress Ko Khud Door Kijiye!",
+          "description": "Breathwork for relaxation se aap 2-3 minute mein stress bhula sakte hain. Yeh simple technique aapka day badal dega! #shorts #ytshorts\n\n#shorts #ytshorts #breathwork #relaxation #stressrelief #mindfulness #yogatips #healthylifestyle"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-13T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-09T09:49:41.964679+00:00",
+    "scheduled_time": "2026-05-13T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Home Workout Routines for Busy People",
+    "idea": {
+      "idea_id": "cc51d9fb-ec36-4ee8-a8aa-a44fa849f67f",
+      "title": "Home Workout Routines for Busy People",
+      "angle": "Time Efficiency",
+      "hook": "Ghar par time nahi hai? In workouts ko try karein!",
+      "topic": "Home Workouts",
+      "audience_value": "Efficient home workouts for busy schedules",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-09T08:37:00.093601+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long",
+      "search_keyword": "home workout routines",
+      "source_video_title": "Home workout motivation🔥 #calisthenics #workout #fitness #shorts"
+    },
+    "script": {
+      "title": "Ghar Par Jaldi Workout: Busy Life, Fit Body!",
+      "overlay_text": "Efficient Home Workouts",
+      "hook": "Ghar par time nahi hai? In workouts ko try karein! Kya aap busy hain, phir bhi fit rehna chahte hain?",
+      "problem": "Zindagi hai hectic, gym ka time nahi milta! Humara waqt chura leta hai. Lekin iss wajah se aapko apni fitness chhod deni nahi chahiye. Fat loss aur strength ko achieve karne ka kya hoga?",
+      "insight": "Aaj kal, humare paas sirf 20 minutes hote hain, par kya aap jante hain? Sirf 20 minutes ki effective workout se aap apne body ko transform kar sakte hain. Science kehta hai, high-intensity interval training, yaani HIIT, perfect hai aapke busy schedule ke liye.",
+      "solution": "Toh chaliye, kuch effective exercises dekhte hain. 1st exercise: Burpees - Isse aap cardio bhi karte hain, aur strength bhi. 10-15 reps, jaise fire ho aap! 2nd exercise: Push-ups - Aapke muscles ko activate karein, 10 reps! In dono ko 4 rounds karein, aapka metabolism boost hoga aur fat burn hoga. Yeh workout 20 minutes mein ho jayega. Quick and dirty! Fitness ka waqt nahi chhodna hai.",
+      "cta": "Aaj se match banate hain time aur fitness ka! Comment karein, aap kis exercise se shuru kar rahe hain? Like karein aur share karein, kyunki fitness ke liye time nahi hai to excuses bhi nahi! Follow karein for more!",
+      "full_script": "Ghar par time nahi hai? In workouts ko try karein! Kya aap busy hain, phir bhi fit rehna chahte hain? Zindagi hai hectic, gym ka time nahi milta! Humara waqt chura leta hai. Lekin iss wajah se aapko apni fitness chhod deni nahi chahiye. Fat loss aur strength ko achieve karne ka kya hoga? Aaj kal, humare paas sirf 20 minutes hote hain, par kya aap jante hain? Sirf 20 minutes ki effective workout se aap apne body ko transform kar sakte hain. Science kehta hai, high-intensity interval training, yaani HIIT, perfect hai aapke busy schedule ke liye. Toh chaliye, kuch effective exercises dekhte hain. 1st exercise: Burpees - Isse aap cardio bhi karte hain, aur strength bhi. 10-15 reps, jaise fire ho aap! 2nd exercise: Push-ups - Aapke muscles ko activate karein, 10 reps! In dono ko 4 rounds karein, aapka metabolism boost hoga aur fat burn hoga. Yeh workout 20 minutes mein ho jayega. Quick and dirty! Fitness ka waqt nahi chhodna hai. Aaj se match banate hain time aur fitness ka! Comment karein, aap kis exercise se shuru kar rahe hain? Like karein aur share karein, kyunki fitness ke liye time nahi hai to excuses bhi nahi! Follow karein for more!",
+      "estimated_duration_seconds": 90,
+      "primary_keyword": "home workout routines",
+      "retention_note": "Opening grabs instant attention by addressing a common struggle, compelling viewers to stick around for the quick solutions.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Home Workout Routines: 20 Minute Fat Loss & Strength Tips",
+      "description": "home workout routines: Aapke busy schedule ke liye perfect home workout routines! Sirf 20 minutes mein aap fat loss aur strength build kar sakte hain. Chaliye, effective exercises shuru karte hain jo aapki life change kar denge!\n\n#HomeWorkout #FatLoss #FitnessTips #HIIT #20MinuteWorkout",
+      "tags": [
+        "home workout routines",
+        "fat loss exercises",
+        "20 minute workout",
+        "HIIT workout at home",
+        "strength training without gym",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "home workout routines india",
+        "home workout routines for beginners",
+        "fitness channel india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#HomeWorkout",
+        "#FatLoss",
+        "#FitnessTips",
+        "#HIIT",
+        "#20MinuteWorkout"
+      ],
+      "primary_keyword": "home workout routines",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260509_094941_home-workout-routines-for-busy-people.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260509_094941_home-workout-routines-for-busy-people.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_094941_home-workout-routines-for-busy-people.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260509_094941_home-workout-routines-for-busy-people.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "W6TvRf0aiOdC6BUczpCwJ2ggbzc",
+      "id": "f3RxkwGpCxQ",
+      "snippet": {
+        "publishedAt": "2026-05-09T10:07:09Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Home Workout Routines: 20 Minute Fat Loss & Strength Tips",
+        "description": "home workout routines: Aapke busy schedule ke liye perfect home workout routines! Sirf 20 minutes mein aap fat loss aur strength build kar sakte hain. Chaliye, effective exercises shuru karte hain jo aapki life change kar denge!\n\n#HomeWorkout #FatLoss #FitnessTips #HIIT #20MinuteWorkout",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/f3RxkwGpCxQ/default.jpg?sqp=CMyN_M8G&rs=AOn4CLBnnfsRfZXG7rT0wMeguCYz4THzsg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/f3RxkwGpCxQ/mqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLDmMMFFcmAJwkj1SDxPyrNtQRwyfQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/f3RxkwGpCxQ/hqdefault.jpg?sqp=CMyN_M8G&rs=AOn4CLDhJFmqbLw0G2JOGG8kz8P_AWPmCA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "20 minute workout",
+          "DailyFitX",
+          "HIIT workout at home",
+          "belly fat reduce",
+          "calorie deficit india",
+          "fat loss exercises",
+          "fat loss tips hindi",
+          "fitness channel india",
+          "home workout routines",
+          "home workout routines for beginners",
+          "home workout routines india",
+          "strength training without gym",
+          "weight loss diet india"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Home Workout Routines: 20 Minute Fat Loss & Strength Tips",
+          "description": "home workout routines: Aapke busy schedule ke liye perfect home workout routines! Sirf 20 minutes mein aap fat loss aur strength build kar sakte hain. Chaliye, effective exercises shuru karte hain jo aapki life change kar denge!\n\n#HomeWorkout #FatLoss #FitnessTips #HIIT #20MinuteWorkout"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-14T01:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-09T10:04:26.065604+00:00",
+    "scheduled_time": "2026-05-14T01:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Protein Se Weight Loss: Kitna Jaroori Hai?",
+    "idea": {
+      "idea_id": "081ba6af-bb2f-4119-9b3b-943ed051e729",
+      "title": "Protein Se Weight Loss: Kitna Jaroori Hai?",
+      "angle": "Myth Busting",
+      "hook": "Kya aap protein intake ko lekar confused hain?",
+      "topic": "protein for weight loss",
+      "audience_value": "Understand the role of protein in weight loss.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.836523+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "protein intake for weight loss",
+      "source_video_title": "Perfect post workout smoothies for your goal🔥"
+    },
+    "script": {
+      "title": "Protein Se Weight Loss: Kitna Jaroori Hai?",
+      "overlay_text": "Protein Ki Importance Samjhe",
+      "hook": "Kya aap protein intake ko lekar confused hain?",
+      "problem": "Bahut log samajhte hain ki sirf calorie count karna kaafi hai, lekin yeh sach nahi hai.",
+      "insight": "Aapke body ko protein ki zaroorat hai taaki metabolism fast rahe aur muscle mass ban sake. Protein aapke cravings ko bhi control karta hai!",
+      "solution": "Toh kya karna hai? Pehla, rozana apne plate mein 20-30 grams protein zaroor include karein. Daal, paneer ya chicken le sakte hain. Dusra, post-workout 15-20 grams protein shake lein. Yeh aapki recovery ko boost karega aur fat loss ko accelerate karega.",
+      "cta": "Ab aaj se protein ka dyaan rakhein aur apne weight loss ke journey shuru karein!",
+      "full_script": "Kya aap protein intake ko lekar confused hain? Bahut log samajhte hain ki sirf calorie count karna kaafi hai, lekin yeh sach nahi hai. Aapke body ko protein ki zaroorat hai taaki metabolism fast rahe aur muscle mass ban sake. Protein aapke cravings ko bhi control karta hai! Toh kya karna hai? Pehla, rozana apne plate mein 20-30 grams protein zaroor include karein. Daal, paneer ya chicken le sakte hain. Dusra, post-workout 15-20 grams protein shake lein. Yeh aapki recovery ko boost karega aur fat loss ko accelerate karega. Ab aaj se protein ka dyaan rakhein aur apne weight loss ke journey shuru karein!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "protein intake for weight loss",
+      "retention_note": "Opening question grabs attention by addressing confusion about protein, making viewers eager for clarity.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Protein Intake for Weight Loss: Sabse Badi Galti Kya Hai?",
+      "description": "protein intake for weight loss: Kya aap protein intake ko lekar confused hain? Jaano kaise protein aapki weight loss journey ko accelerate\n\n#shorts #ytshorts #proteinintake #weightloss #fatloss #fitnessmotivation #healthytips #dietplan",
+      "tags": [
+        "protein intake for weight loss",
+        "weight loss tips",
+        "protein diet for fat loss",
+        "muscle gain and fat loss",
+        "healthy protein sources",
+        "post-workout protein",
+        "calorie counting mistakes",
+        "weight loss journey",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "protein intake for weight loss india",
+        "protein intake for weight loss for begin",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#proteinintake",
+        "#weightloss",
+        "#fatloss",
+        "#fitnessmotivation",
+        "#healthytips",
+        "#dietplan"
+      ],
+      "primary_keyword": "protein intake for weight loss",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_153519_protein-se-weight-loss-kitna-jaroori-hai.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_153519_protein-se-weight-loss-kitna-jaroori-hai.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_153519_protein-se-weight-loss-kitna-jaroori-hai.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_153519_protein-se-weight-loss-kitna-jaroori-hai.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "RFGJ7vqaclhcJVk15lfvCXCqxz4",
+      "id": "KFvlnHh86Uk",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:08:57Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Protein Intake for Weight Loss: Sabse Badi Galti Kya Hai?",
+        "description": "protein intake for weight loss: Kya aap protein intake ko lekar confused hain? Jaano kaise protein aapki weight loss journey ko accelerate\n\n#shorts #ytshorts #proteinintake #weightloss #fatloss #fitnessmotivation #healthytips #dietplan",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/KFvlnHh86Uk/default.jpg?sqp=CKzCktAG&rs=AOn4CLBgBc1fVJiBAeFNWxFTWKxF4jL1Iw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/KFvlnHh86Uk/mqdefault.jpg?sqp=CKzCktAG&rs=AOn4CLCeu8A7M_DKny9GnOIvhTJMbYZydg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/KFvlnHh86Uk/hqdefault.jpg?sqp=CKzCktAG&rs=AOn4CLAnDsn8KmzkZnmcZaTFSwQsBrqX7g",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "belly fat reduce",
+          "calorie counting mistakes",
+          "calorie deficit india",
+          "fat loss tips hindi",
+          "fitness tips india",
+          "healthy protein sources",
+          "muscle gain and fat loss",
+          "post-workout protein",
+          "protein diet for fat loss",
+          "protein intake for weight loss",
+          "protein intake for weight loss for begin",
+          "protein intake for weight loss india",
+          "weight loss diet india",
+          "weight loss journey",
+          "weight loss tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Protein Intake for Weight Loss: Sabse Badi Galti Kya Hai?",
+          "description": "protein intake for weight loss: Kya aap protein intake ko lekar confused hain? Jaano kaise protein aapki weight loss journey ko accelerate\n\n#shorts #ytshorts #proteinintake #weightloss #fatloss #fitnessmotivation #healthytips #dietplan"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-14T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-11T15:45:19.170467+00:00",
+    "scheduled_time": "2026-05-14T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Workout Form Galtiyan Jo Injuries Ki Buniyaad Hain!",
+    "idea": {
+      "idea_id": "000a3977-d605-4192-a873-62f3243ae593",
+      "title": "Workout Form Galtiyan Jo Injuries Ki Buniyaad Hain!",
+      "angle": "Education",
+      "hook": "Kya aap sahi form se workout kar rahe hain?",
+      "topic": "workout form",
+      "audience_value": "Avoid injuries by learning proper workout form.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.836702+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "workout form mistakes",
+      "source_video_title": "Power of Calisthenics Part 51🥶☠️"
+    },
+    "script": {
+      "title": "Workout Form Galtiyan Jo Injuries Ki Buniyaad Hain!",
+      "overlay_text": "Avoid Injuries Improve Form!",
+      "hook": "Kya aap sahi form se workout kar rahe hain? Galtiyan aapki injury ka raaz ho sakti hain!",
+      "problem": "Zyada tar log workout karte hain, par form galat rakhte hain. Yeh sirf aapko injuries ki taraf le jaata hai.",
+      "insight": "Sahi form se na sirf aap injury se bachte hain, balki strength bhi badhate hain. Samajhiye kya galtiyan ho rahi hain!",
+      "solution": "Do simple checks: 1. Jab aap squats karein, knees kabhi toes se aage nahi jaane chahiye. 2. Bench press karte waqt, elbows ko 45-degree angle par rakhein. Isse aap shoulder injury se bachenge!",
+      "cta": "Aaj se form pe dhyaan do! Apne dost se share karo aur unhe bhi injuries se bachao!",
+      "full_script": "Kya aap sahi form se workout kar rahe hain? Galtiyan aapki injury ka raaz ho sakti hain! Zyada tar log workout karte hain, par form galat rakhte hain. Yeh sirf aapko injuries ki taraf le jaata hai. Sahi form se na sirf aap injury se bachte hain, balki strength bhi badhate hain. Samajhiye kya galtiyan ho rahi hain! Do simple checks: 1. Jab aap squats karein, knees kabhi toes se aage nahi jaane chahiye. 2. Bench press karte waqt, elbows ko 45-degree angle par rakhein. Isse aap shoulder injury se bachenge! Aaj se form pe dhyaan do! Apne dost se share karo aur unhe bhi injuries se bachao!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "workout form mistakes",
+      "retention_note": "Opening instantly engages viewers by questioning their workout habits, ensuring they want to hear solutions.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Top Workout Form Mistakes to Avoid!",
+      "description": "Workout form mistakes aapki health ko khatar mein daal sakte hain. Sahi form se injury se bachein aur strength badhayein! #shorts\n\n#shorts #ytshorts #workoutform #fitnessmistakes #gymlife #strengthtraining #injuryprevention #healthtips",
+      "tags": [
+        "workout form mistakes",
+        "fitness mistakes to avoid",
+        "squat form mistakes",
+        "bench press form",
+        "injury prevention tips",
+        "strength training tips",
+        "how to avoid injuries",
+        "proper workout technique",
+        "gym workout for beginners india",
+        "strength training hindi",
+        "workout form tips",
+        "muscle building tips",
+        "workout form mistakes india",
+        "workout form mistakes for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#workoutform",
+        "#fitnessmistakes",
+        "#gymlife",
+        "#strengthtraining",
+        "#injuryprevention",
+        "#healthtips"
+      ],
+      "primary_keyword": "workout form mistakes",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_154519_workout-form-galtiyan-jo-injuries-ki-buniyaad-hain.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_154519_workout-form-galtiyan-jo-injuries-ki-buniyaad-hain.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_154519_workout-form-galtiyan-jo-injuries-ki-buniyaad-hain.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_154519_workout-form-galtiyan-jo-injuries-ki-buniyaad-hain.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "DjESV75KZq2QlR8EdT-mLFtPgWo",
+      "id": "UDhTllXigfs",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:09:17Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Top Workout Form Mistakes to Avoid!",
+        "description": "Workout form mistakes aapki health ko khatar mein daal sakte hain. Sahi form se injury se bachein aur strength badhayein! #shorts\n\n#shorts #ytshorts #workoutform #fitnessmistakes #gymlife #strengthtraining #injuryprevention #healthtips",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/UDhTllXigfs/default.jpg?sqp=CKzCktAG&rs=AOn4CLDlQii-zOxanSZ-06xzz1h2-s5e4g",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/UDhTllXigfs/mqdefault.jpg?sqp=CKzCktAG&rs=AOn4CLAdtgnAZH3Qj3qRuX3Azyq2_LwIzw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/UDhTllXigfs/hqdefault.jpg?sqp=CKzCktAG&rs=AOn4CLAOnGnvlEZj2OCPxbkn2hYtioLhJw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "bench press form",
+          "fitness mistakes to avoid",
+          "fitness tips india",
+          "gym workout for beginners india",
+          "how to avoid injuries",
+          "injury prevention tips",
+          "muscle building tips",
+          "proper workout technique",
+          "squat form mistakes",
+          "strength training hindi",
+          "strength training tips",
+          "workout form mistakes",
+          "workout form mistakes for beginners",
+          "workout form mistakes india",
+          "workout form tips"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Top Workout Form Mistakes to Avoid!",
+          "description": "Workout form mistakes aapki health ko khatar mein daal sakte hain. Sahi form se injury se bachein aur strength badhayein! #shorts\n\n#shorts #ytshorts #workoutform #fitnessmistakes #gymlife #strengthtraining #injuryprevention #healthtips"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-14T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-11T15:55:47.452323+00:00",
+    "scheduled_time": "2026-05-14T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Morning Yoga Routine For Energy Boost!",
+    "idea": {
+      "idea_id": "f52b750b-bb8a-421c-85dd-c4970b985288",
+      "title": "Morning Yoga Routine For Energy Boost!",
+      "angle": "Routine",
+      "hook": "Subah ki yoga se din bhar energy milegi!",
+      "topic": "morning yoga",
+      "audience_value": "Start your day with yoga to boost energy levels.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.836834+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "morning yoga routine",
+      "source_video_title": "4 moves to shape your body✅️⬆️"
+    },
+    "script": {
+      "title": "Subah Ki Yoga: Din Bhar Ki Energy!",
+      "overlay_text": "Yoga ka magic subah say",
+      "hook": "Subah ki yoga se din bhar energy milegi! Kaise? Aayiye dekhein!",
+      "problem": "Kaafi log subah uth ke thake hue lagte hain, energy nahi milti. Yeh stress aur khud ko sambhalne ki kami se hota hai.",
+      "insight": "Lekin kya aap jante hain, kuch specific yoga asanas aapke energy levels ko boost kar sakte hain? Yeh sirf aapki body hi nahi, aapka mind bhi rejuvenate karte hain.",
+      "solution": "Pehla, 'Surya Namaskar' try karein. Isse aapki muscles stretch hoti hain aur blood circulation badhta hai. Dusra, 'Utkatasana'isme aapka posture improve hota hai aur aapki core strength badti hai. Yeh aapko ek fresh start dene ke liye perfect hain!",
+      "cta": "Aaj hi yeh asanas karke dekhiye aur din bhar energy feel kariye! Ghar pe yoga ka magic chaliye banate hain!",
+      "full_script": "Subah ki yoga se din bhar energy milegi! Kaise? Aayiye dekhein! Kaafi log subah uth ke thake hue lagte hain, energy nahi milti. Yeh stress aur khud ko sambhalne ki kami se hota hai. Lekin kya aap jante hain, kuch specific yoga asanas aapke energy levels ko boost kar sakte hain? Yeh sirf aapki body hi nahi, aapka mind bhi rejuvenate karte hain. Pehla, 'Surya Namaskar' try karein. Isse aapki muscles stretch hoti hain aur blood circulation badhta hai. Dusra, 'Utkatasana'isme aapka posture improve hota hai aur aapki core strength badti hai. Yeh aapko ek fresh start dene ke liye perfect hain! Aaj hi yeh asanas karke dekhiye aur din bhar energy feel kariye! Ghar pe yoga ka magic chaliye banate hain!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "morning yoga routine",
+      "retention_note": "Opening curiosity with an energy boost instantly captures attention, making viewers eager to learn the yoga moves.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Powerful Morning Yoga Routine for Instant Energy",
+      "description": "Morning yoga routine se aap din bhar fresh rahenge! Yeh asanas aapke energy levels ko boost karenge. Kahin aur nahi, sirf yahan dekhein!\n\n#morningyoga #yogaroutine #yogaforenergy #SuryaNamaskar #Utkatasana #fitness #health #shorts",
+      "tags": [
+        "morning yoga routine",
+        "yoga for energy",
+        "yoga asanas",
+        "Surya Namaskar",
+        "Utkatasana",
+        "yoga for beginners",
+        "morning yoga",
+        "home yoga routine",
+        "yoga for stress relief",
+        "meditation and breathwork",
+        "morning yoga routine india",
+        "morning yoga routine for beginners",
+        "fitness tips india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#morningyoga",
+        "#yogaroutine",
+        "#yogaforenergy",
+        "#SuryaNamaskar",
+        "#Utkatasana",
+        "#fitness",
+        "#health",
+        "#shorts"
+      ],
+      "primary_keyword": "morning yoga routine",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_155547_morning-yoga-routine-for-energy-boost.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_155547_morning-yoga-routine-for-energy-boost.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_155547_morning-yoga-routine-for-energy-boost.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_155547_morning-yoga-routine-for-energy-boost.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "VEOzF0hzdSupMSxJiZLK5JEz_IM",
+      "id": "VsnQU3ddcRE",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:09:41Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Powerful Morning Yoga Routine for Instant Energy",
+        "description": "Morning yoga routine se aap din bhar fresh rahenge! Yeh asanas aapke energy levels ko boost karenge. Kahin aur nahi, sirf yahan dekhein!\n\n#morningyoga #yogaroutine #yogaforenergy #SuryaNamaskar #Utkatasana #fitness #health #shorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/VsnQU3ddcRE/default.jpg?sqp=CKzCktAG&rs=AOn4CLDPUZ4a5HMT0ywmmeCCsmfiiaDw3Q",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/VsnQU3ddcRE/mqdefault.jpg?sqp=CKzCktAG&rs=AOn4CLD_oF2sjsiHlzXWKQV3vkqBglrscQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/VsnQU3ddcRE/hqdefault.jpg?sqp=CKzCktAG&rs=AOn4CLBY4FxK8Q4_3yXXBX_Ipy0X6v7VKg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "Surya Namaskar",
+          "Utkatasana",
+          "fitness tips india",
+          "home yoga routine",
+          "meditation and breathwork",
+          "morning yoga",
+          "morning yoga routine",
+          "morning yoga routine for beginners",
+          "morning yoga routine india",
+          "yoga asanas",
+          "yoga for beginners",
+          "yoga for energy",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Powerful Morning Yoga Routine for Instant Energy",
+          "description": "Morning yoga routine se aap din bhar fresh rahenge! Yeh asanas aapke energy levels ko boost karenge. Kahin aur nahi, sirf yahan dekhein!\n\n#morningyoga #yogaroutine #yogaforenergy #SuryaNamaskar #Utkatasana #fitness #health #shorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-14T15:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-11T16:06:55.559750+00:00",
+    "scheduled_time": "2026-05-14T15:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Sahi Posture Se Back Pain Sudhaarein!",
+    "idea": {
+      "idea_id": "fd271b8a-6a9b-4798-8f97-9a8bb0f9a7b4",
+      "title": "Sahi Posture Se Back Pain Sudhaarein!",
+      "angle": "Education",
+      "hook": "Kya aapki posture galat hai? Yeh aasan try karein!",
+      "topic": "posture correction",
+      "audience_value": "Learn how to improve posture for better health.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.836981+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "posture correction techniques",
+      "source_video_title": "Strong core and less back pain 🔥"
+    },
+    "script": {
+      "title": "Sahi Posture Se Back Pain Sudhaarein!",
+      "overlay_text": "Posture Correction Tips!",
+      "hook": "Kya aapki posture galat hai? Yeh aasan try karein!",
+      "problem": "Galat posture se back pain aur thakaan hota hai. Kya aapko bhi aise issues face karne padte hain?",
+      "insight": "Humara body structure hamesha impact hota hai humare daily habits se, jaise ki mobile ya computer ki taraf jhukna.",
+      "solution": "Toh sabse pehle, apne shoulders ko peeche kheechiye aur apni spine ko seedha rakhiye. Dusra, desk par kaam karte waqt chair ko adjust karein taaki aapke feet zameen par ho aur knees 90-degree angle mein. Yeh aapka core majboot karega aur better alignment dega.",
+      "cta": "Toh chaliye, posture improvement ki taraf aaj se hi kadam badhaiye aur back pain ko goodbye kahiye! Apne dost share karein aur aaj hi shuruat karein!",
+      "full_script": "Kya aapki posture galat hai? Yeh aasan try karein! Galat posture se back pain aur thakaan hota hai. Kya aapko bhi aise issues face karne padte hain? Humara body structure hamesha impact hota hai humare daily habits se, jaise ki mobile ya computer ki taraf jhukna. Toh sabse pehle, apne shoulders ko peeche kheechiye aur apni spine ko seedha rakhiye. Dusra, desk par kaam karte waqt chair ko adjust karein taaki aapke feet zameen par ho aur knees 90-degree angle mein. Yeh aapka core majboot karega aur better alignment dega. Toh chaliye, posture improvement ki taraf aaj se hi kadam badhaiye aur back pain ko goodbye kahiye! Apne dost share karein aur aaj hi shuruat karein!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "posture correction techniques",
+      "retention_note": "Opening question immediately engages viewers, making them introspect about their own posture and sparking curiosity for the solution.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Posture Correction Techniques for a Healthier Back!",
+      "description": "Posture correction techniques seekh kar apna back pain khatam karein. Yeh quick tips aapki daily life ko improve kar sakte hain! #shorts\n\n#posturecorrection #health #fitness #ergonomics #workplacewellness #yogatips #healthyliving #shorts",
+      "tags": [
+        "posture correction techniques",
+        "how to fix posture",
+        "posture improvement tips",
+        "ergonomic desk setup",
+        "back pain solutions",
+        "healthy posture exercises",
+        "fitness tips for better posture",
+        "back pain prevention",
+        "fitness shorts india",
+        "workout motivation hindi",
+        "exercise tips india",
+        "home workout india",
+        "posture correction techniques india",
+        "posture correction techniques for beginn",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#posturecorrection",
+        "#health",
+        "#fitness",
+        "#ergonomics",
+        "#workplacewellness",
+        "#yogatips",
+        "#healthyliving",
+        "#shorts"
+      ],
+      "primary_keyword": "posture correction techniques",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_160655_sahi-posture-se-back-pain-sudhaarein.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_160655_sahi-posture-se-back-pain-sudhaarein.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_160655_sahi-posture-se-back-pain-sudhaarein.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_160655_sahi-posture-se-back-pain-sudhaarein.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "uwbTR3Ki1UIGLWlo_O73nSRpQAQ",
+      "id": "tfZ0rX1_BmM",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:10:04Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Posture Correction Techniques for a Healthier Back!",
+        "description": "Posture correction techniques seekh kar apna back pain khatam karein. Yeh quick tips aapki daily life ko improve kar sakte hain! #shorts\n\n#posturecorrection #health #fitness #ergonomics #workplacewellness #yogatips #healthyliving #shorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/tfZ0rX1_BmM/default.jpg?sqp=CNjEktAG&rs=AOn4CLCRIIoE7GWg3wadweKqoJn4geSzQw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/tfZ0rX1_BmM/mqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLCy6-gnxhP3iFRWV-_h9G19D92Ukg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/tfZ0rX1_BmM/hqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLC9gSRfrrREur5NoAlratyueqccdw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "back pain prevention",
+          "back pain solutions",
+          "ergonomic desk setup",
+          "exercise tips india",
+          "fitness shorts india",
+          "fitness tips for better posture",
+          "fitness tips india",
+          "healthy posture exercises",
+          "home workout india",
+          "how to fix posture",
+          "posture correction techniques",
+          "posture correction techniques for beginn",
+          "posture correction techniques india",
+          "posture improvement tips",
+          "workout motivation hindi"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Posture Correction Techniques for a Healthier Back!",
+          "description": "Posture correction techniques seekh kar apna back pain khatam karein. Yeh quick tips aapki daily life ko improve kar sakte hain! #shorts\n\n#posturecorrection #health #fitness #ergonomics #workplacewellness #yogatips #healthyliving #shorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-15T10:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-11T16:28:38.540366+00:00",
+    "scheduled_time": "2026-05-15T10:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Mobility Exercises Jo Aapki Flexibility Badhaaye!",
+    "idea": {
+      "idea_id": "6f8ea2a3-b553-4668-9f20-ed109c8e4640",
+      "title": "Mobility Exercises Jo Aapki Flexibility Badhaaye!",
+      "angle": "Routine",
+      "hook": "Kya aap flexible nahi hain? In exercises se sudhaarein!",
+      "topic": "mobility exercises",
+      "audience_value": "Enhance your flexibility with these mobility drills.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.837102+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "mobility exercises for flexibility",
+      "source_video_title": "Jab Cross Hook Uppercut 💥"
+    },
+    "script": {
+      "title": "Mobility Exercises Jo Aapki Flexibility Badhaaye!",
+      "overlay_text": "Flexibility Badhaane ke Tari",
+      "hook": "Kya aap flexible nahi hain? In exercises se sudhaarein!",
+      "problem": "Aaj kal ki life mein, stress aur tension se humein stiffness feel hoti hai. Kahi baar aisa lagta hai ki humari body ek wall ki tarah ho gayi hai.",
+      "insight": "Lekin, aapko pata hai ki thoda sa time dekar aap is stiffness ko door kar sakte hain? Yeh simple mobility exercises aapko bahut help karenge! Yeh exercises aapke joints ko bhi kholengi aur flexibility improve karengi.",
+      "solution": "Chalo kuch steps karte hain! Pehla, Standing Arm Circles: Apne haathon ko side me le jaake, arm circles karke 30 seconds ke liye karen. Dusra, Hip Openers: Ek leg ko upar uthao aur circle banao, yeh aapke hips ki flexibility badhaayega. Yeh 2 exercises aapko instant relief denge.",
+      "cta": "Ab yeh try karo aur apne body ko jaanchne ka ek naya tariqa hasil karo! Share karo aur batao aapka experience!",
+      "full_script": "Kya aap flexible nahi hain? In exercises se sudhaarein! Aaj kal ki life mein, stress aur tension se humein stiffness feel hoti hai. Kahi baar aisa lagta hai ki humari body ek wall ki tarah ho gayi hai. Lekin, aapko pata hai ki thoda sa time dekar aap is stiffness ko door kar sakte hain? Yeh simple mobility exercises aapko bahut help karenge! Yeh exercises aapke joints ko bhi kholengi aur flexibility improve karengi. Chalo kuch steps karte hain! Pehla, Standing Arm Circles: Apne haathon ko side me le jaake, arm circles karke 30 seconds ke liye karen. Dusra, Hip Openers: Ek leg ko upar uthao aur circle banao, yeh aapke hips ki flexibility badhaayega. Yeh 2 exercises aapko instant relief denge. Ab yeh try karo aur apne body ko jaanchne ka ek naya tariqa hasil karo! Share karo aur batao aapka experience!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "mobility exercises for flexibility",
+      "retention_note": "Opening se hi curiosity jagti hai, jo viewers ko engagement banaaye rakhta hai.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Mobility Exercises for Flexibility: Quick Relief!",
+      "description": "Mobility exercises for flexibility aapki stiffness ko door karne mein madad karenge. Sirf do simple steps try karo aur apne body ko khud\n\n#shorts #ytshorts #flexibility #mobilityexercises #yogaforall #healthtips #selfcare #stressrelief",
+      "tags": [
+        "mobility exercises for flexibility",
+        "flexibility exercises",
+        "yoga for mobility",
+        "joint mobility exercises",
+        "stretching for flexibility",
+        "hip openers exercises",
+        "stress relief exercises",
+        "quick mobility routine",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "mobility exercises for flexibility india",
+        "mobility exercises for flexibility for b",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#flexibility",
+        "#mobilityexercises",
+        "#yogaforall",
+        "#healthtips",
+        "#selfcare",
+        "#stressrelief"
+      ],
+      "primary_keyword": "mobility exercises for flexibility",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_162838_mobility-exercises-jo-aapki-flexibility-badhaaye.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_162838_mobility-exercises-jo-aapki-flexibility-badhaaye.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_162838_mobility-exercises-jo-aapki-flexibility-badhaaye.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_162838_mobility-exercises-jo-aapki-flexibility-badhaaye.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "tEhsbeAcpPaHuskIEB13_AnqeG4",
+      "id": "nGUhhUlNLyM",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:10:28Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Mobility Exercises for Flexibility: Quick Relief!",
+        "description": "Mobility exercises for flexibility aapki stiffness ko door karne mein madad karenge. Sirf do simple steps try karo aur apne body ko khud\n\n#shorts #ytshorts #flexibility #mobilityexercises #yogaforall #healthtips #selfcare #stressrelief",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/nGUhhUlNLyM/default.jpg?sqp=CNjEktAG&rs=AOn4CLDhHiTVgQYGJ2gtsECVTzzlzrr8Yw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/nGUhhUlNLyM/mqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLAnPfWcU-5sSvyTLz99IbrBALSDOg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/nGUhhUlNLyM/hqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLAPRIwpHHUVpHWGXrzvdKZ_2ljGSw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "fitness tips india",
+          "flexibility exercises",
+          "hip openers exercises",
+          "joint mobility exercises",
+          "meditation and breathwork",
+          "mobility exercises for flexibility",
+          "mobility exercises for flexibility for b",
+          "mobility exercises for flexibility india",
+          "morning yoga routine",
+          "quick mobility routine",
+          "stress relief exercises",
+          "stretching for flexibility",
+          "yoga for beginners",
+          "yoga for mobility",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Mobility Exercises for Flexibility: Quick Relief!",
+          "description": "Mobility exercises for flexibility aapki stiffness ko door karne mein madad karenge. Sirf do simple steps try karo aur apne body ko khud\n\n#shorts #ytshorts #flexibility #mobilityexercises #yogaforall #healthtips #selfcare #stressrelief"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-15T12:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "local",
+    "created_at": "2026-05-11T16:51:50.812603+00:00",
+    "scheduled_time": "2026-05-15T12:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Meditation Se Bane Achhe Neend Ke Raste!",
+    "idea": {
+      "idea_id": "7df8a106-d877-4482-b142-a84c86b710e1",
+      "title": "Meditation Se Bane Achhe Neend Ke Raste!",
+      "angle": "Routine",
+      "hook": "Kya aapko neend nahi aa rahi? Meditation se thik karein!",
+      "topic": "meditation for sleep",
+      "audience_value": "Improve sleep quality through meditation techniques.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.837219+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "meditation for better sleep",
+      "source_video_title": "SMART FAST FOOD CHOICES✅"
+    },
+    "script": {
+      "title": "Meditation Se Bane Achhe Neend Ke Raste!",
+      "overlay_text": "Sleep Better with Meditation",
+      "hook": "Kya aapko neend nahi aa rahi? Meditation se thik karein!",
+      "problem": "Neend ki kami se aapki body aur mind dono par asar hota hai. Stress badhta hai aur aaghe chal ke health issues bhi ho sakte hain.",
+      "insight": "Lekin, kya aapko pata hai ki meditation sirf ek relax technique nahi, balki aapki brain waves ko regulate karta hai? Isse stress hormones kam hote hain aur sleep quality improve hoti hai.",
+      "solution": "Aap sirf 5 minute ki meditation se shuru kar sakte hain! Pehla step hai, ek comfy jagah par baith jayein aur deep breaths lena shuru karein. Dusra, apne man ko focus karein apni breath par. Jab bhi thoughts aaye, unhe chhodkar apni breath par aana hai. Bas itna hi! Yeh aapko higher state of relaxation mein bhejega, jo aapki neend ko behtar banata hai.",
+      "cta": "Abhi is technique ko apne bedtime routine mein shamil karein aur acchi neend ka anand lein!",
+      "full_script": "Kya aapko neend nahi aa rahi? Meditation se thik karein! Neend ki kami se aapki body aur mind dono par asar hota hai. Stress badhta hai aur aaghe chal ke health issues bhi ho sakte hain. Lekin, kya aapko pata hai ki meditation sirf ek relax technique nahi, balki aapki brain waves ko regulate karta hai? Isse stress hormones kam hote hain aur sleep quality improve hoti hai. Aap sirf 5 minute ki meditation se shuru kar sakte hain! Pehla step hai, ek comfy jagah par baith jayein aur deep breaths lena shuru karein. Dusra, apne man ko focus karein apni breath par. Jab bhi thoughts aaye, unhe chhodkar apni breath par aana hai. Bas itna hi! Yeh aapko higher state of relaxation mein bhejega, jo aapki neend ko behtar banata hai. Abhi is technique ko apne bedtime routine mein shamil karein aur acchi neend ka anand lein!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "meditation for better sleep",
+      "retention_note": "Opening mein curiosity create kiya gaya hai, jo audience ko engage rakhega aur unhe solution sunne ke liye intrigue karega.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Meditation for Better Sleep: 5 Minute Guide",
+      "description": "meditation for better sleep: Kya aapko neend nahi aa rahi? Meditation for better sleep se aap apni sleep quality improve kar sakte hain!\n\n#meditation #bettersleep #sleepguidance #relaxation #stressrelief #yoga #shorts #ytshorts",
+      "tags": [
+        "meditation for better sleep",
+        "5 minute meditation",
+        "yoga for sleep",
+        "sleep improvement techniques",
+        "stress relief meditation",
+        "relaxation techniques for sleep",
+        "bedtime meditation",
+        "meditation practices",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "meditation for better sleep india",
+        "meditation for better sleep for beginner",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#meditation",
+        "#bettersleep",
+        "#sleepguidance",
+        "#relaxation",
+        "#stressrelief",
+        "#yoga",
+        "#shorts",
+        "#ytshorts"
+      ],
+      "primary_keyword": "meditation for better sleep",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_165150_meditation-se-bane-achhe-neend-ke-raste.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_165150_meditation-se-bane-achhe-neend-ke-raste.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_165150_meditation-se-bane-achhe-neend-ke-raste.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_165150_meditation-se-bane-achhe-neend-ke-raste.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "67o__0FF2cGhDRzKKE7WvpTi9QE",
+      "id": "5spWOdvAR9o",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:10:49Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Meditation for Better Sleep: 5 Minute Guide",
+        "description": "meditation for better sleep: Kya aapko neend nahi aa rahi? Meditation for better sleep se aap apni sleep quality improve kar sakte hain!\n\n#meditation #bettersleep #sleepguidance #relaxation #stressrelief #yoga #shorts #ytshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/5spWOdvAR9o/default.jpg?sqp=CNjEktAG&rs=AOn4CLAKSF64Rl7o6aiKcwiqNS5f0XHUYA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/5spWOdvAR9o/mqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLBPimC0Y5jaEyMt0MNkuGypUgtERg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/5spWOdvAR9o/hqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLBECFh2FTx4_2j4nP9o-u1D32nfcw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "5 minute meditation",
+          "bedtime meditation",
+          "fitness tips india",
+          "meditation and breathwork",
+          "meditation for better sleep",
+          "meditation for better sleep for beginner",
+          "meditation for better sleep india",
+          "meditation practices",
+          "morning yoga routine",
+          "relaxation techniques for sleep",
+          "sleep improvement techniques",
+          "stress relief meditation",
+          "yoga for beginners",
+          "yoga for sleep",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Meditation for Better Sleep: 5 Minute Guide",
+          "description": "meditation for better sleep: Kya aapko neend nahi aa rahi? Meditation for better sleep se aap apni sleep quality improve kar sakte hain!\n\n#meditation #bettersleep #sleepguidance #relaxation #stressrelief #yoga #shorts #ytshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-15T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-11T17:16:45.944685+00:00",
+    "scheduled_time": "2026-05-15T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Best Yoga Asanas For Stress Relief!",
+    "idea": {
+      "idea_id": "95f63b33-e70a-40b3-8768-b3595ddfdda4",
+      "title": "Best Yoga Asanas For Stress Relief!",
+      "angle": "Routine",
+      "hook": "Kya aap stressful hain? In yoga poses se aaram paayein!",
+      "topic": "yoga for stress",
+      "audience_value": "Discover stress-relief through yoga.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.837348+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "yoga for stress relief",
+      "source_video_title": "Lose 5–10kg in 30 Days 🔥 Full Body Fat Loss Workout at Home"
+    },
+    "script": {
+      "title": "Best Yoga Asanas For Stress Relief!",
+      "overlay_text": "Aaram paayein yoga se!",
+      "hook": "Kya aap stressful hain? In yoga poses se aaram paayein!",
+      "problem": "Stress se humari body aur mind dono kabhi kabhi weak ho jaate hain. Kisi bhi kaam par focus nahi kar paate hain.",
+      "insight": "Yeh tension humare posture ko bhi kharab kar deta hai, aur breathe karne ki quality ko effect karta hai.",
+      "solution": "Bas do asanas hain jo aapko zaroor try karne chahiye - Pehle, Child's Pose se aapke mind ko shanti milti hai. Doosra, Cat-Cow stretches se aapka spine flexible hota hai aur breath control improves hota hai. Inhe 5-10 baar gently karein, aap khud feel karenge kaise stress door ho raha hai!",
+      "cta": "Abhi yoga shuru karein aur stress ko goodbye boliye!",
+      "full_script": "Kya aap stressful hain? In yoga poses se aaram paayein! Stress se humari body aur mind dono kabhi kabhi weak ho jaate hain. Kisi bhi kaam par focus nahi kar paate hain. Yeh tension humare posture ko bhi kharab kar deta hai, aur breathe karne ki quality ko effect karta hai. Bas do asanas hain jo aapko zaroor try karne chahiye - Pehle, Child's Pose se aapke mind ko shanti milti hai. Doosra, Cat-Cow stretches se aapka spine flexible hota hai aur breath control improves hota hai. Inhe 5-10 baar gently karein, aap khud feel karenge kaise stress door ho raha hai! Abhi yoga shuru karein aur stress ko goodbye boliye!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "yoga for stress relief",
+      "retention_note": "Opening se hi curiosity jagana zaroori hai, taaki viewers yoga poses ke benefits ko seekhne mein interested rahein.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Yoga for Stress Relief: 2 Easy Asanas",
+      "description": "Yoga for stress relief se aapka mind aur body relax hoga. Do asanas - Child's Pose aur Cat-Cow se shanti aur flexibility paayein! #shorts\n\n#yogaforstressrelief #stressrelief #yogaposes #mindfulness #relaxation #healthylifestyle #shorts #ytshorts",
+      "tags": [
+        "yoga for stress relief",
+        "easy yoga poses for stress",
+        "stress relief yoga",
+        "child's pose benefits",
+        "cat-cow stretch",
+        "yoga for mental health",
+        "yoga for beginners",
+        "relaxing yoga exercises",
+        "morning yoga routine",
+        "meditation and breathwork",
+        "yoga for stress relief india",
+        "yoga for stress relief for beginners",
+        "fitness tips india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#yogaforstressrelief",
+        "#stressrelief",
+        "#yogaposes",
+        "#mindfulness",
+        "#relaxation",
+        "#healthylifestyle",
+        "#shorts",
+        "#ytshorts"
+      ],
+      "primary_keyword": "yoga for stress relief",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_171645_best-yoga-asanas-for-stress-relief.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_171645_best-yoga-asanas-for-stress-relief.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_171645_best-yoga-asanas-for-stress-relief.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_171645_best-yoga-asanas-for-stress-relief.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "0uo1RckJcBMquAbIBFHiDBWLqrM",
+      "id": "Nf9ntRSOJAA",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:14:32Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Yoga for Stress Relief: 2 Easy Asanas",
+        "description": "Yoga for stress relief se aapka mind aur body relax hoga. Do asanas - Child's Pose aur Cat-Cow se shanti aur flexibility paayein! #shorts\n\n#yogaforstressrelief #stressrelief #yogaposes #mindfulness #relaxation #healthylifestyle #shorts #ytshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/Nf9ntRSOJAA/default.jpg?sqp=CNjEktAG&rs=AOn4CLBMx0pueqvmqmknKHdyHcBIBTSWGA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/Nf9ntRSOJAA/mqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLA7EPZsxhx7h53DVpOgphf2S8nfLw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/Nf9ntRSOJAA/hqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLBXuGVGg9iQdcoBQa2PNFFe4ZM8rA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "cat-cow stretch",
+          "child's pose benefits",
+          "easy yoga poses for stress",
+          "fitness tips india",
+          "meditation and breathwork",
+          "morning yoga routine",
+          "relaxing yoga exercises",
+          "stress relief yoga",
+          "yoga for beginners",
+          "yoga for mental health",
+          "yoga for stress relief",
+          "yoga for stress relief for beginners",
+          "yoga for stress relief india"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Yoga for Stress Relief: 2 Easy Asanas",
+          "description": "Yoga for stress relief se aapka mind aur body relax hoga. Do asanas - Child's Pose aur Cat-Cow se shanti aur flexibility paayein! #shorts\n\n#yogaforstressrelief #stressrelief #yogaposes #mindfulness #relaxation #healthylifestyle #shorts #ytshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-16T05:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-11T17:31:27.542882+00:00",
+    "scheduled_time": "2026-05-16T05:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Evening Workout Routine For Better Sleep!",
+    "idea": {
+      "idea_id": "3f984b3e-5fc9-4e7a-8b0a-6015e79ac5b6",
+      "title": "Evening Workout Routine For Better Sleep!",
+      "angle": "Routine",
+      "hook": "Raat ko sahi workout se behtar neend paayein!",
+      "topic": "evening workout for sleep",
+      "audience_value": "Improve your sleep with evening exercises.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.837474+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "evening workout routine",
+      "source_video_title": "Lose 5–10kg in 30 Days 🔥 Full Body Fat Loss Workout at Home"
+    },
+    "script": {
+      "title": "Evening Workout Routine For Better Sleep!",
+      "overlay_text": "Raat ki neend ke liye",
+      "hook": "Raat ko sahi workout se behtar neend paayein! Aapko pata hai kya?",
+      "problem": "Bohat log raat ko sahi sleep nahi le paate. Stress, screen time aur galat khana ise aur badhata hai.",
+      "insight": "Lekin, ek evening workout se aapka cortisol level control hoga aur serotonin badhega, jo achchi neend ke liye zaroori hai.",
+      "solution": "Toh, shuru kijiye 30 minutes ki brisk walking ya yoga, kya aapne suna hai? 10-15 minutes ka deep stretching bhi faydemand hai! Isse aapke muscles relax honge aur blood flow badhega. Aur nahi bhooliye, dinner mein protein-rich food, jaise dal ya paneer include karein, yeh digestion ke liye achha hai.",
+      "cta": "Aaj se shuru kijiye yeh routine aur neend ka maza lijiye! Like karein aur apne doston ko batayein!",
+      "full_script": "Raat ko sahi workout se behtar neend paayein! Aapko pata hai kya? Bohat log raat ko sahi sleep nahi le paate. Stress, screen time aur galat khana ise aur badhata hai. Lekin, ek evening workout se aapka cortisol level control hoga aur serotonin badhega, jo achchi neend ke liye zaroori hai. Toh, shuru kijiye 30 minutes ki brisk walking ya yoga, kya aapne suna hai? 10-15 minutes ka deep stretching bhi faydemand hai! Isse aapke muscles relax honge aur blood flow badhega. Aur nahi bhooliye, dinner mein protein-rich food, jaise dal ya paneer include karein, yeh digestion ke liye achha hai. Aaj se shuru kijiye yeh routine aur neend ka maza lijiye! Like karein aur apne doston ko batayein!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "evening workout routine",
+      "retention_note": "Opening lines immediately introduce a relatable problem, prompting viewers to stay and learn the solution.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Evening Workout Routine for Better Sleep",
+      "description": "Evening workout routine se paayein sahi neend! Stress aur screen time se dur rahkar, shuru kijiye 30 minutes ka yoga ya brisk walking.\n\n#shorts #ytshorts #yoga #workoutroutine #fitness #sleepbetter #eveningworkout #healthylifestyle",
+      "tags": [
+        "evening workout routine",
+        "yoga for better sleep",
+        "how to sleep better",
+        "night workout routine",
+        "fitness for evening",
+        "stress relief yoga",
+        "deep stretching exercise",
+        "brisk walking benefits",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "evening workout routine india",
+        "evening workout routine for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#yoga",
+        "#workoutroutine",
+        "#fitness",
+        "#sleepbetter",
+        "#eveningworkout",
+        "#healthylifestyle"
+      ],
+      "primary_keyword": "evening workout routine",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_173127_evening-workout-routine-for-better-sleep.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_173127_evening-workout-routine-for-better-sleep.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_173127_evening-workout-routine-for-better-sleep.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_173127_evening-workout-routine-for-better-sleep.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "2J6uCwq-n9KkRzyTaXOjfk3zl28",
+      "id": "tV5rjTF3XFc",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:14:46Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Evening Workout Routine for Better Sleep",
+        "description": "Evening workout routine se paayein sahi neend! Stress aur screen time se dur rahkar, shuru kijiye 30 minutes ka yoga ya brisk walking.\n\n#shorts #ytshorts #yoga #workoutroutine #fitness #sleepbetter #eveningworkout #healthylifestyle",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/tV5rjTF3XFc/default.jpg?sqp=CNjEktAG&rs=AOn4CLBVNbPMYdrFBUJm_60ILzFa4SoK8Q",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/tV5rjTF3XFc/mqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLBoRSl0-ta0b8Y37mHOwlX3Dy3UPg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/tV5rjTF3XFc/hqdefault.jpg?sqp=CNjEktAG&rs=AOn4CLAGAESzT9d_Rl5HzcmeoQEChEDgxw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "brisk walking benefits",
+          "deep stretching exercise",
+          "evening workout routine",
+          "evening workout routine for beginners",
+          "evening workout routine india",
+          "fitness for evening",
+          "fitness tips india",
+          "how to sleep better",
+          "meditation and breathwork",
+          "morning yoga routine",
+          "night workout routine",
+          "stress relief yoga",
+          "yoga for beginners",
+          "yoga for better sleep",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Evening Workout Routine for Better Sleep",
+          "description": "Evening workout routine se paayein sahi neend! Stress aur screen time se dur rahkar, shuru kijiye 30 minutes ka yoga ya brisk walking.\n\n#shorts #ytshorts #yoga #workoutroutine #fitness #sleepbetter #eveningworkout #healthylifestyle"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-16T12:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-11T17:51:04.121252+00:00",
+    "scheduled_time": "2026-05-16T12:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Gym Mistakes Jo Aapko Fat Loss Se Rokte Hain!",
+    "idea": {
+      "idea_id": "1f312b1e-7773-49e1-8a06-601ee9755a9d",
+      "title": "Gym Mistakes Jo Aapko Fat Loss Se Rokte Hain!",
+      "angle": "Myth Busting",
+      "hook": "Kya aap in galtiyon ki wajah se fat loss nahi kar paa rahe?",
+      "topic": "gym mistakes",
+      "audience_value": "Learn what not to do in the gym for effective fat loss.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.837607+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "gym mistakes for fat loss",
+      "source_video_title": "He Ignored Every Muscle Except Abs…"
+    },
+    "script": {
+      "title": "Gym Mistakes Jo Aapko Fat Loss Se Rokte Hain!",
+      "overlay_text": "Fat Loss Mistakes Revealed",
+      "hook": "Kya aap in galtiyon ki wajah se fat loss nahi kar paa rahe?",
+      "problem": "Aksar, log sochte hain ki sirf gym jaane se fat loss hoga. Lekin, aaj hum baat karenge 2 common gym mistakes ki jo aapko rok sakti hain.",
+      "insight": "Did you know? Agar aap sirf cardio par focus karte hain aur strength training ko ignore karte hain, to aap apne metabolism ko kam kar rahe hain! Aapki body ko fat burn karne ke liye muscle mass ki zarurat hai.",
+      "solution": "Toh aaj se, cardio ke sath sath do cheezein shamil karein: 1) Strength training, jaise ki weight lifting, yah muscle build karega. 2) Proper protein intake, jaise paneer ya dal, yeh aapke muscle recovery aur metabolism ko boost karega. Bus aaj se follow karein, sitare chamkenge!",
+      "cta": "Jaldi apne dost se share karein ye secrets, aur triceps train karna mat bhooliye!",
+      "full_script": "Kya aap in galtiyon ki wajah se fat loss nahi kar paa rahe? Aksar, log sochte hain ki sirf gym jaane se fat loss hoga. Lekin, aaj hum baat karenge 2 common gym mistakes ki jo aapko rok sakti hain. Did you know? Agar aap sirf cardio par focus karte hain aur strength training ko ignore karte hain, to aap apne metabolism ko kam kar rahe hain! Aapki body ko fat burn karne ke liye muscle mass ki zarurat hai. Toh aaj se, cardio ke sath sath do cheezein shamil karein: 1) Strength training, jaise ki weight lifting, yah muscle build karega. 2) Proper protein intake, jaise paneer ya dal, yeh aapke muscle recovery aur metabolism ko boost karega. Bus aaj se follow karein, sitare chamkenge! Jaldi apne dost se share karein ye secrets, aur triceps train karna mat bhooliye!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "gym mistakes for fat loss",
+      "retention_note": "Opening grabs attention by implying viewers might be making critical mistakes, sparking curiosity to learn more.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Gym Mistakes for Fat Loss: Aaj hi sudharein!",
+      "description": "gym mistakes for fat loss: Kya aap gym mistakes for fat loss kar rahe hain? Aaj jaaniye 2 galtiyan jo aapke progress ko rokh rahi hain!\n\n#gymmistakes #fatloss #strengthtraining #weightlifting #fitness #healthyhabits #shorts #ytshorts",
+      "tags": [
+        "gym mistakes for fat loss",
+        "fat loss mistakes",
+        "strength training tips",
+        "how to lose fat",
+        "gym tips for beginners",
+        "cardio vs strength",
+        "fat loss workout",
+        "fitness mistakes",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "gym mistakes for fat loss india",
+        "gym mistakes for fat loss for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#gymmistakes",
+        "#fatloss",
+        "#strengthtraining",
+        "#weightlifting",
+        "#fitness",
+        "#healthyhabits",
+        "#shorts",
+        "#ytshorts"
+      ],
+      "primary_keyword": "gym mistakes for fat loss",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_175104_gym-mistakes-jo-aapko-fat-loss-se-rokte-hain.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_175104_gym-mistakes-jo-aapko-fat-loss-se-rokte-hain.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_175104_gym-mistakes-jo-aapko-fat-loss-se-rokte-hain.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_175104_gym-mistakes-jo-aapko-fat-loss-se-rokte-hain.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "-Da_CcR89UMPIYO9GOgIZQrwmqQ",
+      "id": "lkRgD4-GmuU",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:15:01Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Gym Mistakes for Fat Loss: Aaj hi sudharein!",
+        "description": "gym mistakes for fat loss: Kya aap gym mistakes for fat loss kar rahe hain? Aaj jaaniye 2 galtiyan jo aapke progress ko rokh rahi hain!\n\n#gymmistakes #fatloss #strengthtraining #weightlifting #fitness #healthyhabits #shorts #ytshorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/lkRgD4-GmuU/default.jpg?sqp=CITHktAG&rs=AOn4CLAy7WBUmkMvhVJcTz8PJmre29XAjA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/lkRgD4-GmuU/mqdefault.jpg?sqp=CITHktAG&rs=AOn4CLDunZehbR-_LPLjNF-71oh9jmMYLA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/lkRgD4-GmuU/hqdefault.jpg?sqp=CITHktAG&rs=AOn4CLCVz9AewT1UYO3pDqr3Z2dR221N9A",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "belly fat reduce",
+          "calorie deficit india",
+          "cardio vs strength",
+          "fat loss mistakes",
+          "fat loss tips hindi",
+          "fat loss workout",
+          "fitness mistakes",
+          "fitness tips india",
+          "gym mistakes for fat loss",
+          "gym mistakes for fat loss for beginners",
+          "gym mistakes for fat loss india",
+          "gym tips for beginners",
+          "how to lose fat",
+          "strength training tips",
+          "weight loss diet india"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Gym Mistakes for Fat Loss: Aaj hi sudharein!",
+          "description": "gym mistakes for fat loss: Kya aap gym mistakes for fat loss kar rahe hain? Aaj jaaniye 2 galtiyan jo aapke progress ko rokh rahi hain!\n\n#gymmistakes #fatloss #strengthtraining #weightlifting #fitness #healthyhabits #shorts #ytshorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-16T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-11T18:15:50.528257+00:00",
+    "scheduled_time": "2026-05-16T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Fat Loss Ke Liye Sabse Effective Workouts!",
+    "idea": {
+      "idea_id": "80dec0df-3777-4e3a-a69b-c1c38f51a6ae",
+      "title": "Fat Loss Ke Liye Sabse Effective Workouts!",
+      "angle": "Transformations",
+      "hook": "Kya aap fat loss ke best workouts jaana chahte hain?",
+      "topic": "effective workouts",
+      "audience_value": "Get quick results with the best fat loss routines.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-11T15:35:19.837729+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long",
+      "search_keyword": "effective fat loss workouts",
+      "source_video_title": "Best Home Gym Equipment! 🏋️‍♂️"
+    },
+    "script": {
+      "title": "Fat Loss Ke Liye Sabse Effective Workouts!",
+      "overlay_text": "Best Workouts Revealed!",
+      "hook": "Kya aap fat loss ke best workouts jaana chahte hain?",
+      "problem": "Aksar hum weight loss ke liye gym join karte hain, par result nahi milte. Kyun? Kyunki hum sahi workouts nahi kar rahe.",
+      "insight": "Did you know? Sirf cardio se nahi, strength training se bhi fat loss hota hai! Jab aap muscle banate hain, aapka metabolism boost hota hai. Matlab, aap jahaan baith kar bhi calories burn karte hain.",
+      "solution": "Toh, chaliye main aapko do secret workouts batata hoon: pehla, circuit training! Isme aap multiple exercises karte ho bina rest liye. Jaise push-ups, squats aur burpees - ye sab combine karo aur karke dekho! Doosra, resistance training! Yani weights uthana. Ye do methods aapki body ko transform karenge! Har workout ke baad, ek healthy diet zaroor rakhein dal, sabzi, aur paneer ka istemaal karein pave digestion ke liye behtar.",
+      "cta": "Aaj se in workouts ko apne routine me include karein aur fat loss ka safar shuru karein! Niche comment karke batayein aap kaunsa workout try karne wale hain!",
+      "full_script": "Kya aap fat loss ke best workouts jaana chahte hain? Aksar hum weight loss ke liye gym join karte hain, par result nahi milte. Kyun? Kyunki hum sahi workouts nahi kar rahe. Did you know? Sirf cardio se nahi, strength training se bhi fat loss hota hai! Jab aap muscle banate hain, aapka metabolism boost hota hai. Matlab, aap jahaan baith kar bhi calories burn karte hain. Toh, chaliye main aapko do secret workouts batata hoon: pehla, circuit training! Isme aap multiple exercises karte ho bina rest liye. Jaise push-ups, squats aur burpees - ye sab combine karo aur karke dekho! Doosra, resistance training! Yani weights uthana. Ye do methods aapki body ko transform karenge! Har workout ke baad, ek healthy diet zaroor rakhein dal, sabzi, aur paneer ka istemaal karein pave digestion ke liye behtar. Aaj se in workouts ko apne routine me include karein aur fat loss ka safar shuru karein! Niche comment karke batayein aap kaunsa workout try karne wale hain! Ek simple rule yaad rakho: pehle trigger identify karo, fir fix lagao. Agar issue effective workouts se juda hai, toh random hacks nahi, daily repeat hone wala system kaam karega.",
+      "estimated_duration_seconds": 85,
+      "primary_keyword": "effective fat loss workouts",
+      "retention_note": "Is opening se viewers ki attention turant pakdi jaayegi kyunki sabko easy aur effective results chahiye.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Top 2 Effective Fat Loss Workouts for Quick Results",
+      "description": "Effective fat loss workouts aapki fitness journey ko turbocharge kar sakte hain. Aaj main aapko do best workouts dikhane wale hoon jo strength aur endurance dono badhate hain. Is video ko dekhiye aur apne fat loss goals achieve karein!\n\n#EffectiveFatLoss #WorkoutRoutine #HealthyLiving #WeightLossJourney #FitnessGoals",
+      "tags": [
+        "effective fat loss workouts",
+        "fat loss workouts at home",
+        "circuit training for weight loss",
+        "resistance training for fat loss",
+        "best exercises for fat loss",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "effective fat loss workouts india",
+        "effective fat loss workouts for beginner",
+        "fitness channel india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#EffectiveFatLoss",
+        "#WorkoutRoutine",
+        "#HealthyLiving",
+        "#WeightLossJourney",
+        "#FitnessGoals"
+      ],
+      "primary_keyword": "effective fat loss workouts",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260511_181550_fat-loss-ke-liye-sabse-effective-workouts.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260511_181550_fat-loss-ke-liye-sabse-effective-workouts.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_181550_fat-loss-ke-liye-sabse-effective-workouts.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260511_181550_fat-loss-ke-liye-sabse-effective-workouts.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "40ntTTdL8cTE-L9Fng9yvJPwQo0",
+      "id": "gPjcUxbCZqs",
+      "snippet": {
+        "publishedAt": "2026-05-13T16:15:31Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Top 2 Effective Fat Loss Workouts for Quick Results",
+        "description": "Effective fat loss workouts aapki fitness journey ko turbocharge kar sakte hain. Aaj main aapko do best workouts dikhane wale hoon jo strength aur endurance dono badhate hain. Is video ko dekhiye aur apne fat loss goals achieve karein!\n\n#EffectiveFatLoss #WorkoutRoutine #HealthyLiving #WeightLossJourney #FitnessGoals",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/gPjcUxbCZqs/default.jpg?sqp=CITHktAG&rs=AOn4CLBqfwpBejTvND56CR5h9HPtb5bwGQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/gPjcUxbCZqs/mqdefault.jpg?sqp=CITHktAG&rs=AOn4CLCizzdstLLnTLRDn-InwerMcgRH1Q",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/gPjcUxbCZqs/hqdefault.jpg?sqp=CITHktAG&rs=AOn4CLDrBNgD0KvwHijsSLV5LRA7Qvzicg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "belly fat reduce",
+          "best exercises for fat loss",
+          "calorie deficit india",
+          "circuit training for weight loss",
+          "effective fat loss workouts",
+          "effective fat loss workouts for beginner",
+          "effective fat loss workouts india",
+          "fat loss tips hindi",
+          "fat loss workouts at home",
+          "fitness channel india",
+          "resistance training for fat loss",
+          "weight loss diet india"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Top 2 Effective Fat Loss Workouts for Quick Results",
+          "description": "Effective fat loss workouts aapki fitness journey ko turbocharge kar sakte hain. Aaj main aapko do best workouts dikhane wale hoon jo strength aur endurance dono badhate hain. Is video ko dekhiye aur apne fat loss goals achieve karein!\n\n#EffectiveFatLoss #WorkoutRoutine #HealthyLiving #WeightLossJourney #FitnessGoals"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-17T03:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "pexels",
+    "created_at": "2026-05-11T18:58:00.465667+00:00",
+    "scheduled_time": "2026-05-17T03:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Mobility Ke Liye Amazing Stretches! 🤸‍♀️",
+    "idea": {
+      "idea_id": "9daaf571-c603-4601-9656-0a9c6cc905d8",
+      "title": "Mobility Ke Liye Amazing Stretches! 🤸‍♀️",
+      "angle": "Increasing mobility with stretches",
+      "hook": "Agar aapko flexibility chahiye, to yeh karein!",
+      "topic": "mobility improvement",
+      "audience_value": "Enhancing flexibility and mobility",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-18T15:38:47.495939+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "best stretches for mobility",
+      "source_video_title": "Mobility and Flexibility Stretches"
+    },
+    "script": {
+      "title": "Mobility Ke Liye Amazing Stretches",
+      "overlay_text": "Flexibility ko badhao!",
+      "hook": "Agar aapko flexibility chahiye, to yeh karein! Kya aap ready hain apni body ko naya shape dene ke liye?",
+      "problem": "Bahut log stress aur daily routine ke chakkar mein apni body ki mobility bhool jaate hain. Is wajah se joints tight ho jaate hain, aur flexibility kam ho jaati hai.",
+      "insight": "Lekin kya aap jaante hain, sirf do simple stretches se aap apni flexibility ko improve kar sakte hain? Yeh stretches aapki posture ko bhi sudhaar sakte hain!",
+      "solution": "Pehla stretch hai 'Cat-Cow stretch'. Yeh aapki spine ko gently mobilize karta hai aur deep breath le kar aapki tension ko release karta hai. Dusra hai 'Lizard Pose', jo hip flexors ko khol kar overall mobility badhaata hai. Har stretch ko 30 seconds tak hold karein aur breathe karte rahein.",
+      "cta": "Abhi karke dekhein! Aaj se har din yeh 2 stretches apne routine mein shamil karein. Isse aapko milega relaxed mind aur better body movement!",
+      "full_script": "Agar aapko flexibility chahiye, to yeh karein! Kya aap ready hain apni body ko naya shape dene ke liye? Bahut log stress aur daily routine ke chakkar mein apni body ki mobility bhool jaate hain. Is wajah se joints tight ho jaate hain, aur flexibility kam ho jaati hai. Lekin kya aap jaante hain, sirf do simple stretches se aap apni flexibility ko improve kar sakte hain? Yeh stretches aapki posture ko bhi sudhaar sakte hain! Pehla stretch hai 'Cat-Cow stretch'. Yeh aapki spine ko gently mobilize karta hai aur deep breath le kar aapki tension ko release karta hai. Dusra hai 'Lizard Pose', jo hip flexors ko khol kar overall mobility badhaata hai. Har stretch ko 30 seconds tak hold karein aur breathe karte rahein. Abhi karke dekhein! Aaj se har din yeh 2 stretches apne routine mein shamil karein. Isse aapko milega relaxed mind aur better body movement!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "best stretches for mobility",
+      "retention_note": "Opening statement sparks instant curiosity about flexibility improvements, ensuring viewers stay interested.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Best Stretches for Mobility: Flexibility Improve Kijiye!",
+      "description": "Best stretches for mobility ab aapko flexible bana denge! Yeh simple stretches aapki body aur posture ko badal denge. Karke dekhein aur\n\n#beststretchesformobility #flexibility #yoga #mobility #healthylifestyle #exercise #stressrelief #shorts",
+      "tags": [
+        "best stretches for mobility",
+        "flexibility stretches",
+        "yoga for mobility",
+        "posture improvement stretches",
+        "cat-cow stretch",
+        "lizard pose",
+        "daily yoga routine",
+        "simple flexibility exercises",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "best stretches for mobility india",
+        "best stretches for mobility for beginner",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#beststretchesformobility",
+        "#flexibility",
+        "#yoga",
+        "#mobility",
+        "#healthylifestyle",
+        "#exercise",
+        "#stressrelief",
+        "#shorts"
+      ],
+      "primary_keyword": "best stretches for mobility",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260518_153847_mobility-ke-liye-amazing-stretches.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260518_153847_mobility-ke-liye-amazing-stretches.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260518_153847_mobility-ke-liye-amazing-stretches.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260518_153847_mobility-ke-liye-amazing-stretches.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "rdTd-w3audnTf1fmPb6T1kXKwHA",
+      "id": "9fIliXcOafk",
+      "snippet": {
+        "publishedAt": "2026-05-18T19:19:06Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Best Stretches for Mobility: Flexibility Improve Kijiye!",
+        "description": "Best stretches for mobility ab aapko flexible bana denge! Yeh simple stretches aapki body aur posture ko badal denge. Karke dekhein aur\n\n#beststretchesformobility #flexibility #yoga #mobility #healthylifestyle #exercise #stressrelief #shorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/9fIliXcOafk/default.jpg?sqp=CLTKrdAG&rs=AOn4CLDz2_UyCt41G2tWvGlvcgPnp8C9DQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/9fIliXcOafk/mqdefault.jpg?sqp=CLTKrdAG&rs=AOn4CLB8ncjU1v2ulv0nfu3bXmlXlegdIg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/9fIliXcOafk/hqdefault.jpg?sqp=CLTKrdAG&rs=AOn4CLDEGvrgZ3-OkOyUp9bIXKTibrxiLQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "best stretches for mobility",
+          "best stretches for mobility for beginner",
+          "best stretches for mobility india",
+          "cat-cow stretch",
+          "daily yoga routine",
+          "fitness tips india",
+          "flexibility stretches",
+          "lizard pose",
+          "meditation and breathwork",
+          "morning yoga routine",
+          "posture improvement stretches",
+          "simple flexibility exercises",
+          "yoga for beginners",
+          "yoga for mobility",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Best Stretches for Mobility: Flexibility Improve Kijiye!",
+          "description": "Best stretches for mobility ab aapko flexible bana denge! Yeh simple stretches aapki body aur posture ko badal denge. Karke dekhein aur\n\n#beststretchesformobility #flexibility #yoga #mobility #healthylifestyle #exercise #stressrelief #shorts"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-19T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "mix",
+    "created_at": "2026-05-18T16:13:50.892466+00:00",
+    "scheduled_time": "2026-05-19T13:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Abs Ko Chhod Kar Kiya Gym: Kisi Ne Nahi Samjha! 😱",
+    "idea": {
+      "idea_id": "48833219-192e-442c-a584-b40884a361f9",
+      "title": "Abs Ko Chhod Kar Kiya Gym: Kisi Ne Nahi Samjha! 😱",
+      "angle": "Focusing only on abs is a mistake",
+      "hook": "Kya aap abs pe hi focus kar rahe ho?",
+      "topic": "gym mistakes",
+      "audience_value": "Understanding balanced workouts",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-18T15:38:47.496192+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "common gym mistakes",
+      "source_video_title": "He Ignored Every Muscle Except Abs…"
+    },
+    "script": {
+      "title": "Abs Ko Chhod Kar Kiya Gym: Kisi Ne Nahi Samjha!",
+      "overlay_text": "Abs Pe Focus Galat Hai?",
+      "hook": "Kya aap abs pe hi focus kar rahe ho?",
+      "problem": "Agar aap sirf abs par dhyaan denge, toh baaki muscles kya honge? Aapka body kisi ek muscle se nahi chalti. Ye gym mistake bohot common hai!",
+      "insight": "Research dikhata hai, total body workouts zyada effective hain. Jab aap core aur major muscles ko ignore karte hain, toh muscle imbalance hota hai. Result? Weakness aur injuries!",
+      "solution": "Pehla step: Full-body workouts shuru karein. Squats, deadlifts aur push-ups ko include karein. Dusra step: Core exercises mein variety laayen - planks aur side crunches zaroor karna. Balanced training se aapka fat loss bhi accelerate hoga!",
+      "cta": "Ab apni workout routine badlo! Like karo aur share karo, kyunki ye knowledge sabke liye chahiye!",
+      "full_script": "Kya aap abs pe hi focus kar rahe ho? Agar aap sirf abs par dhyaan denge, toh baaki muscles kya honge? Aapka body kisi ek muscle se nahi chalti. Ye gym mistake bohot common hai! Research dikhata hai, total body workouts zyada effective hain. Jab aap core aur major muscles ko ignore karte hain, toh muscle imbalance hota hai. Result? Weakness aur injuries! Pehla step: Full-body workouts shuru karein. Squats, deadlifts aur push-ups ko include karein. Dusra step: Core exercises mein variety laayen - planks aur side crunches zaroor karna. Balanced training se aapka fat loss bhi accelerate hoga! Ab apni workout routine badlo! Like karo aur share karo, kyunki ye knowledge sabke liye chahiye!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "common gym mistakes",
+      "retention_note": "Opening grabs attention by questioning common workout habits, prompting viewers to reflect immediately on their routines.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Common Gym Mistakes: Abs Pe Hi Focus Mat Karo!",
+      "description": "Common gym mistakes se jaaniye kaise aapki workout routine galat ho sakti hai. Full-body workouts ko include karke fat loss ko accelerate\n\n#shorts #ytshorts #gymtips #workoutmistakes #fatloss #fitnessmotivation #homeworkout #gymlife",
+      "tags": [
+        "common gym mistakes",
+        "gym tips",
+        "workout mistakes",
+        "abs workout",
+        "full body workout",
+        "fat loss tips",
+        "fitness motivation",
+        "gym for beginners",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "common gym mistakes india",
+        "common gym mistakes for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#gymtips",
+        "#workoutmistakes",
+        "#fatloss",
+        "#fitnessmotivation",
+        "#homeworkout",
+        "#gymlife"
+      ],
+      "primary_keyword": "common gym mistakes",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260518_161350_abs-ko-chhod-kar-kiya-gym-kisi-ne-nahi-samjha.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260518_161350_abs-ko-chhod-kar-kiya-gym-kisi-ne-nahi-samjha.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260518_161350_abs-ko-chhod-kar-kiya-gym-kisi-ne-nahi-samjha.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260518_161350_abs-ko-chhod-kar-kiya-gym-kisi-ne-nahi-samjha.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "8kVn1F3FuVRE7Gcwj39_T1hC3A0",
+      "id": "7oLkyw-BHbQ",
+      "snippet": {
+        "publishedAt": "2026-05-18T19:19:36Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Common Gym Mistakes: Abs Pe Hi Focus Mat Karo!",
+        "description": "Common gym mistakes se jaaniye kaise aapki workout routine galat ho sakti hai. Full-body workouts ko include karke fat loss ko accelerate\n\n#shorts #ytshorts #gymtips #workoutmistakes #fatloss #fitnessmotivation #homeworkout #gymlife",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/7oLkyw-BHbQ/default.jpg?sqp=CLTKrdAG&rs=AOn4CLDHBksXbYpLdXLdqW88t0UhsVhFxQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/7oLkyw-BHbQ/mqdefault.jpg?sqp=CLTKrdAG&rs=AOn4CLApBe5OsImX0fUF_OpLkDB6JooO0Q",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/7oLkyw-BHbQ/hqdefault.jpg?sqp=CLTKrdAG&rs=AOn4CLB6mnlXbe5mc0YhR8eDcrT0qWhNaw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "abs workout",
+          "belly fat reduce",
+          "calorie deficit india",
+          "common gym mistakes",
+          "common gym mistakes for beginners",
+          "common gym mistakes india",
+          "fat loss tips",
+          "fat loss tips hindi",
+          "fitness motivation",
+          "fitness tips india",
+          "full body workout",
+          "gym for beginners",
+          "gym tips",
+          "weight loss diet india",
+          "workout mistakes"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Common Gym Mistakes: Abs Pe Hi Focus Mat Karo!",
+          "description": "Common gym mistakes se jaaniye kaise aapki workout routine galat ho sakti hai. Full-body workouts ko include karke fat loss ko accelerate\n\n#shorts #ytshorts #gymtips #workoutmistakes #fatloss #fitnessmotivation #homeworkout #gymlife"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-19T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "mix",
+    "created_at": "2026-05-18T16:36:04.251295+00:00",
+    "scheduled_time": "2026-05-19T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Quick Fix for Bad Posture! 🚶‍♂️",
+    "idea": {
+      "idea_id": "c15d857e-139a-42aa-b903-b51dbb8c23a4",
+      "title": "Quick Fix for Bad Posture! 🚶‍♂️",
+      "angle": "Correcting posture through simple exercises",
+      "hook": "Kya aapki posture sahi hai? In exercises se badlaav laayein!",
+      "topic": "posture correction",
+      "audience_value": "Improving health with better posture",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-18T15:38:47.496857+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "best exercises for posture correction",
+      "source_video_title": "Bad Posture Fixes Explained"
+    },
+    "script": {
+      "title": "Quick Fix for Bad Posture!",
+      "overlay_text": "Improve Your Posture Today!",
+      "hook": "Kya aapki posture sahi hai? Chaliye pata karte hain!",
+      "problem": "Buri posture sirf dikhne mein kharab nahi, balki energy bhi khati hai. Body ko sahi angles nahi milte, jisse dard aur thakan feel hoti hai.",
+      "insight": "Research kehti hai ki sahi posture se na sirf aap ache dikhte ho, balki aapka metabolism bhi sahi rahta hai. Deep breathing, blood flow improve hota hai.",
+      "solution": "Pehla step, 'shoulder rolls' karein. 10 baar aage aur 10 baar peeche karein. Dusra, 'cat-cow stretch' karke apni back ko stretch karein, yeh apki spine ko relax karta hai.",
+      "cta": "Directly aaj hi yeh exercises shuru karein aur wo dauran feel karein jab aapka energy boost hota hai!",
+      "full_script": "Kya aapki posture sahi hai? Chaliye pata karte hain! Buri posture sirf dikhne mein kharab nahi, balki energy bhi khati hai. Body ko sahi angles nahi milte, jisse dard aur thakan feel hoti hai. Research kehti hai ki sahi posture se na sirf aap ache dikhte ho, balki aapka metabolism bhi sahi rahta hai. Deep breathing, blood flow improve hota hai. Pehla step, 'shoulder rolls' karein. 10 baar aage aur 10 baar peeche karein. Dusra, 'cat-cow stretch' karke apni back ko stretch karein, yeh apki spine ko relax karta hai. Directly aaj hi yeh exercises shuru karein aur wo dauran feel karein jab aapka energy boost hota hai!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "best exercises for posture correction",
+      "retention_note": "The opening creates immediate curiosity by addressing a common problempoor posture that many viewers relate to, ensuring they stay engaged.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "best exercises for posture correction: Mind Aur Body Calm",
+      "description": "best exercises for posture correction ka real use samjho. Save karo aur DailyFitX follow karo.\n\n#shorts #ytshorts #DailyFitX #yoga #stressrelief #mobility #meditation #hinglishfitness",
+      "tags": [
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "best exercises for posture correction",
+        "best exercises for posture correction in",
+        "best exercises for posture correction fo",
+        "fitness tips india",
+        "DailyFitX",
+        "best exercises for posture correction in",
+        "best exercises for posture correction fo"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#yoga",
+        "#stressrelief",
+        "#mobility",
+        "#meditation",
+        "#hinglishfitness"
+      ],
+      "primary_keyword": "best exercises for posture correction",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260518_163604_quick-fix-for-bad-posture.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260518_163604_quick-fix-for-bad-posture.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260518_163604_quick-fix-for-bad-posture.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260518_163604_quick-fix-for-bad-posture.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "I25HrJPSTvNeVjjEBb9iYIM43e8",
+      "id": "G8xz17C1E_o",
+      "snippet": {
+        "publishedAt": "2026-05-18T19:20:07Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "best exercises for posture correction: Mind Aur Body Calm",
+        "description": "best exercises for posture correction ka real use samjho. Save karo aur DailyFitX follow karo.\n\n#shorts #ytshorts #DailyFitX #yoga #stressrelief #mobility #meditation #hinglishfitness",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/G8xz17C1E_o/default.jpg?sqp=CODMrdAG&rs=AOn4CLAzJDSYPSCHzCubgyCAj8KZCWR74g",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/G8xz17C1E_o/mqdefault.jpg?sqp=CODMrdAG&rs=AOn4CLChsJ0zvjlhhEyGHl5BggLZMNAZyw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/G8xz17C1E_o/hqdefault.jpg?sqp=CODMrdAG&rs=AOn4CLCcZVwPNem8dT4FCvvy10MjCa8Sbg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "best exercises for posture correction",
+          "best exercises for posture correction fo",
+          "best exercises for posture correction in",
+          "fitness tips india",
+          "meditation and breathwork",
+          "morning yoga routine",
+          "yoga for beginners",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "best exercises for posture correction: Mind Aur Body Calm",
+          "description": "best exercises for posture correction ka real use samjho. Save karo aur DailyFitX follow karo.\n\n#shorts #ytshorts #DailyFitX #yoga #stressrelief #mobility #meditation #hinglishfitness"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-19T15:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "mix",
+    "created_at": "2026-05-18T16:57:57.868069+00:00",
+    "scheduled_time": "2026-05-19T15:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "gym morning workout tips",
+    "idea": {
+      "idea_id": "gym-morning-workout-tips",
+      "title": "gym morning workout tips",
+      "angle": "gym morning workout tips",
+      "hook": "",
+      "topic": "gym morning workout tips",
+      "audience_value": "Deliver a beautiful, high-retention Hindi-English short on this exact topic",
+      "source_prompt": "manual-topic-script-generator",
+      "created_at": "2026-05-23T19:23:02.647701+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "gym morning workout tips",
+      "video_type": "short",
+      "search_keyword": "",
+      "source_video_title": ""
+    },
+    "script": {
+      "title": "Gym Morning Workout Hacks",
+      "overlay_text": "Power Up Your Morning",
+      "hook": "Kya aap morning workouts se thak chuke ho? Let's change that!",
+      "problem": "Sabko pata hai ke morning workouts kaise boring ho sakte hain. Lekin kya aap jaante ho ke is boredom ka ek solution hai? Jab aapki energy low hoti hai, toh workout bhi low quality ka hota hai.",
+      "insight": "Research kehti hai ke morning exercise se aapka metabolism boost hota hai, par agar aapka routine khud mein exciting nahi hai, toh aap stick nahi kar paayenge. Aapka body aur mind dono ko time milne chahiye khud ko recharge karne ka.",
+      "solution": "Toh chalo, chaar tips lete hain: 1) Workout se pehle thoda dynamic stretching karo5 minutes, sirf! Yeh aapki blood flow increase karega. 2) Strength training se shuru karokuch compound exercises jaise squats ya push-ups. Yeh sirf 20 minutes mein aapki strength barha sakta hai. 3) Music ka magic use karo! Aapke favorite upbeat tracks se aapki energy double ho jayegi. Toh, workout ka waqt sabse pehle khud ko energize karne se shuru karo!",
+      "cta": "Toh jaldi se apne workout ko energize karo aur results dekhna mat bhoolo!",
+      "full_script": "Kya aap morning workouts se thak chuke ho? Let's change that! Sabko pata hai ke morning workouts kaise boring ho sakte hain. Lekin kya aap jaante ho ke is boredom ka ek solution hai? Jab aapki energy low hoti hai, toh workout bhi low quality ka hota hai. Research kehti hai ke morning exercise se aapka metabolism boost hota hai, par agar aapka routine khud mein exciting nahi hai, toh aap stick nahi kar paayenge. Aapka body aur mind dono ko time milne chahiye khud ko recharge karne ka. Toh chalo, chaar tips lete hain: 1) Workout se pehle thoda dynamic stretching karo5 minutes, sirf! Yeh aapki blood flow increase karega. 2) Strength training se shuru karokuch compound exercises jaise squats ya push-ups. Yeh sirf 20 minutes mein aapki strength barha sakta hai. 3) Music ka magic use karo! Aapke favorite upbeat tracks se aapki energy double ho jayegi. Toh, workout ka waqt sabse pehle khud ko energize karne se shuru karo! Toh jaldi se apne workout ko energize karo aur results dekhna mat bhoolo!",
+      "estimated_duration_seconds": 55,
+      "primary_keyword": "gym morning workout tips",
+      "retention_note": "Opening creates instant curiosity, pulling viewers in by addressing a common struggle with morning workouts.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Morning Workout Tips for a Strong Start!",
+      "description": "Gym morning workout tips se apne routine ko energize karo! Discover simple ways to boost your morning exercises and make them exciting.\n\n#shorts #ytshorts #GymTips #MorningRoutine #FitnessMotivation #WorkoutInspiration #HealthyLifestyle #MorningWorkout",
+      "tags": [
+        "gym morning workout tips",
+        "morning workout tips",
+        "fitness tips",
+        "morning exercise routine",
+        "energizing workouts",
+        "strength training tips",
+        "workout motivation",
+        "dynamic stretching",
+        "gym workout for beginners india",
+        "strength training hindi",
+        "workout form tips",
+        "muscle building tips",
+        "gym morning workout tips india",
+        "gym morning workout tips for beginners",
+        "fitness tips india"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#GymTips",
+        "#MorningRoutine",
+        "#FitnessMotivation",
+        "#WorkoutInspiration",
+        "#HealthyLifestyle",
+        "#MorningWorkout"
+      ],
+      "primary_keyword": "gym morning workout tips",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260523_192302_gym-morning-workout-tips.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260523_192302_gym-morning-workout-tips.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260523_192302_gym-morning-workout-tips.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260523_192302_gym-morning-workout-tips.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "fb-NyVEqpQLMuDoIcmHDFRMT3Iw",
+      "id": "p0eecwF7rfo",
+      "snippet": {
+        "publishedAt": "2026-05-23T19:59:39Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Morning Workout Tips for a Strong Start!",
+        "description": "Gym morning workout tips se apne routine ko energize karo! Discover simple ways to boost your morning exercises and make them exciting.\n\n#shorts #ytshorts #GymTips #MorningRoutine #FitnessMotivation #WorkoutInspiration #HealthyLifestyle #MorningWorkout",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/p0eecwF7rfo/default.jpg?sqp=CJSMyNAG&rs=AOn4CLAeP85uLjGALZ5zMtDxGSjvqyjZRg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/p0eecwF7rfo/mqdefault.jpg?sqp=CJSMyNAG&rs=AOn4CLC77NaIrJsVLygUK1UPmPlR1H9taQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/p0eecwF7rfo/hqdefault.jpg?sqp=CJSMyNAG&rs=AOn4CLBzJXTb3CnpAYNo2eHGEnBBiJFaJw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "dynamic stretching",
+          "energizing workouts",
+          "fitness tips",
+          "fitness tips india",
+          "gym morning workout tips",
+          "gym morning workout tips for beginners",
+          "gym morning workout tips india",
+          "gym workout for beginners india",
+          "morning exercise routine",
+          "morning workout tips",
+          "muscle building tips",
+          "strength training hindi",
+          "strength training tips",
+          "workout form tips",
+          "workout motivation"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Morning Workout Tips for a Strong Start!",
+          "description": "Gym morning workout tips se apne routine ko energize karo! Discover simple ways to boost your morning exercises and make them exciting.\n\n#shorts #ytshorts #GymTips #MorningRoutine #FitnessMotivation #WorkoutInspiration #HealthyLifestyle #MorningWorkout"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-24T11:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "mix",
+    "created_at": "2026-05-23T19:53:29.251257+00:00",
+    "scheduled_time": "2026-05-24T11:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Breathwork for Relaxation",
+    "idea": {
+      "idea_id": "c4524f01-800a-4289-b537-e7c7d15412ce",
+      "title": "Breathwork for Relaxation",
+      "angle": "Finding relaxation through breathwork techniques",
+      "hook": "Gehri saans se kaise aap relax ho sakte hain?",
+      "topic": "Breathwork",
+      "audience_value": "Learn breathwork techniques for immediate relaxation.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-23T20:07:32.987276+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "breathwork for relaxation",
+      "source_video_title": "#kanganaranaut gives the perfect #workout #motivation #shorts #bollywood #actress #fitness"
+    },
+    "script": {
+      "title": "Gehri Saans Se Relaxation Paayein",
+      "overlay_text": "Kya aap gehri saans le",
+      "hook": "Gehri saans se aap sirf relax nahi hote, aapka poora dimaag shant hota hai. Kaise? Suno!",
+      "problem": "Har roz ke stress se humari body aur mind thak jaate hain. Kya aap kabhi sochte hain ki is stress ka aasaan ilaj kya hai?",
+      "insight": "Science kehta hai, jaise hi aap deep breathing shuru karte hain, aapka heart rate slow hota hai aur anxiety ka level kam hota hai. Yeh ek game-changer hai!",
+      "solution": "Ab main aapko do asan techniques sikhaata hoon: pehli, dhyaan se apni naak se gehri saans lein, phir halki se mooh se chhodein. Ye 5 baar karein. Doosri, jab aap saans le rahe hain, apne shoulders ko relax karein, aur apna posture seedha rakhein. Ye steps aapko turant sukoon denge.",
+      "cta": "Toh aaj se har roz yeh do minutes nikaal kar apne liye best relaxation ka waqt banao. Breath ki magic ko mehsoos karo!",
+      "full_script": "Gehri saans se aap sirf relax nahi hote, aapka poora dimaag shant hota hai. Kaise? Suno! Har roz ke stress se humari body aur mind thak jaate hain. Kya aap kabhi sochte hain ki is stress ka aasaan ilaj kya hai? Science kehta hai, jaise hi aap deep breathing shuru karte hain, aapka heart rate slow hota hai aur anxiety ka level kam hota hai. Yeh ek game-changer hai! Ab main aapko do asan techniques sikhaata hoon: pehli, dhyaan se apni naak se gehri saans lein, phir halki se mooh se chhodein. Ye 5 baar karein. Doosri, jab aap saans le rahe hain, apne shoulders ko relax karein, aur apna posture seedha rakhein. Ye steps aapko turant sukoon denge. Toh aaj se har roz yeh do minutes nikaal kar apne liye best relaxation ka waqt banao. Breath ki magic ko mehsoos karo!",
+      "estimated_duration_seconds": 55,
+      "primary_keyword": "breathwork for relaxation",
+      "retention_note": "Opening hook generates curiosity by promising a profound mental shiftnot just relaxation, keeping the viewer engaged for more insights.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Kya Breathwork Se Mind Ko Chudaa Sakte Hain?",
+      "description": "Breathwork for relaxation se aap sirf relax nahi hote, aapka dimaag bhi shant hota hai. Discover kaise do simple techniques se stress\n\n#shorts #ytshorts #breathwork #relaxation #deepbreathing",
+      "tags": [
+        "breathwork for relaxation",
+        "stress relief techniques",
+        "deep breathing exercises",
+        "mindfulness breathing",
+        "relaxation techniques",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "breathwork for relaxation india",
+        "breathwork for relaxation for beginners",
+        "fitness tips india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#breathwork",
+        "#relaxation",
+        "#deepbreathing"
+      ],
+      "primary_keyword": "breathwork for relaxation",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260523_200733_breathwork-for-relaxation.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260523_200733_breathwork-for-relaxation.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260523_200733_breathwork-for-relaxation.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260523_200733_breathwork-for-relaxation.json",
+    "uploaded": false,
+    "upload_response": null,
+    "short_visual_mode": "local",
+    "created_at": "2026-05-23T20:24:45.004343+00:00"
   }
 ]

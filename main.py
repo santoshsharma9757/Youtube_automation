@@ -11,12 +11,14 @@ from pathlib import Path
 from config import AUDIO_DIR, DATA_DIR, VIDEO_DIR, get_config
 from idea_generator import IdeaGenerator, VideoIdea, canonicalize_text, canonicalize_title
 from manual_content import build_manual_content
+from music_downloader import ensure_music_library
 from script_generator import ScriptGenerator
 from seo_generator import SeoGenerator
 from subtitle_generator import SubtitleGenerator
 from tts import TextToSpeechEngine
 from upload_all import schedule_pending_uploads
 from uploader import YouTubeUploader
+from video_downloader import ensure_video_library
 from video_generator import VideoGenerator
 
 
@@ -65,6 +67,18 @@ def select_fresh_ideas(
     return ideas[:count]
 
 
+def build_short_visual_modes(short_count: int, use_pexels: bool = False, mix: bool = False) -> list[str]:
+    if short_count <= 0:
+        return []
+    if mix:
+        local_count = (short_count + 1) // 2
+        pexels_count = short_count // 2
+        return (["local"] * local_count) + (["pexels"] * pexels_count)
+    if use_pexels:
+        return ["mix"] * short_count
+    return ["local"] * short_count
+
+
 def run_pipeline(
     short_count: int = 1,
     long_count: int = 0,
@@ -73,15 +87,21 @@ def run_pipeline(
     theme: str | None = None,
     language: str = "hinglish",
     test_long: bool = False,
-    use_pexels: bool = False,
 ) -> list[dict]:
     config = get_config()
-    # Only force Pexels when the CLI flag is explicitly passed.
-    # This keeps standard Shorts on local assets as described in the cheatsheet.
-    config.use_pexels_for_shorts = use_pexels
     total_count = short_count + long_count
     if total_count < 1 or total_count > 30:
         raise ValueError("Total video count must be between 1 and 30.")
+
+    # ── Auto-populate asset libraries if they are thin ─────────────────────
+    try:
+        ensure_music_library(min_tracks=8, pixabay_key=config.pixabay_api_key)
+    except Exception as _dl_exc:
+        LOGGER.warning("Music library check failed (non-fatal): %s", _dl_exc)
+    try:
+        ensure_video_library(min_local=20, min_bg=8, pexels_key=config.pexels_api_key)
+    except Exception as _dl_exc:
+        LOGGER.warning("Video library check failed (non-fatal): %s", _dl_exc)
 
     idea_generator = IdeaGenerator(config)
     script_generator = ScriptGenerator(config)
@@ -145,6 +165,9 @@ def run_pipeline(
     if test_long and ideas_to_process:
         ideas_to_process[0] = replace(ideas_to_process[0], video_type="long")
 
+    short_visual_modes = build_short_visual_modes(short_count=short_count, use_pexels=use_pexels, mix=mix)
+    short_visual_index = 0
+
     for idea in ideas_to_process:
         idea_signature = (
             canonicalize_title(idea.title),
@@ -160,7 +183,8 @@ def run_pipeline(
             manual_package = build_manual_content(topic) if topic else None
             script = manual_package.script if manual_package else script_generator.generate_script(idea)
             is_long = getattr(idea, "video_type", "short") == "long"
-            min_dur = 80 if is_long else 31
+            # Minimum 50s for Shorts (45-60s performs best on YouTube algorithm)
+            min_dur = 80 if is_long else 50
             script = replace(
                 script,
                 full_script=script_generator._extend_script_if_needed(script.full_script, idea),
@@ -183,6 +207,8 @@ def run_pipeline(
             )
             seo = manual_package.seo if manual_package else seo_generator.generate(script)
             upload_response = uploader.upload_short(video_path, seo) if upload else None
+            if not is_long:
+                short_visual_index += 1
         except Exception as exc:  # noqa: BLE001
             LOGGER.exception("Pipeline failed for idea '%s': %s", idea.title, exc)
             continue
@@ -198,6 +224,7 @@ def run_pipeline(
             "subtitle_json": str(subtitles.json_path),
             "uploaded": bool(upload_response),
             "upload_response": upload_response,
+            "short_visual_mode": current_short_visual_mode,
             "created_at": datetime.now(timezone.utc).isoformat(),
         }
         if upload_response:
@@ -227,7 +254,6 @@ def parse_args() -> argparse.Namespace:
         default=0,
         help="Number of long videos to generate.",
     )
-    parser.add_argument("--use-pexels", action="store_true", help="Use Pexels API for short videos instead of local files")
     parser.add_argument("--upload", action="store_true", help="Upload generated videos to YouTube")
     parser.add_argument("--schedule", action="store_true", help="Start APScheduler instead of running once")
     parser.add_argument("--topic", type=str, help="Create one manual topic-driven Short")
@@ -288,7 +314,6 @@ def main() -> None:
         theme=args.theme,
         language=args.language,
         test_long=args.test_long,
-        use_pexels=args.use_pexels,
     )
     if args.schedule_upload:
         scheduled = schedule_pending_uploads(videos_per_day=args.videos_per_day)

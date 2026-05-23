@@ -52,6 +52,8 @@ class VideoIdea:
     language_preference: str = "hinglish"
     theme_hint: str = ""
     video_type: str = "short"
+    search_keyword: str = ""
+    source_video_title: str = ""
 
 
 class IdeaGenerator:
@@ -80,6 +82,8 @@ class IdeaGenerator:
                 "hook": clean_display_text(item["hook"]),
                 "topic": clean_display_text(item["topic"]),
                 "audience_value": clean_display_text(item["audience_value"]),
+                "search_keyword": clean_display_text(item.get("search_keyword", item.get("topic", ""))),
+                "source_video_title": clean_display_text(item.get("source_video_title", "")),
             }
             if self._idea_fingerprint(candidate) in existing_fingerprints:
                 continue
@@ -95,6 +99,8 @@ class IdeaGenerator:
                     created_at=datetime.now(timezone.utc).isoformat(),
                     language_preference=language,
                     theme_hint=theme or "",
+                    search_keyword=candidate["search_keyword"] or candidate["topic"],
+                    source_video_title=candidate["source_video_title"],
                 )
             )
             if len(ideas) >= count:
@@ -103,12 +109,21 @@ class IdeaGenerator:
         return ideas
 
     def _live_or_fallback_ideas(self, theme: str | None = None, language: str = "hinglish") -> dict:
+        if self.config.require_youtube_trend_ideas and not self.config.youtube_api_key:
+            raise RuntimeError(
+                "REQUIRE_YOUTUBE_TREND_IDEAS is enabled but YOUTUBE_API_KEY is missing. "
+                "Set YOUTUBE_API_KEY in .env or disable REQUIRE_YOUTUBE_TREND_IDEAS."
+            )
         live_titles = self._fetch_live_youtube_titles(theme)
         if live_titles:
             payload = self._build_live_ideas_from_titles(live_titles, theme=theme, language=language)
             if payload.get("ideas"):
                 payload["source"] = "youtube-live"
                 return payload
+        if self.config.require_youtube_trend_ideas:
+            raise RuntimeError(
+                "No live YouTube trend ideas were available. Check YOUTUBE_API_KEY quota/network or disable REQUIRE_YOUTUBE_TREND_IDEAS."
+            )
         fallback = self._fallback_ideas(theme=theme, language=language)
         fallback["source"] = "static-bank"
         return fallback
@@ -121,7 +136,9 @@ class IdeaGenerator:
         collected: list[dict[str, str | float | int]] = []
         seen_titles: set[str] = set()
 
-        for query in self._youtube_queries(theme)[:6]:
+        queries = self._youtube_queries(theme)
+        random.shuffle(queries)
+        for query in queries[:6]:
             try:
                 response = requests.get(
                     "https://www.googleapis.com/youtube/v3/search",
@@ -258,7 +275,7 @@ class IdeaGenerator:
             f"{language_instruction}\n"
             f"Theme preference: {theme or 'fitness, yoga, meditation, motivation'}\n"
             "Return strict JSON with key ideas.\n"
-            "Each idea must include title, angle, hook, topic, audience_value.\n"
+            "Each idea must include title, angle, hook, topic, audience_value, search_keyword, source_video_title.\n"
             "Rules:\n"
             "- Generate up to 12 ideas.\n"
             "- Improve the trend into a better DailyFitX title instead of copying it.\n"
@@ -270,6 +287,9 @@ class IdeaGenerator:
             "- Prefer India-friendly Shorts topics.\n"
             "- Use Roman script only.\n"
             "- Never generate politics or non-fitness content.\n"
+            "- search_keyword must be an exact YouTube-style search phrase a user would type.\n"
+            "- source_video_title must be the live title that inspired the idea.\n"
+            "- topic and search_keyword should stay tightly aligned.\n"
             f"\nLive YouTube titles:\n{titles_blob}"
         )
         payload, provider_used = build_json_with_fallback(
@@ -303,6 +323,8 @@ class IdeaGenerator:
                     "hook": IdeaGenerator._format_hook(item["title"], hook_bank[index % len(hook_bank)], use_hinglish),
                     "topic": item["topic"],
                     "audience_value": item["audience_value"],
+                    "search_keyword": item["topic"],
+                    "source_video_title": "",
                 }
                 for index, item in enumerate(filtered_topics or VIRAL_TOPIC_BANK)
             ]
@@ -336,9 +358,14 @@ class IdeaGenerator:
                         "hook": self._format_hook(title, "This is showing up everywhere right now.", use_hinglish),
                         "topic": topic_name,
                         "audience_value": "Turn a live trending pattern into a useful Short people save",
+                        "search_keyword": topic_name,
+                        "source_video_title": title,
                     }
                 )
-        ideas.extend(self._fallback_ideas(theme=theme, language=language).get("ideas", []))
+        for fallback_item in self._fallback_ideas(theme=theme, language=language).get("ideas", []):
+            fallback_item.setdefault("search_keyword", fallback_item.get("topic", "fitness shorts india"))
+            fallback_item.setdefault("source_video_title", "")
+            ideas.append(fallback_item)
         return {"ideas": ideas[:12]}
 
     @staticmethod
@@ -352,10 +379,28 @@ class IdeaGenerator:
             "home workout shorts india",
             "meditation shorts",
             "health tips shorts india",
+            "healthy lifestyle shorts india",
+            "daily health routine shorts",
+            "morning habits for success shorts",
+            "sleep optimization shorts",
+            "mental clarity tips shorts",
+            "longevity and anti-aging shorts",
+            "immune system booster shorts",
+            "hydration benefits shorts",
             "motivation shorts workout",
             "diet shorts india",
             "weight loss diet shorts",
+            "healthy food ideas shorts",
+            "superfoods for health shorts",
+            "ayurvedic diet tips shorts",
             "gut health shorts",
+            "stomach health shorts india",
+            "liver health shorts india",
+            "kidney health shorts india",
+            "heart health tips shorts",
+            "eye health tips shorts",
+            "bone and joint health shorts",
+            "liver detox tips shorts",
             "indian protein sources shorts",
             "gym mistakes shorts",
             "workout mistakes shorts",

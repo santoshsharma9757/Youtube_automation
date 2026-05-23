@@ -5,8 +5,6 @@ import logging
 from dataclasses import dataclass
 from typing import Callable
 
-from openai import OpenAI
-
 from config import AppConfig
 
 
@@ -44,6 +42,8 @@ class LlmFallbackClient:
         if not self.config.openai_api_key:
             return None
         try:
+            from openai import OpenAI
+
             client = OpenAI(api_key=self.config.openai_api_key)
             response = client.chat.completions.create(
                 model=self.config.openai_model,
@@ -82,6 +82,8 @@ class LlmFallbackClient:
         if not self.config.deepseek_api_key:
             return None
         try:
+            from openai import OpenAI
+
             client = OpenAI(api_key=self.config.deepseek_api_key, base_url=self.config.deepseek_base_url)
             response = client.chat.completions.create(
                 model=self.config.deepseek_model,

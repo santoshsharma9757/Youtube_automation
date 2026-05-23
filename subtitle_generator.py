@@ -53,18 +53,23 @@ class SubtitleGenerator:
         text = script.full_script if script else "Discipline is doing what needs to be done, even when you don't feel like it."
         words = text.split()
         segments = []
-        # Limit to 3-5 words per segment as requested for better engagement
-        words_per_segment = 4 
-        duration_per_segment = max(duration / (len(words) / words_per_segment or 1), 0.8)
-        
+        # 2 words per segment → CapCut-style rapid word flash (max retention)
+        # The video_generator will further split these into 2-word micro-groups
+        words_per_segment = 4
+        num_groups = max(len(words) / words_per_segment, 1)
+        duration_per_segment = max(duration / num_groups, 0.55)
+
         for i in range(0, len(words), words_per_segment):
             chunk = " ".join(words[i : i + words_per_segment])
-            start = (i // words_per_segment) * duration_per_segment
-            segments.append({
-                "start": start,
-                "end": min(start + duration_per_segment, duration),
-                "text": chunk
-            })
+            group_index = i // words_per_segment
+            start = group_index * duration_per_segment
+            end   = min(start + duration_per_segment, duration)
+            if end > start:
+                segments.append({
+                    "start": round(start, 3),
+                    "end":   round(end,   3),
+                    "text":  chunk,
+                })
         return segments
 
     def generate_from_segments(self, segments: list[dict[str, Any]], base_name: str) -> SubtitleArtifact:

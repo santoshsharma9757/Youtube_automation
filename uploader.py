@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -53,30 +54,39 @@ class YouTubeUploader:
             "status": status_body,
         }
 
-        # Attempt to enable monetization if the user is a partner
-        # We try this first; if it fails with 403, we fall back to a standard upload
-        try:
+        if self.config.youtube_enable_monetization:
+            # Only request monetization for partner-enabled channels.
             request = youtube.videos().insert(
                 part="snippet,status,monetizationDetails",
                 body={**body, "monetizationDetails": {"access": {"monetization": "true"}}},
                 media_body=MediaFileUpload(str(video_path), chunksize=-1, resumable=True),
             )
-            response = None
-            while response is None:
-                _, response = request.next_chunk()
-        except Exception as e:
-            if "forbidden" in str(e).lower() or "403" in str(e):
-                LOGGER.warning("Monetization access denied (channel might not be a Partner). Falling back to standard upload.")
-                request = youtube.videos().insert(
-                    part="snippet,status",
-                    body=body,
-                    media_body=MediaFileUpload(str(video_path), chunksize=-1, resumable=True),
-                )
+            try:
                 response = None
                 while response is None:
                     _, response = request.next_chunk()
-            else:
-                raise e
+            except Exception as e:
+                if "forbidden" in str(e).lower() or "403" in str(e):
+                    LOGGER.warning("Monetization access denied. Disabling monetization for this upload and falling back to standard insert.")
+                    request = youtube.videos().insert(
+                        part="snippet,status",
+                        body=body,
+                        media_body=MediaFileUpload(str(video_path), chunksize=-1, resumable=True),
+                    )
+                    response = None
+                    while response is None:
+                        _, response = request.next_chunk()
+                else:
+                    raise e
+        else:
+            request = youtube.videos().insert(
+                part="snippet,status",
+                body=body,
+                media_body=MediaFileUpload(str(video_path), chunksize=-1, resumable=True),
+            )
+            response = None
+            while response is None:
+                _, response = request.next_chunk()
 
         LOGGER.info("Upload complete with video id %s", response["id"])
         return response
@@ -88,8 +98,15 @@ class YouTubeUploader:
             creds = Credentials.from_authorized_user_file(str(token_path), SCOPES)
 
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        elif not creds or not creds.valid:
+            try:
+                creds.refresh(Request())
+            except RefreshError:
+                LOGGER.warning("Token expired or revoked. Forcing re-authentication.")
+                creds = None
+                if token_path.exists():
+                    token_path.unlink()
+
+        if not creds or not creds.valid:
             flow = InstalledAppFlow.from_client_secrets_file(self.config.youtube_client_secrets_file, SCOPES)
             creds = flow.run_local_server(port=0)
             token_path.write_text(creds.to_json(), encoding="utf-8")

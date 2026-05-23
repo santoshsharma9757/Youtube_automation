@@ -76,6 +76,9 @@ class AppConfig:
     youtube_api_key: str = field(default_factory=lambda: os.getenv("YOUTUBE_API_KEY", ""))
     youtube_category_id: str = field(default_factory=lambda: os.getenv("YOUTUBE_CATEGORY_ID", "26"))  # 26=Howto & Style fits workout, yoga, and explainer-style fitness shorts better than Sports
     default_privacy_status: str = field(default_factory=lambda: os.getenv("YOUTUBE_PRIVACY_STATUS", "public"))
+    youtube_enable_monetization: bool = field(
+        default_factory=lambda: os.getenv("YOUTUBE_ENABLE_MONETIZATION", "false").lower() == "true"
+    )
     gemini_api_key: str = field(default_factory=lambda: os.getenv("GEMINI_API_KEY", ""))
     pexels_api_key: str = field(default_factory=lambda: os.getenv("PEXELS_API_KEY", ""))
     pixabay_api_key: str = field(default_factory=lambda: os.getenv("PIXABAY_API_KEY", ""))
@@ -88,9 +91,13 @@ class AppConfig:
     font_file: Path = field(default_factory=lambda: resolve_font_path())
     subtitle_store_dir: Path = field(default_factory=lambda: SUBTITLE_DIR)
     scheduler_timezone: str = field(default_factory=lambda: os.getenv("SCHEDULER_TIMEZONE", "Asia/Kolkata"))
-    daily_video_count: int = field(default_factory=lambda: int(os.getenv("DAILY_VIDEO_COUNT", "3")))
+    daily_video_count: int = field(default_factory=lambda: int(os.getenv("DAILY_VIDEO_COUNT", "1")))
     upload_enabled: bool = field(default_factory=lambda: os.getenv("UPLOAD_ENABLED", "false").lower() == "true")
     use_pexels_for_shorts: bool = field(default=False)
+    shorts_visual_mode: str = field(default="local")
+    require_youtube_trend_ideas: bool = field(
+        default_factory=lambda: os.getenv("REQUIRE_YOUTUBE_TREND_IDEAS", "true").lower() == "true"
+    )
 
     ideas_store: Path = field(default_factory=lambda: DATA_DIR / "ideas.json")
     content_store: Path = field(default_factory=lambda: DATA_DIR / "content_history.json")
