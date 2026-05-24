@@ -11972,5 +11972,186 @@
       "status": "SCHEDULED"
     },
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Yoga for Stress Relief 🧘‍♂️✨ | Brain Health Matters!",
+    "idea": {},
+    "script": {
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Yoga for Stress Relief 🧘‍♂️✨ | Brain Health Matters!",
+      "description": "Discover how yoga can heal your brain from stress and enhance your mental clarity. 🌿 #YogaForStress #MentalHealth #StressRelief #Yoga #Wellness",
+      "tags": [
+        "Yoga for Stress",
+        "Mental Health",
+        "Stress Relief",
+        "Yoga Benefits",
+        "Wellness",
+        "Mindfulness",
+        "Brain Health",
+        "Stress Management",
+        "Meditation",
+        "Healthy Mind",
+        "Yoga Practice",
+        "Emotional Wellbeing",
+        "Relaxation Techniques",
+        "Self-Care",
+        "Holistic Health"
+      ],
+      "hashtags": [
+        "Yoga for Stress",
+        "Mental Health",
+        "Stress Relief",
+        "Yoga Benefits",
+        "Wellness"
+      ],
+      "primary_keyword": "Yoga for Stress",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\final_videos\\veo_final_20260524_225812.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "3tVF1RjoI2MSBu2DpAH1dfZXFNQ",
+      "id": "apfV3_Tg-SY",
+      "snippet": {
+        "publishedAt": "2026-05-24T17:39:49Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Yoga for Stress Relief 🧘‍♂️✨ | Brain Health Matters!",
+        "description": "Discover how yoga can heal your brain from stress and enhance your mental clarity. 🌿 #YogaForStress #MentalHealth #StressRelief #Yoga #Wellness",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/apfV3_Tg-SY/default.jpg?sqp=CMTtzNAG&rs=AOn4CLDAyJ6UJwMkFhhr6PiPQ9EW-LXcKg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/apfV3_Tg-SY/mqdefault.jpg?sqp=CMTtzNAG&rs=AOn4CLCL2MxPQlWlhU0m6Xl638RZNc-aXQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/apfV3_Tg-SY/hqdefault.jpg?sqp=CMTtzNAG&rs=AOn4CLDRAGT_0QO1Op7iMRTliewmswzQbA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "Brain Health",
+          "Emotional Wellbeing",
+          "Healthy Mind",
+          "Holistic Health",
+          "Meditation",
+          "Mental Health",
+          "Mindfulness",
+          "Relaxation Techniques",
+          "Self-Care",
+          "Stress Management",
+          "Stress Relief",
+          "Wellness",
+          "Yoga Benefits",
+          "Yoga Practice",
+          "Yoga for Stress"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Yoga for Stress Relief 🧘‍♂️✨ | Brain Health Matters!",
+          "description": "Discover how yoga can heal your brain from stress and enhance your mental clarity. 🌿 #YogaForStress #MentalHealth #StressRelief #Yoga #Wellness"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-31T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-24T17:39:47.874258+00:00",
+    "scheduled_time": "2026-05-31T14:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "1406796514545681",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_174943_belly-fat-loss-myths-you-must-stop-believing",
+    "idea": {
+      "idea_id": "20260524_174943_belly-fat-loss-myths-you-must-stop-believing",
+      "title": "20260524_174943_belly-fat-loss-myths-you-must-stop-believing",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_174943_belly-fat-loss-myths-you-must-stop-believing",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_174943_belly-fat-loss-myths-you-must-stop-believing",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Belly Fat Loss Myths You Must Stop Believing",
+      "description": "Belly Fat Loss Myths You Must Stop Believing.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "belly fat loss myths you must stop believing",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "belly fat loss myths you must stop believing",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_174943_belly-fat-loss-myths-you-must-stop-believing.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": false,
+    "upload_response": null,
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-06-01T11:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "964694216328788",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    }
   }
 ]
