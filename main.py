@@ -227,6 +227,8 @@ def run_pipeline(
         for item in content_history
     }
     results: list[dict] = []
+    short_visual_index = 0
+    current_short_visual_mode = "unknown"
 
     if topic:
         manual_package = build_manual_content(topic)

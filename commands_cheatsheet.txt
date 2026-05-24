@@ -37,3 +37,17 @@ python main.py --stitch-veo
 **Step 5: Deploy**
 If you're happy with the final video, run this command to schedule it to YouTube with SEO and automatically clean up the files:
 python main.py --deploy-veo --videos-per-day 1
+
+## 📘 FACEBOOK AUTO-UPLOADING
+
+Your script is now built to upload to Facebook automatically! It works at the exact same time as your YouTube scheduling.
+
+**To enable Facebook Uploading:**
+1. Go to the Meta Developer Portal and create an App.
+2. Get your `FACEBOOK_PAGE_ID` and a `FACEBOOK_ACCESS_TOKEN` with `pages_read_engagement`, `pages_manage_posts`, and `pages_manage_metadata` permissions.
+3. Add them to your `.env` file like this:
+   ```
+   FACEBOOK_PAGE_ID=your_page_id_here
+   FACEBOOK_ACCESS_TOKEN=your_access_token_here
+   ```
+4. From now on, whenever you run a command like `python main.py --schedule-upload` or `python main.py --deploy-veo`, it will automatically post to Facebook Reels at the exact same time as YouTube!

@@ -11854,5 +11854,123 @@
     "recovered_for_upload": true,
     "scheduled_time": "2026-05-29T14:30:00Z",
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_114317_gym-mistakes-jo-aap-na-karen",
+    "idea": {
+      "idea_id": "20260524_114317_gym-mistakes-jo-aap-na-karen",
+      "title": "20260524_114317_gym-mistakes-jo-aap-na-karen",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_114317_gym-mistakes-jo-aap-na-karen",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_114317_gym-mistakes-jo-aap-na-karen",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Gym Mistakes Jo Aap Na Karen",
+      "description": "Gym Mistakes Jo Aap Na Karen.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "gym mistakes jo aap na karen",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "gym mistakes jo aap na karen",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_114317_gym-mistakes-jo-aap-na-karen.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "nF9n5TTFfK0qDHLVhNs7evtdUII",
+      "id": "JjHwbNOGyI8",
+      "snippet": {
+        "publishedAt": "2026-05-24T11:59:06Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Gym Mistakes Jo Aap Na Karen",
+        "description": "Gym Mistakes Jo Aap Na Karen.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/JjHwbNOGyI8/default.jpg?sqp=CJTOy9AG&rs=AOn4CLAzCdKOvZ5FolhHD4QzqHwjRRaRVA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/JjHwbNOGyI8/mqdefault.jpg?sqp=CJTOy9AG&rs=AOn4CLCpKuh6ODWFZr5uRk95BJ98GkkTQw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/JjHwbNOGyI8/hqdefault.jpg?sqp=CJTOy9AG&rs=AOn4CLBw64IZuqNQTNPCk6etzgWvMxsnPQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "gym mistakes jo aap na karen",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Gym Mistakes Jo Aap Na Karen",
+          "description": "Gym Mistakes Jo Aap Na Karen.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-30T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-30T14:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "1646534766629374",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
   }
 ]

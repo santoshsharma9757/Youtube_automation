@@ -8,6 +8,7 @@ from config import VIDEO_DIR, get_config
 from posting_schedule import get_daily_slots
 from seo_generator import SeoPackage
 from uploader import YouTubeUploader
+from facebook_uploader import FacebookUploader
 
 logging.basicConfig(level=logging.INFO)
 
@@ -144,6 +145,7 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
 
     history = json.loads(history_file.read_text("utf-8"))
     uploader = YouTubeUploader(config)
+    fb_uploader = FacebookUploader(config)
     orphan_count = append_orphan_video_records(history)
     reconciled_count = reconcile_recovered_records(history)
     if orphan_count or reconciled_count:
@@ -174,14 +176,28 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
         current_time_pointer = max(current_time_pointer, max(existing_scheduled_times) + timedelta(minutes=10))
 
     for record in history:
-        if not record.get("uploaded", False):
-            video_path = Path(record["video_path"])
-            if not video_path.exists():
-                print(f"File not found for upload: {video_path}")
-                missing_files += 1
-                continue
-                
-            # Find the next available slot based on day of week
+        yt_done = record.get("uploaded", False)
+        fb_done = record.get("fb_uploaded", False)
+        
+        # If both platforms are done, skip
+        if yt_done and fb_done:
+            continue
+            
+        # If FB isn't configured, and YT is done, skip
+        if yt_done and not fb_uploader.is_configured():
+            continue
+
+        video_path = Path(record["video_path"])
+        if not video_path.exists():
+            print(f"File not found for upload: {video_path}")
+            missing_files += 1
+            continue
+
+        seo = SeoPackage(**record["seo"])
+        publish_at_utc = record.get("scheduled_time")
+
+        if not publish_at_utc:
+            # Find next slot
             next_slot = None
             temp_date = current_time_pointer.date()
             while next_slot is None:
@@ -196,23 +212,42 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
                         break
                 if next_slot is None: temp_date += timedelta(days=1)
 
-            # Convert to UTC ISO for YouTube API
             publish_at_utc = next_slot.astimezone(pytz.UTC).strftime('%Y-%m-%dT%H:%M:%SZ')
-            seo = SeoPackage(**record["seo"])
-            
-            print(f"Scheduling '{seo.title}' for {next_slot.strftime('%Y-%m-%d %H:%M %Z')}...")
+            record["scheduled_time"] = publish_at_utc
+            current_time_pointer = next_slot + timedelta(minutes=10)
+
+        made_progress = False
+
+        if not yt_done:
+            print(f"Scheduling '{seo.title}' for YouTube at {publish_at_utc}...")
             try:
                 response = uploader.upload_short(video_path, seo, publish_at=publish_at_utc)
                 record["uploaded"] = True
                 record["upload_response"] = response
-                record["scheduled_time"] = publish_at_utc
-                cleanup_local_video(video_path, record)
-                history_file.write_text(json.dumps(history, ensure_ascii=False, indent=2), "utf-8")
-                print("Scheduled successfully!")
-                count_uploaded += 1
-                current_time_pointer = next_slot + timedelta(minutes=10)
+                made_progress = True
+                print("YouTube scheduled successfully!")
             except Exception as e:
-                print(f"Failed to schedule {seo.title}: {e}")
+                print(f"Failed to schedule to YouTube for {seo.title}: {e}")
+
+        if not fb_done and fb_uploader.is_configured():
+            print(f"Scheduling '{seo.title}' for Facebook at {publish_at_utc}...")
+            video_type = str(record.get("script", {}).get("video_type", "short")).lower()
+            is_long = (video_type == "long")
+            try:
+                fb_res = fb_uploader.upload(video_path, seo, publish_at=publish_at_utc, is_long=is_long)
+                record["fb_uploaded"] = True
+                record["fb_upload_response"] = fb_res
+                made_progress = True
+                print("Facebook scheduled successfully!")
+            except Exception as e:
+                print(f"Failed to schedule to Facebook for {seo.title}: {e}")
+
+        if made_progress:
+            # Only clean up local video if YouTube is done (or if both are done)
+            if record.get("uploaded", False) and (not fb_uploader.is_configured() or record.get("fb_uploaded", False)):
+                cleanup_local_video(video_path, record)
+            history_file.write_text(json.dumps(history, ensure_ascii=False, indent=2), "utf-8")
+            count_uploaded += 1
 
     if count_uploaded == 0 and missing_files == 0:
         print("No new videos to schedule.")
