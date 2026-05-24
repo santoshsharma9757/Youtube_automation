@@ -11228,9 +11228,631 @@
     "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260523_200733_breathwork-for-relaxation.mp4",
     "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260523_200733_breathwork-for-relaxation.srt",
     "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260523_200733_breathwork-for-relaxation.json",
-    "uploaded": false,
-    "upload_response": null,
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "MsVR4RhbGcUjpYU-LOFIl9sZ5bM",
+      "id": "XuMrfHSRAWo",
+      "snippet": {
+        "publishedAt": "2026-05-24T08:37:41Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Breathwork Se Mind Ko Chudaa Sakte Hain?",
+        "description": "Breathwork for relaxation se aap sirf relax nahi hote, aapka dimaag bhi shant hota hai. Discover kaise do simple techniques se stress\n\n#shorts #ytshorts #breathwork #relaxation #deepbreathing",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/XuMrfHSRAWo/default.jpg?sqp=CLTwytAG&rs=AOn4CLBqya4T4L-8eUOCz1JZJClg3OV_ag",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/XuMrfHSRAWo/mqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLCEOPuuxqeNxR4fD-QeecNGtgNtqg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/XuMrfHSRAWo/hqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLCtTHmXRyPSpw2BOZd1YdRT5rkw6A",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "breathwork for relaxation",
+          "breathwork for relaxation for beginners",
+          "breathwork for relaxation india",
+          "deep breathing exercises",
+          "fitness tips india",
+          "meditation and breathwork",
+          "mindfulness breathing",
+          "morning yoga routine",
+          "relaxation techniques",
+          "stress relief techniques",
+          "yoga for beginners",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Breathwork Se Mind Ko Chudaa Sakte Hain?",
+          "description": "Breathwork for relaxation se aap sirf relax nahi hote, aapka dimaag bhi shant hota hai. Discover kaise do simple techniques se stress\n\n#shorts #ytshorts #breathwork #relaxation #deepbreathing"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-24T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
     "short_visual_mode": "local",
-    "created_at": "2026-05-23T20:24:45.004343+00:00"
+    "created_at": "2026-05-23T20:24:45.004343+00:00",
+    "scheduled_time": "2026-05-24T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_064825_meditation-ka-zaldi-asar-kya-hai-sahi-tarika",
+    "idea": {
+      "idea_id": "20260524_064825_meditation-ka-zaldi-asar-kya-hai-sahi-tarika",
+      "title": "20260524_064825_meditation-ka-zaldi-asar-kya-hai-sahi-tarika",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_064825_meditation-ka-zaldi-asar-kya-hai-sahi-tarika",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_064825_meditation-ka-zaldi-asar-kya-hai-sahi-tarika",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Meditation Ka Zaldi Asar Kya Hai Sahi Tarika",
+      "description": "Meditation Ka Zaldi Asar Kya Hai Sahi Tarika.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "meditation ka zaldi asar kya hai sahi tarika",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "meditation ka zaldi asar kya hai sahi tarika",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_064825_meditation-ka-zaldi-asar-kya-hai-sahi-tarika.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "BDGxl5cJtHlixxv_WbVj2e4EfCI",
+      "id": "KkKE0EHLPgg",
+      "snippet": {
+        "publishedAt": "2026-05-24T08:37:48Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Meditation Ka Zaldi Asar Kya Hai Sahi Tarika",
+        "description": "Meditation Ka Zaldi Asar Kya Hai Sahi Tarika.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/KkKE0EHLPgg/default.jpg?sqp=CLTwytAG&rs=AOn4CLB73AOTMlDHdjrAPTqyo14612pnZg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/KkKE0EHLPgg/mqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLCYb621wwgG0abbChn2R6YrH9qnCw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/KkKE0EHLPgg/hqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLAHHHiRkhZjxiBDSBktNtT7gFSAPw",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "meditation ka zaldi asar kya hai sahi tarika",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Meditation Ka Zaldi Asar Kya Hai Sahi Tarika",
+          "description": "Meditation Ka Zaldi Asar Kya Hai Sahi Tarika.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-25T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-25T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_070349_gym-mistakes-jo-aapko-nahi-karni-chahiye",
+    "idea": {
+      "idea_id": "20260524_070349_gym-mistakes-jo-aapko-nahi-karni-chahiye",
+      "title": "20260524_070349_gym-mistakes-jo-aapko-nahi-karni-chahiye",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_070349_gym-mistakes-jo-aapko-nahi-karni-chahiye",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_070349_gym-mistakes-jo-aapko-nahi-karni-chahiye",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Gym Mistakes Jo Aapko Nahi Karni Chahiye",
+      "description": "Gym Mistakes Jo Aapko Nahi Karni Chahiye.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "gym mistakes jo aapko nahi karni chahiye",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "gym mistakes jo aapko nahi karni chahiye",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_070349_gym-mistakes-jo-aapko-nahi-karni-chahiye.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "mNC_4ce-W_YUoCjbb78LoFbcz3k",
+      "id": "nZH4y2FxlRc",
+      "snippet": {
+        "publishedAt": "2026-05-24T08:37:54Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Gym Mistakes Jo Aapko Nahi Karni Chahiye",
+        "description": "Gym Mistakes Jo Aapko Nahi Karni Chahiye.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/nZH4y2FxlRc/default.jpg?sqp=CLTwytAG&rs=AOn4CLAwfa9_jb7oWtDXFwB67ubLeNXY2A",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/nZH4y2FxlRc/mqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLCrSD68J8X0hWt26HsdIIqCqDlPAQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/nZH4y2FxlRc/hqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLDECQcktphLaB8SPQeuxnmF0wZR5w",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "gym mistakes jo aapko nahi karni chahiye",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Gym Mistakes Jo Aapko Nahi Karni Chahiye",
+          "description": "Gym Mistakes Jo Aapko Nahi Karni Chahiye.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-26T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-26T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_072207_sleep-ko-improve-karne-ke-liye-meditation",
+    "idea": {
+      "idea_id": "20260524_072207_sleep-ko-improve-karne-ke-liye-meditation",
+      "title": "20260524_072207_sleep-ko-improve-karne-ke-liye-meditation",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_072207_sleep-ko-improve-karne-ke-liye-meditation",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_072207_sleep-ko-improve-karne-ke-liye-meditation",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Sleep Ko Improve Karne Ke Liye Meditation",
+      "description": "Sleep Ko Improve Karne Ke Liye Meditation.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "sleep ko improve karne ke liye meditation",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "sleep ko improve karne ke liye meditation",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_072207_sleep-ko-improve-karne-ke-liye-meditation.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "GHYEjNyEnfZmQ237aIoaQOTp0dM",
+      "id": "5QUdNNjUurQ",
+      "snippet": {
+        "publishedAt": "2026-05-24T08:38:02Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Sleep Ko Improve Karne Ke Liye Meditation",
+        "description": "Sleep Ko Improve Karne Ke Liye Meditation.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/5QUdNNjUurQ/default.jpg?sqp=CLTwytAG&rs=AOn4CLAUy5fXdFk0eZ6iiMoSm27oLyibpA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/5QUdNNjUurQ/mqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLBitUkJki6AwNUy1zSDdJCCfuy0zQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/5QUdNNjUurQ/hqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLAzC_Iq0mX8XNmXaBrIyufHNBvSVQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "sleep ko improve karne ke liye meditation",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Sleep Ko Improve Karne Ke Liye Meditation",
+          "description": "Sleep Ko Improve Karne Ke Liye Meditation.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-27T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-27T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_074714_yoga-ke-3-best-asan-stress-ke-liye",
+    "idea": {
+      "idea_id": "20260524_074714_yoga-ke-3-best-asan-stress-ke-liye",
+      "title": "20260524_074714_yoga-ke-3-best-asan-stress-ke-liye",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_074714_yoga-ke-3-best-asan-stress-ke-liye",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_074714_yoga-ke-3-best-asan-stress-ke-liye",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Yoga Ke 3 Best Asan Stress Ke Liye",
+      "description": "Yoga Ke 3 Best Asan Stress Ke Liye.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "yoga ke 3 best asan stress ke liye",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "yoga ke 3 best asan stress ke liye",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_074714_yoga-ke-3-best-asan-stress-ke-liye.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "muHEWmFgTHMzSHLwjzn6zzdGJuo",
+      "id": "xt1DmBkA-DE",
+      "snippet": {
+        "publishedAt": "2026-05-24T08:38:08Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Yoga Ke 3 Best Asan Stress Ke Liye",
+        "description": "Yoga Ke 3 Best Asan Stress Ke Liye.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/xt1DmBkA-DE/default.jpg?sqp=CLTwytAG&rs=AOn4CLB1h3_XE8EqUB0dn2FE8EijM6TY5A",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/xt1DmBkA-DE/mqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLAcVhGGTw8WgUTH8EbybctzD1i8YA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/xt1DmBkA-DE/hqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLBwt28LQycdh4aSAidt5gNXRalslg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "workout motivation",
+          "yoga ke 3 best asan stress ke liye",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Yoga Ke 3 Best Asan Stress Ke Liye",
+          "description": "Yoga Ke 3 Best Asan Stress Ke Liye.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-28T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-28T14:30:00Z",
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_081252_evening-workout-ki-benefits-aur-tips",
+    "idea": {
+      "idea_id": "20260524_081252_evening-workout-ki-benefits-aur-tips",
+      "title": "20260524_081252_evening-workout-ki-benefits-aur-tips",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_081252_evening-workout-ki-benefits-aur-tips",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_081252_evening-workout-ki-benefits-aur-tips",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Evening Workout Ki Benefits Aur Tips",
+      "description": "Evening Workout Ki Benefits Aur Tips.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+      "tags": [
+        "evening workout ki benefits aur tips",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#ytshorts",
+        "#DailyFitX",
+        "#fitness",
+        "#workout",
+        "#motivation",
+        "#viralshorts",
+        "#fitnessmotivation"
+      ],
+      "primary_keyword": "evening workout ki benefits aur tips",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_081252_evening-workout-ki-benefits-aur-tips.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "uqdGhK2Omqy6n-OuWOV5pADsvJA",
+      "id": "_bXrbXrcpAc",
+      "snippet": {
+        "publishedAt": "2026-05-24T08:38:14Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Evening Workout Ki Benefits Aur Tips",
+        "description": "Evening Workout Ki Benefits Aur Tips.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/_bXrbXrcpAc/default.jpg?sqp=CLTwytAG&rs=AOn4CLANTE9oMEbxZI6JXcApcAqvkvGWrQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/_bXrbXrcpAc/mqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLBVmmyvQRec4pKIso9G-OYg6NKrsg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/_bXrbXrcpAc/hqdefault.jpg?sqp=CLTwytAG&rs=AOn4CLB_YTLcCxgywxpnYM9gmZ8XH3B2hg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "evening workout ki benefits aur tips",
+          "fitness shorts",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Evening Workout Ki Benefits Aur Tips",
+          "description": "Evening Workout Ki Benefits Aur Tips.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-05-29T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-05-29T14:30:00Z",
+    "local_video_deleted": true
   }
 ]

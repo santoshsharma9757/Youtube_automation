@@ -76,18 +76,20 @@ def run_pipeline(
     language: str = "hinglish",
     test_long: bool = False,
     veo_prompt: bool = False,
+    stitch_veo: bool = False,
     deploy_veo: bool = False,
+    videos_per_day: int = 3,
 ) -> list[dict]:
     config = get_config()
     total_count = short_count + long_count
 
-    if deploy_veo:
-        LOGGER.info("Deploying manually generated Veo clips...")
+    if stitch_veo:
+        LOGGER.info("Stitching manually generated Veo clips...")
         veo_dir = Path("input/veo_clips")
         metadata_file = veo_dir / "metadata.json"
         
         if not metadata_file.exists():
-            LOGGER.error("metadata.json not found in %s! Cannot deploy without SEO metadata.", veo_dir)
+            LOGGER.error("metadata.json not found in %s! Cannot stitch without SEO metadata.", veo_dir)
             return []
             
         metadata = json.loads(metadata_file.read_text(encoding="utf-8"))
@@ -119,6 +121,36 @@ def run_pipeline(
                 c.close()
             final_clip.close()
             
+            metadata["final_video_path"] = str(output_path)
+            metadata_file.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+            
+            LOGGER.info("Stitching complete! You can preview the final video here: %s", output_path)
+            LOGGER.info("When you are ready, run the deploy command: python main.py --deploy-veo")
+            
+        except Exception as exc:
+            LOGGER.error("Failed to stitch Veo clips: %s", exc)
+        return []
+
+    if deploy_veo:
+        LOGGER.info("Deploying stitched Veo video...")
+        veo_dir = Path("input/veo_clips")
+        metadata_file = veo_dir / "metadata.json"
+        
+        if not metadata_file.exists():
+            LOGGER.error("metadata.json not found in %s! Cannot deploy without SEO metadata.", veo_dir)
+            return []
+            
+        metadata = json.loads(metadata_file.read_text(encoding="utf-8"))
+        if "final_video_path" not in metadata:
+            LOGGER.error("Final video path not found in metadata! Please run --stitch-veo first.")
+            return []
+            
+        output_path = Path(metadata["final_video_path"])
+        if not output_path.exists():
+            LOGGER.error("Final video file not found at %s! Please run --stitch-veo again.", output_path)
+            return []
+            
+        try:
             seo = SeoPackage(
                 title=metadata["seo_title"],
                 description=metadata["seo_description"],
@@ -128,18 +160,36 @@ def run_pipeline(
                 language_code="hi",
                 audio_language_code="hi",
             )
+            record = {
+                "idea_title": metadata.get("seo_title", "Veo Video"),
+                "idea": {},
+                "script": {"video_type": "short"},
+                "seo": asdict(seo),
+                "audio_path": "",
+                "video_path": str(output_path.resolve()),
+                "subtitle_srt": "",
+                "subtitle_json": "",
+                "uploaded": False,
+                "upload_response": None,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+            }
+            content_history = read_json(config.content_store)
+            content_history.append(record)
+            write_json(config.content_store, content_history)
             
-            LOGGER.info("Uploading combined Veo video to YouTube...")
-            uploader = YouTubeUploader(config)
-            uploader.upload_short(output_path, seo)
+            LOGGER.info("Scheduling combined Veo video to YouTube...")
+            from upload_all import schedule_pending_uploads
+            schedule_pending_uploads(videos_per_day=videos_per_day)
             
-            LOGGER.info("Upload complete. Cleaning up %s and final video...", veo_dir)
+            LOGGER.info("Scheduling process complete. Cleaning up %s...", veo_dir)
+            # Remove original clips
+            clips_paths = sorted([p for p in veo_dir.glob("*.mp4")])
             for p in clips_paths:
                 p.unlink()
+                
             if "prompt_path" in metadata:
                 Path(metadata["prompt_path"]).unlink(missing_ok=True)
             metadata_file.unlink()
-            output_path.unlink(missing_ok=True)
             LOGGER.info("Veo deployment finished successfully!")
             
         except Exception as exc:
@@ -250,7 +300,10 @@ def run_pipeline(
                     f"{veo_data.get('clip_2_prompt', '')}\n\n"
                     "--------------------------------------------------\n\n"
                     "🔥 CLIP 3 PROMPT (Copy to Veo):\n"
-                    f"{veo_data.get('clip_3_prompt', '')}\n"
+                    f"{veo_data.get('clip_3_prompt', '')}\n\n"
+                    "--------------------------------------------------\n\n"
+                    "🔥 CLIP 4 PROMPT (Copy to Veo):\n"
+                    f"{veo_data.get('clip_4_prompt', '')}\n"
                 )
                 
                 veo_path.write_text(clean_prompt, encoding="utf-8")
@@ -260,7 +313,6 @@ def run_pipeline(
                 input_dir.mkdir(parents=True, exist_ok=True)
                 metadata_path = input_dir / "metadata.json"
                 veo_data["prompt_path"] = str(veo_path.resolve())
-                import json
                 metadata_path.write_text(json.dumps(veo_data, indent=2, ensure_ascii=False), encoding="utf-8")
                 LOGGER.info("Saved SEO metadata to %s", metadata_path)
                 
@@ -370,7 +422,8 @@ def parse_args() -> argparse.Namespace:
         help="How many videos to schedule per day when using --schedule-upload",
     )
     parser.add_argument("--veo-prompt", action="store_true", help="Generate text prompts for Google Veo instead of rendering videos")
-    parser.add_argument("--deploy-veo", action="store_true", help="Combine and upload manual AI videos from input/veo_clips/")
+    parser.add_argument("--stitch-veo", action="store_true", help="Combine Veo clips so you can preview the final video before deploying")
+    parser.add_argument("--deploy-veo", action="store_true", help="Upload the combined Veo video from --stitch-veo to YouTube")
     parser.add_argument("--test-long", action="store_true", help="Generate a long video for testing")
     parser.add_argument(
         "legacy_command",
@@ -410,7 +463,9 @@ def main() -> None:
         language=args.language,
         test_long=args.test_long,
         veo_prompt=args.veo_prompt,
+        stitch_veo=args.stitch_veo,
         deploy_veo=args.deploy_veo,
+        videos_per_day=args.videos_per_day,
     )
     if args.schedule_upload:
         scheduled = schedule_pending_uploads(videos_per_day=args.videos_per_day)

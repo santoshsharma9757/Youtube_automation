@@ -44,20 +44,20 @@ class SeoGenerator:
             else "The output language should be Hinglish in Roman script only, mixing Hindi and English naturally."
         )
         prompt = (
-            "You are a YouTube SEO strategist for fitness, yoga, gym, meditation, exercise, and health content. "
+            "You are an elite YouTube SEO strategist specializing in viral fitness, yoga, gym, meditation, and health content. "
             f"You are packaging a {format_label}. "
             "Return strict JSON with keys title, description, tags, hashtags, primary_keyword. "
-            "The packaging must be optimized for real YouTube search intent first, then browse/discovery appeal second. "
+            "The packaging must be HEAVILY optimized for the YouTube Shorts Feed algorithm (high click-through-rate, trending appeal) and YouTube Search (high-intent SEO) to maximize views and reach. "
             "Rules:\n"
             f"- primary_keyword must stay exactly or very close to this search phrase: {keyword}\n"
-            "- title must be a High-CTR 'curiosity gap' title. It should provoke extreme curiosity while naturally aligning to the keyword. No fake promises.\n"
-            "- tags must be exact, high-intent phrases viewers actively type into the YouTube search bar.\n"
+            "- title must be a viral, High-CTR 'curiosity gap' title with emojis to grab attention in the feed. It should provoke extreme curiosity while naturally aligning to the keyword.\n"
+            "- tags must be exact, high-intent phrases viewers actively type into the YouTube search bar, including trending variations.\n"
             "- avoid generic vanity terms that do not match the topic.\n"
-            "- description must front-load the keyword and explain the viewer payoff quickly.\n"
-            "- hashtags should support discovery but should not replace search intent.\n"
+            "- description must front-load the keyword in the very first sentence to increase Search and Suggested Video ranking, and explain the viewer payoff quickly.\n"
+            "- hashtags should support aggressive feed discovery and algorithmic matching.\n"
             "- do not put hashtags inside the title.\n"
             + (
-                "- for Shorts: title under 58 characters; description should be 2 short lines before hashtags; provide exactly 5 hashtags: #shorts, #ytshorts, and 3 ultra-niche hashtags.\n"
+                "- for Shorts: title under 58 characters; description should be 2 short lines before hashtags; provide exactly 5 hashtags: #shorts, #ytshorts, and 3 ultra-niche trending hashtags.\n"
                 if not is_long
                 else "- for long-form: title under 70 characters; description should be 2-3 short sentences; provide exactly 5 hashtags.\n"
             )

@@ -77,10 +77,10 @@ class ScriptGenerator:
             - Every script must feel fresh. Avoid repeating channel cliches, avoid repeating the same CTA pattern, and avoid recycled lines like "ruk mat", "consistency hi sab kuch hai", or "show up every day" unless the topic truly needs it
             - Use "Curiosity Loops": open a question in the hook and promise the answer in the solution, never giving away the answer too early.
             - Use "Pattern Interrupts": change the emotional tone, pacing, or angle every 5-10 seconds to maximize dopamine hits and keep the brain engaged.
-            - The solution MUST provide highly specific, actionable, and life-improving value. Provide real fixes to their struggles.
-            - Provide a practical action plan or a hidden insight that gives the viewer an immediate "aha!" moment
-            - Emphasize scientifically-backed or logical real-world facts (e.g., exact physiological changes, proven methods)
-            - Make the script feel like a high-value masterclass compressed into a flowing story: pain, mechanism, exact fix, result.
+            - The solution MUST provide highly specific, actionable, and life-improving value. It MUST be EXTREMELY USEFUL to the viewer, providing real fixes to their daily struggles.
+            - Provide a practical action plan or a hidden insight that gives the viewer an immediate "aha!" moment. Do not just talk about the problem; SOLVE it.
+            - Emphasize scientifically-backed or logical real-world facts (e.g., exact physiological changes, proven methods). Be an expert they can trust.
+            - Make the script feel like a high-value masterclass compressed into a flowing story: pain, mechanism, exact fix, result. The user must feel they learned something valuable.
             - NO vague "you can do it" motivational fluff. Give them real utility they can apply right now.
             - Avoid fake timelines, miracle claims, and medical promises
             - Use short, punchy spoken lines with high-energy emotional rhythm for TTS and subtitles
@@ -143,30 +143,32 @@ class ScriptGenerator:
         
         prompt = textwrap.dedent(
             f"""
-            Write a detailed cinematic prompt for an AI video generator (like Google Veo) and generate SEO metadata.
+            Write a highly detailed, cinematic prompt for an AI video generator (like Google Veo) and generate SEO metadata.
             Topic: {idea.topic}
             Angle: {idea.angle}
             
             IMPORTANT: You must frame this video strictly around a specific BODY ORGAN (e.g., Liver, Kidney, Stomach, Heart, Brain, Eye).
-            The narrative must follow this exact structure:
-            - Clip 1: What is BAD for this organ / What NOT to do.
-            - Clip 2: What is GOOD for this organ / What TO eat/do.
-            - Clip 3: The organ healing and feeling HAPPY/healthy at the end.
+            The narrative must follow this exact 4-part structure to ensure seamless flow and maximum usefulness to the viewer:
+            - Clip 1: The Problem - What is BAD for this organ / What NOT to do (The struggle).
+            - Clip 2: The Consequence - The visual negative impact or symptom on the organ (Why it matters).
+            - Clip 3: The Solution - What is GOOD for this organ / What TO eat/do instead (The HIGHLY USEFUL fix).
+            - Clip 4: The Result - The organ completely healing, glowing, and feeling HAPPY/healthy at the end (The payoff).
             
-            The final video will be exactly 24 seconds long (3 scenes, exactly 8 seconds each).
-            The spoken language for the Voiceover MUST be in Hindi.
+            The final video will be exactly 32 seconds long (4 scenes, exactly 8 seconds each). The scenes must link perfectly together to form one continuous, highly engaging story that educates the viewer.
+            The spoken language for the Voiceover MUST be in Hindi and provide EXTREMELY USEFUL advice they can apply immediately.
             
             Return ONLY a valid JSON object with the following keys:
-            - "clip_1_prompt": The Veo text prompt for ONLY Scene 1 (What is BAD for the organ).
-            - "clip_2_prompt": The Veo text prompt for ONLY Scene 2 (What is GOOD for the organ).
-            - "clip_3_prompt": The Veo text prompt for ONLY Scene 3 (The organ healing and HAPPY).
+            - "clip_1_prompt": The Veo text prompt for ONLY Scene 1 (The Problem).
+            - "clip_2_prompt": The Veo text prompt for ONLY Scene 2 (The Consequence).
+            - "clip_3_prompt": The Veo text prompt for ONLY Scene 3 (The Solution).
+            - "clip_4_prompt": The Veo text prompt for ONLY Scene 4 (The Result).
             - "seo_title": A high-retention YouTube Shorts title (under 60 chars) including emojis.
             - "seo_description": A 2-sentence description with 5 hashtags.
             - "seo_tags": An array of 15 highly targeted YouTube search tags.
 
-            Each clip prompt MUST be self-contained and formatted like this:
+            Each clip prompt MUST be highly descriptive, self-contained but flowing logically from the previous, and formatted like this:
             
-            "Ultra realistic medical CGI, 4K, vertical 9:16. [Visual description of the scene]. Hindi Voiceover: '[Hindi dialogue here]'"
+            "Ultra realistic medical CGI, 4K, vertical 9:16. [Highly detailed visual description of the scene]. Hindi Voiceover: '[Hindi dialogue here]'"
             """
         )
         
@@ -189,6 +191,7 @@ class ScriptGenerator:
                 "clip_1_prompt": f"Ultra realistic medical CGI, 4K, vertical 9:16. {idea.title} part 1. Hindi Voiceover: '...'",
                 "clip_2_prompt": f"Ultra realistic medical CGI, 4K, vertical 9:16. {idea.title} part 2. Hindi Voiceover: '...'",
                 "clip_3_prompt": f"Ultra realistic medical CGI, 4K, vertical 9:16. {idea.title} part 3. Hindi Voiceover: '...'",
+                "clip_4_prompt": f"Ultra realistic medical CGI, 4K, vertical 9:16. {idea.title} part 4. Hindi Voiceover: '...'",
                 "seo_title": idea.title,
                 "seo_description": idea.topic,
                 "seo_tags": [idea.topic]

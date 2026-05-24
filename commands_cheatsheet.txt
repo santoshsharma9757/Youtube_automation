@@ -12,7 +12,7 @@ Generate multiple Long videos (2-3 minutes), perfectly mix your visual footage, 
 python main.py --count 0 --long-count 2 --schedule-upload --videos-per-day 1
 
 
-## 🤖 THE 4-STEP GOOGLE VEO WORKFLOW
+## 🤖 THE 5-STEP GOOGLE VEO WORKFLOW
 
 Follow this exact process to create high-end AI Organ Health videos:
 
@@ -23,12 +23,17 @@ python main.py --count 1 --veo-prompt
 
 **Step 2: Generate the Video Clips on Google Veo**
 Open the generated `.txt` file. Copy the prompt text and paste it into Google Veo.
-Wait for Veo to generate the 3 videos, and then download them to your computer.
+Wait for Veo to generate the 4 videos, and then download them to your computer.
 
 **Step 3: Staging the Clips**
-Move those 3 downloaded videos into your `input/veo_clips/` folder.
-CRITICAL: You MUST rename the three files to exactly `1.mp4`, `2.mp4`, and `3.mp4` so the script knows the correct order!
+Move those 4 downloaded videos into your `input/veo_clips/` folder.
+CRITICAL: You MUST rename the four files to exactly `1.mp4`, `2.mp4`, `3.mp4`, and `4.mp4` so the script knows the correct order!
 
-**Step 4: Combine & Deploy**
-Run this final command to stitch the videos, upload to YouTube with SEO, and clean your hard drive automatically:
-python main.py --deploy-veo
+**Step 4: Combine & Preview**
+Run this command to stitch the videos together so you can review the final result:
+python main.py --stitch-veo
+*(This saves the combined video to `output/final_videos/` and lets you watch it before uploading)*
+
+**Step 5: Deploy**
+If you're happy with the final video, run this command to schedule it to YouTube with SEO and automatically clean up the files:
+python main.py --deploy-veo --videos-per-day 1
