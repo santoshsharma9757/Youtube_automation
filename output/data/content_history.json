@@ -12142,8 +12142,60 @@
     "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_174943_belly-fat-loss-myths-you-must-stop-believing.mp4",
     "subtitle_srt": "",
     "subtitle_json": "",
-    "uploaded": false,
-    "upload_response": null,
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "w_O-tIAHDfsWkcbuQBVUVdffmKk",
+      "id": "5wyZkLBTgxQ",
+      "snippet": {
+        "publishedAt": "2026-05-25T09:37:24Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Belly Fat Loss Myths You Must Stop Believing",
+        "description": "Belly Fat Loss Myths You Must Stop Believing.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/5wyZkLBTgxQ/default.jpg?sqp=CMSv0NAG&rs=AOn4CLCBKmkelw1YHlv-cWt6uFlY-XoSHA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/5wyZkLBTgxQ/mqdefault.jpg?sqp=CMSv0NAG&rs=AOn4CLA2YWVRW3v7RWl96_-fEMK4eZcwbQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/5wyZkLBTgxQ/hqdefault.jpg?sqp=CMSv0NAG&rs=AOn4CLDMavIodGVu_ZcbUpU24CSKE9QJAQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "belly fat loss myths you must stop believing",
+          "fitness shorts",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Belly Fat Loss Myths You Must Stop Believing",
+          "description": "Belly Fat Loss Myths You Must Stop Believing.\n\n#shorts #ytshorts #DailyFitX #fitness #workout #motivation #viralshorts #fitnessmotivation"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-01T11:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
     "created_at": "",
     "recovered_for_upload": true,
     "scheduled_time": "2026-06-01T11:30:00Z",
@@ -12152,6 +12204,240 @@
       "id": "964694216328788",
       "platform": "facebook",
       "status": "SCHEDULED"
-    }
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Evening Fitness Routine for Ultimate Relaxation ✨",
+    "idea": {},
+    "script": {
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Evening Fitness Routine for Ultimate Relaxation ✨",
+      "description": "Transform your evenings with our effective fitness routine! Discover relaxation techniques for a healthier lifestyle. #EveningFitness #Relaxation #Yoga #HealthyHabits #BodyTransformation",
+      "tags": [
+        "Evening Fitness",
+        "Yoga Routine",
+        "Healthy Diet",
+        "Body Transformation",
+        "Fitness Motivation",
+        "Relaxation Techniques",
+        "Healthy Lifestyle",
+        "Evening Routine",
+        "Wellness",
+        "Stress Relief",
+        "Mindfulness",
+        "Yoga for Relaxation",
+        "Fitness Tips",
+        "Healthy Eating",
+        "Body Positivity"
+      ],
+      "hashtags": [
+        "Evening Fitness",
+        "Yoga Routine",
+        "Healthy Diet",
+        "Body Transformation",
+        "Fitness Motivation"
+      ],
+      "primary_keyword": "Evening Fitness",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\final_videos\\veo_final_20260525_150414.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "adFVJpxRhOITXabRUn9y3QZENoc",
+      "id": "6-a8-Fwk5IU",
+      "snippet": {
+        "publishedAt": "2026-05-25T09:37:32Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Evening Fitness Routine for Ultimate Relaxation ✨",
+        "description": "Transform your evenings with our effective fitness routine! Discover relaxation techniques for a healthier lifestyle. #EveningFitness #Relaxation #Yoga #HealthyHabits #BodyTransformation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/6-a8-Fwk5IU/default.jpg?sqp=CMSv0NAG&rs=AOn4CLDil5Yozeav2dTuV0VcpBDwdzbpig",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/6-a8-Fwk5IU/mqdefault.jpg?sqp=CMSv0NAG&rs=AOn4CLBRgI8IhaVhKuhE7f3imywZtL-xFg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/6-a8-Fwk5IU/hqdefault.jpg?sqp=CMSv0NAG&rs=AOn4CLA019DVlkyHxzt6-F9sfr8yzpQ9Ag",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "Body Positivity",
+          "Body Transformation",
+          "Evening Fitness",
+          "Evening Routine",
+          "Fitness Motivation",
+          "Fitness Tips",
+          "Healthy Diet",
+          "Healthy Eating",
+          "Healthy Lifestyle",
+          "Mindfulness",
+          "Relaxation Techniques",
+          "Stress Relief",
+          "Wellness",
+          "Yoga Routine",
+          "Yoga for Relaxation"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Evening Fitness Routine for Ultimate Relaxation ✨",
+          "description": "Transform your evenings with our effective fitness routine! Discover relaxation techniques for a healthier lifestyle. #EveningFitness #Relaxation #Yoga #HealthyHabits #BodyTransformation"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-01T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-25T09:37:23.136569+00:00",
+    "scheduled_time": "2026-06-01T14:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "1520103059509812",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "20260524_180324_home-workout-hacks-5-items-you-need",
+    "idea": {
+      "idea_id": "20260524_180324_home-workout-hacks-5-items-you-need",
+      "title": "20260524_180324_home-workout-hacks-5-items-you-need",
+      "angle": "orphan-video-recovery",
+      "hook": "",
+      "topic": "Recovered local upload",
+      "audience_value": "Recovered local upload",
+      "source_prompt": "upload-all-orphan-recovery",
+      "created_at": ""
+    },
+    "script": {
+      "title": "20260524_180324_home-workout-hacks-5-items-you-need",
+      "hook": "",
+      "problem": "",
+      "insight": "",
+      "solution": "",
+      "cta": "",
+      "full_script": "",
+      "estimated_duration_seconds": 0,
+      "primary_keyword": "20260524_180324_home-workout-hacks-5-items-you-need",
+      "retention_note": "Recovered local video with fallback metadata."
+    },
+    "seo": {
+      "title": "Home Workout Hacks 5 Items You Need",
+      "description": "Home Workout Hacks 5 Items You Need.\n\n#shorts #shortsfeed #fitness #fitnessmotivation #fitnessjourney #healthylifestyle #DailyFitX",
+      "tags": [
+        "home workout hacks 5 items you need",
+        "fitness shorts",
+        "workout motivation",
+        "DailyFitX",
+        "youtube shorts"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#shortsfeed",
+        "#fitness",
+        "#fitnessmotivation",
+        "#fitnessjourney",
+        "#healthylifestyle",
+        "#DailyFitX"
+      ],
+      "primary_keyword": "home workout hacks 5 items you need",
+      "language_code": "en",
+      "audio_language_code": "en",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260524_180324_home-workout-hacks-5-items-you-need.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "C_46OvRlgjOKrKkal4GXPeHhvO0",
+      "id": "i6hKq09Rros",
+      "snippet": {
+        "publishedAt": "2026-05-25T09:37:48Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Home Workout Hacks 5 Items You Need",
+        "description": "Home Workout Hacks 5 Items You Need.\n\n#shorts #shortsfeed #fitness #fitnessmotivation #fitnessjourney #healthylifestyle #DailyFitX",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/i6hKq09Rros/default.jpg?sqp=CMSv0NAG&rs=AOn4CLCsn4dcvjltLG8suhUfgzvnn_np-w",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/i6hKq09Rros/mqdefault.jpg?sqp=CMSv0NAG&rs=AOn4CLDUE3whNoyFg5opliwfOnqaKqwJwA",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/i6hKq09Rros/hqdefault.jpg?sqp=CMSv0NAG&rs=AOn4CLDd9A17cUKycSwW-Z7Leqf9NeHMog",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "fitness shorts",
+          "home workout hacks 5 items you need",
+          "workout motivation",
+          "youtube shorts"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Home Workout Hacks 5 Items You Need",
+          "description": "Home Workout Hacks 5 Items You Need.\n\n#shorts #shortsfeed #fitness #fitnessmotivation #fitnessjourney #healthylifestyle #DailyFitX"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-02T14:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "",
+    "recovered_for_upload": true,
+    "scheduled_time": "2026-06-02T14:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "1314939473515447",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
   }
 ]

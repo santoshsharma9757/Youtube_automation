@@ -37,7 +37,9 @@ class FacebookUploader:
     def _upload_standard_video(self, video_path: Path, seo: SeoPackage, publish_at: str | None = None) -> dict:
         LOGGER.info("Starting Facebook Standard Video upload...")
         url = f"https://graph.facebook.com/{self.api_version}/{self.page_id}/videos"
-        caption = f"{seo.title}\n\n{seo.description}"
+        caption = seo.description
+        if not caption.strip().lower().startswith(seo.title.strip().lower()[:20]):
+            caption = f"{seo.title}\n\n{seo.description}"
         
         payload = {
             "access_token": self.access_token,
@@ -106,7 +108,9 @@ class FacebookUploader:
         LOGGER.info("Starting Facebook Reels upload phase 3 (Publish/Schedule)...")
         
         # Combine title and description for FB Reels caption
-        caption = f"{seo.title}\n\n{seo.description}"
+        caption = seo.description
+        if not caption.strip().lower().startswith(seo.title.strip().lower()[:20]):
+            caption = f"{seo.title}\n\n{seo.description}"
 
         finish_payload = {
             "access_token": self.access_token,
