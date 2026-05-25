@@ -12671,5 +12671,147 @@
       "status": "SCHEDULED"
     },
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Posture Improve Karne Ke Asan Tarike",
+    "idea": {
+      "idea_id": "c7018f24-822f-4b74-bc95-b5565c645092",
+      "title": "Posture Improve Karne Ke Asan Tarike",
+      "angle": "Quick fixes for bad posture",
+      "hook": "Kya aapka posture bhi kharaab hai?",
+      "topic": "Posture Correction",
+      "audience_value": "Posture improvement",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-25T12:28:12.867428+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long",
+      "search_keyword": "how to improve posture",
+      "source_video_title": "Stomach health shorts india"
+    },
+    "script": {
+      "title": "Posture Improve Karne Ke Asan Tarike",
+      "overlay_text": "Improve Posture Fast!",
+      "hook": "Kya aapka posture bhi kharaab hai? Aap nahi jaante, lekin ye aapki confidence aur health ko kitna negatively affect kar raha hai!",
+      "problem": "Bad posture sirf aapki looks ko hi nahi, balki aapke health ko bhi affect karta hai. Neck pain, back pain, aur fatigue sab iski wajah se ho sakte hain! Lekin aap isse badalne ke liye sirf thodi effort ki zarurat hai.",
+      "insight": "Kya aap jante hain ki sahi posture se aapki breathing aur digestion bhi improve ho sakta hai? Jab aap seedhe khade hote hain, toh aapka body zyada efficient tareeke se kaam karta hai. Chaliye, isko banate hain simple aur easy!",
+      "solution": "Sabse pehle, sirf do steps mein apne posture ko improve kijiye! 1) Simple Wall Test - Seedhe khade ho kar apne back ko ek wall se lagaiye. Kya aapka head, shoulders, aur heels wall se touch karte hain? Agar nahi, toh aapko koi adjustments karne ki zarurat hai. 2) Desk Setup - Apne work desk ko adjust kijiye. Monitor ka level aisa rakhein ki aapka neck straight rahe, aur chair ko aisa set karein ki aapki knees 90-degree angle pe rahein. Dhyan rahein, agar aap time spend kar rahe hain desk pe, toh chaalu rakhna bohot zaroori hai! Ye simple changes aapko comfort aur productivity dono denge.",
+      "cta": "Toh chaliye, ab apne posture par kaam karein! Apne improvement ko monitor karein aur comment karein ki aapka experience kaisa raha! Koi aur tips chahiye? Mujhe batayein!",
+      "full_script": "Kya aapka posture bhi kharaab hai? Aap nahi jaante, lekin ye aapki confidence aur health ko kitna negatively affect kar raha hai! Bad posture sirf aapki looks ko hi nahi, balki aapke health ko bhi affect karta hai. Neck pain, back pain, aur fatigue sab iski wajah se ho sakte hain! Lekin aap isse badalne ke liye sirf thodi effort ki zarurat hai. Kya aap jante hain ki sahi posture se aapki breathing aur digestion bhi improve ho sakta hai? Jab aap seedhe khade hote hain, toh aapka body zyada efficient tareeke se kaam karta hai. Chaliye, isko banate hain simple aur easy! Sabse pehle, sirf do steps mein apne posture ko improve kijiye! 1) Simple Wall Test - Seedhe khade ho kar apne back ko ek wall se lagaiye. Kya aapka head, shoulders, aur heels wall se touch karte hain? Agar nahi, toh aapko koi adjustments karne ki zarurat hai. 2) Desk Setup - Apne work desk ko adjust kijiye. Monitor ka level aisa rakhein ki aapka neck straight rahe, aur chair ko aisa set karein ki aapki knees 90-degree angle pe rahein. Dhyan rahein, agar aap time spend kar rahe hain desk pe, toh chaalu rakhna bohot zaroori hai! Ye simple changes aapko comfort aur productivity dono denge. Toh chaliye, ab apne posture par kaam karein! Apne improvement ko monitor karein aur comment karein ki aapka experience kaisa raha! Koi aur tips chahiye? Mujhe batayein!",
+      "estimated_duration_seconds": 120,
+      "primary_keyword": "how to improve posture",
+      "retention_note": "Opening grabs immediate attention by highlighting the surprising impact of bad posture, sparking curiosity and urgency to learn the immediate fixes.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Aapka Posture Kharaab Hai? Discover Quick Fixes!",
+      "description": "How to improve posture quickly! Kharaab posture aapki health aur confidence ko affect karta hai. Ye simple steps aapko better posture aur productivity denge!\n\n#howtoimproveposture #fitnesshacks #yogatips #deskwork #viral",
+      "tags": [
+        "how to improve posture",
+        "posture correction exercises",
+        "yoga for better posture",
+        "desk posture tips",
+        "improve sitting posture",
+        "back pain relief",
+        "neck pain exercises",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "how to improve posture india",
+        "how to improve posture for beginners",
+        "fitness channel india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#howtoimproveposture",
+        "#fitnesshacks",
+        "#yogatips",
+        "#deskwork",
+        "#viral"
+      ],
+      "primary_keyword": "how to improve posture",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260525_122812_posture-improve-karne-ke-asan-tarike.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260525_122812_posture-improve-karne-ke-asan-tarike.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260525_122812_posture-improve-karne-ke-asan-tarike.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260525_122812_posture-improve-karne-ke-asan-tarike.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "eS3pRawJck1QDwkXhNJRlw0Q_J4",
+      "id": "juJ6cdWBfD4",
+      "snippet": {
+        "publishedAt": "2026-05-25T12:55:50Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Aapka Posture Kharaab Hai? Discover Quick Fixes!",
+        "description": "How to improve posture quickly! Kharaab posture aapki health aur confidence ko affect karta hai. Ye simple steps aapko better posture aur productivity denge!\n\n#howtoimproveposture #fitnesshacks #yogatips #deskwork #viral",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/juJ6cdWBfD4/default.jpg?sqp=CKSN0dAG&rs=AOn4CLALkBGWmvhRPrFnY7agEj4IQy8kKQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/juJ6cdWBfD4/mqdefault.jpg?sqp=CKSN0dAG&rs=AOn4CLCxKCiE9tJP9zo1yl6dt6LP8K_13Q",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/juJ6cdWBfD4/hqdefault.jpg?sqp=CKSN0dAG&rs=AOn4CLB5ka-5T9klVAaqRebG2objzYdmOQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "back pain relief",
+          "desk posture tips",
+          "fitness channel india",
+          "how to improve posture",
+          "how to improve posture for beginners",
+          "how to improve posture india",
+          "improve sitting posture",
+          "meditation and breathwork",
+          "morning yoga routine",
+          "neck pain exercises",
+          "posture correction exercises",
+          "yoga for beginners",
+          "yoga for better posture",
+          "yoga for stress relief"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Aapka Posture Kharaab Hai? Discover Quick Fixes!",
+          "description": "How to improve posture quickly! Kharaab posture aapki health aur confidence ko affect karta hai. Ye simple steps aapko better posture aur productivity denge!\n\n#howtoimproveposture #fitnesshacks #yogatips #deskwork #viral"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-05T06:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "unknown",
+    "created_at": "2026-05-25T12:55:43.962220+00:00",
+    "scheduled_time": "2026-06-05T06:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "1370945435088398",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
   }
 ]
