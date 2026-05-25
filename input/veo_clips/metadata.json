@@ -1,0 +1,27 @@
+{
+  "clip_1_prompt": "Cinematic, 4K, vertical 9:16. A dimly lit room where a sad, personified stomach organ sits on a couch surrounded by junk food wrappers, looking defeated and bloated. The organ gazes longingly at a vibrant salad on the table, showcasing a stark contrast between unhealthy choices and healthy options. Hindi Voiceover: 'आपका दिन खत्म हो गया है, लेकिन क्या आप जानते हैं कि आप क्या खा रहे हैं?'",
+  "clip_2_prompt": "Cinematic, 4K, vertical 9:16. The scene transitions to a microscopic view of the stomach organ struggling, showing unhealthy food particles piling up, leading to inflammation and sluggishness. The visuals depict a dramatic internal battle with glowing red and green colors symbolizing the struggle between health and unhealthiness. Hindi Voiceover: 'गलत खाने से आपका स्वास्थ्य बुरी तरह प्रभावित होता है, जिससे थकान और तनाव बढ़ता है।'",
+  "clip_3_prompt": "Cinematic, 4K, vertical 9:16. A serene yoga space emerges, where the happy stomach organ is now surrounded by fresh fruits, herbal teas, and a gentle yoga mat. The organ begins a relaxing evening routine, practicing deep breathing and light stretching, radiating positive energy. Hindi Voiceover: 'अब समय है अपने शरीर को फिर से जीवंत करने का। हरी सब्जियां, योग, और ध्यान अपनाएँ।'",
+  "clip_4_prompt": "Cinematic, 4K, vertical 9:16. A glowing, joyful stomach organ now dances in a beautifully lit space, surrounded by vibrant plants and glowing energy. It radiates health and happiness, showcasing a transformation from sad to blissful, symbolizing the benefits of a healthy evening routine. Hindi Voiceover: 'आपका शरीर आपकी खुशियों का अक्स है। स्वस्थ आदतें अपनाएँ और जीवन को संजीवनी दें।'",
+  "seo_title": "Evening Fitness Routine for Ultimate Relaxation ✨",
+  "seo_description": "Transform your evenings with our effective fitness routine! Discover relaxation techniques for a healthier lifestyle. #EveningFitness #Relaxation #Yoga #HealthyHabits #BodyTransformation",
+  "seo_tags": [
+    "Evening Fitness",
+    "Yoga Routine",
+    "Healthy Diet",
+    "Body Transformation",
+    "Fitness Motivation",
+    "Relaxation Techniques",
+    "Healthy Lifestyle",
+    "Evening Routine",
+    "Wellness",
+    "Stress Relief",
+    "Mindfulness",
+    "Yoga for Relaxation",
+    "Fitness Tips",
+    "Healthy Eating",
+    "Body Positivity"
+  ],
+  "prompt_path": "D:\\dfx-yt-automation\\output\\veo_prompts\\20260525_091742_evening-routine-self-care-workout.txt",
+  "final_video_path": "output\\final_videos\\veo_final_20260525_150414.mp4"
+}

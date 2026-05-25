@@ -57,9 +57,9 @@ class SeoGenerator:
             "- hashtags should support aggressive feed discovery and algorithmic matching.\n"
             "- do not put hashtags inside the title.\n"
             + (
-                "- for Shorts: title under 58 characters; description should be 2 short lines before hashtags; provide exactly 5 hashtags: #shorts, #ytshorts, and 3 ultra-niche trending hashtags.\n"
+                "- for Shorts: title under 58 characters; description should be 2 short lines before hashtags; provide 5-7 hashtags: #shorts, #shortsfeed, #viral, and high-volume trending hashtags (e.g., #fitness, #healthylifestyle).\n"
                 if not is_long
-                else "- for long-form: title under 70 characters; description should be 2-3 short sentences; provide exactly 5 hashtags.\n"
+                else "- for long-form: title under 70 characters; description should be 2-3 short sentences; provide 5-7 high-volume trending hashtags including #viral.\n"
             )
             + f"{language_line}\n"
             + f"Content style: {content_style}\n"
@@ -216,21 +216,20 @@ class SeoGenerator:
     def _fallback_hashtags(content_style: str, language_code: str, is_long: bool) -> List[str]:
         if is_long:
             mapping = {
-                "yoga": ["#DailyFitX", "#yoga", "#wellness", "#fitness", "#health"],
-                "fat_loss": ["#DailyFitX", "#fatloss", "#weightloss", "#fitness", "#health"],
-                "strength": ["#DailyFitX", "#gym", "#strength", "#workout", "#fitness"],
-                "health": ["#DailyFitX", "#health", "#wellness", "#fitness", "#healthtips"],
-                "fitness": ["#DailyFitX", "#fitness", "#workout", "#health", "#fitnessmotivation"],
+                "yoga": ["#yoga", "#YogaForBeginners", "#YogaForStress", "#healthylifestyle", "#DailyFitX"],
+                "fat_loss": ["#fitness", "#fitnessjourney", "#healthylifestyle", "#fatloss", "#DailyFitX"],
+                "strength": ["#fitness", "#fitnessmotivation", "#gym", "#workout", "#DailyFitX"],
+                "health": ["#health", "#healthylifestyle", "#healthtips", "#healthyliving", "#DailyFitX"],
+                "fitness": ["#fitness", "#fitnessmotivation", "#fitnessjourney", "#healthylifestyle", "#DailyFitX"],
             }
             return mapping.get(content_style, mapping["fitness"])
 
-        lang_tag = "#hinglishfitness" if language_code == "hi" else "#fitnessmotivation"
         mapping = {
-            "yoga": ["#shorts", "#ytshorts", "#DailyFitX", "#yoga", "#stressrelief", "#mobility", "#meditation", lang_tag],
-            "fat_loss": ["#shorts", "#ytshorts", "#DailyFitX", "#fatloss", "#weightloss", "#bellyfat", "#diettips", lang_tag],
-            "strength": ["#shorts", "#ytshorts", "#DailyFitX", "#gym", "#workouttips", "#musclebuilding", "#strengthtraining", lang_tag],
-            "health": ["#shorts", "#ytshorts", "#DailyFitX", "#health", "#healthtips", "#guthealth", "#sleeptips", lang_tag],
-            "fitness": ["#shorts", "#ytshorts", "#DailyFitX", "#fitness", "#workouttips", "#viralshorts", "#fitnessmotivation", lang_tag],
+            "yoga": ["#shorts", "#shortsfeed", "#yoga", "#YogaForBeginners", "#YogaForStress", "#DailyFitX"],
+            "fat_loss": ["#shorts", "#shortsfeed", "#fitness", "#fitnessjourney", "#healthylifestyle", "#DailyFitX"],
+            "strength": ["#shorts", "#shortsvideos", "#fitnessmotivation", "#gym", "#musclebuilding", "#DailyFitX"],
+            "health": ["#shorts", "#shortsreels", "#health", "#healthylifestyle", "#healthtips", "#DailyFitX"],
+            "fitness": ["#shorts", "#shortsfeed", "#fitness", "#fitnessmotivation", "#fitnessjourney", "#DailyFitX"],
         }
         return mapping.get(content_style, mapping["fitness"])
 

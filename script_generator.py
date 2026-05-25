@@ -141,34 +141,59 @@ class ScriptGenerator:
     def generate_veo_prompt(self, idea: VideoIdea) -> dict:
         LOGGER.info("Generating Veo Prompt & SEO for idea '%s'", idea.title)
         
+        import os
+        state_file = "output/veo_prompts/.last_style"
+        last_style = 2
+        if os.path.exists(state_file):
+            try:
+                with open(state_file, "r") as f:
+                    last_style = int(f.read().strip())
+            except:
+                pass
+        
+        current_style = 1 if last_style == 2 else 2
+        
+        os.makedirs(os.path.dirname(state_file), exist_ok=True)
+        with open(state_file, "w") as f:
+            f.write(str(current_style))
+            
+        if current_style == 1:
+            style_instruction = "Visual Style REQUIRED: Trending Personified Organ Animation (A cute animated body part/organ like a stomach, eye, or brain. A human hand is shown feeding or giving it BAD things like cola, junk, or screens making it sad/sick. Finally, the hand gives it GOOD things like water or healthy food, and it transforms into a bright, happy, glowing organ)."
+        else:
+            style_instruction = "Visual Style REQUIRED: Epic & Realistic Visuals (Fascinating 3D internal anatomy, microscopic fat-burning, cinematic gym atmospheres, or glowing ethereal yoga spaces)."
+        
         prompt = textwrap.dedent(
             f"""
             Write a highly detailed, cinematic prompt for an AI video generator (like Google Veo) and generate SEO metadata.
+            Channel Concept: DailyFitX (High-energy fitness, yoga, diet, health, and body transformation)
             Topic: {idea.topic}
             Angle: {idea.angle}
             
-            IMPORTANT: You must frame this video strictly around a specific BODY ORGAN (e.g., Liver, Kidney, Stomach, Heart, Brain, Eye).
-            The narrative must follow this exact 4-part structure to ensure seamless flow and maximum usefulness to the viewer:
-            - Clip 1: The Problem - What is BAD for this organ / What NOT to do (The struggle).
-            - Clip 2: The Consequence - The visual negative impact or symptom on the organ (Why it matters).
-            - Clip 3: The Solution - What is GOOD for this organ / What TO eat/do instead (The HIGHLY USEFUL fix).
-            - Clip 4: The Result - The organ completely healing, glowing, and feeling HAPPY/healthy at the end (The payoff).
+            IMPORTANT: Create an EXTREMELY captivating, viral, and visually stunning concept for this video. 
+            {style_instruction}
             
-            The final video will be exactly 32 seconds long (4 scenes, exactly 8 seconds each). The scenes must link perfectly together to form one continuous, highly engaging story that educates the viewer.
-            The spoken language for the Voiceover MUST be in Hindi and provide EXTREMELY USEFUL advice they can apply immediately.
+            The narrative must follow this exact 4-part structure to ensure seamless flow and maximum usefulness:
+            - Clip 1: The Hook & Problem - A shocking or relatable visual representing the struggle.
+            - Clip 2: The Consequence/Mechanism - The internal or external impact (Why it matters).
+            - Clip 3: The Solution/Action - The highly useful fix, exercise, diet, or habit.
+            - Clip 4: The Epic Result - The glorious, healthy, glowing payoff.
+            
+            The final video will be exactly 32 seconds long (4 scenes, exactly 8 seconds each).
+            The spoken language for the Voiceover MUST be in Hindi.
+            
+            CRITICAL VOICEOVER RULE: Do NOT duplicate or repeat any voiceover text between clips. Clip 2's voiceover must continue exactly where Clip 1 ended without repeating a single word. Each clip's dialogue must be 100% unique.
             
             Return ONLY a valid JSON object with the following keys:
-            - "clip_1_prompt": The Veo text prompt for ONLY Scene 1 (The Problem).
-            - "clip_2_prompt": The Veo text prompt for ONLY Scene 2 (The Consequence).
-            - "clip_3_prompt": The Veo text prompt for ONLY Scene 3 (The Solution).
-            - "clip_4_prompt": The Veo text prompt for ONLY Scene 4 (The Result).
-            - "seo_title": A high-retention YouTube Shorts title (under 60 chars) including emojis.
-            - "seo_description": A 2-sentence description with 5 hashtags.
+            - "clip_1_prompt": The Veo text prompt for ONLY Scene 1.
+            - "clip_2_prompt": The Veo text prompt for ONLY Scene 2.
+            - "clip_3_prompt": The Veo text prompt for ONLY Scene 3.
+            - "clip_4_prompt": The Veo text prompt for ONLY Scene 4.
+            - "seo_title": A high-retention YouTube Shorts title (under 60 chars) including emojis. DO NOT put hashtags in the title.
+            - "seo_description": A 2-sentence description followed by 5-7 ultra-high volume viral hashtags (e.g., #shortsfeed, #fitness, #healthylifestyle, #viral).
             - "seo_tags": An array of 15 highly targeted YouTube search tags.
 
-            Each clip prompt MUST be highly descriptive, self-contained but flowing logically from the previous, and formatted like this:
-            
-            "Ultra realistic medical CGI, 4K, vertical 9:16. [Highly detailed visual description of the scene]. Hindi Voiceover: '[Hindi dialogue here]'"
+            Each clip prompt MUST be formatted like this:
+            "Cinematic, 4K, vertical 9:16. [Highly detailed, visually interesting description of the scene]. Hindi Voiceover: '[Unique Hindi dialogue here]'"
             """
         )
         

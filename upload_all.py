@@ -20,13 +20,12 @@ def build_fallback_seo(video_path: Path) -> SeoPackage:
     title = title_text.title()
     hashtags = [
         "#shorts",
-        "#ytshorts",
-        "#DailyFitX",
+        "#shortsfeed",
         "#fitness",
-        "#workout",
-        "#motivation",
-        "#viralshorts",
         "#fitnessmotivation",
+        "#fitnessjourney",
+        "#healthylifestyle",
+        "#DailyFitX",
     ]
     return SeoPackage(
         title=title[:80],
