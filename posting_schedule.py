@@ -32,8 +32,6 @@ DAY_NAME_TO_WEEKDAY: dict[str, int] = {
 
 
 def get_daily_slots(weekday: int, videos_per_day: int, video_type: str = "short") -> list[int]:
-    if videos_per_day == 1 and video_type == "short":
-        return [20]
     slot_table = LONG_FORM_POSTING_SLOTS if video_type == "long" else SHORTS_POSTING_SLOTS
     selected_slots = slot_table.get(weekday, SHORTS_POSTING_SLOTS[0])[:videos_per_day]
     return sorted(selected_slots)

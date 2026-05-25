@@ -3,6 +3,10 @@ import logging
 import re
 from dataclasses import asdict
 from pathlib import Path
+from datetime import datetime, timedelta, time, timezone
+import requests
+import pytz
+from googleapiclient.discovery import build
 
 from config import VIDEO_DIR, get_config
 from posting_schedule import get_daily_slots
@@ -133,9 +137,136 @@ def cleanup_local_video(video_path: Path, record: dict) -> None:
         print(f"Uploaded but could not delete local video {video_path.name}: {exc}")
 
 
+def sync_scheduled_times_from_platforms(history: list[dict], tz, config) -> int:
+    """
+    Syncs scheduled publish times from Facebook Graph API and YouTube API
+    with the local content history file so that local database stays 100% in sync
+    with manual scheduling shifts done on the platforms.
+    """
+    def clean_for_match(s: str) -> str:
+        return "".join(c for c in s.lower() if c.isalnum())
+    synced_count = 0
+    
+    # 1. Sync from Facebook Graph API
+    if config.facebook_page_id and config.facebook_access_token:
+        try:
+            print("Syncing scheduled times from Facebook Graph API...")
+            fb_url = f"https://graph.facebook.com/v19.0/{config.facebook_page_id}/scheduled_posts"
+            params = {
+                "fields": "id,message,scheduled_publish_time",
+                "access_token": config.facebook_access_token,
+                "limit": 100
+            }
+            res = requests.get(fb_url, params=params, timeout=15)
+            res.raise_for_status()
+            fb_data = res.json().get("data", [])
+            
+            for fb_item in fb_data:
+                fb_time_stamp = fb_item.get("scheduled_publish_time")
+                fb_message = fb_item.get("message", "")
+                if not fb_time_stamp or not fb_message:
+                    continue
+                
+                # Convert Unix timestamp to UTC ISO format string (used in history)
+                fb_dt_utc = datetime.fromtimestamp(fb_time_stamp, timezone.utc)
+                fb_time_str = fb_dt_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
+                
+                # Try to find matching record in local history
+                for record in history:
+                    # Match by idea_title or seo title
+                    title_to_match = record.get("idea_title", "")
+                    seo_title = record.get("seo", {}).get("title", "")
+                    
+                    match_found = False
+                    clean_fb = clean_for_match(fb_message)
+                    clean_idea = clean_for_match(title_to_match)
+                    clean_seo = clean_for_match(seo_title)
+                    
+                    if clean_idea and clean_idea in clean_fb:
+                        match_found = True
+                    elif clean_seo and clean_seo in clean_fb:
+                        match_found = True
+                    
+                    if match_found:
+                        old_time = record.get("scheduled_time")
+                        if old_time != fb_time_str:
+                            record["scheduled_time"] = fb_time_str
+                            record["fb_uploaded"] = True
+                            record["uploaded"] = True  # Align YouTube to prevent re-uploading
+                            synced_count += 1
+                            print(f"Sync: Updated '{title_to_match or seo_title}' schedule time to {fb_time_str} (from Facebook)")
+        except Exception as exc:
+            print(f"Warning: Facebook schedule sync failed: {exc}")
+            
+    # 2. Sync from YouTube API (if credentials and token are valid)
+    try:
+        uploader = YouTubeUploader(config)
+        token_path = Path(config.youtube_token_file)
+        if token_path.exists():
+            print("Syncing scheduled times from YouTube API...")
+            youtube = build("youtube", "v3", credentials=uploader._load_credentials())
+            # Get uploads playlist
+            ch_res = youtube.channels().list(part="contentDetails", mine=True).execute()
+            uploads_playlist_id = ch_res["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+            
+            # List recent playlist items (last 50 uploads)
+            pl_res = youtube.playlistItems().list(
+                part="snippet,status",
+                playlistId=uploads_playlist_id,
+                maxResults=50
+            ).execute()
+            
+            video_ids = []
+            for item in pl_res.get("items", []):
+                v_id = item["snippet"]["resourceId"]["videoId"]
+                video_ids.append(v_id)
+                
+            if video_ids:
+                # Fetch details to get publishAt time for scheduled videos
+                v_res = youtube.videos().list(
+                    part="snippet,status",
+                    id=",".join(video_ids)
+                ).execute()
+                
+                for v_item in v_res.get("items", []):
+                    publish_at = v_item.get("status", {}).get("publishAt")
+                    if publish_at:
+                        # YouTube publishAt comes as '2026-06-04T13:30:00Z'
+                        # Normalize to '2026-06-04T13:30:00Z' format
+                        yt_time_str = publish_at
+                        if ".000Z" in yt_time_str:
+                            yt_time_str = yt_time_str.replace(".000", "")
+                        
+                        yt_title = v_item["snippet"].get("title", "")
+                        
+                        for record in history:
+                            title_to_match = record.get("idea_title", "")
+                            seo_title = record.get("seo", {}).get("title", "")
+                            
+                            match_found = False
+                            clean_yt = clean_for_match(yt_title)
+                            clean_idea = clean_for_match(title_to_match)
+                            clean_seo = clean_for_match(seo_title)
+                            
+                            if clean_idea and clean_idea in clean_yt:
+                                match_found = True
+                            elif clean_seo and clean_seo in clean_yt:
+                                match_found = True
+                                
+                            if match_found:
+                                old_time = record.get("scheduled_time")
+                                if old_time != yt_time_str:
+                                    record["scheduled_time"] = yt_time_str
+                                    record["uploaded"] = True
+                                    synced_count += 1
+                                    print(f"Sync: Updated '{title_to_match or seo_title}' schedule time to {yt_time_str} (from YouTube)")
+    except Exception as exc:
+        print(f"Warning: YouTube schedule sync failed: {exc}")
+        
+    return synced_count
+
+
 def schedule_pending_uploads(videos_per_day: int = 3) -> int:
-    import pytz
-    from datetime import datetime, timedelta, time
     config = get_config()
     history_file = config.content_store
     if not history_file.exists():
@@ -143,18 +274,24 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
         return 0
 
     history = json.loads(history_file.read_text("utf-8"))
+    tz = pytz.timezone(config.scheduler_timezone)
+    
+    # Synchronize scheduled times from Facebook/YouTube before deciding next upload slots
+    synced = sync_scheduled_times_from_platforms(history, tz, config)
+    
     uploader = YouTubeUploader(config)
     fb_uploader = FacebookUploader(config)
     orphan_count = append_orphan_video_records(history)
     reconciled_count = reconcile_recovered_records(history)
-    if orphan_count or reconciled_count:
+    if orphan_count or reconciled_count or synced:
         history_file.write_text(json.dumps(history, ensure_ascii=False, indent=2), "utf-8")
+        if synced:
+            print(f"Successfully synchronized {synced} scheduled times from online platforms to local history database.")
         if orphan_count:
             print(f"Recovered {orphan_count} local video(s) from output/videos for scheduling.")
         if reconciled_count:
             print(f"Reconciled {reconciled_count} recovered record(s) from previous interrupted runs.")
     
-    tz = pytz.timezone(config.scheduler_timezone)
     now = datetime.now(tz)
     count_uploaded = 0
     missing_files = 0

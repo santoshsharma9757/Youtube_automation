@@ -12439,5 +12439,237 @@
       "status": "SCHEDULED"
     },
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Start Your Day Right with Morning Yoga! 🌅🧘‍♂️",
+    "idea": {},
+    "script": {
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Start Your Day Right with Morning Yoga! 🌅🧘‍♂️",
+      "description": "Transform your mornings with energizing yoga! Discover the secret to starting your day right for a healthier, happier you. #shortsfeed #fitness #healthylifestyle #yoga #morningroutine #viral #wellness",
+      "tags": [
+        "morning yoga",
+        "yoga routine",
+        "fitness",
+        "health",
+        "yoga benefits",
+        "morning routine",
+        "body transformation",
+        "stress relief",
+        "wellness",
+        "yoga for beginners",
+        "healthy lifestyle",
+        "energizing yoga",
+        "daily yoga",
+        "mindfulness",
+        "yoga practice"
+      ],
+      "hashtags": [
+        "morning yoga",
+        "yoga routine",
+        "fitness",
+        "health",
+        "yoga benefits"
+      ],
+      "primary_keyword": "morning yoga",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\final_videos\\veo_final_20260525_170351.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "WU_6ZwQwyqRsSjyz5qxGQJV9NVE",
+      "id": "JM8e8SaAbU4",
+      "snippet": {
+        "publishedAt": "2026-05-25T11:36:17Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Start Your Day Right with Morning Yoga! 🌅🧘‍♂️",
+        "description": "Transform your mornings with energizing yoga! Discover the secret to starting your day right for a healthier, happier you. #shortsfeed #fitness #healthylifestyle #yoga #morningroutine #viral #wellness",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/JM8e8SaAbU4/default.jpg?sqp=COTn0NAG&rs=AOn4CLCmq-0mdRIBb6eRiQ8cdiCPUT2lBQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/JM8e8SaAbU4/mqdefault.jpg?sqp=COTn0NAG&rs=AOn4CLAI9PtC2WCb_Nf3-q5UBRMc4LnABg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/JM8e8SaAbU4/hqdefault.jpg?sqp=COTn0NAG&rs=AOn4CLA1HMZ8KjPX6miZXWJ33JPMotKDIA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "body transformation",
+          "daily yoga",
+          "energizing yoga",
+          "fitness",
+          "health",
+          "healthy lifestyle",
+          "mindfulness",
+          "morning routine",
+          "morning yoga",
+          "stress relief",
+          "wellness",
+          "yoga benefits",
+          "yoga for beginners",
+          "yoga practice",
+          "yoga routine"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Start Your Day Right with Morning Yoga! 🌅🧘‍♂️",
+          "description": "Transform your mornings with energizing yoga! Discover the secret to starting your day right for a healthier, happier you. #shortsfeed #fitness #healthylifestyle #yoga #morningroutine #viral #wellness"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-03T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-25T11:36:16.018091+00:00",
+    "scheduled_time": "2026-06-03T13:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "3506975779480984",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Transform Your Mobility! 💪✨",
+    "idea": {},
+    "script": {
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Transform Your Mobility! 💪✨",
+      "description": "Discover how mobility exercises can elevate your health and fitness journey! Transform your body and feel amazing with DailyFitX! #shortsfeed #fitness #healthylifestyle #viral #mobility #wellness #transformation",
+      "tags": [
+        "mobility exercises",
+        "fitness tips",
+        "health transformation",
+        "yoga for mobility",
+        "healthy diet",
+        "wellness",
+        "body transformation",
+        "daily fitness",
+        "animated fitness",
+        "motivational fitness",
+        "health tips",
+        "exercise routine",
+        "fitness motivation",
+        "yoga benefits",
+        "healthy lifestyle"
+      ],
+      "hashtags": [
+        "mobility exercises",
+        "fitness tips",
+        "health transformation",
+        "yoga for mobility",
+        "healthy diet"
+      ],
+      "primary_keyword": "mobility exercises",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\final_videos\\veo_final_20260525_171954.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "34_v5LKp1QeasgMo2tNn_XmtrIA",
+      "id": "KDAnr7C8Tdc",
+      "snippet": {
+        "publishedAt": "2026-05-25T11:53:17Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Transform Your Mobility! 💪✨",
+        "description": "Discover how mobility exercises can elevate your health and fitness journey! Transform your body and feel amazing with DailyFitX! #shortsfeed #fitness #healthylifestyle #viral #mobility #wellness #transformation",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/KDAnr7C8Tdc/default.jpg?sqp=COju0NAG&rs=AOn4CLAKx_xVyC7ZLmbG-7jMuO69lT772w",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/KDAnr7C8Tdc/mqdefault.jpg?sqp=COju0NAG&rs=AOn4CLDsQwD0OzhOxLxxPqWviyTKOPy4Fw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/KDAnr7C8Tdc/hqdefault.jpg?sqp=COju0NAG&rs=AOn4CLBDPNPp-F-T13tyTPYtIln4OoaWcQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "animated fitness",
+          "body transformation",
+          "daily fitness",
+          "exercise routine",
+          "fitness motivation",
+          "fitness tips",
+          "health tips",
+          "health transformation",
+          "healthy diet",
+          "healthy lifestyle",
+          "mobility exercises",
+          "motivational fitness",
+          "wellness",
+          "yoga benefits",
+          "yoga for mobility"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Transform Your Mobility! 💪✨",
+          "description": "Discover how mobility exercises can elevate your health and fitness journey! Transform your body and feel amazing with DailyFitX! #shortsfeed #fitness #healthylifestyle #viral #mobility #wellness #transformation"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-04T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-05-25T11:53:15.611303+00:00",
+    "scheduled_time": "2026-06-04T13:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "1646417699941553",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
   }
 ]
