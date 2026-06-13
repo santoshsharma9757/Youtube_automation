@@ -192,15 +192,18 @@ class KidsVideoAssembler:
                     raise FileNotFoundError(f"Missing required video file for Scene {num} in {input_dir}: {k}.mp4")
                 scene_files[num] = (video_found, "video")
             else:
-                # look for k_image.png, k_image.jpg, k_image.jpeg
+                # look for k_image.png, k_image.jpg, k_image.jpeg, or k.png, k.jpg, k.jpeg
                 image_found = None
                 for ext in [".png", ".jpg", ".jpeg"]:
-                    test_path = input_dir / f"{k}_image{ext}"
-                    if test_path.exists():
-                        image_found = test_path
+                    for pattern in [f"{k}_image{ext}", f"{k}{ext}"]:
+                        test_path = input_dir / pattern
+                        if test_path.exists():
+                            image_found = test_path
+                            break
+                    if image_found:
                         break
                 if not image_found:
-                    raise FileNotFoundError(f"Missing required image file for Scene {num} in {input_dir}: {k}_image.png")
+                    raise FileNotFoundError(f"Missing required image file for Scene {num} in {input_dir}: {k}_image.png or {k}.png")
                 scene_files[num] = (image_found, "image")
 
         # 2. Synthesize individual scene voiceovers and determine durations

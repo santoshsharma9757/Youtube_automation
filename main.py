@@ -365,8 +365,13 @@ def run_pipeline(
                             if not any((folder / f"{k}{ext}").exists() for ext in [".mp4", ".mov", ".avi"]):
                                 missing_files.append(f"{k}.mp4")
                         else:
-                            if not any((folder / f"{k}_image{ext}").exists() for ext in [".png", ".jpg", ".jpeg"]):
-                                missing_files.append(f"{k}_image.png")
+                            found_image = False
+                            for pattern in [f"{k}_image.png", f"{k}_image.jpg", f"{k}_image.jpeg", f"{k}.png", f"{k}.jpg", f"{k}.jpeg"]:
+                                if (folder / pattern).exists():
+                                    found_image = True
+                                    break
+                            if not found_image:
+                                missing_files.append(f"{k}_image.png or {k}.png")
 
                     if missing_files:
                         LOGGER.info("Folder '%s' is not ready yet. Missing files: %s", folder.name, missing_files)
