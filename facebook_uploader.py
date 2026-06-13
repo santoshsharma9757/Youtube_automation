@@ -2,6 +2,7 @@ import logging
 import os
 from pathlib import Path
 from datetime import datetime
+import re
 import requests
 
 from config import AppConfig
@@ -40,6 +41,7 @@ class FacebookUploader:
         caption = seo.description
         if not caption.strip().lower().startswith(seo.title.strip().lower()[:20]):
             caption = f"{seo.title}\n\n{seo.description}"
+        caption = self._optimize_caption_for_facebook(caption, seo.content_style)
         
         payload = {
             "access_token": self.access_token,
@@ -47,7 +49,8 @@ class FacebookUploader:
         }
         
         if publish_at:
-            dt = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ")
+            from datetime import timezone
+            dt = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
             unix_timestamp = int(dt.timestamp())
             payload["published"] = "false"
             payload["scheduled_publish_time"] = str(unix_timestamp)
@@ -111,6 +114,7 @@ class FacebookUploader:
         caption = seo.description
         if not caption.strip().lower().startswith(seo.title.strip().lower()[:20]):
             caption = f"{seo.title}\n\n{seo.description}"
+        caption = self._optimize_caption_for_facebook(caption, seo.content_style)
 
         finish_payload = {
             "access_token": self.access_token,
@@ -121,7 +125,8 @@ class FacebookUploader:
 
         if publish_at:
             # publish_at comes as ISO string like '2026-05-24T20:00:00Z'
-            dt = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ")
+            from datetime import timezone
+            dt = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
             unix_timestamp = int(dt.timestamp())
             finish_payload["video_state"] = "SCHEDULED"
             finish_payload["scheduled_publish_time"] = str(unix_timestamp)
@@ -136,3 +141,40 @@ class FacebookUploader:
 
         LOGGER.info("Facebook upload complete with video id %s", video_id)
         return {"id": video_id, "platform": "facebook", "status": finish_payload["video_state"]}
+
+    def _optimize_caption_for_facebook(self, caption: str, content_style: str) -> str:
+        # Replace YouTube-specific hashtags with Facebook-native Reels hashtags
+        replacements = {
+            "#shortsfeed": "#facebookreels",
+            "#shortsvideos": "#viralreels",
+            "#shortsreels": "#fbreels",
+            "#shorts": "#reels",
+        }
+        optimized = caption
+        for yt_tag, fb_tag in replacements.items():
+            # Perform case-insensitive replacement
+            optimized = re.sub(re.escape(yt_tag), fb_tag, optimized, flags=re.IGNORECASE)
+            
+        # Add high-retention general and niche-specific FB Reels hashtags if not present
+        fb_tags = ["#reels", "#fbviral", "#trendingreels"]
+        if content_style == "yoga":
+            fb_tags.extend(["#yogareels", "#mindfulness"])
+        elif content_style == "fat_loss":
+            fb_tags.extend(["#weightlossjourney", "#fitnessreels"])
+        elif content_style == "strength":
+            fb_tags.extend(["#gymreels", "#workoutmotivation"])
+        elif content_style == "health":
+            fb_tags.extend(["#healthtips", "#wellness"])
+        else:
+            fb_tags.extend(["#fitnessreels", "#workout"])
+            
+        # Append tags that are not already in the caption
+        extra_tags = []
+        for tag in fb_tags:
+            if tag.lower() not in optimized.lower():
+                extra_tags.append(tag)
+                
+        if extra_tags:
+            optimized = f"{optimized.strip()} {' '.join(extra_tags)}"
+            
+        return optimized

@@ -50,14 +50,15 @@ class SeoGenerator:
             "The packaging must be HEAVILY optimized for the YouTube Shorts Feed algorithm (high click-through-rate, trending appeal) and YouTube Search (high-intent SEO) to maximize views and reach. "
             "Rules:\n"
             f"- primary_keyword must stay exactly or very close to this search phrase: {keyword}\n"
-            "- title must be a viral, High-CTR 'curiosity gap' title with emojis to grab attention in the feed. It should provoke extreme curiosity while naturally aligning to the keyword.\n"
+            "- title must be a viral, High-CTR 'curiosity gap' title that is extremely short, human-style, natural, and highly clickable (typically 2 to 4 words). It should provoke extreme curiosity while naturally aligning to the keyword.\n"
+            "- for Hinglish/Hindi content: write the title in natural, extremely catchy Roman script Hindi (Hinglish) with highly click-worthy Indian phrasings (e.g., 'Belly Fat Hack #shorts' or 'Ye 3 Exercises Karo! 🔥'). Do NOT write generic or dry English titles for Hinglish scripts.\n"
             "- tags must be exact, high-intent phrases viewers actively type into the YouTube search bar, including trending variations.\n"
             "- avoid generic vanity terms that do not match the topic.\n"
             "- description must front-load the keyword in the very first sentence to increase Search and Suggested Video ranking, and explain the viewer payoff quickly.\n"
             "- hashtags should support aggressive feed discovery and algorithmic matching.\n"
-            "- do not put hashtags inside the title.\n"
+            "- do not put hashtags inside the title if it is a long-form video. BUT for Shorts, you MUST include exactly 1 or 2 high-volume, clean hashtags at the end of the title (e.g., 'fun #shorts #motivation' or 'Belly Fat Hack #shorts').\n"
             + (
-                "- for Shorts: title under 58 characters; description should be 2 short lines before hashtags; provide 5-7 hashtags: #shorts, #shortsfeed, #viral, and high-volume trending hashtags (e.g., #fitness, #healthylifestyle).\n"
+                "- for Shorts: title must be ultra-short, human-style, natural, and highly clickable (2-4 words, under 30 characters) containing exactly 1-2 clean hashtags at the end. Focus on curiosity + emotional trigger (e.g. 'fun #shorts #motivation' or 'Stomach Hack #shorts'). Description should be 2 short lines before hashtags; provide 5-7 hashtags: #shorts, #shortsfeed, #viral, and high-volume trending hashtags.\n"
                 if not is_long
                 else "- for long-form: title under 70 characters; description should be 2-3 short sentences; provide 5-7 high-volume trending hashtags including #viral.\n"
             )
@@ -173,10 +174,11 @@ class SeoGenerator:
     @classmethod
     def _clean_title(cls, value: str, fallback: str, is_long: bool) -> str:
         cleaned = cls._clean_ascii_text(value)
-        cleaned = re.sub(r"#\w+", "", cleaned)
+        if is_long:
+            cleaned = re.sub(r"#\w+", "", cleaned)
         cleaned = re.sub(r"\b\d{6,}\b", "", cleaned)
         cleaned = re.sub(r"\s+", " ", cleaned).strip(" -_")
-        if len(cleaned) < 10:
+        if len(cleaned) < 5:
             cleaned = cls._clean_ascii_text(fallback).strip()
         return cleaned[: (68 if is_long else 58)]
 
@@ -191,14 +193,26 @@ class SeoGenerator:
         return cut
 
     def _fallback_title(self, keyword: str, fallback_title: str, content_style: str, language_code: str, is_long: bool) -> str:
-        if language_code == "hi":
-            title = f"{keyword}: Yeh Galti Mat Karo"
+        if not is_long:
+            if content_style == "yoga":
+                title = "Yoga Hack #shorts #motivation"
+            elif content_style == "fat_loss":
+                title = "Fat Loss Secret #shorts #fitness"
+            elif content_style == "strength":
+                title = "Gym Hack #shorts #gym"
+            elif content_style == "health":
+                title = "Health Trick #shorts #health"
+            else:
+                title = "Fitness Tip #shorts #motivation"
         else:
-            title = f"{keyword}: The Fix Most People Miss"
-        if content_style == "yoga":
-            title = f"{keyword}: Mind Aur Body Calm Karo" if language_code == "hi" else f"{keyword}: Calm Your Body Fast"
-        elif content_style == "fat_loss":
-            title = f"{keyword}: Fat Loss Ka Sach" if language_code == "hi" else f"{keyword}: Fat Loss Truth"
+            if language_code == "hi":
+                title = f"{keyword}: Yeh Galti Mat Karo"
+            else:
+                title = f"{keyword}: The Fix Most People Miss"
+            if content_style == "yoga":
+                title = f"{keyword}: Mind Aur Body Calm Karo" if language_code == "hi" else f"{keyword}: Calm Your Body Fast"
+            elif content_style == "fat_loss":
+                title = f"{keyword}: Fat Loss Ka Sach" if language_code == "hi" else f"{keyword}: Fat Loss Truth"
         cleaned_fallback = self._clean_ascii_text(fallback_title).strip()
         return (title or cleaned_fallback)[: (68 if is_long else 58)]
 

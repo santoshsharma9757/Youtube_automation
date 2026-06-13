@@ -371,6 +371,21 @@ class IdeaGenerator:
     @staticmethod
     def _youtube_queries(theme: str | None = None) -> list[str]:
         base_queries = [
+            # High-Volume / Medium-Volume Search Queries from YouTube Content Gaps (High CTR potential)
+            "belly fat loss exercise",
+            "exercise to lose weight fast at home",
+            "weight loss exercises at home for women",
+            "exercise to lose weight fast at home for men",
+            "effective exercise to lose weight at home",
+            "home exercise workouts for women to lose belly fat",
+            "exercise to lose full body weight fast at home",
+            "weight loss exercises at home for women full body",
+            "exercise to lose weight and fat fast at home",
+            "most effective weight loss exercise at home",
+            "easy exercise to lose weight and belly fat at home",
+            "home exercise workouts for men to lose",
+            
+            # Legacy general queries
             "yoga shorts india",
             "gym shorts india",
             "exercise shorts india",

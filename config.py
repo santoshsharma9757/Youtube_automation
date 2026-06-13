@@ -17,7 +17,7 @@ ASSETS_DIR = BASE_DIR / "assets"
 OUTPUT_DIR = BASE_DIR / "output"
 DATA_DIR = OUTPUT_DIR / "data"
 AUDIO_DIR = OUTPUT_DIR / "audio"
-VIDEO_DIR = OUTPUT_DIR / "videos"
+VIDEO_DIR = OUTPUT_DIR / "final_videos"
 SUBTITLE_DIR = OUTPUT_DIR / "subtitles"
 LOG_DIR = OUTPUT_DIR / "logs"
 WINDOWS_FONT_CANDIDATES = [
@@ -101,9 +101,21 @@ class AppConfig:
         default_factory=lambda: os.getenv("REQUIRE_YOUTUBE_TREND_IDEAS", "true").lower() == "true"
     )
 
-    ideas_store: Path = field(default_factory=lambda: DATA_DIR / "ideas.json")
-    content_store: Path = field(default_factory=lambda: DATA_DIR / "content_history.json")
-    seo_store: Path = field(default_factory=lambda: DATA_DIR / "seo_history.json")
+    ideas_store: Path = field(
+        default_factory=lambda: DATA_DIR / (
+            "kids_ideas.json" if os.getenv("CHANNEL", "fitness").lower().strip() == "kids" else "ideas.json"
+        )
+    )
+    content_store: Path = field(
+        default_factory=lambda: DATA_DIR / (
+            "kids_content_history.json" if os.getenv("CHANNEL", "fitness").lower().strip() == "kids" else "content_history.json"
+        )
+    )
+    seo_store: Path = field(
+        default_factory=lambda: DATA_DIR / (
+            "kids_seo_history.json" if os.getenv("CHANNEL", "fitness").lower().strip() == "kids" else "seo_history.json"
+        )
+    )
 
 
 def get_config() -> AppConfig:

@@ -218,22 +218,19 @@ def ensure_video_library(
     Public entry point – called by main.py on startup.
     Returns (local_count, bg_count).
     """
-    local_count = _count_files(LOCAL_VIDEO_DIR)
     bg_count    = _count_files(BG_VIDEO_DIR)
 
-    if local_count < min_local or bg_count < min_bg:
+    if bg_count < min_bg:
         LOGGER.info(
-            "Video library low (local=%s, bg=%s). Downloading more…",
-            local_count, bg_count,
+            "Background video library low (bg=%s). Downloading more…",
+            bg_count,
         )
-        download_coverr_videos(target=min_local)
         if pexels_key:
-            download_pexels_videos(pexels_key, target_local=min_local, target_bg=min_bg)
+            download_pexels_videos(pexels_key, target_local=0, target_bg=min_bg)
 
-    local_count = _count_files(LOCAL_VIDEO_DIR)
     bg_count    = _count_files(BG_VIDEO_DIR)
-    LOGGER.info("Video library: local=%s, bg=%s", local_count, bg_count)
-    return local_count, bg_count
+    LOGGER.info("Video library: background=%s", bg_count)
+    return 0, bg_count
 
 
 if __name__ == "__main__":

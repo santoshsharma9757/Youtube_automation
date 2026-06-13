@@ -38,10 +38,10 @@ class ScriptGenerator:
 
     def generate_script(self, idea: VideoIdea) -> VideoScript:
         is_long = getattr(idea, "video_type", "short") == "long"
-        duration_desc = "120-180 second YouTube video" if is_long else "45-55 second YouTube Shorts"
-        min_duration = 120 if is_long else 45
-        max_duration = 180 if is_long else 55
-        word_count_desc = "300-450 words" if is_long else "110-140 words"
+        duration_desc = "105-120 second (1:45 to 2:00) YouTube video" if is_long else "35-45 second YouTube Shorts/Reels"
+        min_duration = 105 if is_long else 35
+        max_duration = 120 if is_long else 45
+        word_count_desc = "260-290 words" if is_long else "75-90 words"
 
         LOGGER.info("Generating script for idea '%s' (type: %s)", idea.title, getattr(idea, "video_type", "short"))
         style = self._determine_style(idea)
@@ -70,8 +70,10 @@ class ScriptGenerator:
               title, overlay_text, hook, problem, insight, solution, cta, estimated_duration_seconds,
               primary_keyword, retention_note
             - Make the spoken script between {min_duration} and {max_duration} seconds of voiceover (NEVER exceed {max_duration} seconds)
-            - Combined hook + problem + insight + solution + cta should be about {word_count_desc}
+            - Combined hook + problem + insight + solution + cta should be about {word_count_desc} (STRICT WORD CAPPING - do not exceed {word_count_desc} so it fits in the target duration)
             - Hook must create an UNRESOLVABLE CURIOSITY GAP in the first 2 seconds (e.g. start mid-sentence, state a shocking fact, or contradict a common belief). Completely avoid generic greetings.
+            - First 1-3 seconds must be extremely engaging with a strong scroll-stop hook. No delay, no intros, no generic filler.
+            - STRICT AUDIENCE RETENTION LOOP: Construct the final sentence/CTA of the script so that it cuts off mid-thought or seamlessly transitions and flows perfectly back into the opening words/phrase of the Hook. When the video loops, the viewer should not realize it ended, which drives up retention and views dramatically!
             - overlay_text must act as a secondary hook for users scrolling with sound off: 3 to 7 words, ultra-clear, provocative, and highly clickable.
             - Make sure the script is A-grade content: highly attractive, deeply engaging, and incredibly helpful to the viewer
             - Every script must feel fresh. Avoid repeating channel cliches, avoid repeating the same CTA pattern, and avoid recycled lines like "ruk mat", "consistency hi sab kuch hai", or "show up every day" unless the topic truly needs it
@@ -291,7 +293,7 @@ class ScriptGenerator:
     def _extend_script_if_needed(full_script: str, idea: VideoIdea) -> str:
         words = full_script.split()
         is_long = getattr(idea, "video_type", "short") == "long"
-        min_words = 175 if is_long else 120    # 120 words ≈ 50 seconds
+        min_words = 240 if is_long else 70
         if len(words) >= min_words:
             return full_script
 

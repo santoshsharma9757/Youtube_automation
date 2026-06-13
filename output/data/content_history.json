@@ -12813,5 +12813,849 @@
       "status": "SCHEDULED"
     },
     "local_video_deleted": true
+  },
+  {
+    "idea_title": "Belly Fat Ko Khatam Karne Ke Top 5 Tarike!",
+    "idea": {
+      "idea_id": "fe390ec4-714c-4336-ba6f-6b01a8966a39",
+      "title": "Belly Fat Ko Khatam Karne Ke Top 5 Tarike!",
+      "angle": "Effective fat loss methods",
+      "hook": "Aasan tareeqe, jaldi results!",
+      "topic": "Belly Fat Loss",
+      "audience_value": "Practical fat loss strategies",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-31T09:24:19.376729+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "how to lose belly fat fast",
+      "source_video_title": "El ingrediente con 0 calorías que engaña a tu estómago"
+    },
+    "script": {
+      "title": "Belly Fat Ko Khatam Karne Ke Top 5 Tarike!",
+      "overlay_text": "Quick Belly Fat Solutions!",
+      "hook": "Did you know a spoonful of this can boost metabolism faster than a treadmill?",
+      "problem": "Belly fat ek common issue hai jo sabko tang karta hai. Lekin, aapne socha hai ki isse khatam karne ka bhi koi secret hai?",
+      "insight": "Research yeh dikhata hai ki jab aapke metabolism ko boost kiya jaata hai, toh fat burn zyada efficient hota hai. Par iska secret hai humare daily choices.",
+      "solution": "Pehla, dinner ke baad ek chamach apple cider vinegar le. Yeh aapke digestion ko enhance karta hai! Dusra, har din subah empty stomach adrak ka paani peeye. Yeh fat loss ko speed up karega. Aur haan, aapke plate mein greens add karna bhi mat bhooliye. Yeh aapki cravings ko control karega aur nutrients dene mein help karega.",
+      "cta": "In techniques ko try karo aur comment karo aapko kaisa laga!",
+      "full_script": "Did you know a spoonful of this can boost metabolism faster than a treadmill? Belly fat ek common issue hai jo sabko tang karta hai. Lekin, aapne socha hai ki isse khatam karne ka bhi koi secret hai? Research yeh dikhata hai ki jab aapke metabolism ko boost kiya jaata hai, toh fat burn zyada efficient hota hai. Par iska secret hai humare daily choices. Pehla, dinner ke baad ek chamach apple cider vinegar le. Yeh aapke digestion ko enhance karta hai! Dusra, har din subah empty stomach adrak ka paani peeye. Yeh fat loss ko speed up karega. Aur haan, aapke plate mein greens add karna bhi mat bhooliye. Yeh aapki cravings ko control karega aur nutrients dene mein help karega. In techniques ko try karo aur comment karo aapko kaisa laga!",
+      "estimated_duration_seconds": 53,
+      "primary_keyword": "how to lose belly fat fast",
+      "retention_note": "The hook immediately sparks curiosity about a surprising metabolism booster, keeping viewers engaged to learn the practical steps.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Kya Aap Ne Yeh Metabolism Booster Try Kiya?",
+      "description": "How to lose belly fat fast? Yeh simple tips aapka metabolism boost kar sakte hain! Aaj hi try karo! #shorts #shortsfeed #viral #fitness\n\n#shorts #shortsfeed #viral #fitness #healthylifestyle",
+      "tags": [
+        "how to lose belly fat fast",
+        "boost metabolism tips",
+        "apple cider vinegar benefits",
+        "ginger water for weight loss",
+        "fat loss techniques",
+        "healthy dinner ideas",
+        "quick weight loss methods",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "how to lose belly fat fast india",
+        "how to lose belly fat fast for beginners",
+        "fitness tips india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#shortsfeed",
+        "#viral",
+        "#fitness",
+        "#healthylifestyle"
+      ],
+      "primary_keyword": "how to lose belly fat fast",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260531_092419_belly-fat-ko-khatam-karne-ke-top-5-tarike.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260531_092419_belly-fat-ko-khatam-karne-ke-top-5-tarike.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_092419_belly-fat-ko-khatam-karne-ke-top-5-tarike.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_092419_belly-fat-ko-khatam-karne-ke-top-5-tarike.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "ZA5tAJXT3u_ilW9djgNaOgbout0",
+      "id": "CcRa1KZmvO4",
+      "snippet": {
+        "publishedAt": "2026-06-11T20:20:49Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Aap Ne Yeh Metabolism Booster Try Kiya?",
+        "description": "How to lose belly fat fast? Yeh simple tips aapka metabolism boost kar sakte hain! Aaj hi try karo! #shorts #shortsfeed #viral #fitness\n\n#shorts #shortsfeed #viral #fitness #healthylifestyle",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/CcRa1KZmvO4/default.jpg?sqp=CPCwrNEG&rs=AOn4CLCheL5KeS8FYodDWXZVDwVhGAmnZw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/CcRa1KZmvO4/mqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLBfoF3Z1Rj1Ti7ms9PI8baLbSNxAQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/CcRa1KZmvO4/hqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLCzxy6epCpIEMYJm2uwnPCV5XFUpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "apple cider vinegar benefits",
+          "belly fat reduce",
+          "boost metabolism tips",
+          "calorie deficit india",
+          "fat loss techniques",
+          "fat loss tips hindi",
+          "fitness tips india",
+          "ginger water for weight loss",
+          "healthy dinner ideas",
+          "how to lose belly fat fast",
+          "how to lose belly fat fast for beginners",
+          "how to lose belly fat fast india",
+          "quick weight loss methods",
+          "weight loss diet india"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Aap Ne Yeh Metabolism Booster Try Kiya?",
+          "description": "How to lose belly fat fast? Yeh simple tips aapka metabolism boost kar sakte hain! Aaj hi try karo! #shorts #shortsfeed #viral #fitness\n\n#shorts #shortsfeed #viral #fitness #healthylifestyle"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-12T10:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "unknown",
+    "created_at": "2026-05-31T09:39:20.274378+00:00",
+    "scheduled_time": "2026-06-12T10:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "1309035374667511",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Workout Form Galtiyan Aur Unse Bache!",
+    "idea": {
+      "idea_id": "3e79e3e8-2576-4789-a6a7-4cb43224ece1",
+      "title": "Workout Form Galtiyan Aur Unse Bache!",
+      "angle": "mistakes in workout form",
+      "hook": "Kya aapka workout sahi hai? In galtiyon ko na karen!",
+      "topic": "Gym Mistakes",
+      "audience_value": "Avoid injuries, maximize results",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-31T10:32:38.245548+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "gym mistakes",
+      "source_video_title": "This Core Fat Burning Workout Helps Women Lose Belly Fat Fast at Home"
+    },
+    "script": {
+      "title": "Workout Form Galtiyan Aur Unse Bache!",
+      "overlay_text": "Workout Errors You Must Avoi",
+      "hook": "Kya aap samajhte ho aapka form perfect hai? Aksar, yeh galtiyan hote hain jo aapko injury ya results se door rakhte hain!",
+      "problem": "Bohot se logon ko lagta hai ki sahi form ka nahi hona choti baat hai. Lekin, galat form se injuries aur muscle gain ka loss hota hai.",
+      "insight": "Kya aap jaante hain? 80% injuries sahi form na hone ki wajah se hoti hain. Aapka body mechanics hi aapke success ki key hai!",
+      "solution": "Toh kaise bachein? Pehla, jab bhi lift karein, apne back ko straight rakhein. Dusra, barbell ko hamesha center par rakhein; yeh stability dega. Third, lift karte waqt knees thoda bend rakhein taaki aapke joints par pressure na aaye. Yeh choti tweaks aapke workouts ko next level par le jaayengi.",
+      "cta": "Aaj se in galtiyon ko bhool jao! Apne friends ke saath ye tips share karo aur fitness journey shuru karo sahi form se!",
+      "full_script": "Kya aap samajhte ho aapka form perfect hai? Aksar, yeh galtiyan hote hain jo aapko injury ya results se door rakhte hain! Bohot se logon ko lagta hai ki sahi form ka nahi hona choti baat hai. Lekin, galat form se injuries aur muscle gain ka loss hota hai. Kya aap jaante hain? 80% injuries sahi form na hone ki wajah se hoti hain. Aapka body mechanics hi aapke success ki key hai! Toh kaise bachein? Pehla, jab bhi lift karein, apne back ko straight rakhein. Dusra, barbell ko hamesha center par rakhein; yeh stability dega. Third, lift karte waqt knees thoda bend rakhein taaki aapke joints par pressure na aaye. Yeh choti tweaks aapke workouts ko next level par le jaayengi. Aaj se in galtiyon ko bhool jao! Apne friends ke saath ye tips share karo aur fitness journey shuru karo sahi form se!",
+      "estimated_duration_seconds": 52,
+      "primary_keyword": "gym mistakes",
+      "retention_note": "The opening creates curiosity by challenging common perceptions about workout form, ensuring viewers want to learn the specific errors to avoid.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Kya Aap Bhi In Gym Mistakes Se Ghalat Kar Rahe Ho?",
+      "description": "Gym mistakes se bachne ke liye yeh tips sabse zaroori hain! Injury se door rehne ka sahi tareeka jaanein. #shorts #shortsfeed #viral\n\n#shorts #shortsfeed #viral #fitness #healthylifestyle",
+      "tags": [
+        "gym mistakes",
+        "workout mistakes to avoid",
+        "perfect workout form",
+        "common gym mistakes",
+        "gym injuries",
+        "muscle gain tips",
+        "fitness form tips",
+        "gym workout for beginners india",
+        "strength training hindi",
+        "workout form tips",
+        "muscle building tips",
+        "gym mistakes india",
+        "gym mistakes for beginners",
+        "fitness tips india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#shortsfeed",
+        "#viral",
+        "#fitness",
+        "#healthylifestyle"
+      ],
+      "primary_keyword": "gym mistakes",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "strength"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260531_103238_workout-form-galtiyan-aur-unse-bache.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260531_103238_workout-form-galtiyan-aur-unse-bache.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_103238_workout-form-galtiyan-aur-unse-bache.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_103238_workout-form-galtiyan-aur-unse-bache.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "7P_LH0UNAHH2wFmgir4p4lZ0ZkQ",
+      "id": "dtN5baNeaDo",
+      "snippet": {
+        "publishedAt": "2026-06-11T20:21:19Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Aap Bhi In Gym Mistakes Se Ghalat Kar Rahe Ho?",
+        "description": "Gym mistakes se bachne ke liye yeh tips sabse zaroori hain! Injury se door rehne ka sahi tareeka jaanein. #shorts #shortsfeed #viral\n\n#shorts #shortsfeed #viral #fitness #healthylifestyle",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/dtN5baNeaDo/default.jpg?sqp=CPCwrNEG&rs=AOn4CLBQDPAsUtkIbzDSxNnmAhN4fM_ZuQ",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/dtN5baNeaDo/mqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLCfdorcwilEzHaPub_0BRvNsOP6Yw",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/dtN5baNeaDo/hqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLBv4hX3SfWq0xYTNtj2n2b5vErJgA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "common gym mistakes",
+          "fitness form tips",
+          "fitness tips india",
+          "gym injuries",
+          "gym mistakes",
+          "gym mistakes for beginners",
+          "gym mistakes india",
+          "gym workout for beginners india",
+          "muscle building tips",
+          "muscle gain tips",
+          "perfect workout form",
+          "strength training hindi",
+          "workout form tips",
+          "workout mistakes to avoid"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Aap Bhi In Gym Mistakes Se Ghalat Kar Rahe Ho?",
+          "description": "Gym mistakes se bachne ke liye yeh tips sabse zaroori hain! Injury se door rehne ka sahi tareeka jaanein. #shorts #shortsfeed #viral\n\n#shorts #shortsfeed #viral #fitness #healthylifestyle"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-12T12:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "unknown",
+    "created_at": "2026-05-31T11:00:49.266874+00:00",
+    "scheduled_time": "2026-06-12T12:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "2584702431990276",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Yoga For Gut Health? Aapko Chhupte Hey Minute Tips!",
+    "idea": {
+      "idea_id": "efe95636-2b11-4d6c-ade8-f6ca12240f52",
+      "title": "Yoga For Gut Health? Aapko Chhupte Hey Minute Tips!",
+      "angle": "Use yoga to aid digestion.",
+      "hook": "Gut health ke liye surprising yoga poses dekhiye!",
+      "topic": "gut health shorts",
+      "audience_value": "Using yoga to improve digestive health.",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-31T12:08:59.819122+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "long",
+      "search_keyword": "yoga poses for gut health",
+      "source_video_title": "Your Gut Controls Your Health Don’t Ignore This"
+    },
+    "script": {
+      "title": "Yoga Ke Chhupte Tips for Gut Health",
+      "overlay_text": "Gut Health Ke Liye Yoga!",
+      "hook": "Kya aapko pata hai aapki gut health ke peeche yoga ka badiya raaz hai? Yeh sirf asanas nahi hai!",
+      "problem": "Aksar log digestive issues se joojhte rehte hain, kyunki unhe pata nahi ki gut health kitni important hai. Stress aur unhealthy habits se aapka digestion bigad sakta hai. Lekin, humari body ke pass apne problems ka solution hai. Bahut se log isse ignore karte hain, par aaj hum kuch amazing yoga poses explore karenge jo aapko relief de sakte hain.",
+      "insight": "Baat yeh hai ki jab aap apne gut ko support karte hain, toh aapki overall health bhi improve hoti hai. Scientific research yeh batata hai ki yoga se aapka digestion behtar hota hai aur anxiety ka level bhi kam hota hai. Insaan ka gut, ek functioning powerhouse hai - agar ise support nahi karoge, toh problems badh sakti hain.",
+      "solution": "Toh chaliye, mujhe aapko do powerful yoga poses dikhata hoon jo aap ghar par asaani se kar sakte hain. Pehla, 'Viparita Karani' - is pose se blood circulation enhance hota hai aur digestion improve hota hai. Aap bas apni legs ko wall pe rakhkar aaram se let jaayein. Dusra, 'Apanasana' - yahaan aapko apni knees ko chest ki taraf kheenchna hai. Yeh pose aapke gut ko softness deta hai aur trapped gas ko release karta hai. Yeh dono poses aapko sirf 5 minutes mein karne hain, aur aap feel karenge acchi energy aur relief!",
+      "cta": "Toh aaj hi hug karna shuru karein apne gut ko yoga ke saath. Aaj se hi in poses ko apne dincharya mein shamil karein, aur comment karein ki aapko kaisa laga! Agar aapko yeh tips helpful lage, toh share kijiye!",
+      "full_script": "Kya aapko pata hai aapki gut health ke peeche yoga ka badiya raaz hai? Yeh sirf asanas nahi hai! Aksar log digestive issues se joojhte rehte hain, kyunki unhe pata nahi ki gut health kitni important hai. Stress aur unhealthy habits se aapka digestion bigad sakta hai. Lekin, humari body ke pass apne problems ka solution hai. Bahut se log isse ignore karte hain, par aaj hum kuch amazing yoga poses explore karenge jo aapko relief de sakte hain. Baat yeh hai ki jab aap apne gut ko support karte hain, toh aapki overall health bhi improve hoti hai. Scientific research yeh batata hai ki yoga se aapka digestion behtar hota hai aur anxiety ka level bhi kam hota hai. Insaan ka gut, ek functioning powerhouse hai - agar ise support nahi karoge, toh problems badh sakti hain. Toh chaliye, mujhe aapko do powerful yoga poses dikhata hoon jo aap ghar par asaani se kar sakte hain. Pehla, 'Viparita Karani' - is pose se blood circulation enhance hota hai aur digestion improve hota hai. Aap bas apni legs ko wall pe rakhkar aaram se let jaayein. Dusra, 'Apanasana' - yahaan aapko apni knees ko chest ki taraf kheenchna hai. Yeh pose aapke gut ko softness deta hai aur trapped gas ko release karta hai. Yeh dono poses aapko sirf 5 minutes mein karne hain, aur aap feel karenge acchi energy aur relief! Toh aaj hi hug karna shuru karein apne gut ko yoga ke saath. Aaj se hi in poses ko apne dincharya mein shamil karein, aur comment karein ki aapko kaisa laga! Agar aapko yeh tips helpful lage, toh share kijiye!",
+      "estimated_duration_seconds": 120,
+      "primary_keyword": "yoga poses for gut health",
+      "retention_note": "Starting with a surprising fact about gut health hooks the audience immediately and creates curiosity for practical solutions.",
+      "video_type": "long"
+    },
+    "seo": {
+      "title": "Kya Aapka Gut Health Rock Bottom Hai? Try Yeh Yoga Poses!",
+      "description": "Yoga poses for gut health se aapki digestion improve ho sakti hai! Aaj hum do powerful yoga poses explore karenge jo aapko daily routine mein shamil karne chahiye. Kya aap tayyar hain relief paane ke liye?\n\n#yogaposes #guthealth #digestion #wellness #fitness",
+      "tags": [
+        "yoga poses for gut health",
+        "gut health yoga",
+        "yoga for digestion",
+        "balanced gut yoga",
+        "yoga for gut relief",
+        "yoga and gut health",
+        "yoga for digestive issues",
+        "yoga for stress relief",
+        "morning yoga routine",
+        "yoga for beginners",
+        "meditation and breathwork",
+        "yoga poses for gut health india",
+        "yoga poses for gut health for beginners",
+        "fitness channel india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#yogaposes",
+        "#guthealth",
+        "#digestion",
+        "#wellness",
+        "#fitness"
+      ],
+      "primary_keyword": "yoga poses for gut health",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "yoga"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260531_120859_yoga-for-gut-health-aapko-chhupte-hey-minute-tips.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260531_120859_yoga-for-gut-health-aapko-chhupte-hey-minute-tips.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_120859_yoga-for-gut-health-aapko-chhupte-hey-minute-tips.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_120859_yoga-for-gut-health-aapko-chhupte-hey-minute-tips.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "p8wCSTfzjAR483UtOPC1TJNqgQU",
+      "id": "oCiS78Nr9PM",
+      "snippet": {
+        "publishedAt": "2026-06-11T20:21:54Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Kya Aapka Gut Health Rock Bottom Hai? Try Yeh Yoga Poses!",
+        "description": "Yoga poses for gut health se aapki digestion improve ho sakti hai! Aaj hum do powerful yoga poses explore karenge jo aapko daily routine mein shamil karne chahiye. Kya aap tayyar hain relief paane ke liye?\n\n#yogaposes #guthealth #digestion #wellness #fitness",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/oCiS78Nr9PM/default.jpg?sqp=CPCwrNEG&rs=AOn4CLCCA1-3shkbVIl6d866980fPD5QwA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/oCiS78Nr9PM/mqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLC1Q6ztTBdmbAHwlZSZ190sDo8Z6A",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/oCiS78Nr9PM/hqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLBzgM4msX6huy-a0Rso5ON5yzdKIA",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "balanced gut yoga",
+          "fitness channel india",
+          "gut health yoga",
+          "meditation and breathwork",
+          "morning yoga routine",
+          "yoga and gut health",
+          "yoga for beginners",
+          "yoga for digestion",
+          "yoga for digestive issues",
+          "yoga for gut relief",
+          "yoga for stress relief",
+          "yoga poses for gut health",
+          "yoga poses for gut health for beginners",
+          "yoga poses for gut health india"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Kya Aapka Gut Health Rock Bottom Hai? Try Yeh Yoga Poses!",
+          "description": "Yoga poses for gut health se aapki digestion improve ho sakti hai! Aaj hum do powerful yoga poses explore karenge jo aapko daily routine mein shamil karne chahiye. Kya aap tayyar hain relief paane ke liye?\n\n#yogaposes #guthealth #digestion #wellness #fitness"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-13T04:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "unknown",
+    "created_at": "2026-05-31T12:45:31.365056+00:00",
+    "scheduled_time": "2026-06-13T04:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "2212858079512272",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Healthy Weight Loss Snacks Ideas!",
+    "idea": {
+      "idea_id": "cffe76da-28d6-4ea8-9fd1-248708715416",
+      "title": "Healthy Weight Loss Snacks Ideas!",
+      "angle": "Quick healthy snacks for weight loss",
+      "hook": "Bhookh lagti hai? Yeh khana try karo!",
+      "topic": "Healthy Snacks",
+      "audience_value": "Individuals looking for healthy food options",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-31T12:54:24.988212+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "healthy snacks for weight loss",
+      "source_video_title": "Healthy Foods You Can Eat Under ₹90 Will Shock You!"
+    },
+    "script": {
+      "title": "Healthy Weight Loss Snacks Ideas!",
+      "overlay_text": "Quick Healthy Weight Loss Sn",
+      "hook": "Bhookh lagti hai? Yeh khana try karo! It can actually boost your metabolism!",
+      "problem": "Jab bhi bhookh hoti hai, unhealthy snacks paar jaate hain, na?",
+      "insight": "Lekin kya aapko pata hai ki healthy snacks bhi delicious ho sakte hain? Yeh chhoti chhoti choices aapki weight loss journey ko fast track kar sakti hain.",
+      "solution": "Try this: Paneer aur cucumber ka salad with mint chutney! Yeh low calories hai aur rich in protein. Ya phir, roasted chana with spices for fullness! In snacks se aapki greedy cravings door ho jayengi.",
+      "cta": "Toh agli baar jab bhookh lagay, in snacks ko zaroor try karo aur dekho kamal!",
+      "full_script": "Bhookh lagti hai? Yeh khana try karo! It can actually boost your metabolism! Jab bhi bhookh hoti hai, unhealthy snacks paar jaate hain, na? Lekin kya aapko pata hai ki healthy snacks bhi delicious ho sakte hain? Yeh chhoti chhoti choices aapki weight loss journey ko fast track kar sakti hain. Try this: Paneer aur cucumber ka salad with mint chutney! Yeh low calories hai aur rich in protein. Ya phir, roasted chana with spices for fullness! In snacks se aapki greedy cravings door ho jayengi. Toh agli baar jab bhookh lagay, in snacks ko zaroor try karo aur dekho kamal!",
+      "estimated_duration_seconds": 40,
+      "primary_keyword": "healthy snacks for weight loss",
+      "retention_note": "Opening hooks viewers with an intriguing question, ensuring they stay curious about the weight loss snack solution.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Bhookh Lagti Hai? #shorts",
+      "description": "Healthy snacks for weight loss ka experience lo! Yeh options bhookh kam karte hain aur metabolism boost karte hain! Paneer salad aur\n\n#shorts #shortsfeed #viral #fatloss #healthysnacks",
+      "tags": [
+        "healthy snacks for weight loss",
+        "low calorie snacks",
+        "weight loss snacks",
+        "healthy eating",
+        "snacks for weight loss",
+        "fat loss tips hindi",
+        "weight loss diet india",
+        "belly fat reduce",
+        "calorie deficit india",
+        "healthy snacks for weight loss india",
+        "healthy snacks for weight loss for begin",
+        "fitness tips india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#shortsfeed",
+        "#viral",
+        "#fatloss",
+        "#healthysnacks"
+      ],
+      "primary_keyword": "healthy snacks for weight loss",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fat_loss"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260531_125425_healthy-weight-loss-snacks-ideas.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260531_125425_healthy-weight-loss-snacks-ideas.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_125425_healthy-weight-loss-snacks-ideas.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_125425_healthy-weight-loss-snacks-ideas.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "CcgnorTTz2s4VKbRt4pDaeNvjW8",
+      "id": "nR4Z-wOqUKs",
+      "snippet": {
+        "publishedAt": "2026-06-11T20:22:32Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Bhookh Lagti Hai? #shorts",
+        "description": "Healthy snacks for weight loss ka experience lo! Yeh options bhookh kam karte hain aur metabolism boost karte hain! Paneer salad aur\n\n#shorts #shortsfeed #viral #fatloss #healthysnacks",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/nR4Z-wOqUKs/default.jpg?sqp=CPCwrNEG&rs=AOn4CLCRkGTsW9ZVuqerSyAjnlc1toiB7w",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/nR4Z-wOqUKs/mqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLCnDBbIBQdjmo9fQYO5Ll4b-fzG4g",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/nR4Z-wOqUKs/hqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLA9DwPIGvlrxF7niMlykAEcOFJkKQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "belly fat reduce",
+          "calorie deficit india",
+          "fat loss tips hindi",
+          "fitness tips india",
+          "healthy eating",
+          "healthy snacks for weight loss",
+          "healthy snacks for weight loss for begin",
+          "healthy snacks for weight loss india",
+          "low calorie snacks",
+          "snacks for weight loss",
+          "weight loss diet india",
+          "weight loss snacks"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Bhookh Lagti Hai? #shorts",
+          "description": "Healthy snacks for weight loss ka experience lo! Yeh options bhookh kam karte hain aur metabolism boost karte hain! Paneer salad aur\n\n#shorts #shortsfeed #viral #fatloss #healthysnacks"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-13T05:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "unknown",
+    "created_at": "2026-05-31T13:03:55.254322+00:00",
+    "scheduled_time": "2026-06-13T05:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "794952247035572",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "Evening Routine: 5 Simple Steps",
+    "idea": {
+      "idea_id": "eab87915-05d0-450b-9bfc-ea98119df95b",
+      "title": "Evening Routine: 5 Simple Steps",
+      "angle": "Wind down effectively",
+      "hook": "Shaam ko relax karne ke liye yeh karein!",
+      "topic": "Evening fitness habits",
+      "audience_value": "Calm evenings",
+      "source_prompt": "youtube-live",
+      "created_at": "2026-05-31T13:19:13.577236+00:00",
+      "language_preference": "hinglish",
+      "theme_hint": "",
+      "video_type": "short",
+      "search_keyword": "evening relaxation routine",
+      "source_video_title": "Do These 9 Daily Habits If You Want to walk strong at 90 #shorts"
+    },
+    "script": {
+      "title": "Evening Routine: 5 Simple Steps",
+      "overlay_text": "Shaam ko relax karne ke",
+      "hook": "Aap soch rahe hain ki shaam ko relax kaise karein? Yeh galat hai! Relaxation se fayda nahi, mental clarity milta hai!",
+      "problem": "Bohot log shaam ko sirf baithe rehte hain, phone dekhte hain. Isse stress badhta hai, na sleep aati hai, na energy.",
+      "insight": "Kya aapko pata hai? Aapka evening routine aapki poori next day ko badal sakta hai! Science yeh batata hai ki focus aur poori night sleep se health improve hoti hai.",
+      "solution": "Toh pehla step, 30-minute walk, bina kisi distraction ke. Doosra, ek simple stretching routineyeh aapko relax aur energized dono rakhega. Ek saath ye donon aapke productivity ko boost karenge.",
+      "cta": "Aaj se yeh routine apna ke dikhao! Kaisa feel hota hai yeh aapke liye! Koi aur tips chahiye? Jaanne ke liye abhi click karo!",
+      "full_script": "Aap soch rahe hain ki shaam ko relax kaise karein? Yeh galat hai! Relaxation se fayda nahi, mental clarity milta hai! Bohot log shaam ko sirf baithe rehte hain, phone dekhte hain. Isse stress badhta hai, na sleep aati hai, na energy. Kya aapko pata hai? Aapka evening routine aapki poori next day ko badal sakta hai! Science yeh batata hai ki focus aur poori night sleep se health improve hoti hai. Toh pehla step, 30-minute walk, bina kisi distraction ke. Doosra, ek simple stretching routineyeh aapko relax aur energized dono rakhega. Ek saath ye donon aapke productivity ko boost karenge. Aaj se yeh routine apna ke dikhao! Kaisa feel hota hai yeh aapke liye! Koi aur tips chahiye? Jaanne ke liye abhi click karo!",
+      "estimated_duration_seconds": 42,
+      "primary_keyword": "evening relaxation routine",
+      "retention_note": "The opening creates a strong curiosity by challenging common beliefs about relaxation and sets a promising tone that engages viewers immediately.",
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "Relax Karo Ab! #shorts #fitness",
+      "description": "Evening relaxation routine se aapki mental clarity improve hogi! Aaj se kuch changes karke apne din ko best banao!\n\n#shorts #shortsfeed #viral #relaxation #eveningroutine",
+      "tags": [
+        "evening relaxation routine",
+        "how to relax in the evening",
+        "evening routine for better sleep",
+        "benefits of evening walks",
+        "stretching routine for relaxation",
+        "improve mental clarity",
+        "better sleep tips",
+        "health tips hindi",
+        "gut health india",
+        "sleep recovery tips",
+        "healthy habits india",
+        "evening relaxation routine india",
+        "evening relaxation routine for beginners",
+        "fitness tips india",
+        "DailyFitX"
+      ],
+      "hashtags": [
+        "#shorts",
+        "#shortsfeed",
+        "#viral",
+        "#relaxation",
+        "#eveningroutine"
+      ],
+      "primary_keyword": "evening relaxation routine",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "health"
+    },
+    "audio_path": "D:\\dfx-yt-automation\\output\\audio\\20260531_131913_evening-routine-5-simple-steps.mp3",
+    "video_path": "D:\\dfx-yt-automation\\output\\videos\\20260531_131913_evening-routine-5-simple-steps.mp4",
+    "subtitle_srt": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_131913_evening-routine-5-simple-steps.srt",
+    "subtitle_json": "D:\\dfx-yt-automation\\output\\subtitles\\20260531_131913_evening-routine-5-simple-steps.json",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "ZgwXNEWkWePgofaxTGtZxOc53Rw",
+      "id": "-hRthyFsekU",
+      "snippet": {
+        "publishedAt": "2026-06-11T20:23:02Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "Relax Karo Ab! #shorts #fitness",
+        "description": "Evening relaxation routine se aapki mental clarity improve hogi! Aaj se kuch changes karke apne din ko best banao!\n\n#shorts #shortsfeed #viral #relaxation #eveningroutine",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/-hRthyFsekU/default.jpg?sqp=CPCwrNEG&rs=AOn4CLAUH4ljF1hN0ru20ExsCKcKIyoC2A",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/-hRthyFsekU/mqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLAGhPChgw3DEU_NlBDdBg60IH5imQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/-hRthyFsekU/hqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLB_6OloNbdW4QiSq7sdXo61AmF2iQ",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "DailyFitX",
+          "benefits of evening walks",
+          "better sleep tips",
+          "evening relaxation routine",
+          "evening relaxation routine for beginners",
+          "evening relaxation routine india",
+          "evening routine for better sleep",
+          "fitness tips india",
+          "gut health india",
+          "health tips hindi",
+          "healthy habits india",
+          "how to relax in the evening",
+          "improve mental clarity",
+          "sleep recovery tips",
+          "stretching routine for relaxation"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "Relax Karo Ab! #shorts #fitness",
+          "description": "Evening relaxation routine se aapki mental clarity improve hogi! Aaj se kuch changes karke apne din ko best banao!\n\n#shorts #shortsfeed #viral #relaxation #eveningroutine"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-13T12:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "short_visual_mode": "unknown",
+    "created_at": "2026-06-01T15:24:32.667099+00:00",
+    "scheduled_time": "2026-06-13T12:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "955215880902440",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "10 Minute Full Body Fitness Burn | Home Workout #20260612_014607",
+    "idea": {},
+    "script": {
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "10 Minute Full Body Fitness Burn | Home Workout #20260612_014607",
+      "description": "Quick full-body fitness session to boost energy, build strength, and stay consistent. Perfect for a home workout routine with simple movements, strong focus, and fat-burning intensity. Train smart, stay active, and keep pushing your fitness goals.",
+      "tags": [
+        "fitness",
+        "home workout",
+        "full body workout",
+        "fat burn",
+        "exercise motivation",
+        "strength training",
+        "healthy lifestyle"
+      ],
+      "hashtags": [
+        "fitness",
+        "home workout",
+        "full body workout",
+        "fat burn",
+        "exercise motivation"
+      ],
+      "primary_keyword": "fitness",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\final_videos\\veo_final_20260612_014608.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": true,
+    "upload_response": {
+      "kind": "youtube#video",
+      "etag": "hQmlRkqCYJbA8Qh5tjTU0skJz_I",
+      "id": "ICz-Zdn6RN8",
+      "snippet": {
+        "publishedAt": "2026-06-11T20:23:32Z",
+        "channelId": "UCA2rACVp8IOmeBAQ8OGSODg",
+        "title": "10 Minute Full Body Fitness Burn | Home Workout #20260612_014607",
+        "description": "Quick full-body fitness session to boost energy, build strength, and stay consistent. Perfect for a home workout routine with simple movements, strong focus, and fat-burning intensity. Train smart, stay active, and keep pushing your fitness goals.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/ICz-Zdn6RN8/default.jpg?sqp=CPCwrNEG&rs=AOn4CLBfzp2BxdzTjnSNW7gKGb6GzreulA",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/ICz-Zdn6RN8/mqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLD-AaVrBig070zjbVkpUuynYwXUow",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/ICz-Zdn6RN8/hqdefault.jpg?sqp=CPCwrNEG&rs=AOn4CLCwIKb2_mLa8quzIFqEHL3rFYQi1w",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "DailyFitX",
+        "tags": [
+          "exercise motivation",
+          "fat burn",
+          "fitness",
+          "full body workout",
+          "healthy lifestyle",
+          "home workout",
+          "strength training"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "10 Minute Full Body Fitness Burn | Home Workout #20260612_014607",
+          "description": "Quick full-body fitness session to boost energy, build strength, and stay consistent. Perfect for a home workout routine with simple movements, strong focus, and fat-burning intensity. Train smart, stay active, and keep pushing your fitness goals."
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "status": {
+        "uploadStatus": "uploaded",
+        "privacyStatus": "private",
+        "publishAt": "2026-06-13T13:30:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "selfDeclaredMadeForKids": false
+      }
+    },
+    "created_at": "2026-06-11T20:19:00.697134+00:00",
+    "scheduled_time": "2026-06-13T13:30:00Z",
+    "fb_uploaded": true,
+    "fb_upload_response": {
+      "id": "999411199161518",
+      "platform": "facebook",
+      "status": "SCHEDULED"
+    },
+    "local_video_deleted": true
+  },
+  {
+    "idea_title": "10 Minute Full Body Fitness Burn | Home Workout #20260612_014607",
+    "idea": {},
+    "script": {
+      "video_type": "short"
+    },
+    "seo": {
+      "title": "10 Minute Full Body Fitness Burn | Home Workout #20260612_014607",
+      "description": "Quick full-body fitness session to boost energy, build strength, and stay consistent. Perfect for a home workout routine with simple movements, strong focus, and fat-burning intensity. Train smart, stay active, and keep pushing your fitness goals.",
+      "tags": [
+        "fitness",
+        "home workout",
+        "full body workout",
+        "fat burn",
+        "exercise motivation",
+        "strength training",
+        "healthy lifestyle"
+      ],
+      "hashtags": [
+        "fitness",
+        "home workout",
+        "full body workout",
+        "fat burn",
+        "exercise motivation"
+      ],
+      "primary_keyword": "fitness",
+      "language_code": "hi",
+      "audio_language_code": "hi",
+      "content_style": "fitness"
+    },
+    "audio_path": "",
+    "video_path": "D:\\dfx-yt-automation\\output\\final_videos\\veo_final_20260612_014608.mp4",
+    "subtitle_srt": "",
+    "subtitle_json": "",
+    "uploaded": false,
+    "upload_response": null,
+    "created_at": "2026-06-11T20:20:28.638431+00:00"
   }
 ]

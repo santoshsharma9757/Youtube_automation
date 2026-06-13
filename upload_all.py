@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import re
 from dataclasses import asdict
 from pathlib import Path
@@ -7,6 +8,8 @@ from datetime import datetime, timedelta, time, timezone
 import requests
 import pytz
 from googleapiclient.discovery import build
+
+ACTIVE_CHANNEL = os.getenv("CHANNEL", "fitness").lower().strip()
 
 from config import VIDEO_DIR, get_config
 from posting_schedule import get_daily_slots
@@ -127,14 +130,48 @@ def reconcile_recovered_records(history: list[dict]) -> int:
 
 
 def cleanup_local_video(video_path: Path, record: dict) -> None:
-    if not video_path.exists():
-        return
-    try:
-        video_path.unlink()
-        record["local_video_deleted"] = True
-        print(f"Deleted local video: {video_path.name}")
-    except Exception as exc:  # noqa: BLE001
-        print(f"Uploaded but could not delete local video {video_path.name}: {exc}")
+    # 1. Delete final video file
+    if video_path.exists():
+        try:
+            video_path.unlink()
+            record["local_video_deleted"] = True
+            print(f"Deleted local video: {video_path.name}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"Uploaded but could not delete local video {video_path.name}: {exc}")
+
+    # 2. Delete input clips folder
+    input_folder = Path("input/clips") / video_path.stem
+    if input_folder.exists():
+        import shutil
+        import time
+        for _ in range(5):
+            try:
+                shutil.rmtree(input_folder)
+                print(f"Deleted input folder: {input_folder.name}")
+                break
+            except Exception:
+                time.sleep(0.5)
+
+    # 2b. Delete prompts text file
+    prompts_file = Path("output/veo_prompts") / f"{video_path.stem}.txt"
+    if prompts_file.exists():
+        try:
+            prompts_file.unlink()
+            print(f"Deleted prompts file: {prompts_file.name}")
+        except Exception as exc:
+            print(f"Could not delete prompts file {prompts_file.name}: {exc}")
+
+    # 3. Delete intermediate generated resources (audio, subtitles)
+    for key in ("audio_path", "subtitle_srt", "subtitle_json"):
+        path_str = record.get(key)
+        if path_str:
+            path = Path(path_str)
+            if path.exists():
+                try:
+                    path.unlink()
+                    print(f"Deleted intermediate local resource ({key}): {path.name}")
+                except Exception as exc:
+                    print(f"Could not delete intermediate resource {path.name}: {exc}")
 
 
 def sync_scheduled_times_from_platforms(history: list[dict], tz, config) -> int:
@@ -331,8 +368,9 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
 
         seo = SeoPackage(**record["seo"])
         publish_at_utc = record.get("scheduled_time")
+        is_immediate = (publish_at_utc == "IMMEDIATE")
 
-        if not publish_at_utc:
+        if not publish_at_utc and not is_immediate:
             # Find next slot
             next_slot = None
             temp_date = current_time_pointer.date()
@@ -340,9 +378,10 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
                 video_type = str(record.get("script", {}).get("video_type", "short")).lower()
                 if video_type not in {"short", "long"}:
                     video_type = "short"
-                slots = get_daily_slots(temp_date.weekday(), videos_per_day, video_type=video_type)
+                slots = get_daily_slots(temp_date.weekday(), videos_per_day, video_type=video_type, channel=ACTIVE_CHANNEL)
                 for s_hour in slots:
-                    candidate = tz.localize(datetime.combine(temp_date, time(hour=s_hour)))
+                    s_minute = 30 if ACTIVE_CHANNEL == "kids" else 0
+                    candidate = tz.localize(datetime.combine(temp_date, time(hour=s_hour, minute=s_minute)))
                     if candidate > current_time_pointer:
                         next_slot = candidate
                         break
@@ -351,6 +390,9 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
             publish_at_utc = next_slot.astimezone(pytz.UTC).strftime('%Y-%m-%dT%H:%M:%SZ')
             record["scheduled_time"] = publish_at_utc
             current_time_pointer = next_slot + timedelta(minutes=10)
+
+        if is_immediate:
+            publish_at_utc = None
 
         made_progress = False
 

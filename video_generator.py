@@ -29,14 +29,11 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 from moviepy import (
     AudioFileClip,
     ColorClip,
-    CompositeAudioClip,
     CompositeVideoClip,
     ImageClip,
     VideoFileClip,
-    concatenate_audioclips,
     concatenate_videoclips,
     vfx,
-    afx,
 )
 
 from config import AppConfig
@@ -83,14 +80,9 @@ class VideoGenerator:
         vid_w   = LONG_W   if is_long else SHORTS_W
         vid_h   = LONG_H   if is_long else SHORTS_H
 
-        # ── Audio ────────────────────────────────────────────────────────
-        voice_clip  = AudioFileClip(str(audio_path))
-        total_dur   = voice_clip.duration
-        music_clip  = self._get_background_music(total_dur)
-        if music_clip:
-            final_audio = CompositeAudioClip([voice_clip, music_clip])
-        else:
-            final_audio = voice_clip
+        # ── Audio (voice only — no background music) ──────────────────────
+        final_audio = AudioFileClip(str(audio_path))
+        total_dur   = final_audio.duration
 
         # ── Visual layers ─────────────────────────────────────────────────
         background  = self._build_base_visual(script, total_dur, vid_w, vid_h)
@@ -112,11 +104,13 @@ class VideoGenerator:
         final = CompositeVideoClip(layers, size=(vid_w, vid_h))
         final = final.with_audio(final_audio)
 
+        temp_audio_path = output_path.parent / f"{output_path.stem}_temp_audio.mp4"
         final.write_videofile(
             str(output_path),
             fps=30,
             codec="libx264",
             audio_codec="aac",
+            temp_audiofile=str(temp_audio_path),
             threads=4,
             ffmpeg_params=["-movflags", "+faststart", "-crf", "22"],
             logger=None,
@@ -128,86 +122,16 @@ class VideoGenerator:
     # ═══════════════════════════════════════════════════════════════════════
 
     def _build_base_visual(self, script: VideoScript, duration: float, vid_w: int, vid_h: int):
-        return self._build_mixed_background(script, duration, vid_w, vid_h)
-
-    def _build_mixed_background(self, script, duration, vid_w, vid_h):
-        is_long = vid_w == LONG_W
-        target_clips = max(3, int(duration / (6 if is_long else 3)))
-        
-        # 1. Gather local clips
-        local_assets = self._match_local_video_assets(script)
-        local_clips = []
-        if local_assets:
-            for asset in local_assets[:10]: # Limit to 10 local to save memory
-                try:
-                    clip = VideoFileClip(str(asset)).without_audio()
-                    clip = self._fit_clip(clip, vid_w, vid_h)
-                    clip = self._apply_ken_burns(clip)
-                    local_clips.append(clip)
-                except Exception as exc:
-                    pass
-        
-        # 2. Gather pexels clips
-        queries = self._build_visual_queries(script)
-        pexels_clips = []
-        for query in queries:
-            if len(pexels_clips) >= target_clips:
-                break
-            path = self._fetch_pexels_video(query, is_long=is_long)
-            if path is None:
-                path = self._fetch_pixabay_video(query)
-            if path and path.exists():
-                try:
-                    clip = VideoFileClip(str(path)).without_audio()
-                    clip = self._fit_clip(clip, vid_w, vid_h)
-                    clip = self._apply_ken_burns(clip)
-                    pexels_clips.append(clip)
-                except Exception as exc:
-                    pass
-
-        # 3. Mix them (4 pexels : 1 local ratio)
-        final_clips_pool = []
-        if not pexels_clips and not local_clips:
-            return self._gradient_fallback(script, duration, vid_w, vid_h)
-            
-        if pexels_clips and local_clips:
-            # Generate enough random clips for the pool
-            for _ in range(target_clips * 2):
-                if random.random() < 0.20: # 20% chance for local
-                    final_clips_pool.append(random.choice(local_clips))
-                else:
-                    final_clips_pool.append(random.choice(pexels_clips))
-        elif pexels_clips:
-            final_clips_pool = pexels_clips
-        else:
-            final_clips_pool = local_clips
-            
-        return self._loop_clips_to_duration(final_clips_pool, duration)
-
-    def _build_local_video_background(self, script, duration, vid_w, vid_h):
-        assets = self._match_local_video_assets(script)
-        if not assets:
-            return None
-        clips = []
-        for asset in assets:
-            try:
-                clip = VideoFileClip(str(asset)).without_audio()
-                clip = self._fit_clip(clip, vid_w, vid_h)
-                clip = self._apply_ken_burns(clip)
-                clips.append(clip)
-            except Exception as exc:
-                LOGGER.warning("Failed to load local clip %s: %s", asset, exc)
-        if not clips:
-            return None
-        return self._loop_clips_to_duration(clips, duration)
+        return self._build_pexels_background(script, duration, vid_w, vid_h)
 
     def _build_pexels_background(self, script, duration, vid_w, vid_h):
         is_long = vid_w == LONG_W
         queries = self._build_visual_queries(script)
         clips   = []
-        # Aim for a cut every ~3 seconds for Shorts (retention), every 6s for Long
-        target_clips = max(3, int(duration / (6 if is_long else 3)))
+        # Aim for a cut every 2.0 to 3.0s for Shorts (medium/fast), every 3.0 to 4.0s for Long
+        target_clips = max(3, int(duration / (3.5 if is_long else 2.5)))
 
+        # 1. Try to fetch fresh Pexels/Pixabay clips matching the topic queries
         for query in queries:
             if len(clips) >= target_clips:
                 break
@@ -217,11 +141,46 @@ class VideoGenerator:
             if path and path.exists():
                 try:
                     clip = VideoFileClip(str(path)).without_audio()
+                    
+                    # Snappy pacing (medium/fast cut duration)
+                    cut_dur = random.uniform(3.0, 4.0) if is_long else random.uniform(2.0, 3.0)
+                    if clip.duration > cut_dur:
+                        start_t = random.uniform(0.0, clip.duration - cut_dur)
+                        clip = clip.subclipped(start_t, start_t + cut_dur)
+                    
                     clip = self._fit_clip(clip, vid_w, vid_h)
                     clip = self._apply_ken_burns(clip)
                     clips.append(clip)
                 except Exception as exc:
                     LOGGER.warning("Clip load failed: %s", exc)
+
+        # 2. Fallback/Fill: If we don't have enough clips, pull from the cached backgrounds
+        if len(clips) < target_clips:
+            bg_dir = self.config.background_assets_dir
+            if bg_dir.exists():
+                cached_files = [
+                    p for p in bg_dir.iterdir()
+                    if p.suffix.lower() in {".mp4", ".mov", ".mkv"}
+                ]
+                if cached_files:
+                    random.shuffle(cached_files)
+                    for path in cached_files:
+                        if len(clips) >= target_clips:
+                            break
+                        try:
+                            clip = VideoFileClip(str(path)).without_audio()
+                            
+                            # Snappy pacing (medium/fast cut duration)
+                            cut_dur = random.uniform(3.0, 4.0) if is_long else random.uniform(2.0, 3.0)
+                            if clip.duration > cut_dur:
+                                start_t = random.uniform(0.0, clip.duration - cut_dur)
+                                clip = clip.subclipped(start_t, start_t + cut_dur)
+                            
+                            clip = self._fit_clip(clip, vid_w, vid_h)
+                            clip = self._apply_ken_burns(clip)
+                            clips.append(clip)
+                        except Exception as exc:
+                            pass
 
         if not clips:
             return self._gradient_fallback(script, duration, vid_w, vid_h)
@@ -526,37 +485,7 @@ class VideoGenerator:
         return clip
 
     # ═══════════════════════════════════════════════════════════════════════
-    #  AUDIO HELPERS
-    # ═══════════════════════════════════════════════════════════════════════
-
-    def _get_background_music(self, voice_duration: float) -> AudioFileClip | None:
-        music_dir = getattr(self.config, "music_dir", None)
-        if music_dir is None or not Path(music_dir).exists():
-            return None
-        files = [
-            p for p in Path(music_dir).iterdir()
-            if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".aac"}
-        ]
-        if not files:
-            return None
-        chosen = random.choice(files)
-        try:
-            mc = AudioFileClip(str(chosen))
-            # Lower music so voice is clear: 18% volume
-            mc = mc.with_volume_scaled(0.18)
-            if mc.duration < voice_duration:
-                repeats = math.ceil(voice_duration / max(mc.duration, 1.0))
-                mc = concatenate_audioclips([mc] * repeats)
-            mc = mc.subclipped(0, voice_duration)
-            # Fade out last 1.5s
-            try:
-                mc = mc.with_effects([afx.AudioFadeOut(1.5)])
-            except Exception:
-                pass
-            return mc
-        except Exception as exc:
-            LOGGER.warning("Music load failed (%s): %s", chosen.name, exc)
-            return None
+    # Background music removed
 
     # ═══════════════════════════════════════════════════════════════════════
     #  PEXELS / PIXABAY FETCH
@@ -667,68 +596,7 @@ class VideoGenerator:
         return None
 
     # ═══════════════════════════════════════════════════════════════════════
-    #  LOCAL VIDEO MATCHING  (smart keyword → clip mapping)
-    # ═══════════════════════════════════════════════════════════════════════
 
-    def _match_local_video_assets(self, script: VideoScript) -> list[Path]:
-        local_dir = self.config.local_video_assets_dir
-        if not local_dir.exists():
-            return []
-
-        available = {
-            p.stem.lower(): p
-            for p in local_dir.iterdir()
-            if p.suffix.lower() in {".mp4", ".mov", ".mkv"}
-        }
-        if not available:
-            return []
-
-        blob = f"{script.title} {script.primary_keyword} {script.full_script}".lower()
-
-        # Priority groups: (keywords_in_script, preferred_clip_name_prefixes)
-        priority_groups = [
-            ({"run", "running", "jog", "cardio", "stamina", "outdoor"},                  ["running", "outdoor_run", "pexels_running"]),
-            ({"push", "pushup", "push-up", "chest", "upper body"},                       ["pushup", "pexels_pushup", "dumbbell"]),
-            ({"pullup", "pull-up", "back", "lats", "pull"},                              ["pullup", "weightlift"]),
-            ({"squat", "leg", "quad", "glute", "knee"},                                  ["squat", "pexels_squat", "legpress"]),
-            ({"shoulder", "delts", "press", "overhead"},                                 ["shoulderpress", "dumbbell"]),
-            ({"bicep", "arm", "curl", "tricep"},                                         ["bicep", "dumbbell"]),
-            ({"yoga", "breath", "breathe", "mobility", "stretch", "asana", "pranayama"}, ["yoga", "pexels_yoga_w", "pexels_yoga_m", "yoga_cobrapose", "pexels_stretch", "meditation"]),
-            ({"meditation", "calm", "mind", "stress", "sleep", "relax"},                 ["meditation", "pexels_meditation", "yoga"]),
-            ({"jump", "hiit", "circuit", "explosive"},                                   ["jumpingjack", "hiit", "pexels_hiit"]),
-            ({"fat", "weight", "loss", "calorie", "burn"},                               ["running", "hiit", "pexels_motivation"]),
-            ({"abs", "core", "belly", "plank"},                                          ["abs", "pexels_abs", "pushup"]),
-            ({"home", "indoor", "house"},                                                 ["home", "pexels_home"]),
-            ({"woman", "female", "girl", "her"},                                         ["pexels_woman_gym", "pexels_yoga_w", "fitness_w"]),
-            ({"man", "male", "guy", "him"},                                              ["pexels_man_gym", "pexels_yoga_m", "fitness_m"]),
-            ({"diet", "food", "protein", "eat", "meal", "nutrition"},                    ["pexels_motivation", "fitness_w", "fitness_m"]),
-        ]
-
-        # Collect up to 4 clips for variety (cuts every ~3s)
-        matched: list[Path] = []
-        used: set[str] = set()
-
-        for keywords, name_prefixes in priority_groups:
-            if len(matched) >= 4:
-                break
-            if any(kw in blob for kw in keywords):
-                for prefix in name_prefixes:
-                    for stem, path in available.items():
-                        if stem.startswith(prefix) and stem not in used:
-                            matched.append(path)
-                            used.add(stem)
-                            if len(matched) >= 4:
-                                break
-                    if len(matched) >= 4:
-                        break
-
-        # Fallback: random clips from library
-        if not matched:
-            remaining = [k for k in available if k not in used]
-            random.shuffle(remaining)
-            matched = [available[k] for k in remaining[:4]]
-
-        return matched
 
     def _iter_background_assets(self) -> Iterable[Path]:
         bg_dir = self.config.background_assets_dir
@@ -747,6 +615,11 @@ class VideoGenerator:
 
     @staticmethod
     def _fit_clip(clip, vid_w: int, vid_h: int):
+        try:
+            # Speed up the clip playback by 1.3x to make the action snappy and energetic
+            clip = clip.multiply_speed(1.3)
+        except Exception:
+            pass
         clip = clip.resized(height=vid_h)
         if clip.w < vid_w:
             clip = clip.resized(width=vid_w)
@@ -968,12 +841,7 @@ class VideoGenerator:
         vid_h   = LONG_H if is_long else SHORTS_H
         return self._build_capcut_subtitles(segments, duration, script, vid_w, vid_h)
 
-    def _get_random_background_music(self) -> Path | None:
-        music_dir = getattr(self.config, "music_dir", None)
-        if music_dir is None or not Path(music_dir).exists():
-            return None
-        files = [p for p in Path(music_dir).iterdir() if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".aac"}]
-        return random.choice(files) if files else None
+    # Legacy background music method removed
 
     @staticmethod
     def _limit_subtitle_lines(text: str, max_words_per_line: int = 4) -> str:

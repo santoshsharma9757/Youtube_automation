@@ -201,3 +201,13 @@
 2026-04-12 15:47:50,658 | INFO | seo_generator | SEO generation provider used: static-seo
 2026-04-12 15:47:50,659 | INFO | __main__ | Finished content package for 'morning yoga for stress relief'
 2026-04-12 15:47:50,660 | INFO | __main__ | Pipeline finished with 1 generated videos
+2026-06-13 01:27:25,738 | INFO | kids_idea_generator | Generating 1 kids story ideas (type=short)
+2026-06-13 01:27:33,149 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-13 01:27:33,161 | INFO | kids_idea_generator | Generated 1 kids ideas
+2026-06-13 01:27:33,162 | INFO | kids_story_generator | Generating kids story for 'Chintu Aur Chhupi Hui Zindagi' (type=short, scene_dur=4s)
+2026-06-13 01:27:45,718 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-13 01:27:45,720 | INFO | kids_story_generator | Kids story generation provider: openai:gpt-4o-mini
+2026-06-13 01:32:17,164 | INFO | kids_idea_generator | Generating 1 kids story ideas (type=short)
+2026-06-13 01:32:23,006 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-13 01:32:23,042 | INFO | kids_idea_generator | Generated 1 kids ideas
+2026-06-13 01:32:23,044 | INFO | kids_idea_generator | Saved 1 new kids ideas

@@ -1,53 +1,49 @@
-# DailyFitX Video Automation - Commands Cheatsheet
+# Chintu Stories - AI Kids Animation Channel
+# Commands Cheatsheet (Simplified - June 2026)
+# Channel: YouTube Kids + Facebook Reels
+# Style: 3D Pixar Animation | Moral Stories | Hindi Voiceover
 
-## 📱 Short Videos Command
-Generate multiple Shorts, perfectly mix your visual footage, and schedule them to upload exactly 1 per day at 8:00 PM:
+================================================================================
+ 🎬 1. GENERATE SCENE PROMPTS
+================================================================================
 
-python main.py --count 5 --long-count 0 --schedule-upload --videos-per-day 1
+Choose ONE of these commands to generate a fresh story plan and prompts:
+
+## Option A: Video/Veo Story (3 video scenes, max 18s)
+python main.py --count 1 --videos
+
+## Option B: Image Panning Story (4 image scenes, 25-35s)
+python main.py --count 1 --image
+
+Prompts file will be saved directly to:
+  → output/veo_prompts/{timestamp}_{slug}.txt
+
+A metadata folder will be created at:
+  → input/clips/{timestamp}_{slug}/
 
 
-## 📺 Long Videos Command
-Generate multiple Long videos (2-3 minutes), perfectly mix your visual footage, and schedule them to upload exactly 1 per day at 8:00 PM:
+================================================================================
+ 📥 2. PLACE GENERATED ASSETS
+================================================================================
 
-python main.py --count 0 --long-count 2 --schedule-upload --videos-per-day 1
+Generate your assets using external tools (Veo / Midjourney / DALL-E) based on the prompts.txt file, then copy them inside:
+  → input/clips/{timestamp}_{slug}/
+
+Files to copy:
+- For Video stories: Place 1.mp4, 2.mp4, 3.mp4
+- For Image stories: Place 1_image.png, 2_image.png, 3_image.png, 4_image.png
 
 
-## 🤖 THE 5-STEP GOOGLE VEO WORKFLOW
+================================================================================
+ ⚡ 3. STITCH & COMPILE / UPLOAD
+================================================================================
 
-Follow this exact process to create high-end AI Organ Health videos:
+## Step A: Compile locally (Keep final video in output/final_videos/)
+python main.py --stitch
 
-**Step 1: Generate the Blueprint & SEO**
-Run this command to find a trending topic and generate the prompt + SEO data:
-python main.py --count 1 --veo-prompt
-*(This saves your text prompt to `output/veo_prompts/` and secretly saves the SEO data to `input/veo_clips/metadata.json`)*
+## Step B: Upload & Clear (CLEANS UP everything local after upload!)
+python main.py --upload
 
-**Step 2: Generate the Video Clips on Google Veo**
-Open the generated `.txt` file. Copy the prompt text and paste it into Google Veo.
-Wait for Veo to generate the 4 videos, and then download them to your computer.
-
-**Step 3: Staging the Clips**
-Move those 4 downloaded videos into your `input/veo_clips/` folder.
-CRITICAL: You MUST rename the four files to exactly `1.mp4`, `2.mp4`, `3.mp4`, and `4.mp4` so the script knows the correct order!
-
-**Step 4: Combine & Preview**
-Run this command to stitch the videos together so you can review the final result:
-python main.py --stitch-veo
-*(This saves the combined video to `output/final_videos/` and lets you watch it before uploading)*
-
-**Step 5: Deploy**
-If you're happy with the final video, run this command to schedule it to YouTube with SEO and automatically clean up the files:
-python main.py --deploy-veo --videos-per-day 1
-
-## 📘 FACEBOOK AUTO-UPLOADING
-
-Your script is now built to upload to Facebook automatically! It works at the exact same time as your YouTube scheduling.
-
-**To enable Facebook Uploading:**
-1. Go to the Meta Developer Portal and create an App.
-2. Get your `FACEBOOK_PAGE_ID` and a `FACEBOOK_ACCESS_TOKEN` with `pages_read_engagement`, `pages_manage_posts`, and `pages_manage_metadata` permissions.
-3. Add them to your `.env` file like this:
-   ```
-   FACEBOOK_PAGE_ID=your_page_id_here
-   FACEBOOK_ACCESS_TOKEN=your_access_token_here
-   ```
-4. From now on, whenever you run a command like `python main.py --schedule-upload` or `python main.py --deploy-veo`, it will automatically post to Facebook Reels at the exact same time as YouTube!
+NOTE: With the --upload command:
+1. Video uploads immediately to YouTube + Facebook.
+2. The local compiled .mp4 video and the input clips folder are automatically DELETED to keep your drive clean.

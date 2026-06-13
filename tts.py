@@ -1,4 +1,5 @@
 from __future__ import annotations
+import re
 
 import asyncio
 import logging
@@ -63,9 +64,9 @@ class TextToSpeechEngine:
         LOGGER.info("Synthesizing speech with Edge TTS fallback")
 
         async def _run() -> None:
-            voice = "hi-IN-SwaraNeural" if voice_profile == "hindi" else "en-IN-PrabhatNeural"
-            rate = "+2%" if voice_profile == "hindi" else "+8%"
-            pitch = "+0Hz" if voice_profile == "hindi" else "-1Hz"
+            voice = "hi-IN-MadhurNeural" if voice_profile == "hindi" else "en-US-AndrewNeural"
+            rate = "+10%" if voice_profile == "hindi" else "+12%"
+            pitch = "+0Hz"
             communicate = edge_tts.Communicate(text=text, voice=voice, rate=rate, pitch=pitch)
             await communicate.save(str(output_path))
 
@@ -82,7 +83,19 @@ class TextToSpeechEngine:
 
     @staticmethod
     def _detect_voice_profile(text: str) -> str:
-        devanagari_present = any(ord(char) > 127 for char in text)
-        if devanagari_present:
+        # Check for Devanagari first
+        if any(ord(char) > 127 for char in text):
             return "hindi"
+
+        # Check for highly common Hinglish/Hindi functional words in transliterated scripts
+        hinglish_words = {
+            "hai", "ko", "se", "aur", "mein", "ka", "ki", "aaj", "hum",
+            "baat", "karenge", "bhi", "hota", "khatam", "tarike", "karo",
+            "sakte", "dosto", "aap", "apne", "baare", "hoga", "tum", "main",
+            "he", "ke", "liye", "bhai", "lo", "kar", "gaya", "ho"
+        }
+        words = set(re.sub(r"[^\w\s]", "", text.lower()).split())
+        if words.intersection(hinglish_words):
+            return "hindi"
+
         return "english"
