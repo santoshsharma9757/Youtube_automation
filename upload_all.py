@@ -9,7 +9,7 @@ import requests
 import pytz
 from googleapiclient.discovery import build
 
-ACTIVE_CHANNEL = os.getenv("CHANNEL", "fitness").lower().strip()
+ACTIVE_CHANNEL = os.getenv("CHANNEL", "stories").lower().strip()
 
 from config import VIDEO_DIR, get_config
 from posting_schedule import get_daily_slots
@@ -21,18 +21,18 @@ logging.basicConfig(level=logging.INFO)
 
 
 def build_fallback_seo(video_path: Path) -> SeoPackage:
+    """Fallback SEO for orphan videos recovered from disk — Wonder Stories TV branding."""
     stem = re.sub(r"^\d{8}_\d{6}_", "", video_path.stem)
     title_text = stem.replace("-", " ").replace("_", " ").strip()
-    title_text = re.sub(r"\s+", " ", title_text).strip() or "DailyFitX Short"
+    title_text = re.sub(r"\s+", " ", title_text).strip() or "Wonder Stories TV"
     title = title_text.title()
     hashtags = [
         "#shorts",
-        "#shortsfeed",
-        "#fitness",
-        "#fitnessmotivation",
-        "#fitnessjourney",
-        "#healthylifestyle",
-        "#DailyFitX",
+        "#WonderStoriesTV",
+        "#HindiMoralStory",
+        "#BacchonKiKahani",
+        "#AnimatedStory",
+        "#KidsStory",
     ]
     return SeoPackage(
         title=title[:80],
@@ -42,16 +42,16 @@ def build_fallback_seo(video_path: Path) -> SeoPackage:
         ),
         tags=[
             title_text.lower(),
-            "fitness shorts",
-            "workout motivation",
-            "DailyFitX",
-            "youtube shorts",
+            "hindi moral story",
+            "bacchon ki kahani",
+            "wonder stories tv",
+            "animated story hindi",
         ],
         hashtags=hashtags,
         primary_keyword=title_text.lower(),
-        language_code="en",
-        audio_language_code="en",
-        content_style="fitness",
+        language_code="hi",
+        audio_language_code="hi",
+        content_style="family_story",
     )
 
 
@@ -336,6 +336,9 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
 
     existing_scheduled_times = []
     for record in history:
+        # Only treat it as a taken slot if it was actually uploaded successfully on at least one platform
+        if not record.get("uploaded", False) and not record.get("fb_uploaded", False):
+            continue
         scheduled_time = record.get("scheduled_time")
         if not scheduled_time:
             continue
@@ -366,7 +369,7 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
             missing_files += 1
             continue
 
-        seo = SeoPackage(**record["seo"])
+        seo = SeoPackage.from_dict(record["seo"])
         publish_at_utc = record.get("scheduled_time")
         is_immediate = (publish_at_utc == "IMMEDIATE")
 
@@ -380,7 +383,7 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
                     video_type = "short"
                 slots = get_daily_slots(temp_date.weekday(), videos_per_day, video_type=video_type, channel=ACTIVE_CHANNEL)
                 for s_hour in slots:
-                    s_minute = 30 if ACTIVE_CHANNEL == "kids" else 0
+                    s_minute = 0
                     candidate = tz.localize(datetime.combine(temp_date, time(hour=s_hour, minute=s_minute)))
                     if candidate > current_time_pointer:
                         next_slot = candidate
@@ -410,13 +413,22 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
         if not fb_done and fb_uploader.is_configured():
             print(f"Scheduling '{seo.title}' for Facebook at {publish_at_utc}...")
             video_type = str(record.get("script", {}).get("video_type", "short")).lower()
-            is_long = (video_type == "long")
+            # is_long = True for all non-short videos (mini, long, series) — only short goes as Reels
+            is_long = video_type != "short"
+            # Pass the pre-generated facebook_description if available in the record
+            fb_desc = record.get("seo", {}).get("facebook_description", "")
             try:
-                fb_res = fb_uploader.upload(video_path, seo, publish_at=publish_at_utc, is_long=is_long)
+                fb_res = fb_uploader.upload(
+                    video_path,
+                    seo,
+                    publish_at=publish_at_utc,
+                    is_long=is_long,
+                    facebook_description=fb_desc,
+                )
                 record["fb_uploaded"] = True
                 record["fb_upload_response"] = fb_res
                 made_progress = True
-                print("Facebook scheduled successfully!")
+                print(f"Facebook {'Video' if is_long else 'Reel'} scheduled successfully!")
             except Exception as e:
                 print(f"Failed to schedule to Facebook for {seo.title}: {e}")
 
@@ -426,6 +438,9 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
                 cleanup_local_video(video_path, record)
             history_file.write_text(json.dumps(history, ensure_ascii=False, indent=2), "utf-8")
             count_uploaded += 1
+        else:
+            # If both failed, reset scheduled_time so it doesn't block future slots or get saved as an occupied date
+            record["scheduled_time"] = None
 
     if count_uploaded == 0 and missing_files == 0:
         print("No new videos to schedule.")

@@ -12,13 +12,13 @@ from main import run_pipeline
 LOGGER = logging.getLogger(__name__)
 
 # ─── Channel routing (mirrors main.py) ────────────────────────────────────────
-ACTIVE_CHANNEL = os.getenv("CHANNEL", "fitness").lower().strip()
+ACTIVE_CHANNEL = os.getenv("CHANNEL", "stories").lower().strip()
 
 
 def start_scheduler(config: AppConfig) -> None:
     scheduler = BlockingScheduler(timezone=config.scheduler_timezone)
 
-    if ACTIVE_CHANNEL == "kids":
+    if ACTIVE_CHANNEL in ("kids", "stories"):
         # ── Chintu Stories: single daily job at 2:30 PM IST ───────────────────
         scheduler.add_job(
             func=lambda: run_pipeline(

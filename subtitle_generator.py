@@ -9,7 +9,7 @@ from typing import Any
 from openai import OpenAI
 
 from config import AppConfig
-from script_generator import VideoScript
+from typing import Any
 
 
 LOGGER = logging.getLogger(__name__)
@@ -27,7 +27,7 @@ class SubtitleGenerator:
         self.config = config
         self.client = OpenAI(api_key=config.openai_api_key)
 
-    def generate(self, audio_path: Path, base_name: str, script: VideoScript | None = None) -> SubtitleArtifact:
+    def generate(self, audio_path: Path, base_name: str, script: Any | None = None) -> SubtitleArtifact:
         LOGGER.info("Transcribing audio for subtitles (using heuristic chunking): %s", audio_path)
         
         # Audio duration
@@ -49,7 +49,7 @@ class SubtitleGenerator:
         srt_path.write_text(self._to_srt(segments), encoding="utf-8")
         return SubtitleArtifact(srt_path=srt_path, json_path=json_path, segments=segments)
 
-    def _heuristic_chunking(self, base_name: str, script: VideoScript | None = None, duration: float = 30.0) -> list[dict]:
+    def _heuristic_chunking(self, base_name: str, script: Any | None = None, duration: float = 30.0) -> list[dict]:
         text = script.full_script if script else "Discipline is doing what needs to be done, even when you don't feel like it."
         words = text.split()
         segments = []
@@ -80,7 +80,7 @@ class SubtitleGenerator:
         srt_path.write_text(self._to_srt(segments), encoding="utf-8")
         return SubtitleArtifact(srt_path=srt_path, json_path=json_path, segments=segments)
 
-    def _guess_language(self, script: VideoScript | None) -> str:
+    def _guess_language(self, script: Any | None) -> str:
         if script is None:
             return "en"
         blob = " ".join(

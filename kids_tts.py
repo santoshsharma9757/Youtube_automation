@@ -145,7 +145,7 @@ class KidsTTSEngine:
             communicate = edge_tts.Communicate(
                 text=text,
                 voice=HINDI_VOICE,
-                rate="+5%",
+                rate="+15%",
                 pitch="+0Hz",
             )
             await communicate.save(str(output_path))

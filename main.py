@@ -11,8 +11,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from config import AUDIO_DIR, DATA_DIR, VIDEO_DIR, get_config
-from idea_generator import IdeaGenerator, VideoIdea, canonicalize_text, canonicalize_title
-from script_generator import ScriptGenerator
 from seo_generator import SeoPackage
 from upload_all import schedule_pending_uploads
 from uploader import YouTubeUploader
@@ -21,9 +19,9 @@ from moviepy import VideoFileClip, concatenate_videoclips
 LOGGER = logging.getLogger(__name__)
 
 # ─── Channel routing ──────────────────────────────────────────────────────────
-# Set CHANNEL=kids in .env to activate the Chintu Stories kids animation pipeline.
+# Set CHANNEL=stories in .env to activate the Wonder Stories TV pipeline.
 # Set CHANNEL=fitness (or leave blank) to use the original fitness pipeline.
-ACTIVE_CHANNEL = os.getenv("CHANNEL", "fitness").lower().strip()
+ACTIVE_CHANNEL = os.getenv("CHANNEL", "stories").lower().strip()
 
 
 def safe_print(text: str) -> None:
@@ -45,6 +43,10 @@ def run_kids_pipeline(
     upload: bool = False,
     videos_per_day: int = 1,
     kids_mode: str = "veo",
+    made_for_kids: bool | None = None,
+    video_format: str | None = None,
+    category: str | None = None,
+    topic: str | None = None,
 ) -> list[dict]:
     """
     Semi-manual AI Kids Animation pipeline:
@@ -56,7 +58,7 @@ def run_kids_pipeline(
       6. Assembles the final video (subtitles, transitions, etc.)
       7. Uploads to YouTube + Facebook
     """
-    from kids_idea_generator import KidsIdeaGenerator
+    from kids_idea_generator import KidsIdeaGenerator, KidsStoryIdea
     from kids_story_generator import KidsStoryGenerator
     from kids_tts import KidsTTSEngine
     from kids_video_assembler import KidsVideoAssembler
@@ -65,8 +67,8 @@ def run_kids_pipeline(
     config = get_config()
 
     # ── Kids-specific data stores ────────────────────────────────────────────
-    kids_ideas_store   = DATA_DIR / "kids_ideas.json"
-    kids_content_store = DATA_DIR / "kids_content_history.json"
+    kids_ideas_store   = config.ideas_store
+    kids_content_store = config.content_store
 
     idea_gen    = KidsIdeaGenerator(config)
     story_gen   = KidsStoryGenerator(config)
@@ -79,24 +81,87 @@ def run_kids_pipeline(
     used_titles = {item.get("idea_title", "").lower() for item in content_history}
     results: list[dict] = []
 
-    # Generate ideas for Shorts
-    short_ideas = []
-    if short_count > 0:
-        raw_ideas = idea_gen.generate_ideas(count=short_count * 3, video_type="short", ideas_store=kids_ideas_store)
-        saved     = idea_gen.save_new_ideas(raw_ideas, ideas_store=kids_ideas_store)
-        short_ideas = [i for i in saved if i.title.lower() not in used_titles][:short_count]
+    # Resolve made_for_kids default value
+    is_kids = made_for_kids if made_for_kids is not None else False
 
-    # Generate ideas for Longs
-    long_ideas = []
-    if long_count > 0:
-        raw_ideas = idea_gen.generate_ideas(count=long_count * 3, video_type="long", ideas_store=kids_ideas_store)
-        saved     = idea_gen.save_new_ideas(raw_ideas, ideas_store=kids_ideas_store)
-        long_ideas = [i for i in saved if i.title.lower() not in used_titles][:long_count]
+    # Determine formats to generate
+    ideas_to_gen = []
+    if video_format:
+        count = short_count if short_count > 0 else 1
+        ideas_to_gen.append((video_format, count))
+    else:
+        if short_count > 0:
+            ideas_to_gen.append(("short", short_count))
+        if long_count > 0:
+            ideas_to_gen.append(("long", long_count))
 
-    all_ideas = short_ideas + long_ideas
+    all_ideas = []
+    if topic:
+        from story_topics import STORY_TOPIC_BANK
+        import uuid
+        matched_seed = None
+        for seed in STORY_TOPIC_BANK:
+            seed_title = seed["title"]
+            swapped_title = seed_title.replace("Chintu", "Rohan") if not is_kids else seed_title
+            if topic.lower() in (seed_title.lower(), swapped_title.lower()):
+                matched_seed = seed
+                break
+        
+        if matched_seed:
+            fmt_name = video_format or matched_seed.get("format", "short")
+            title = matched_seed["title"]
+            if not is_kids:
+                title = title.replace("Chintu", "Rohan")
+            
+            magical = matched_seed.get("magical_element", "")
+            adult_hook_text = matched_seed.get("adult_hook", "")
+            kids_hook_text = matched_seed.get("kids_hook", "")
+            if not is_kids:
+                adult_hook_text = adult_hook_text.replace("Chintu", "Rohan")
+                kids_hook_text = kids_hook_text.replace("Chintu", "Rohan")
+
+            idea = KidsStoryIdea(
+                idea_id=str(uuid.uuid4()),
+                title=title,
+                bad_habit=matched_seed.get("bad_habit", ""),
+                bad_habit_hindi=matched_seed.get("bad_habit_hindi", ""),
+                magical_element=magical,
+                moral=matched_seed.get("moral", ""),
+                moral_hindi=matched_seed.get("moral_hindi", ""),
+                angle=matched_seed.get("angle", "Moral Story"),
+                topic=matched_seed.get("topic", ""),
+                audience_value=matched_seed.get("audience_value", adult_hook_text),
+                source_prompt="static-topic-force",
+                created_at=datetime.now(timezone.utc).isoformat(),
+                video_type=fmt_name,
+                category=category or matched_seed.get("category", "magical_adventure"),
+                adult_hook=adult_hook_text,
+                kids_hook=kids_hook_text,
+                made_for_kids=is_kids,
+            )
+            idea_gen.save_new_ideas([idea], ideas_store=kids_ideas_store)
+            all_ideas = [idea]
+        else:
+            LOGGER.error("Forced topic '%s' not found in STORY_TOPIC_BANK!", topic)
+            return []
+    else:
+        for fmt_name, count in ideas_to_gen:
+            raw_ideas = idea_gen.generate_ideas(
+                count=count * 3,
+                video_type=fmt_name,
+                ideas_store=kids_ideas_store,
+                made_for_kids=is_kids,
+                category=category,
+            )
+            saved = idea_gen.save_new_ideas(raw_ideas, ideas_store=kids_ideas_store)
+            selected = [i for i in saved if i.title.lower() not in used_titles][:count]
+            # Override category if passed explicitly via CLI
+            if category:
+                selected = [replace(i, category=category) for i in selected]
+            all_ideas.extend(selected)
 
     for idea in all_ideas:
-        is_long   = idea.video_type == "long"
+        is_long   = idea.video_type != "short"
         base_name = f"{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{slugify(idea.title)}"
 
         LOGGER.info("Processing kids story: '%s' (type=%s)", idea.title, idea.video_type)
@@ -147,6 +212,8 @@ def run_kids_pipeline(
 
             # Generate SEO
             seo = seo_gen.generate(idea, plan)
+            if made_for_kids is not None:
+                seo.made_for_kids = made_for_kids
             metadata = {
                 "title": seo.title,
                 "description": seo.description,
@@ -158,6 +225,8 @@ def run_kids_pipeline(
                 "content_style": seo.content_style,
                 "kids_mode": kids_mode,
                 "idea_as_dict": asdict(idea),
+                "made_for_kids": seo.made_for_kids,
+                "facebook_description": getattr(seo, "facebook_description", ""),
             }
             (folder_path / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -309,14 +378,17 @@ def run_pipeline(
     videos_per_day: int = 1,
     stitch_kids: bool = False,
     kids_mode: str = "veo",
+    made_for_kids: bool | None = None,
+    video_format: str | None = None,
+    category: str | None = None,
 ) -> list[dict]:
     """
     Routes to the correct pipeline based on the CHANNEL env var.
 
-    CHANNEL=kids   → run_kids_pipeline()
-    CHANNEL=fitness → original fitness pipeline (unchanged)
+    CHANNEL=stories/kids -> run_kids_pipeline()
+    CHANNEL=fitness      -> original fitness pipeline (deprecated)
     """
-    if ACTIVE_CHANNEL == "kids":
+    if ACTIVE_CHANNEL in ("kids", "stories"):
         if stitch_kids:
             LOGGER.info("Scanning for manually generated kids clips to stitch...")
             folders = []
@@ -338,7 +410,7 @@ def run_pipeline(
             tts_engine = KidsTTSEngine(config)
             assembler = KidsVideoAssembler(config)
 
-            kids_content_store = DATA_DIR / "kids_content_history.json"
+            kids_content_store = config.content_store
             content_history = read_json(kids_content_store)
 
             for folder in folders:
@@ -396,6 +468,9 @@ def run_pipeline(
                         created_at=idea_dict.get("created_at", ""),
                         video_type=idea_dict.get("video_type", "short"),
                         language=idea_dict.get("language", "hindi"),
+                        category=idea_dict.get("category", "magical_adventure"),
+                        adult_hook=idea_dict.get("adult_hook", ""),
+                        kids_hook=idea_dict.get("kids_hook", ""),
                     )
 
                     # Reconstruct KidsStoryPlan
@@ -431,6 +506,8 @@ def run_pipeline(
                             language_code=meta_data["language_code"],
                             audio_language_code=meta_data["audio_language_code"],
                             content_style=meta_data["content_style"],
+                            made_for_kids=meta_data.get("made_for_kids", False),
+                            facebook_description=meta_data.get("facebook_description", ""),
                         )
                         upload_response = yt_uploader.upload_short(video_path, yt_seo)
 
@@ -448,6 +525,8 @@ def run_pipeline(
                             "language_code": meta_data["language_code"],
                             "audio_language_code": meta_data["audio_language_code"],
                             "content_style": meta_data["content_style"],
+                            "made_for_kids": meta_data.get("made_for_kids", False),
+                            "facebook_description": meta_data.get("facebook_description", ""),
                         },
                         "audio_path": "",
                         "video_path": str(video_path.resolve()),
@@ -490,16 +569,25 @@ def run_pipeline(
 
             return []
 
-        LOGGER.info("CHANNEL=kids: routing to Chintu Stories kids animation pipeline")
+        LOGGER.info("CHANNEL=%s: routing to Chintu Stories / Wonder Stories TV pipeline", ACTIVE_CHANNEL)
         return run_kids_pipeline(
             short_count=short_count,
             long_count=long_count,
             upload=upload,
             videos_per_day=videos_per_day,
             kids_mode=kids_mode,
+            made_for_kids=made_for_kids,
+            video_format=video_format,
+            category=category,
+            topic=topic,
         )
 
-    # ── Original fitness pipeline ──────────────────────────────────────────────
+    # ── Deprecated fitness pipeline ─────────────────────────────────────────────
+    raise ValueError(
+        f"Channel '{ACTIVE_CHANNEL}' is not supported. The DailyFitX fitness pipeline has been "
+        f"deprecated and migrated to the family storytelling channel (Wonder Stories TV). "
+        f"Please set CHANNEL=stories in your .env file."
+    )
     config = get_config()
     total_count = short_count + long_count
 
@@ -879,9 +967,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--deploy-kids", action="store_true",
                         help="[Kids only] Upload stitched kids videos sitting in output/final_videos.")
     parser.add_argument("--image", action="store_true",
-                        help="[Kids only] Generate image-based story (4 image scenes, 25-35s) instead of default veo video story (3 scenes, max 18s).")
+                        help="[Kids only] Generate image-based story (4 image scenes, 25-35s) instead of video-based story.")
     parser.add_argument("--videos", action="store_true",
-                        help="[Kids only] Generate video-based story (3 video scenes, max 18s) (default).")
+                        help="[Kids only] Generate video-based story (4 video scenes, 25-35s) (default).")
+    parser.add_argument("--children", "--kids", action="store_true", dest="children",
+                        help="[Kids only] Flag the video as 'Made for Kids' (selfDeclaredMadeForKids=True) in YouTube upload metadata.")
+    parser.add_argument("--normal", action="store_true", dest="normal",
+                        help="[Kids only] Flag the video as 'Not Made for Kids' (selfDeclaredMadeForKids=False) in YouTube upload metadata.")
+    parser.add_argument("--format", type=str, choices=["short", "mini", "long", "series"],
+                        default=None, help="[Kids only] Video format: short | mini | long | series.")
+    parser.add_argument("--category", type=str, choices=[
+                            "magical_adventure", "mythology", "dadi_kahani",
+                            "real_life", "family_funny", "animal_tales",
+                            "mystery", "seasonal", "horror"
+                        ], default=None, help="[Kids only] Story category.")
 
     parser.add_argument("legacy_command", nargs="?", choices=["count"], help=argparse.SUPPRESS)
     parser.add_argument("legacy_value", nargs="?", help=argparse.SUPPRESS)
@@ -913,8 +1012,8 @@ def main() -> None:
         run_pipeline(stitch_kids=True, upload=args.upload, videos_per_day=args.videos_per_day)
         return
 
-    # Check if --upload was run alone on kids channel (acts as deploy)
-    if ACTIVE_CHANNEL == "kids" and args.upload and not any(arg in sys.argv for arg in ["--count", "--long-count"]):
+    # Check if --upload was run alone on kids/stories channel (acts as deploy)
+    if ACTIVE_CHANNEL in ("kids", "stories") and args.upload and not any(arg in sys.argv for arg in ["--count", "--long-count"]):
         LOGGER.info("Deploying/Scheduling stitched kids videos...")
         scheduled = schedule_pending_uploads(videos_per_day=args.videos_per_day)
         LOGGER.info("Completed deployment. Scheduled %s kids videos.", scheduled)
@@ -925,6 +1024,13 @@ def main() -> None:
         scheduled = schedule_pending_uploads(videos_per_day=args.videos_per_day)
         LOGGER.info("Completed deployment. Scheduled %s kids videos.", scheduled)
         return
+
+    # Determine made_for_kids override value from CLI flags
+    cli_made_for_kids = None
+    if getattr(args, "children", False):
+        cli_made_for_kids = True
+    elif getattr(args, "normal", False):
+        cli_made_for_kids = False
 
     results = run_pipeline(
         short_count=args.count,
@@ -940,6 +1046,9 @@ def main() -> None:
         videos_per_day=args.videos_per_day,
         stitch_kids=getattr(args, "stitch_kids", False),
         kids_mode="images" if getattr(args, "image", False) else "veo",
+        made_for_kids=cli_made_for_kids,
+        video_format=getattr(args, "format", None),
+        category=getattr(args, "category", None),
     )
     if args.schedule_upload:
         scheduled = schedule_pending_uploads(videos_per_day=args.videos_per_day)

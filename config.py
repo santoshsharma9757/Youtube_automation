@@ -74,7 +74,7 @@ class AppConfig:
     )
     youtube_token_file: str = field(default_factory=lambda: os.getenv("YOUTUBE_TOKEN_FILE", "youtube_token.json"))
     youtube_api_key: str = field(default_factory=lambda: os.getenv("YOUTUBE_API_KEY", ""))
-    youtube_category_id: str = field(default_factory=lambda: os.getenv("YOUTUBE_CATEGORY_ID", "26"))  # 26=Howto & Style fits workout, yoga, and explainer-style fitness shorts better than Sports
+    youtube_category_id: str = field(default_factory=lambda: os.getenv("YOUTUBE_CATEGORY_ID", "1"))  # 1 = Film & Animation — perfect for Wonder Stories TV
     default_privacy_status: str = field(default_factory=lambda: os.getenv("YOUTUBE_PRIVACY_STATUS", "public"))
     youtube_enable_monetization: bool = field(
         default_factory=lambda: os.getenv("YOUTUBE_ENABLE_MONETIZATION", "false").lower() == "true"
@@ -97,25 +97,15 @@ class AppConfig:
     upload_enabled: bool = field(default_factory=lambda: os.getenv("UPLOAD_ENABLED", "false").lower() == "true")
     use_pexels_for_shorts: bool = field(default=False)
     shorts_visual_mode: str = field(default="local")
-    require_youtube_trend_ideas: bool = field(
-        default_factory=lambda: os.getenv("REQUIRE_YOUTUBE_TREND_IDEAS", "true").lower() == "true"
-    )
+    # ── Channel Identity (Wonder Stories TV) ────────────────────────────────
+    channel_name: str = field(default_factory=lambda: os.getenv("CHANNEL_NAME", "Wonder Stories TV"))
+    channel_brand: str = field(default_factory=lambda: os.getenv("CHANNEL_BRAND", "Chintu"))
+    channel_handle: str = field(default_factory=lambda: os.getenv("CHANNEL_HANDLE", "@WonderStoriesTV"))
+    channel: str = field(default_factory=lambda: os.getenv("CHANNEL", "stories").lower().strip())
 
-    ideas_store: Path = field(
-        default_factory=lambda: DATA_DIR / (
-            "kids_ideas.json" if os.getenv("CHANNEL", "fitness").lower().strip() == "kids" else "ideas.json"
-        )
-    )
-    content_store: Path = field(
-        default_factory=lambda: DATA_DIR / (
-            "kids_content_history.json" if os.getenv("CHANNEL", "fitness").lower().strip() == "kids" else "content_history.json"
-        )
-    )
-    seo_store: Path = field(
-        default_factory=lambda: DATA_DIR / (
-            "kids_seo_history.json" if os.getenv("CHANNEL", "fitness").lower().strip() == "kids" else "seo_history.json"
-        )
-    )
+    ideas_store: Path = field(default_factory=lambda: DATA_DIR / "stories_ideas.json")
+    content_store: Path = field(default_factory=lambda: DATA_DIR / "stories_content_history.json")
+    seo_store: Path = field(default_factory=lambda: DATA_DIR / "stories_seo_history.json")
 
 
 def get_config() -> AppConfig:

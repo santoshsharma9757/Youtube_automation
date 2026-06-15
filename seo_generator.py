@@ -2,27 +2,41 @@ from __future__ import annotations
 
 import logging
 import re
-from dataclasses import dataclass
-from typing import List
+from dataclasses import dataclass, field
+from typing import List, Optional
 
 from config import AppConfig
 from llm_fallback import LlmFallbackClient, build_json_with_fallback
-from script_generator import VideoScript
 
 
 LOGGER = logging.getLogger(__name__)
 
 
-@dataclass(slots=True)
+@dataclass
 class SeoPackage:
     title: str
     description: str
     tags: List[str]
     hashtags: List[str]
     primary_keyword: str
-    language_code: str = "en"
-    audio_language_code: str = "en"
-    content_style: str = "fitness"
+    language_code: str = "hi"
+    audio_language_code: str = "hi"
+    content_style: str = "family_story"
+    # Wonder Stories TV fields (optional — ignored if not present in old records)
+    made_for_kids: bool = False
+    facebook_description: str = ""
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "SeoPackage":
+        """Safe deserialization — ignores unknown keys to avoid crashes."""
+        valid_keys = {f.name for f in cls.__dataclass_fields__.values()} if hasattr(cls, '__dataclass_fields__') else set()
+        # Fallback: use only known init params
+        known = {k: v for k, v in data.items() if k in {
+            'title', 'description', 'tags', 'hashtags', 'primary_keyword',
+            'language_code', 'audio_language_code', 'content_style',
+            'made_for_kids', 'facebook_description',
+        }}
+        return cls(**known)
 
 
 class SeoGenerator:

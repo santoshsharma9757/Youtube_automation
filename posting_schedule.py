@@ -50,7 +50,7 @@ def get_daily_slots(
     video_type: str = "short",
     channel: str = "fitness",
 ) -> list[int]:
-    if channel == "kids":
+    if channel in ("kids", "stories"):
         slots = KIDS_POSTING_SLOTS.get(weekday, [14])
     elif video_type == "long":
         slots = LONG_FORM_POSTING_SLOTS.get(weekday, SHORTS_POSTING_SLOTS[0])

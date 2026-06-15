@@ -26,6 +26,24 @@ class YouTubeUploader:
     def __init__(self, config: AppConfig) -> None:
         self.config = config
 
+    def sanitize_tags(self, tags: list[str]) -> list[str]:
+        import re
+        sanitized = []
+        total_len = 0
+        for tag in tags:
+            # Keep only standard English letters, numbers, and space to prevent any API crashes
+            clean_tag = re.sub(r'[^a-zA-Z0-9 ]', '', tag).strip()
+            if not clean_tag:
+                continue
+            clean_tag = re.sub(r'\s+', ' ', clean_tag)[:40].strip()
+            # Separators are commas in API, so add 1 for the comma (except the first tag)
+            tag_len = len(clean_tag) + (1 if sanitized else 0)
+            if len(sanitized) >= 15 or total_len + tag_len > 350:
+                break
+            sanitized.append(clean_tag)
+            total_len += tag_len
+        return sanitized
+
     def upload_short(self, video_path: Path, seo: SeoPackage, publish_at: str | None = None) -> dict:
         client_secrets = Path(self.config.youtube_client_secrets_file)
         if not client_secrets.exists():
@@ -37,7 +55,8 @@ class YouTubeUploader:
         
         status_body = {
             "privacyStatus": self.config.default_privacy_status if not publish_at else "private",
-            "selfDeclaredMadeForKids": False,
+            "selfDeclaredMadeForKids": getattr(seo, "made_for_kids", False),
+            "containsSyntheticMedia": True,
         }
         if publish_at:
             status_body["publishAt"] = publish_at
@@ -46,13 +65,14 @@ class YouTubeUploader:
             "snippet": {
                 "title": seo.title,
                 "description": seo.description,
-                "tags": seo.tags,
-                "categoryId": self.config.youtube_category_id,
+                "tags": self.sanitize_tags(seo.tags),
+                "categoryId": "1",   # 1 = Film & Animation — Wonder Stories TV
                 "defaultLanguage": seo.language_code,
                 "defaultAudioLanguage": seo.audio_language_code,
             },
             "status": status_body,
         }
+        print("SANITIZED TAGS TO YOUTUBE API:", body["snippet"]["tags"])
 
         if self.config.youtube_enable_monetization:
             # Only request monetization for partner-enabled channels.

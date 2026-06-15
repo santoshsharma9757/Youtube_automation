@@ -1,49 +1,259 @@
-# Chintu Stories - AI Kids Animation Channel
-# Commands Cheatsheet (Simplified - June 2026)
-# Channel: YouTube Kids + Facebook Reels
-# Style: 3D Pixar Animation | Moral Stories | Hindi Voiceover
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                     WONDER STORIES TV — COMMANDS CHEATSHEET                     ║
+║                    YouTube & Facebook Family Story Automation                    ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
 
-================================================================================
- 🎬 1. GENERATE SCENE PROMPTS
-================================================================================
+Channel:   Wonder Stories TV  (@WonderStoriesTV)
+Character: Chintu (+ supporting cast: Mother, Golu, Pinky, Mintu)
+Strategy:  Dual-layer Pixar formula — Fun for kids, meaningful for adults
+Language:  Hindi voiceover (Roman script) + English SEO metadata
+Platform:  YouTube (Shorts + Videos) + Facebook (Reels + Videos)
 
-Choose ONE of these commands to generate a fresh story plan and prompts:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Option A: Video/Veo Story (3 video scenes, max 18s)
-python main.py --count 1 --videos
+VIDEO FORMAT REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Option B: Image Panning Story (4 image scenes, 25-35s)
-python main.py --count 1 --image
+  FORMAT    LENGTH      SCENES    PLATFORM              MONETIZATION
+  ────────  ──────────  ────────  ───────────────────   ─────────────────────
+  short     max 35s     4×8s      YT Shorts + FB Reels  Shorts bonus fund
+  mini      3–5 min     8×30s     YouTube + Facebook    Pre-roll ads
+  long      8–12 min    14×43s    YouTube               PRE + MID-ROLL ads ★
+  series    12–18 min   20×45s    YouTube               PRE + MID-ROLL ads ★
 
-Prompts file will be saved directly to:
-  → output/veo_prompts/{timestamp}_{slug}.txt
+  ★ 8+ minute videos unlock MID-ROLL ads = 3-4× higher RPM
 
-A metadata folder will be created at:
-  → input/clips/{timestamp}_{slug}/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+QUICK START — MOST USED COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-================================================================================
- 📥 2. PLACE GENERATED ASSETS
-================================================================================
+  # Run ONE Short (35s, 4 scenes, AI video mode, Normal/monetized)
+  python main.py --count 1 --videos --normal
 
-Generate your assets using external tools (Veo / Midjourney / DALL-E) based on the prompts.txt file, then copy them inside:
-  → input/clips/{timestamp}_{slug}/
+  # Run ONE Short (35s, 4 scenes, image slideshow mode, Made for Children)
+  python main.py --count 1 --image --children
 
-Files to copy:
-- For Video stories: Place 1.mp4, 2.mp4, 3.mp4
-- For Image stories: Place 1_image.png, 2_image.png, 3_image.png, 4_image.png
+  # Run ONE Mini Story (3-5 min, Normal/monetized)
+  python main.py --count 1 --videos --format mini --normal
 
+  # Run ONE Mini Story (3-5 min, Made for Children)
+  python main.py --count 1 --videos --format mini --children
 
-================================================================================
- ⚡ 3. STITCH & COMPILE / UPLOAD
-================================================================================
+  # Run ONE Long Story (8-12 min, Normal/monetized, mid-roll ads unlock)
+  python main.py --count 1 --videos --format long --normal
 
-## Step A: Compile locally (Keep final video in output/final_videos/)
-python main.py --stitch
+  # Run ONE Long Story (8-12 min, Made for Children)
+  python main.py --count 1 --videos --format long --children
+ 
+  # Run ONE Series Episode (Normal/monetized)
+  python main.py --count 1 --videos --format series --normal
+ 
+  # Run MULTIPLE videos (batch, Normal/monetized)
+  python main.py --count 3 --videos --normal
+ 
+  # Run with UPLOAD ENABLED (YouTube + Facebook auto-upload after generation)
+  python main.py --count 1 --videos --upload
 
-## Step B: Upload & Clear (CLEANS UP everything local after upload!)
-python main.py --upload
+  # Stitch manually generated video/image clips from input/clips/
+  python main.py --stitch
 
-NOTE: With the --upload command:
-1. Video uploads immediately to YouTube + Facebook.
-2. The local compiled .mp4 video and the input clips folder are automatically DELETED to keep your drive clean.
+  # Upload/Deploy already-stitched final videos from output/final_videos/
+  python main.py --upload
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FULL COMMAND REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  python main.py [OPTIONS]
+
+  OPTIONS:
+    --count N          Number of videos to generate (default: 1)
+    --videos           Use AI video generation (Veo / Google AI Studio)
+    --image            Use image slideshow mode (faster, no AI video quota)
+    --format FORMAT    Video format: short | mini | long | series
+                       Default: short
+    --upload           Enable upload to YouTube + Facebook after generation
+    --skip-upload      Force skip upload (even if UPLOAD_ENABLED=true in .env)
+    --dry-run          Generate story plan only (no video rendering)
+    --children         Flag the video as 'Made for Kids' (monetization disabled)
+    --normal           Flag the video as 'Not Made for Kids' (monetization active)
+    --category CAT     Story category: magical_adventure | mythology |
+                       dadi_kahani | real_life | family_funny |
+                       animal_tales | mystery | seasonal | horror
+    --topic "TITLE"    Force a specific story title/seed from the topic bank
+
+  EXAMPLES:
+    # Mythology long-form video (Made for Children)
+    python main.py --count 1 --videos --format long --category mythology --children
+
+    # Diwali seasonal story short (Normal/monetized)
+    python main.py --count 1 --image --category seasonal --normal
+
+    # 3 mini stories batch (normal/monetized) + upload
+    python main.py --count 3 --image --format mini --normal --upload
+
+    # Dry run to see story plan without rendering
+    python main.py --count 1 --dry-run
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STORY CATEGORIES REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CATEGORY            DESCRIPTION                         AUDIENCE
+  ─────────────────   ─────────────────────────────────   ──────────────
+  magical_adventure   Chintu + magical object + moral     Family (core)
+  mythology           Indian epics simplified             Family
+  dadi_kahani         Grandma's classic tales             Family (nostalgia)
+  real_life           Everyday situations + magic twist   Family
+  family_funny        Relatable family comedy             Family (lean adult)
+  animal_tales        Talking animal moral stories        Family
+  mystery             Detective / puzzle stories          Family (lean adult)
+  seasonal            Diwali, Holi, Eid, festival stories Family
+  horror              Cozy, policy-safe spooky stories    Family
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMMENDED UPLOAD SCHEDULE (Automated)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  DAY          FORMAT    CATEGORY SUGGESTION
+  ──────────   ────────  ─────────────────────────────────────────────────
+  Monday       long      magical_adventure (8-12 min, MID-ROLL ADS)
+  Tuesday      short     Any category (Shorts algorithm boost)
+  Wednesday    mini      mythology or dadi_kahani (3-5 min)
+  Thursday     short     Any category (Shorts algorithm boost)
+  Friday       mini      real_life or family_funny (3-5 min)
+  Saturday     long      mythology or seasonal (8-12 min, MID-ROLL ADS)
+  Sunday       short     Any category (highest views day for Shorts)
+
+  FACEBOOK: Auto-generated Reel cut uploaded alongside every YouTube video
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SEO STRATEGY SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  TITLE FORMULA:
+    [Emotional Hook] | [Story Name] | Wonder Stories TV [#shorts if Short]
+    Example: "Chintu Ne Jaadu Se Seekha Sach Bolna! 😱✨ | Wonder Stories TV #shorts"
+
+  TAGS: 35 tags per video (Hindi + English + Hinglish mix)
+  DESCRIPTION: 400+ characters with adult hook layer + CTA to subscribe
+  HASHTAGS: 10 hashtags always including #WonderStoriesTV #HindiMoralStory
+  MADE_FOR_KIDS: Set via --children (True) or --normal (False). Automatically declared in YouTube upload.
+  YOUTUBE CATEGORY: 1 (Film & Animation)
+  LANGUAGE CODE: hi (Hindi)
+
+  TOP KEYWORDS TO RANK FOR:
+    "hindi moral story"          "bacchon ki kahani"
+    "moral kahani hindi"         "animated story hindi"
+    "wonder stories tv"          "chintu story hindi"
+    "jadui kahani hindi"         "kids cartoon story hindi"
+    "dadi ki kahani animated"    "mythology story hindi kids"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FACEBOOK REELS — FIXES APPLIED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  BUGS FIXED (reason for 0 views before):
+  ✅ Removed fitness hashtags (#yogareels, #weightlossjourney, etc.)
+     → Now uses story hashtags: #WonderStoriesTV #HindiKahani #MoralStory
+  ✅ Added "title" field to Reels finish payload (improves FB discovery)
+  ✅ Added request timeouts (was hanging silently before)
+  ✅ Better error logging (now shows full API response on failure)
+  ✅ facebook_description now uses story-specific pre-generated caption
+     → Short, punchy, emoji-rich, Hindi text, FB-native hashtags
+
+  FACEBOOK REELS HASHTAGS NOW USED:
+    #WonderStoriesTV #HindiKahani #MoralStory #BacchonKiKahani
+    #AnimatedStory #FBViral #Reels #FamilyContent
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POLICY COMPLIANCE (Zero Violations)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✅ selfDeclaredMadeForKids = Dynamic (defaults to False, customizable in metadata.json)
+  ✅ No violence, no adult language, no sexual content
+  ✅ No "boy/girl/child/hug/kiss" in AI image prompts (triggers safety filters)
+  ✅ No misleading titles or descriptions
+  ✅ Accurate keyword usage (no stuffing)
+  ✅ Family-safe thumbnails (bright, colorful, character-focused)
+  ✅ YouTube category 1 (Film & Animation) — not miscategorized
+  ✅ Facebook Reels captions under 2000 chars
+  ✅ No copyrighted music (Edge TTS + royalty-free music assets only)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ENV VARIABLES (.env)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CHANNEL=stories                   (always "stories" for Wonder Stories TV)
+  CHANNEL_NAME=Wonder Stories TV
+  CHANNEL_BRAND=Chintu
+  CHANNEL_HANDLE=@WonderStoriesTV
+  YOUTUBE_CATEGORY_ID=1             (Film & Animation)
+  OPENAI_API_KEY=...                (GPT-4o-mini for story generation)
+  DEEPSEEK_API_KEY=...              (Fallback LLM)
+  GEMINI_API_KEY=...                (AI video generation)
+  FACEBOOK_PAGE_ID=...              (Your FB Page ID)
+  FACEBOOK_ACCESS_TOKEN=...         (Your long-lived FB Page token)
+  UPLOAD_ENABLED=false              (Set true to auto-upload)
+  DAILY_VIDEO_COUNT=1               (Videos per run)
+  LOG_LEVEL=INFO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FILE STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  main.py                   — Entry point, pipeline runner
+  story_topics.py           — ★ NEW: Unified topic bank (8 categories, 30+ seeds)
+  kids_topics.py            — Delegates to story_topics.py (backward compat)
+  kids_idea_generator.py    — Generates story ideas from topic bank
+  kids_story_generator.py   — Generates scene-by-scene story plans (LLM)
+  kids_seo_generator.py     — ★ OVERHAULED: 35 tags, 400+ char descriptions
+  kids_tts.py               — Text-to-speech (Edge TTS, Hindi)
+  kids_assembler.py         — Assembles final video from scenes + audio
+  uploader.py               — YouTube upload (selfDeclaredMadeForKids=False)
+  facebook_uploader.py      — ★ FIXED: FB Reels with story hashtags + title
+  config.py                 — AppConfig with channel identity fields
+  .env                      — All secrets and configuration
+
+  output/
+    data/
+      stories_ideas.json         — Generated idea history
+      stories_content_history.json — Content generation history
+      stories_seo_history.json   — SEO metadata history
+    final_videos/              — Rendered video files
+    audio/                     — TTS audio files
+    logs/automation.log        — Full run log
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONTENT QUALITY CHECKLIST (A-ONE Standard)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Before every upload, verify:
+  □ Story has DUAL LAYER: fun for kids + meaningful for adults
+  □ Scene 1 hooks viewer in first 3 seconds (action/magic/surprise)
+  □ Voiceover is complete, warm, professional-sounding Hindi
+  □ AI visuals are colorful, cinematic, emotionally vivid
+  □ Moral is delivered naturally — not preachy
+  □ Title is 55-100 chars, catchy, includes channel name
+  □ Description is 400+ chars with CTA to subscribe
+  □ 35 tags covering Hindi + English + character + category keywords
+  □ made_for_kids = False in upload metadata
+  □ FB Reels caption has story-specific hashtags (NOT fitness tags)
+  □ Video ends with subscribe CTA in voiceover
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WONDER STORIES TV — Content That Wows Kids AND Adults
+"Har Kahani Mein Ek Jaadu, Har Jaadu Mein Ek Sabak!"
+Every story has magic. Every magic has a lesson.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

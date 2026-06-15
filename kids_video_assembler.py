@@ -67,7 +67,7 @@ class KidsVideoAssembler:
         Full pipeline: images + audio → final MP4.
         """
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        is_long = idea.video_type == "long"
+        is_long = idea.video_type != "short"
         vid_w   = LONG_W   if is_long else SHORTS_W
         vid_h   = LONG_H   if is_long else SHORTS_H
 
@@ -154,7 +154,7 @@ class KidsVideoAssembler:
         Dynamically stitches manual videos and images from a folder.
         """
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        is_long = idea.video_type == "long"
+        is_long = idea.video_type != "short"
         vid_w   = LONG_W   if is_long else SHORTS_W
         vid_h   = LONG_H   if is_long else SHORTS_H
 
