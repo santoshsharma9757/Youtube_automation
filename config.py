@@ -74,7 +74,7 @@ class AppConfig:
     )
     youtube_token_file: str = field(default_factory=lambda: os.getenv("YOUTUBE_TOKEN_FILE", "youtube_token.json"))
     youtube_api_key: str = field(default_factory=lambda: os.getenv("YOUTUBE_API_KEY", ""))
-    youtube_category_id: str = field(default_factory=lambda: os.getenv("YOUTUBE_CATEGORY_ID", "1"))  # 1 = Film & Animation — perfect for Wonder Stories TV
+    youtube_category_id: str = field(default_factory=lambda: os.getenv("YOUTUBE_CATEGORY_ID", "1"))  # 1 = Film & Animation
     default_privacy_status: str = field(default_factory=lambda: os.getenv("YOUTUBE_PRIVACY_STATUS", "public"))
     youtube_enable_monetization: bool = field(
         default_factory=lambda: os.getenv("YOUTUBE_ENABLE_MONETIZATION", "false").lower() == "true"
@@ -97,7 +97,8 @@ class AppConfig:
     upload_enabled: bool = field(default_factory=lambda: os.getenv("UPLOAD_ENABLED", "false").lower() == "true")
     use_pexels_for_shorts: bool = field(default=False)
     shorts_visual_mode: str = field(default="local")
-    # ── Channel Identity (Wonder Stories TV) ────────────────────────────────
+    # ── Channel Identity ────────────────────────────────
+    # CHANNEL=stories activates the Wonder Stories TV pipeline (default).
     channel_name: str = field(default_factory=lambda: os.getenv("CHANNEL_NAME", "Wonder Stories TV"))
     channel_brand: str = field(default_factory=lambda: os.getenv("CHANNEL_BRAND", "Chintu"))
     channel_handle: str = field(default_factory=lambda: os.getenv("CHANNEL_HANDLE", "@WonderStoriesTV"))

@@ -1,69 +1,100 @@
-# DailyFitX Shorts Automation
+# Wonder Stories TV – Automation Pipeline
 
-Production-oriented Python automation project for generating YouTube Shorts around fitness, yoga, meditation, motivation, fat loss, and healthy lifestyle content.
+Python automation pipeline for **Wonder Stories TV** — AI-generated Hindi kids stories featuring **Chintu** and magical elements with moral lessons.
 
 ## Features
 
-- AI idea generation for fitness and wellness topics
-- Live trend discovery from YouTube when `YOUTUBE_API_KEY` is configured
-- Script generation with a Shorts-friendly hook -> value -> CTA flow
-- Text-to-speech with ElevenLabs primary and gTTS fallback
-- Vertical video rendering with MoviePy
-- Subtitle generation and SEO packaging
-- Optional YouTube upload through Data API v3
-- Scheduling via APScheduler
-- Duplicate protection, history tracking, and reusable modules
+- AI story idea generation (Chintu series, mythology, dadi kahani, animal tales, etc.)
+- LLM-generated 4-scene (Short) or 8-scene (Long/Mini) story plans
+- Scene prompts saved for manual AI video/image generation (Veo / Imagen)
+- Edge TTS narration with Hindi voiceover
+- Vertical video assembly with subtitles and transitions (MoviePy + FFmpeg)
+- Kids SEO packaging — title, description, tags, hashtags
+- YouTube Data API v3 upload with scheduled publish times
+- Facebook/Instagram Reels cross-posting
+- APScheduler for daily automated runs
 
 ## Setup
 
 1. Create and activate a Python 3.10+ virtual environment.
-2. Install dependencies with `pip install -r requirements.txt`.
-3. Install FFmpeg and ensure it is available in your `PATH`.
-4. Add relevant portrait assets to `assets/backgrounds/` or local video clips to `assets/localvideos/`.
-5. Fill in `.env` with the keys you want to use:
+2. `pip install -r requirements.txt`
+3. Install FFmpeg and add it to `PATH`.
+4. Add `.env` with your keys:
 
-- `OPENAI_API_KEY`: recommended for scripts, SEO, and live-trend idea synthesis
-- `YOUTUBE_API_KEY`: recommended for live YouTube trend discovery
-- `REQUIRE_YOUTUBE_TREND_IDEAS=true`: default behavior, so auto-generated videos only use live YouTube trend/search signals
-- `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID`: optional for voice quality
-- `YOUTUBE_CLIENT_SECRETS_FILE`: required only for uploads
-- `YOUTUBE_ENABLE_MONETIZATION=false`: leave this off unless the channel is approved for YouTube Partner monetization
-- `UPLOAD_ENABLED=true`: only when you are ready to publish
+```
+OPENAI_API_KEY=...
+GEMINI_API_KEY=...
+ELEVENLABS_API_KEY=...
+ELEVENLABS_VOICE_ID=...
+YOUTUBE_API_KEY=...
+YOUTUBE_CLIENT_SECRETS_FILE=client_secret.json
+UPLOAD_ENABLED=false
+CHANNEL=stories
+CHANNEL_NAME=Wonder Stories TV
+CHANNEL_BRAND=Chintu
+CHANNEL_HANDLE=@WonderStoriesTV
+```
 
 ## Usage
 
-Generate one Short locally:
-
+### Generate story prompts (1 Short)
 ```powershell
 python main.py --count 1
 ```
 
-Generate 6 Shorts as 3 local-only + 3 Pexels-only, plus 1 long video from Pexels:
-
+### Generate a Long / Mini story
 ```powershell
-python main.py --count 6 --long-count 1 --mix --schedule-upload --videos-per-day 3
+python main.py --long
 ```
 
-Generate one topic-driven Short:
-
+### Force a specific story topic
 ```powershell
-python main.py --topic "walking yoga for stress relief"
+python main.py --topic "Chintu Aur Magical Watch"
 ```
 
-Generate and upload one topic-driven Short:
-
+### Force a story category
 ```powershell
-python main.py --topic "fasted morning workout sahi ya galat" --upload
+python main.py --count 2 --category mythology
 ```
 
-Start the scheduler:
+### Stitch manually placed clips into final video
+```powershell
+python main.py --stitch
+```
 
+### Deploy / schedule stitched videos to YouTube + Facebook
+```powershell
+python main.py --deploy
+```
+
+### Mark as Made for Kids
+```powershell
+python main.py --stitch --children
+```
+
+### Start the scheduler (runs daily at 2:30 PM IST)
 ```powershell
 python main.py --schedule
 ```
 
-## Notes
+## Pipeline Flow
 
-- When `YOUTUBE_API_KEY` is available, the app first tries to collect recent YouTube Shorts trend signals and turns those into DailyFitX-style ideas.
-- If live YouTube trend discovery is unavailable, the app falls back to the local ranked topic bank.
-- Ranking depends more on hook strength, retention, replayability, and topic freshness than on tags alone.
+```
+Idea Generation → Story Plan (JSON) → Scene Prompts saved
+    → Manual AI video/image creation → Stitch (--stitch)
+    → SEO packaging → Upload / Schedule (--deploy)
+```
+
+## Story Categories
+
+| Category | Description |
+|---|---|
+| `magical_adventure` | Chintu + magical object + moral (core series) |
+| `mythology` | Indian epics simplified for kids |
+| `dadi_kahani` | Grandma tales — nostalgia + magic |
+| `real_life` | Everyday situations with a magical twist |
+| `family_funny` | Relatable family comedy |
+| `animal_tales` | Talking animal stories |
+| `mystery` | Short whodunit / puzzle stories |
+| `seasonal` | Festival content (Diwali, Holi, Raksha Bandhan, etc.) |
+| `horror` | Cozy spooky stories with moral |

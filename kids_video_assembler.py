@@ -192,9 +192,9 @@ class KidsVideoAssembler:
                     raise FileNotFoundError(f"Missing required video file for Scene {num} in {input_dir}: {k}.mp4")
                 scene_files[num] = (video_found, "video")
             else:
-                # look for k_image.png, k_image.jpg, k_image.jpeg, or k.png, k.jpg, k.jpeg
+                # look for k_image.png, k_image.jpg, k_image.jpeg, k_image.webp, or k.png, k.jpg, k.jpeg, k.webp
                 image_found = None
-                for ext in [".png", ".jpg", ".jpeg"]:
+                for ext in [".png", ".jpg", ".jpeg", ".webp"]:
                     for pattern in [f"{k}_image{ext}", f"{k}{ext}"]:
                         test_path = input_dir / pattern
                         if test_path.exists():
@@ -203,7 +203,7 @@ class KidsVideoAssembler:
                     if image_found:
                         break
                 if not image_found:
-                    raise FileNotFoundError(f"Missing required image file for Scene {num} in {input_dir}: {k}_image.png or {k}.png")
+                    raise FileNotFoundError(f"Missing required image file for Scene {num} in {input_dir}: {k}.png or {k}.jpg")
                 scene_files[num] = (image_found, "image")
 
         # 2. Synthesize individual scene voiceovers and determine durations
@@ -223,23 +223,22 @@ class KidsVideoAssembler:
             use_video_audio = False
             raw_clip = None
 
-            # 2a. If it's a video, load it first and check if it has audio
+            # 2a. If it's a video (veo mode), load it — use its own audio, never synthesize TTS
             if asset_type == "video":
                 try:
                     raw_clip = VideoFileClip(str(file_path))
                     raw_video_clips.append(raw_clip)
                     video_dur = raw_clip.duration
-                    if raw_clip.audio is not None:
-                        use_video_audio = True
+                    use_video_audio = True   # always: veo clips ARE the audio source
                 except Exception as exc:
                     LOGGER.error("Could not load video file %s: %s", file_path, exc)
                     raise
 
-            # 2b. Synthesize TTS only if we are not using the video's built-in audio
+            # 2b. TTS synthesis — ONLY for image scenes
             tts_dur = 0.0
             tts_path = audio_temp_dir / f"scene_{num}.mp3"
-            
-            if not use_video_audio:
+
+            if asset_type != "video":  # images only
                 parent_tts = input_dir / f"scene_{num}.mp3"
                 if parent_tts.exists():
                     import shutil
@@ -247,12 +246,12 @@ class KidsVideoAssembler:
                         shutil.copy2(parent_tts, tts_path)
                     except Exception as exc:
                         LOGGER.warning("Could not copy pre-generated TTS for scene %s: %s", num, exc)
-                
-                if not tts_path.exists() or tts_path.stat().st_size == 0:
-                    tts_engine.synthesize_scene(text, tts_path)
 
                 if not tts_path.exists() or tts_path.stat().st_size == 0:
-                    tts_dur = 13.0 if is_long else (6.0 if kids_mode == "veo" else 6.0)
+                    tts_engine.synthesize_scene(text, tts_path, force_elevenlabs=True)
+
+                if not tts_path.exists() or tts_path.stat().st_size == 0:
+                    tts_dur = 13.0 if is_long else 6.0
                     LOGGER.warning("TTS failed for scene %s, using fallback duration %s", num, tts_dur)
                 else:
                     try:
@@ -261,7 +260,7 @@ class KidsVideoAssembler:
                         temp_audio.close()
                     except Exception as exc:
                         LOGGER.warning("Could not read TTS duration, using fallback: %s", exc)
-                        tts_dur = 13.0 if is_long else (6.0 if kids_mode == "veo" else 6.0)
+                        tts_dur = 13.0 if is_long else 6.0
 
             # 2c. Build visual and audio tracks for the scene
             if asset_type == "video":

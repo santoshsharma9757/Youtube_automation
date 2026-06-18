@@ -45,6 +45,13 @@ class KidsSeoPackage:
     made_for_kids: bool = False          # ALWAYS False — family content, not COPPA-tagged
     facebook_description: str = ""       # Separate FB Reels caption
 
+    @classmethod
+    def from_dict(cls, data: dict) -> KidsSeoPackage:
+        # Ignore any extra fields present in data
+        valid_keys = {f for f in cls.__match_args__} if hasattr(cls, "__match_args__") else set(cls.__annotations__.keys())
+        filtered = {k: v for k, v in data.items() if k in valid_keys}
+        return cls(**filtered)
+
 
 class KidsSeoGenerator:
     def __init__(self, config: AppConfig) -> None:

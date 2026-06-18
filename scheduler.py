@@ -27,13 +27,13 @@ def start_scheduler(config: AppConfig) -> None:
                 upload=config.upload_enabled,
                 videos_per_day=config.daily_video_count,
             ),
-            trigger=CronTrigger(hour=14, minute=30),   # 14:30 = 2:30 PM IST
+            trigger=CronTrigger(hour=13, minute=30),   # 13:30 = 1:30 PM IST
             id="kids_chintu_daily",
             max_instances=1,
             replace_existing=True,
         )
         LOGGER.info(
-            "Chintu Stories scheduler started — runs daily at 14:30 %s",
+            "Chintu Stories scheduler started — runs daily at 13:30 %s",
             config.scheduler_timezone,
         )
     else:

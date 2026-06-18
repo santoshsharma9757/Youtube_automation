@@ -211,3 +211,6 @@
 2026-06-13 01:32:23,006 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2026-06-13 01:32:23,042 | INFO | kids_idea_generator | Generated 1 kids ideas
 2026-06-13 01:32:23,044 | INFO | kids_idea_generator | Saved 1 new kids ideas
+2026-06-18 14:00:47,749 | INFO | kids_tts | [TTS] Veo mode → skipping TTS synthesis (Veo clips have own audio).
+2026-06-18 14:06:45,935 | INFO | kids_tts | [TTS] Veo mode → skipping TTS (Veo clips have own audio).
+2026-06-18 14:10:09,029 | INFO | kids_tts | [ElevenLabs] scene synthesized | chars: 48 | session total: 48 / ~10000 free

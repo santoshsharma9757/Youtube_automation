@@ -20,7 +20,7 @@ import re
 import requests
 
 from config import AppConfig
-from seo_generator import SeoPackage
+from kids_seo_generator import KidsSeoPackage as SeoPackage
 
 
 LOGGER = logging.getLogger(__name__)
@@ -158,7 +158,6 @@ class FacebookUploader:
             "upload_phase": "finish",
             "video_id": video_id,
             "description": caption,
-            "title": seo.title[:255],   # FIX: title field improves FB discovery algorithm
         }
 
         if publish_at:

@@ -11,7 +11,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
 from config import AppConfig
-from seo_generator import SeoPackage
+from kids_seo_generator import KidsSeoPackage as SeoPackage
 
 
 LOGGER = logging.getLogger(__name__)
@@ -53,9 +53,12 @@ class YouTubeUploader:
         LOGGER.info("Uploading short to YouTube: %s (Scheduled for: %s)", video_path, publish_at or "Immediate")
         youtube = build("youtube", "v3", credentials=self._load_credentials())
         
+        # CRITICAL FIX: COPPA ("Made for Kids") completely disables the viral Shorts Feed
+        # because the feed algorithm requires personalized tracking. Shorts must be
+        # targeted at "Family/Parents" (Not Made for Kids) to get views.
         status_body = {
             "privacyStatus": self.config.default_privacy_status if not publish_at else "private",
-            "selfDeclaredMadeForKids": getattr(seo, "made_for_kids", False),
+            "selfDeclaredMadeForKids": False,  # Forced false for Shorts feed algorithm
             "containsSyntheticMedia": True,
         }
         if publish_at:

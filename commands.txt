@@ -1,0 +1,114 @@
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                     WONDER STORIES TV — COMMANDS CHEATSHEET                      ║
+║                    YouTube & Facebook Family Story Automation                    ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+
+Channel:   Wonder Stories TV  (@WonderStoriesTV)
+Character: Chintu (+ supporting cast: Mother, Golu, Pinky, Mintu)
+Strategy:  Dual-layer Pixar formula — Fun for kids, meaningful for adults
+Language:  Hindi voiceover (ElevenLabs) + English/Hindi SEO metadata
+Platform:  YouTube (Shorts + Videos) + Facebook (Reels + Videos)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+VIDEO FORMAT REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  FORMAT        LENGTH         SCENES    PLATFORM              STYLE
+  ────────────  ─────────────  ────────  ───────────────────   ────────────────────────
+  short (veo)   12-18s         3×5s      YT Shorts + FB Reels  3D Pixar 
+  short (image) 35-50s         5×8s      YT Shorts + FB Reels  3D Pixar (Ken Burns)
+  long (image)  2.5 min max    6×25s     YouTube               Studio Ghibli Watercolor
+
+  * Note: We exclusively use "Normal" (Not Made for Kids) to ensure Shorts feed reach.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUICK START — MOST USED COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  # Generate ONE Short Video (Image mode, ~40s, ElevenLabs voice)
+  python main.py --count 1 --image
+
+  # Generate ONE Short Video (Veo AI Video mode, ~15s, no TTS)
+  python main.py --count 1
+
+  # Generate ONE Long Video (Image mode, ~2.5 min, ElevenLabs voice)
+  python main.py --long --image
+
+  # Stitch manually downloaded images/clips from input/clips/ folder
+  python main.py --stitch
+
+  # Upload/Deploy already-stitched final videos to YouTube and Facebook
+  python main.py --upload
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FULL COMMAND REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  python main.py [OPTIONS]
+
+  OPTIONS:
+    --count N          Number of short videos to generate (default: 1)
+    --long             Generate a long-format video (~2.5 min)
+    --image            Use image mode with ElevenLabs TTS (Required for Long)
+    --upload           Enable upload to YouTube + Facebook after generation
+    --skip-upload      Force skip upload
+    --category CAT     Story category: magical_adventure | mythology |
+                       dadi_kahani | real_life | family_funny |
+                       animal_tales | mystery | seasonal | horror
+    --topic "TITLE"    Force a specific story title/seed from the topic bank
+
+  EXAMPLES:
+    # Mythology long-form video
+    python main.py --long --image --category mythology
+
+    # Diwali seasonal story short
+    python main.py --count 1 --image --category seasonal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMMENDED UPLOAD SCHEDULE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  DAY          FORMAT           CATEGORY SUGGESTION
+  ──────────   ───────────────  ─────────────────────────────────────────────────
+  Monday       long (image)     magical_adventure
+  Tuesday      short (image)    Any category (Shorts algorithm boost)
+  Wednesday    short (veo)      mythology or dadi_kahani
+  Thursday     short (image)    Any category (Shorts algorithm boost)
+  Friday       short (veo)      real_life or family_funny
+  Saturday     long (image)     mythology or seasonal
+  Sunday       short (image)    Any category (highest views day for Shorts)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SEO & POLICY STRATEGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ALGORITHM REACH FIXES APPLIED:
+  ✅ COPPA: All videos forcibly set to "Not Made for Kids" to bypass Shorts block.
+  ✅ Facebook Reels: Fixed API by removing 'title' (only 'description' allowed).
+  ✅ YouTube Policy: "containsSyntheticMedia" is set to True to prevent AI strikes.
+  ✅ Audio Policy: No background music = Zero Content ID copyright strikes.
+
+  TITLE FORMULA:
+    [English Title] | [Hindi Title in Devanagari] | [Hinglish Hook] | Wonder Stories TV #shorts
+
+  TAGS: 35 tags per video (Hindi + English mix)
+  DESCRIPTION: Bilingual summary + Moral in English & Hindi + Hashtags
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONTENT QUALITY CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Before every upload, verify:
+  □ Story has DUAL LAYER: fun for kids + meaningful for adults (General Audience)
+  □ Visuals correctly match format (Pixar for Short, Ghibli for Long)
+  □ Title is bilingual and under 95 chars
+  □ Video is "Not Made for Kids" in YouTube Studio Channel Settings
+  □ Subtitles are pop-animated, yellow-highlighted CapCut style
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

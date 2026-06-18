@@ -13,7 +13,7 @@ ACTIVE_CHANNEL = os.getenv("CHANNEL", "stories").lower().strip()
 
 from config import VIDEO_DIR, get_config
 from posting_schedule import get_daily_slots
-from seo_generator import SeoPackage
+from kids_seo_generator import KidsSeoPackage as SeoPackage
 from uploader import YouTubeUploader
 from facebook_uploader import FacebookUploader
 
@@ -363,8 +363,12 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
         if yt_done and not fb_uploader.is_configured():
             continue
 
-        video_path = Path(record["video_path"])
-        if not video_path.exists():
+        v_path_str = record.get("video_path", "")
+        if not v_path_str:
+            continue
+            
+        video_path = Path(v_path_str)
+        if not video_path.is_file():
             print(f"File not found for upload: {video_path}")
             missing_files += 1
             continue
@@ -400,7 +404,8 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
         made_progress = False
 
         if not yt_done:
-            print(f"Scheduling '{seo.title}' for YouTube at {publish_at_utc}...")
+            safe_title = seo.title.encode("ascii", "replace").decode("ascii")
+            print(f"Scheduling '{safe_title}' for YouTube at {publish_at_utc}...")
             try:
                 response = uploader.upload_short(video_path, seo, publish_at=publish_at_utc)
                 record["uploaded"] = True
@@ -411,7 +416,8 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
                 print(f"Failed to schedule to YouTube for {seo.title}: {e}")
 
         if not fb_done and fb_uploader.is_configured():
-            print(f"Scheduling '{seo.title}' for Facebook at {publish_at_utc}...")
+            safe_title = seo.title.encode("ascii", "replace").decode("ascii")
+            print(f"Scheduling '{safe_title}' for Facebook at {publish_at_utc}...")
             video_type = str(record.get("script", {}).get("video_type", "short")).lower()
             # is_long = True for all non-short videos (mini, long, series) — only short goes as Reels
             is_long = video_type != "short"
