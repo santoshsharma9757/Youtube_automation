@@ -387,7 +387,7 @@ def schedule_pending_uploads(videos_per_day: int = 3) -> int:
                     video_type = "short"
                 slots = get_daily_slots(temp_date.weekday(), videos_per_day, video_type=video_type, channel=ACTIVE_CHANNEL)
                 for s_hour in slots:
-                    s_minute = 0
+                    s_minute = 30 if ACTIVE_CHANNEL in ("kids", "stories") else 0
                     candidate = tz.localize(datetime.combine(temp_date, time(hour=s_hour, minute=s_minute)))
                     if candidate > current_time_pointer:
                         next_slot = candidate

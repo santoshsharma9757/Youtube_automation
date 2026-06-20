@@ -214,3 +214,15 @@
 2026-06-18 14:00:47,749 | INFO | kids_tts | [TTS] Veo mode → skipping TTS synthesis (Veo clips have own audio).
 2026-06-18 14:06:45,935 | INFO | kids_tts | [TTS] Veo mode → skipping TTS (Veo clips have own audio).
 2026-06-18 14:10:09,029 | INFO | kids_tts | [ElevenLabs] scene synthesized | chars: 48 | session total: 48 / ~10000 free
+2026-06-19 23:25:45,639 | INFO | kids_story_generator | Generating story 'Eklavya Ki Mehnat Ki Kahani' (fmt=long, mode=images, scenes=6, dur=25s, char=Rohan)
+2026-06-19 23:26:05,965 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-19 23:26:05,971 | INFO | kids_story_generator | Story generation provider: openai:gpt-4o-mini
+2026-06-19 23:26:15,574 | INFO | kids_story_generator | Generating story 'Hanuman Ji Ki Shaktishali Kahani' (fmt=long, mode=images, scenes=6, dur=25s, char=Rohan)
+2026-06-19 23:26:33,987 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-19 23:26:33,991 | INFO | kids_story_generator | Story generation provider: openai:gpt-4o-mini
+2026-06-19 23:39:33,109 | INFO | kids_story_generator | Generating story 'Chintu Ka Naya School' (fmt=short, mode=images, scenes=5, dur=8s, char=Rohan)
+2026-06-19 23:39:51,600 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-19 23:39:51,607 | INFO | kids_story_generator | Story generation provider: openai:gpt-4o-mini
+2026-06-20 00:45:02,880 | INFO | kids_story_generator | Generating story 'Samay Ki Keemat' (fmt=short, mode=images, scenes=5, dur=8s, char=Rohan)
+2026-06-20 00:45:14,716 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-20 00:45:14,727 | INFO | kids_story_generator | Story generation provider: openai:gpt-4o

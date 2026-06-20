@@ -248,10 +248,13 @@ class KidsVideoAssembler:
                         LOGGER.warning("Could not copy pre-generated TTS for scene %s: %s", num, exc)
 
                 if not tts_path.exists() or tts_path.stat().st_size == 0:
-                    tts_engine.synthesize_scene(text, tts_path, force_elevenlabs=True)
+                    tts_engine.synthesize_scene(
+                        text, tts_path, force_elevenlabs=True,
+                        voice_hint=scene.get("voice_hint"), scene=scene,
+                    )
 
                 if not tts_path.exists() or tts_path.stat().st_size == 0:
-                    tts_dur = 13.0 if is_long else 6.0
+                    tts_dur = 28.0 if is_long else 8.0  # fallback: 28s×8scenes=3:44min long, 8s×5=40s short
                     LOGGER.warning("TTS failed for scene %s, using fallback duration %s", num, tts_dur)
                 else:
                     try:
@@ -543,7 +546,10 @@ class KidsVideoAssembler:
         title    = idea.title[:50]
         font_sz  = 52 if vid_w == LONG_W else 58
         font     = self._load_font(font_sz)
-        wrapped  = self._wrap_text(title.upper(), font, int(vid_w * 0.85))
+        
+        # Only uppercase English characters, leave Devanagari intact
+        safe_title = "".join(c.upper() if 'a' <= c.lower() <= 'z' else c for c in title)
+        wrapped  = self._wrap_text(safe_title, font, int(vid_w * 0.85))
 
         img  = Image.new("RGBA", (vid_w, vid_h), (0, 0, 0, 0))
         draw = ImageDraw.Draw(img, "RGBA")
@@ -606,7 +612,9 @@ class KidsVideoAssembler:
             group_dur = dur / max(len(groups), 1)
 
             for gi, group in enumerate(groups):
-                group_text  = " ".join(group).upper()
+                # Don't use .upper() blindly as it corrupts Hindi unicode combinations
+                raw_group_text = " ".join(group)
+                group_text = "".join(c.upper() if 'a' <= c.lower() <= 'z' else c for c in raw_group_text)
                 g_start     = scene_start + gi * group_dur
                 g_end       = min(g_start + group_dur, scene_start + dur)
                 if g_end <= g_start:
@@ -691,8 +699,12 @@ class KidsVideoAssembler:
     # ═══════════════════════════════════════════════════════════════════════════
 
     def _load_font(self, size: int) -> ImageFont.ImageFont:
+        layout = getattr(ImageFont.Layout, "RAQM", getattr(ImageFont.Layout, "BASIC", None))
+        
         if self.config.font_file.exists():
             try:
+                if layout:
+                    return ImageFont.truetype(str(self.config.font_file), size=size, layout_engine=layout)
                 return ImageFont.truetype(str(self.config.font_file), size=size)
             except Exception:
                 pass

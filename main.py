@@ -54,6 +54,8 @@ def run_kids_pipeline(
     video_format: str | None = None,
     category: str | None = None,
     topic: str | None = None,
+    no_voice: bool = False,
+    local_tts: bool = False,
 ) -> list[dict]:
     """
     Wonder Stories TV – AI Kids Animation pipeline:
@@ -78,7 +80,7 @@ def run_kids_pipeline(
 
     idea_gen    = KidsIdeaGenerator(config)
     story_gen   = KidsStoryGenerator(config)
-    tts_engine  = KidsTTSEngine(config)
+    tts_engine  = KidsTTSEngine(config, force_local=local_tts)
     assembler   = KidsVideoAssembler(config)
     seo_gen     = KidsSeoGenerator(config)
     yt_uploader = YouTubeUploader(config)
@@ -112,7 +114,14 @@ def run_kids_pipeline(
                 break
 
         if matched_seed:
-            fmt_name = video_format or matched_seed.get("format", "short")
+            if video_format:
+                fmt_name = video_format
+            elif long_count > 0:
+                fmt_name = "long"
+            elif short_count > 0:
+                fmt_name = "short"
+            else:
+                fmt_name = matched_seed.get("format", "short")
             title = matched_seed["title"]
             adult_hook_text = matched_seed.get("adult_hook", "")
             kids_hook_text  = matched_seed.get("kids_hook", "")
@@ -122,7 +131,11 @@ def run_kids_pipeline(
                 title=title,
                 bad_habit=matched_seed.get("bad_habit", ""),
                 bad_habit_hindi=matched_seed.get("bad_habit_hindi", ""),
-                magical_element=matched_seed.get("magical_element", ""),
+                magical_element=(
+                    ""
+                    if (category or matched_seed.get("category", "")) in {"real_life", "family_funny"}
+                    else matched_seed.get("magical_element", "")
+                ),
                 moral=matched_seed.get("moral", ""),
                 moral_hindi=matched_seed.get("moral_hindi", ""),
                 angle=matched_seed.get("angle", "Moral Story"),
@@ -157,11 +170,13 @@ def run_kids_pipeline(
             all_ideas.extend(selected)
 
     for idea in all_ideas:
-        base_name = f"{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{slugify(idea.title)}"
         LOGGER.info("Processing story: '%s' (type=%s)", idea.title, idea.video_type)
 
         try:
             plan = story_gen.generate_story(idea, kids_mode=kids_mode)
+            
+            clean_title = plan.story_metadata.get("title", idea.title)
+            base_name = f"{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{slugify(clean_title)}"
 
             folder_path = Path("input/clips") / base_name
             folder_path.mkdir(parents=True, exist_ok=True)
@@ -181,6 +196,38 @@ def run_kids_pipeline(
 
             prompts_text = "\n".join(clean_prompts)
 
+            # Append thumbnail generation prompts for long videos
+            thumb_title_dev = plan.story_metadata.get("thumbnail_title_devanagari")
+            thumb_prompt = plan.story_metadata.get("thumbnail_prompt")
+            if idea.video_type == "long" and thumb_title_dev and thumb_prompt:
+                thumbnail_section = (
+                    f"\n\n==================================================\n"
+                    f"🎨 THUMBNAIL GENERATION (Expected file: thumbnail.png)\n"
+                    f"==================================================\n"
+                    f"Suggested Text on Thumbnail (Hindi Devanagari): {thumb_title_dev}\n"
+                    f"Prompt:\n{thumb_prompt}\n"
+                    f"--------------------------------------------------\n"
+                )
+                prompts_text += thumbnail_section
+
+            seo = seo_gen.generate(idea, plan)
+            if made_for_kids is not None:
+                seo.made_for_kids = made_for_kids
+
+            # Append YouTube/FB metadata to the prompt text file for easy copy-pasting
+            youtube_section = (
+                f"\n\n==================================================\n"
+                f"📺 UPLOAD METADATA (YouTube & Facebook)\n"
+                f"==================================================\n"
+                f"▶ YouTube Title:\n{seo.title}\n\n"
+                f"▶ YouTube Description:\n{seo.description}\n\n"
+                f"▶ Tags:\n{', '.join(seo.tags)}\n\n"
+                f"▶ Hashtags:\n{' '.join(seo.hashtags)}\n\n"
+                f"▶ Facebook Description:\n{getattr(seo, 'facebook_description', seo.description)}\n"
+                f"--------------------------------------------------\n"
+            )
+            prompts_text += youtube_section
+
             prompts_dir = Path("output/veo_prompts")
             prompts_dir.mkdir(parents=True, exist_ok=True)
             prompts_file_path = prompts_dir / f"{base_name}.txt"
@@ -188,7 +235,7 @@ def run_kids_pipeline(
             (folder_path / "plan.json").write_text(plan.raw_json, encoding="utf-8")
 
             # Pre-synthesize TTS for image mode
-            if kids_mode != "veo":
+            if kids_mode != "veo" and not no_voice:
                 for scene in plan.scenes:
                     text = scene.get("voiceover_hindi", "").strip()
                     if text:
@@ -198,10 +245,6 @@ def run_kids_pipeline(
                             )
                         except Exception as e:
                             LOGGER.warning("TTS pre-synth failed for scene %s: %s", scene["scene_number"], e)
-
-            seo = seo_gen.generate(idea, plan)
-            if made_for_kids is not None:
-                seo.made_for_kids = made_for_kids
 
             metadata = {
                 "title":                seo.title,
@@ -441,6 +484,10 @@ def parse_args() -> argparse.Namespace:
                         help="Schedule stitched videos sitting in output/final_videos/.")
     parser.add_argument("--image", action="store_true",
                         help="Generate image-based story (4 image scenes, ~30s).")
+    parser.add_argument("--no-voice", action="store_true",
+                        help="Skip generating voiceovers/TTS files during prompt generation to save costs.")
+    parser.add_argument("--local-tts", action="store_true",
+                        help="Use local Edge TTS only (skip ElevenLabs). Free, unlimited — ideal for testing.")
     parser.add_argument("--children", "--kids", action="store_true", dest="children",
                         help="Mark video as 'Made for Kids' in YouTube metadata.")
     parser.add_argument("--normal", action="store_true", dest="normal",
@@ -507,6 +554,8 @@ def main() -> None:
         video_format=args.format,
         category=args.category,
         topic=args.topic,
+        no_voice=args.no_voice,
+        local_tts=args.local_tts,
     )
 
     if args.schedule_upload:

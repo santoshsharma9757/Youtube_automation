@@ -74,13 +74,15 @@ class KidsSeoGenerator:
 
         primary_keyword = self._build_primary_keyword(idea, category)
 
+        # Fetch the dynamically generated character name from the story metadata, fallback to Chintu/Rohan if not found
         is_kids = getattr(idea, "made_for_kids", False)
-        char_name = "Chintu" if is_kids else "Rohan"
+        char_name = plan.story_metadata.get("protagonist_name", "Chintu" if is_kids else "Rohan")
 
+        clean_title = plan.story_metadata.get("title", idea.title)
         prompt = (
             f"You are a top YouTube SEO expert for the family storytelling channel '{CHANNEL_NAME}'.\n"
             f"Generate maximum-reach SEO metadata for a {format_label}.\n\n"
-            f"Story: {idea.title}\n"
+            f"Story: {clean_title}\n"
             f"Main Character: {char_name}\n"
             f"Category: {category}\n"
             f"Magical element: {getattr(idea, 'magical_element', '')}\n"
@@ -93,20 +95,20 @@ class KidsSeoGenerator:
             f"   - Keep it extremely catchy and total title length MUST be under 95 characters.\n"
             f"   - Example for Shorts: '{idea.title} | कमरे की सफाई | Kamre Ki Safai | Wonder Stories TV #shorts'\n"
             f"   - Example for Long: '{idea.title} | जादुई स्नैक बॉक्स | Healthy Choices | Wonder Stories TV #moralstories'\n"
-            f"2. Description: Minimum 450 characters. Structure it beautifully as follows:\n"
-            f"   - Story Summary (English): 2-3 sentences outlining the plot.\n"
-            f"   - Story Summary (Hindi Devanagari): 2-3 sentences outlining the plot in clean Devanagari script.\n"
-            f"   - Moral Lesson:\n"
-            f"     • English: {idea.moral}\n"
-            f"     • Hindi: {idea.moral_hindi}\n"
-            f"   - CTA: 'Subscribe to Wonder Stories TV for daily stories: {CHANNEL_HANDLE}'\n"
+            f"2. YouTube Description (Minimum 600 characters). Structure it beautifully as follows:\n"
+            f"   - A powerful hook/question to make viewers watch till the end.\n"
+            f"   - Story Summary (English & Hindi): 3-4 sentences outlining the plot without spoiling the ending.\n"
+            f"   - Moral Lesson (English & Hindi).\n"
+            f"   - Search terms & Keywords (write a natural paragraph incorporating high-volume search terms related to {category}, moral stories, kids stories in hindi, and {primary_keyword}).\n"
+            f"   - CTA: '👉 Subscribe to Wonder Stories TV for daily family stories: {CHANNEL_HANDLE}'\n"
             f"   - Hashtags: 5-8 relevant hashtags, starting with '#WonderStoriesTV' and '#HindiMoralStory'.\n"
             f"3. Tags: Exactly 35 tags mixing: Hindi search terms, English search terms, "
             f"   character tags ({char_name.lower()}), category tags, moral story tags, animated story tags, "
             f"   festival/season tags if relevant. Each tag max 40 chars.\n"
             f"4. Hashtags: 8-10 hashtags for database records. Must include: #WonderStoriesTV #HindiMoralStory #{char_name}Stories\n"
-            f"5. Facebook description: Short punchy version (max 200 chars) with 5-6 emoji, "
-            f"   Hindi text, and Facebook Reels hashtags like #Reels #FBViral #HindiKahani\n"
+            f"5. Facebook description: Short, highly engaging caption. \n"
+            f"   - If this is a Short/Mini, use: 'Short punchy version (max 200 chars) with 5-6 emoji, Hindi text, and Facebook Reels hashtags like #Reels #FBViral #Shorts #HindiKahani'.\n"
+            f"   - If this is a Long format, use: 'A warm, engaging caption (300 chars) asking the audience to share with family. Use tags like #FacebookVideo #FamilyContent #HindiStories #MoralStory #WonderStoriesTV'.\n"
             f"6. Return ONLY strict JSON with keys: title, description, tags, hashtags, "
             f"   primary_keyword, facebook_description. No markdown wrapper.\n"
             f"7. NEVER use 'made for kids' or COPPA language. This is family content for all ages."
@@ -131,7 +133,7 @@ class KidsSeoGenerator:
 
         facebook_description = self._clean_text(payload.get("facebook_description", ""))
         if not facebook_description:
-            facebook_description = self._fallback_facebook_description(idea, hashtags)
+            facebook_description = self._fallback_facebook_description(idea, hashtags, is_short)
 
         return KidsSeoPackage(
             title=title,
@@ -194,6 +196,7 @@ class KidsSeoGenerator:
         hindi_summary = f"आज की कहानी में देखें कि कैसे {char_name} को एक जादुई {magical} की मदद से अपनी गलतियों का एहसास होता है और उसकी जिंदगी बदल जाती है।"
 
         desc = (
+            f"🔥 {hindi_summary}\n\n"
             f"📖 Summary (English):\n{eng_summary}\n\n"
             f"📖 कहानी का सारांश (Hindi):\n{hindi_summary}\n\n"
             f"💡 Moral Lesson:\n"
@@ -201,18 +204,25 @@ class KidsSeoGenerator:
             f"• Hindi: {moral_h}\n\n"
             f"✨ Subscribe to Wonder Stories TV for daily family-friendly stories: {CHANNEL_HANDLE}\n"
             f"🔔 Hit the bell icon to stay updated with all new stories!\n\n"
-            f"🔍 Keywords: {keyword}, moral story hindi, wonder stories tv, {idea.title.lower()}"
+            f"🔍 Search Terms & Keywords: Watch the best {keyword} on Wonder Stories TV. If you love moral story hindi, hindi animation, kids stories, bedtime stories, and {idea.title.lower()}, you will love this emotional journey."
         )
         return desc
 
-    def _fallback_facebook_description(self, idea: KidsStoryIdea, hashtags: list[str]) -> str:
+    def _fallback_facebook_description(self, idea: KidsStoryIdea, hashtags: list[str], is_short: bool) -> str:
         magical = getattr(idea, "magical_element", "jaadu")
         is_kids = getattr(idea, "made_for_kids", False)
         audience_hashtags = "#MoralStory #WonderStoriesTV #BacchonKiKahani" if is_kids else "#MoralStory #WonderStoriesTV #HindiStories"
-        fb_hashtags = f"#Reels #FBViral #HindiKahani {audience_hashtags}"
+        
+        if is_short:
+            fb_hashtags = f"#Reels #FBViral #HindiKahani #Shorts {audience_hashtags}"
+            intro = "✨ Ek aur magical short story! 🌟"
+        else:
+            fb_hashtags = f"#FacebookVideo #FamilyContent #HindiKahani {audience_hashtags}"
+            intro = "🎥 Grab your snacks for this beautiful full story! ❤️✨"
+            
         return (
-            f"✨ {idea.title}! 🌟 Aaj ki magical kahani ne dil jeet liya! "
-            f"Jaadu ka {magical} aur ek bada sabak! Dekho aur share karo! 💫 "
+            f"{intro} {idea.title}! Aaj ki kahani ne dil jeet liya! "
+            f"Jaadu ka {magical} aur ek bada sabak! Apni family ke saath dekhein aur share karein! 💫\n\n"
             f"{fb_hashtags}"
         )[:500]
 

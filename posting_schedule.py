@@ -22,15 +22,15 @@ LONG_FORM_POSTING_SLOTS: dict[int, list[int]] = {
 }
 
 # ── Kids channel: 2:30 PM every day (hour=14, minute=30 set in scheduler.py) ──
-# All slots point to hour 14 so upload_all.py slot logic also uses 2 PM if needed
+# All slots point to hour 13 so upload_all.py slot logic adds 30 mins to schedule for 1:30 PM
 KIDS_POSTING_SLOTS: dict[int, list[int]] = {
-    0: [14],  # Monday
-    1: [14],  # Tuesday
-    2: [14],  # Wednesday
-    3: [14],  # Thursday
-    4: [14],  # Friday
-    5: [14],  # Saturday
-    6: [14],  # Sunday
+    0: [13],  # Monday
+    1: [13],  # Tuesday
+    2: [13],  # Wednesday
+    3: [13],  # Thursday
+    4: [13],  # Friday
+    5: [13],  # Saturday
+    6: [13],  # Sunday
 }
 
 DAY_NAME_TO_WEEKDAY: dict[str, int] = {
@@ -51,7 +51,7 @@ def get_daily_slots(
     channel: str = "fitness",
 ) -> list[int]:
     if channel in ("kids", "stories"):
-        slots = KIDS_POSTING_SLOTS.get(weekday, [14])
+        slots = KIDS_POSTING_SLOTS.get(weekday, [13])
     elif video_type == "long":
         slots = LONG_FORM_POSTING_SLOTS.get(weekday, SHORTS_POSTING_SLOTS[0])
     else:
