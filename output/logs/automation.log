@@ -390,3 +390,17 @@
 2026-06-24 00:49:45,824 | INFO | fb_social_uploader | ✅ Story published! Story ID: unknown
 2026-06-24 00:49:45,832 | INFO | fb_social_uploader | 🗑️ Deleted local story folder: 20260623_191754_dadi-aur-chintu-wo-purani-kahaniyan-seekh-pyaar-se-sunai-gay
 2026-06-24 00:49:45,833 | INFO | fb_social_uploader | ✅ Uploaded story: 20260623_191754_dadi-aur-chintu-wo-purani-kahaniyan-seekh-pyaar-se-sunai-gay
+2026-06-24 02:34:18,648 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Lalach Ka Anjaam — Jab Zyada Maangna Sab Chheen Le — Seekh: Lalach sab kuch kha jaata hai — santosh sabse bada dhan hai
+2026-06-24 02:34:25,857 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 02:34:25,862 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 02:34:26,041 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 02:35:05,162 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 02:35:06,477 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 02:35:06,488 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 02:35:06,489 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac\image_raw.png
+2026-06-24 02:35:06,643 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac\image.png
+2026-06-24 02:35:55,668 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.png
+2026-06-24 02:36:03,522 | INFO | fb_social_uploader | ✅ Post published! Post ID: 1200508099805451_122115319305349161
+2026-06-24 02:36:03,532 | INFO | fb_social_uploader | ✅ Copied post files to youtube_community → 20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac
+2026-06-24 02:36:03,535 | INFO | fb_social_uploader | 🗑️ Deleted local post folder: 20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac
+2026-06-24 02:36:03,535 | INFO | fb_social_uploader | ✅ Uploaded post: 20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac

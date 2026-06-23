@@ -130,14 +130,9 @@ def reconcile_recovered_records(history: list[dict]) -> int:
 
 
 def cleanup_local_video(video_path: Path, record: dict) -> None:
-    # 1. Delete final video file
-    if video_path.exists():
-        try:
-            video_path.unlink()
-            record["local_video_deleted"] = True
-            print(f"Deleted local video: {video_path.name}")
-        except Exception as exc:  # noqa: BLE001
-            print(f"Uploaded but could not delete local video {video_path.name}: {exc}")
+    # 1. Keep the final video file (do NOT delete) so the user can manually upload to Instagram/YouTube Shorts
+    print(f"Keeping final video on disk: {video_path.name} (for manual Instagram/YouTube uploads)")
+    record["local_video_deleted"] = False
 
     # 2. Delete input clips folder
     input_folder = Path("input/clips") / video_path.stem
