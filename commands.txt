@@ -112,3 +112,59 @@ CONTENT QUALITY CHECKLIST
   □ Subtitles are pop-animated, yellow-highlighted CapCut style
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║              FACEBOOK CONTENT STUDIO — POSTS · STORIES                          ║
+║                    Wonder Stories TV — Standalone Module                        ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+
+  Entry point: python fb_content.py [command]
+  Fully SEPARATE from video pipeline (main.py). No overlap.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CREATE — Generate content and save locally
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  # Post: AI caption (Hindi+English) + DALL-E 3 Pixar image (1024×1024)
+  python fb_content.py create post --topic "Chintu ne seekha ki sach bolna chahiye"
+  python fb_content.py create post --auto
+
+  # Story: 1080x1920 gradient story card with Hinglish hook text overlay
+  python fb_content.py create story --topic "Aaj ki baat: dost ki madad karo"
+  python fb_content.py create story --auto
+
+  # Create + immediately upload to Facebook in one step
+  python fb_content.py create post --topic "..." --upload
+  python fb_content.py create story --topic "..." --upload
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UPLOAD — Publish to Facebook page
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  python fb_content.py upload post          (all pending posts)
+  python fb_content.py upload story         (all pending stories)
+  python fb_content.py upload all           (upload everything pending)
+  python fb_content.py upload all --force   (re-upload even if done)
+  python fb_content.py upload post --dir output/fb_content/posts/20260623.../
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LIST — See status of all content
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  python fb_content.py list
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONTENT SPECS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  TYPE       DIMENSIONS    FORMAT    STYLE
+  ────────   ──────────    ────────  ─────────────────────────────────────────
+  Post       1024×1024     PNG       DALL-E 3 Pixar animation + Hindi caption
+  Story      1080×1920     PNG       Gradient card + Hinglish text overlay
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+

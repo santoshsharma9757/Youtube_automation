@@ -226,3 +226,167 @@
 2026-06-20 00:45:02,880 | INFO | kids_story_generator | Generating story 'Samay Ki Keemat' (fmt=short, mode=images, scenes=5, dur=8s, char=Rohan)
 2026-06-20 00:45:14,716 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2026-06-20 00:45:14,727 | INFO | kids_story_generator | Story generation provider: openai:gpt-4o
+2026-06-23 23:24:25,896 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu ne seekha ki dost ko dhoka nahi dete
+2026-06-23 23:24:34,441 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:24:34,450 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:24:34,678 | INFO | fb_post_creator | 🖼️  Calling DALL-E 3 for image...
+2026-06-23 23:24:35,460 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+2026-06-23 23:24:35,462 | WARNING | fb_post_creator | DALL-E 3 image generation failed: Error code: 400 - {'error': {'message': "The model 'dall-e-3' does not exist.", 'type': 'image_generation_user_error', 'param': 'model', 'code': 'invalid_value'}}
+2026-06-23 23:24:35,581 | INFO | fb_post_creator | ✅ Image saved → output\fb_content\posts\20260623_175425_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image.png
+2026-06-23 23:30:29,121 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu ne seekha ki dost ko dhoka nahi dete
+2026-06-23 23:30:36,933 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:30:36,939 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:30:37,233 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-23 23:31:18,403 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-23 23:31:19,985 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-23 23:31:19,996 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-23 23:31:19,997 | INFO | fb_post_creator | ✅ Image saved → output\fb_content\posts\20260623_180029_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image.png
+2026-06-23 23:34:33,443 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu ne seekha ki dost ko dhoka nahi dete
+2026-06-23 23:34:40,183 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:34:40,199 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:34:40,849 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-23 23:35:18,531 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-23 23:35:20,223 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-23 23:35:20,246 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-23 23:35:20,247 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_180433_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image_raw.png
+2026-06-23 23:35:20,886 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_180433_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image.png
+2026-06-23 23:36:13,017 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu ne seekha ki dost ko dhoka nahi dete
+2026-06-23 23:36:20,290 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:36:20,294 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:36:20,554 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-23 23:36:39,710 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu ne seekha ki dost ko dhoka nahi dete
+2026-06-23 23:36:45,979 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:36:45,984 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:36:46,250 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-23 23:36:59,884 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-23 23:37:01,762 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-23 23:37:01,771 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-23 23:37:01,772 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_180613_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image_raw.png
+2026-06-23 23:37:01,950 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_180613_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image.png
+2026-06-23 23:37:27,728 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-23 23:37:29,437 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-23 23:37:29,445 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-23 23:37:29,445 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_180639_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image_raw.png
+2026-06-23 23:37:29,624 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_180639_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image.png
+2026-06-23 23:38:30,165 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu ne seekha ki dost ko dhoka nahi dete
+2026-06-23 23:38:36,881 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:38:36,885 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:38:37,151 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-23 23:39:18,557 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-23 23:39:20,516 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-23 23:39:20,558 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-23 23:39:20,558 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_180830_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image_raw.png
+2026-06-23 23:39:20,766 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_180830_chintu-ne-seekha-ki-dost-ko-dhoka-nahi-dete\image.png
+2026-06-23 23:46:29,430 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Nani Ki Kahani: Ek Tha Raja Ek Thi Rani — Seekh: Saccha raja daya se raaj karta hai, taaqat se nahi
+2026-06-23 23:46:38,758 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:46:38,767 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:47:08,935 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Krishna Aur Makhan Chor Ki Kahani — Seekh: Masoomiyat aur shararat mein hi saccha anand hai
+2026-06-23 23:47:19,326 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:47:19,330 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:47:19,615 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-23 23:47:44,715 | INFO | fb_story_creator | 📱 Creating Facebook Story for topic: Story of the Value of Time — Seekh: समय की कीमत की कहानी ko hamesha yaad rakho.
+2026-06-23 23:47:47,995 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:47:48,000 | INFO | fb_story_creator | ✅ Story hook generated via openai:gpt-4o
+2026-06-23 23:47:48,230 | INFO | fb_story_creator | Story card saved: output\fb_content\stories\20260623_181744_story-of-the-value-of-time-seekh-समय-क-कमत-क-कहन-ko-hamesha-\story_card.png
+2026-06-23 23:47:48,233 | INFO | fb_story_creator | ✅ Story card saved → output\fb_content\stories\20260623_181744_story-of-the-value-of-time-seekh-समय-क-कमत-क-कहन-ko-hamesha-\story_card.png
+2026-06-23 23:47:59,888 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-23 23:48:01,368 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-23 23:48:01,398 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-23 23:48:01,399 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_181708_krishna-aur-makhan-chor-ki-kahani-seekh-masoomiyat-aur-shara\image_raw.png
+2026-06-23 23:48:01,635 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_181708_krishna-aur-makhan-chor-ki-kahani-seekh-masoomiyat-aur-shara\image.png
+2026-06-23 23:50:39,741 | INFO | fb_reel_creator | 🎬 Creating reel plan for topic: Wisdom vs Strength — Seekh: बुद्धिमानी बनाम ताकत ko hamesha yaad rakho.
+2026-06-23 23:50:58,255 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:50:58,261 | INFO | fb_reel_creator | ✅ Reel plan generated via openai:gpt-4o
+2026-06-23 23:56:45,979 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu Aur Magic Binoculars — Seekh: Jab doosron ki zindagi gaur se dekho, toh pata chalta hai ki sabki apni ladaaiyan hain
+2026-06-23 23:56:52,966 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:56:52,970 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-23 23:56:53,225 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-23 23:57:30,035 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-23 23:57:31,499 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-23 23:57:31,507 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-23 23:57:31,508 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_182645_chintu-aur-magic-binoculars-seekh-jab-doosron-ki-zindagi-gau\image_raw.png
+2026-06-23 23:57:31,810 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_182645_chintu-aur-magic-binoculars-seekh-jab-doosron-ki-zindagi-gau\image.png
+2026-06-23 23:59:41,569 | INFO | fb_story_creator | 📱 Creating Facebook Story for topic: Rohan Aur Roshni Ka Darakht — Seekh: Jalaan tumhari duniya andheri kar deti hai — achhai roshni laati hai
+2026-06-23 23:59:47,046 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 23:59:47,050 | INFO | fb_story_creator | ✅ Story hook generated via openai:gpt-4o
+2026-06-23 23:59:47,319 | INFO | fb_story_creator | 🖼️  Story image: trying gpt-image-1 (1024x1792)...
+2026-06-23 23:59:47,905 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+2026-06-23 23:59:47,906 | WARNING | fb_story_creator | Story image gpt-image-1 failed: Error code: 400 - {'error': {'message': "Invalid size '1024x1792'. Supported sizes are 1024x1024, 1024x1536, 1536x1024, and auto.", 'type': 'image_generation_user_error', 'param': 'size', 'code': 'invalid_value'}}
+2026-06-23 23:59:48,162 | INFO | fb_story_creator | 🖼️  Story image: trying gpt-image-1 (1024x1024)...
+2026-06-24 00:00:23,555 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 00:00:25,132 | INFO | fb_story_creator | ✅ Story image saved via gpt-image-1 (base64)
+2026-06-24 00:00:25,571 | INFO | fb_story_creator | ✅ Story card saved → output\fb_content\stories\20260623_182941_rohan-aur-roshni-ka-darakht-seekh-jalaan-tumhari-duniya-andh\story_card.png
+2026-06-24 00:02:18,891 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Dhruv Tara: Chhote Bachche Ka Bada Sapna — Seekh: Koi sapna itna bada nahi ki dridh sankalp waala dil use poora na kar sake
+2026-06-24 00:02:24,967 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 00:02:24,976 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 00:02:25,215 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 00:03:00,172 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 00:03:01,544 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 00:03:01,553 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 00:03:01,554 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_183218_dhruv-tara-chhote-bachche-ka-bada-sapna-seekh-koi-sapna-itna\image_raw.png
+2026-06-24 00:03:01,838 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_183218_dhruv-tara-chhote-bachche-ka-bada-sapna-seekh-koi-sapna-itna\image.png
+2026-06-24 00:15:11,097 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Saath Milkar — Jab Ek Se Behtar Sab — Seekh: Akele tezi se jaate ho — saath mein door jaate ho. Sahyog taaqat badhata hai
+2026-06-24 00:15:18,167 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 00:15:18,173 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 00:15:18,403 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 00:16:04,861 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 00:16:06,108 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 00:16:06,136 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 00:16:06,137 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_184511_saath-milkar-jab-ek-se-behtar-sab-seekh-akele-tezi-se-jaate-\image_raw.png
+2026-06-24 00:16:06,314 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_184511_saath-milkar-jab-ek-se-behtar-sab-seekh-akele-tezi-se-jaate-\image.png
+2026-06-24 00:23:44,515 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Nani Ki Kahani: Ek Tha Raja Ek Thi Rani — Seekh: Saccha raja daya se raaj karta hai, taaqat se nahi
+2026-06-24 00:24:40,444 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 00:24:40,448 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 00:24:40,757 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 00:25:46,799 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 00:25:48,403 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 00:25:48,414 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 00:25:48,414 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_185344_nani-ki-kahani-ek-tha-raja-ek-thi-rani-seekh-saccha-raja-day\image_raw.png
+2026-06-24 00:25:48,662 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_185344_nani-ki-kahani-ek-tha-raja-ek-thi-rani-seekh-saccha-raja-day\image.png
+2026-06-24 00:34:51,299 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Rohan Aur Jaadu Ka Aaina — Seekh: Doosron ki aankhon se duniya dekho — empathy sabse bada superpower hai
+2026-06-24 00:35:04,216 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 00:35:04,222 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 00:35:04,492 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 00:35:42,460 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 00:35:44,331 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 00:35:44,341 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 00:35:44,342 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_190451_rohan-aur-jaadu-ka-aaina-seekh-doosron-ki-aankhon-se-duniya-\image_raw.png
+2026-06-24 00:35:44,545 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_190451_rohan-aur-jaadu-ka-aaina-seekh-doosron-ki-aankhon-se-duniya-\image.png
+2026-06-24 00:38:53,769 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.png
+2026-06-24 00:39:01,112 | INFO | fb_social_uploader | ✅ Post published! Post ID: 1200508099805451_122115291081349161
+2026-06-24 00:39:01,117 | INFO | fb_social_uploader | ✅ Uploaded post: 20260623_190451_rohan-aur-jaadu-ka-aaina-seekh-doosron-ki-aankhon-se-duniya-
+2026-06-24 00:39:50,434 | INFO | fb_social_uploader | Skipping already uploaded post: 20260623_190451_rohan-aur-jaadu-ka-aaina-seekh-doosron-ki-aankhon-se-duniya-
+2026-06-24 00:40:02,172 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.png
+2026-06-24 00:40:08,391 | INFO | fb_social_uploader | ✅ Post published! Post ID: 1200508099805451_122115291315349161
+2026-06-24 00:40:08,426 | INFO | fb_social_uploader | ✅ Copied post files to youtube_community → 20260623_190451_rohan-aur-jaadu-ka-aaina-seekh-doosron-ki-aankhon-se-duniya-
+2026-06-24 00:40:08,429 | INFO | fb_social_uploader | 🗑️ Deleted local post folder: 20260623_190451_rohan-aur-jaadu-ka-aaina-seekh-doosron-ki-aankhon-se-duniya-
+2026-06-24 00:40:08,429 | INFO | fb_social_uploader | ✅ Uploaded post: 20260623_190451_rohan-aur-jaadu-ka-aaina-seekh-doosron-ki-aankhon-se-duniya-
+2026-06-24 00:45:58,811 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: The Miracle of Patience — Seekh: धैर्य का चमत्कार ko hamesha yaad rakho.
+2026-06-24 00:46:08,737 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 00:46:08,742 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 00:46:08,991 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 00:46:50,414 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 00:46:51,890 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 00:46:51,900 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 00:46:51,901 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260623_191558_the-miracle-of-patience-seekh-धरय-क-चमतकर-ko-hamesha-yaad-ra\image_raw.png
+2026-06-24 00:46:52,111 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260623_191558_the-miracle-of-patience-seekh-धरय-क-चमतकर-ko-hamesha-yaad-ra\image.png
+2026-06-24 00:47:09,387 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.png
+2026-06-24 00:47:14,899 | INFO | fb_social_uploader | ✅ Post published! Post ID: 1200508099805451_122115293103349161
+2026-06-24 00:47:14,929 | INFO | fb_social_uploader | ✅ Copied post files to youtube_community → 20260623_191558_the-miracle-of-patience-seekh-धरय-क-चमतकर-ko-hamesha-yaad-ra
+2026-06-24 00:47:14,932 | INFO | fb_social_uploader | 🗑️ Deleted local post folder: 20260623_191558_the-miracle-of-patience-seekh-धरय-क-चमतकर-ko-hamesha-yaad-ra
+2026-06-24 00:47:14,932 | INFO | fb_social_uploader | ✅ Uploaded post: 20260623_191558_the-miracle-of-patience-seekh-धरय-क-चमतकर-ko-hamesha-yaad-ra
+2026-06-24 00:47:54,157 | INFO | fb_story_creator | 📱 Creating Facebook Story for topic: Dadi Aur Chintu: Wo Purani Kahaniyan — Seekh: Pyaar se sunai gayi kahaniyan sabse bada tohfa hain
+2026-06-24 00:47:58,104 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 00:47:58,108 | INFO | fb_story_creator | ✅ Story hook generated via openai:gpt-4o
+2026-06-24 00:47:58,351 | INFO | fb_story_creator | 🖼️  Story image: trying gpt-image-1 (1024x1792)...
+2026-06-24 00:47:59,036 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+2026-06-24 00:47:59,038 | WARNING | fb_story_creator | Story image gpt-image-1 failed: Error code: 400 - {'error': {'message': "Invalid size '1024x1792'. Supported sizes are 1024x1024, 1024x1536, 1536x1024, and auto.", 'type': 'image_generation_user_error', 'param': 'size', 'code': 'invalid_value'}}
+2026-06-24 00:47:59,275 | INFO | fb_story_creator | 🖼️  Story image: trying gpt-image-1 (1024x1024)...
+2026-06-24 00:48:38,341 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 00:48:39,847 | INFO | fb_story_creator | ✅ Story image saved via gpt-image-1 (base64)
+2026-06-24 00:48:40,240 | INFO | fb_story_creator | ✅ Story card saved → output\fb_content\stories\20260623_191754_dadi-aur-chintu-wo-purani-kahaniyan-seekh-pyaar-se-sunai-gay\story_card.png
+2026-06-24 00:49:36,766 | INFO | fb_social_uploader | 📤 Uploading Facebook Story: story_card.png
+2026-06-24 00:49:40,295 | INFO | fb_social_uploader | Phase 1 complete. Photo ID: 122115293631349161
+2026-06-24 00:49:45,824 | INFO | fb_social_uploader | ✅ Story published! Story ID: unknown
+2026-06-24 00:49:45,832 | INFO | fb_social_uploader | 🗑️ Deleted local story folder: 20260623_191754_dadi-aur-chintu-wo-purani-kahaniyan-seekh-pyaar-se-sunai-gay
+2026-06-24 00:49:45,833 | INFO | fb_social_uploader | ✅ Uploaded story: 20260623_191754_dadi-aur-chintu-wo-purani-kahaniyan-seekh-pyaar-se-sunai-gay

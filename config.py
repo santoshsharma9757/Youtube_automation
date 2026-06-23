@@ -20,6 +20,12 @@ AUDIO_DIR = OUTPUT_DIR / "audio"
 VIDEO_DIR = OUTPUT_DIR / "final_videos"
 SUBTITLE_DIR = OUTPUT_DIR / "subtitles"
 LOG_DIR = OUTPUT_DIR / "logs"
+# ── Facebook Content Studio dirs ─────────────────────────
+FB_CONTENT_DIR  = OUTPUT_DIR / "fb_content"
+FB_POSTS_DIR    = FB_CONTENT_DIR / "posts"
+FB_STORIES_DIR  = FB_CONTENT_DIR / "stories"
+FB_REELS_DIR    = FB_CONTENT_DIR / "reels"
+YOUTUBE_COMMUNITY_DIR = OUTPUT_DIR / "youtube_community"
 WINDOWS_FONT_CANDIDATES = [
     Path("C:/Windows/Fonts/impact.ttf"),
     Path("C:/Windows/Fonts/ariblk.ttf"),
@@ -36,6 +42,11 @@ def ensure_directories() -> None:
         VIDEO_DIR,
         SUBTITLE_DIR,
         LOG_DIR,
+        FB_CONTENT_DIR,
+        FB_POSTS_DIR,
+        FB_STORIES_DIR,
+        FB_REELS_DIR,
+        YOUTUBE_COMMUNITY_DIR,
     ):
         directory.mkdir(parents=True, exist_ok=True)
 
