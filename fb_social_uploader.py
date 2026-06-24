@@ -197,7 +197,10 @@ class FBSocialUploader:
         """
         self._check_config()
         url = f"{_BASE_URL}/{self.page_id}/photos"
-        LOGGER.info("📤 Uploading Facebook Post: %s", image_path.name)
+        
+        # Optimize image for upload (converts PNG to JPEG)
+        upload_path = self._optimize_image_for_upload(image_path)
+        LOGGER.info("📤 Uploading Facebook Post: %s", upload_path.name)
 
         payload = {
             "access_token": self.token,
@@ -205,8 +208,16 @@ class FBSocialUploader:
             "published": "true",
         }
 
-        with open(image_path, "rb") as f:
-            resp = requests.post(url, data=payload, files={"source": f}, timeout=120)
+        try:
+            with open(upload_path, "rb") as f:
+                resp = requests.post(url, data=payload, files={"source": f}, timeout=120)
+        finally:
+            # Clean up optimized JPEG if it was created
+            if upload_path != image_path and upload_path.exists():
+                try:
+                    upload_path.unlink()
+                except Exception as exc:
+                    LOGGER.warning("Could not delete optimized JPEG %s: %s", upload_path, exc)
 
         data = resp.json()
         if "error" in data:
@@ -251,7 +262,10 @@ class FBSocialUploader:
         Phase 2: POST /{page-id}/photo_stories with photo_id
         """
         self._check_config()
-        LOGGER.info("📤 Uploading Facebook Story: %s", image_path.name)
+        
+        # Optimize image for upload (converts PNG to JPEG)
+        upload_path = self._optimize_image_for_upload(image_path)
+        LOGGER.info("📤 Uploading Facebook Story: %s", upload_path.name)
 
         # Phase 1: Upload photo to get photo_id
         photo_url = f"{_BASE_URL}/{self.page_id}/photos"
@@ -259,8 +273,16 @@ class FBSocialUploader:
             "access_token": self.token,
             "published": "false",
         }
-        with open(image_path, "rb") as f:
-            resp1 = requests.post(photo_url, data=payload_p1, files={"source": f}, timeout=120)
+        try:
+            with open(upload_path, "rb") as f:
+                resp1 = requests.post(photo_url, data=payload_p1, files={"source": f}, timeout=120)
+        finally:
+            # Clean up optimized JPEG if it was created
+            if upload_path != image_path and upload_path.exists():
+                try:
+                    upload_path.unlink()
+                except Exception as exc:
+                    LOGGER.warning("Could not delete optimized JPEG %s: %s", upload_path, exc)
 
         data1 = resp1.json()
         if "error" in data1:
@@ -295,6 +317,30 @@ class FBSocialUploader:
             "status": "PUBLISHED",
             "uploaded_at": datetime.now(timezone.utc).isoformat(),
         }
+
+    def _optimize_image_for_upload(self, image_path: Path) -> Path:
+        """If image is PNG, convert to JPEG for faster and more reliable upload."""
+        if image_path.suffix.lower() != ".png":
+            return image_path
+        try:
+            from PIL import Image
+            LOGGER.info("Optimizing PNG to JPEG for Facebook upload: %s", image_path.name)
+            img = Image.open(image_path)
+            if img.mode in ("RGBA", "LA"):
+                # Create white background
+                bg = Image.new("RGB", img.size, (255, 255, 255))
+                bg.paste(img, mask=img.split()[3] if img.mode == "RGBA" else None)
+                img = bg
+            else:
+                img = img.convert("RGB")
+            
+            jpeg_path = image_path.with_suffix(".jpg")
+            img.save(jpeg_path, "JPEG", quality=90)
+            LOGGER.info("JPEG optimized file size: %d bytes (was %d)", os.path.getsize(jpeg_path), os.path.getsize(image_path))
+            return jpeg_path
+        except Exception as exc:
+            LOGGER.warning("Could not optimize image to JPEG: %s. Using original.", exc)
+            return image_path
 
     # ── REEL upload ───────────────────────────────────────────────────────────
 

@@ -404,3 +404,74 @@
 2026-06-24 02:36:03,532 | INFO | fb_social_uploader | ✅ Copied post files to youtube_community → 20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac
 2026-06-24 02:36:03,535 | INFO | fb_social_uploader | 🗑️ Deleted local post folder: 20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac
 2026-06-24 02:36:03,535 | INFO | fb_social_uploader | ✅ Uploaded post: 20260623_210418_lalach-ka-anjaam-jab-zyada-maangna-sab-chheen-le-seekh-lalac
+2026-06-24 21:21:29,405 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu Aur Talking Banyan Tree — Seekh: Ped hume zindagi dete hain — inhe bachao jaise ye hume bachate hain
+2026-06-24 21:24:00,642 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Chintu Ka Sach Ka Imtihaan — Seekh: Ek jhooth ke liye sau jhooth chahiye — par ek sach azaadi deta hai
+2026-06-24 21:24:08,234 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 21:24:08,250 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 21:24:08,599 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 21:24:29,526 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Dharti Ka Dard — Rohan Aur Ped Ka Vaada — Seekh: Dharti hamare porvajj ki virasat nahi — hum ise apne bachchon se udhaar lete hain
+2026-06-24 21:24:35,386 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 21:24:35,392 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 21:24:35,664 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 21:24:48,363 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 21:24:50,108 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 21:24:50,119 | WARNING | fb_post_creator | OpenAI gpt-image-1 failed: [Errno 2] No such file or directory: 'output\\fb_content\\posts\\20260624_155400_chintu-ka-sach-ka-imtihaan-seekh-ek-jhooth-ke-liye-sau-jhoot\\image_raw.png'
+2026-06-24 21:24:50,400 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: dall-e-2 ...
+2026-06-24 21:24:50,930 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+2026-06-24 21:24:50,931 | WARNING | fb_post_creator | OpenAI dall-e-2 failed: Error code: 400 - {'error': {'message': "The model 'dall-e-2' does not exist.", 'type': 'image_generation_user_error', 'param': 'model', 'code': 'invalid_value'}}
+2026-06-24 21:24:55,739 | INFO | fb_post_creator | 🖼️  Trying Gemini Imagen as fallback...
+2026-06-24 21:24:56,537 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-06-24 21:24:56,992 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-preview-image-generation:generateContent "HTTP/1.1 404 Not Found"
+2026-06-24 21:24:57,016 | WARNING | fb_post_creator | Gemini Imagen failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-preview-image-generation is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-24 21:24:57,016 | ERROR | fb_post_creator | ❌ All image providers failed — saving placeholder
+2026-06-24 21:25:15,739 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 21:25:17,597 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 21:25:17,611 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 21:25:17,613 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260624_155429_dharti-ka-dard-rohan-aur-ped-ka-vaada-seekh-dharti-hamare-po\image_raw.png
+2026-06-24 21:25:17,840 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260624_155429_dharti-ka-dard-rohan-aur-ped-ka-vaada-seekh-dharti-hamare-po\image.png
+2026-06-24 21:25:40,678 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.png
+2026-06-24 21:25:54,498 | ERROR | fb_social_uploader | Post upload error: {'code': 1, 'message': "Please reduce the amount of data you're asking for, then retry your request"} | Response: {"error":{"code":1,"message":"Please reduce the amount of data you're asking for, then retry your request"}}
+2026-06-24 21:25:54,499 | ERROR | fb_social_uploader | ❌ Failed to upload post 20260624_155429_dharti-ka-dard-rohan-aur-ped-ka-vaada-seekh-dharti-hamare-po: Facebook Post API Error: {'code': 1, 'message': "Please reduce the amount of data you're asking for, then retry your request"}
+2026-06-24 21:29:46,434 | ERROR | fb_social_uploader | ❌ Failed to upload post 20260624_155400_chintu-ka-sach-ka-imtihaan-seekh-ek-jhooth-ke-liye-sau-jhoot: No image found in output\fb_content\posts\20260624_155400_chintu-ka-sach-ka-imtihaan-seekh-ek-jhooth-ke-liye-sau-jhoot
+2026-06-24 21:29:46,452 | INFO | fb_social_uploader | Optimizing PNG to JPEG for Facebook upload: image.png
+2026-06-24 21:29:46,515 | INFO | fb_social_uploader | JPEG optimized file size: 231777 bytes (was 1609842)
+2026-06-24 21:29:46,516 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.jpg
+2026-06-24 21:29:58,127 | INFO | fb_social_uploader | ✅ Post published! Post ID: 1200508099805451_122115556209349161
+2026-06-24 21:29:58,162 | INFO | fb_social_uploader | ✅ Copied post files to youtube_community → 20260624_155429_dharti-ka-dard-rohan-aur-ped-ka-vaada-seekh-dharti-hamare-po
+2026-06-24 21:29:58,166 | INFO | fb_social_uploader | 🗑️ Deleted local post folder: 20260624_155429_dharti-ka-dard-rohan-aur-ped-ka-vaada-seekh-dharti-hamare-po
+2026-06-24 21:29:58,166 | INFO | fb_social_uploader | ✅ Uploaded post: 20260624_155429_dharti-ka-dard-rohan-aur-ped-ka-vaada-seekh-dharti-hamare-po
+2026-06-24 21:30:20,377 | ERROR | fb_social_uploader | ❌ Failed to upload post 20260624_155400_chintu-ka-sach-ka-imtihaan-seekh-ek-jhooth-ke-liye-sau-jhoot: No image found in output\fb_content\posts\20260624_155400_chintu-ka-sach-ka-imtihaan-seekh-ek-jhooth-ke-liye-sau-jhoot
+2026-06-24 21:30:36,771 | ERROR | fb_social_uploader | ❌ Failed to upload post 20260624_155400_chintu-ka-sach-ka-imtihaan-seekh-ek-jhooth-ke-liye-sau-jhoot: No image found in output\fb_content\posts\20260624_155400_chintu-ka-sach-ka-imtihaan-seekh-ek-jhooth-ke-liye-sau-jhoot
+2026-06-24 21:31:45,455 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Machli Ki Udaan: Sapne Dekhna Seekho — Seekh: Bade sapne dekho — ek machli bhi ud sakti hai agar koshish na chhode
+2026-06-24 21:31:58,922 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 21:31:58,928 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 21:31:59,145 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 21:32:37,362 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 21:32:39,160 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 21:32:39,169 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 21:32:39,171 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260624_160145_machli-ki-udaan-sapne-dekhna-seekho-seekh-bade-sapne-dekho-e\image_raw.png
+2026-06-24 21:32:39,389 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260624_160145_machli-ki-udaan-sapne-dekhna-seekho-seekh-bade-sapne-dekho-e\image.png
+2026-06-24 21:32:44,161 | INFO | fb_social_uploader | Optimizing PNG to JPEG for Facebook upload: image.png
+2026-06-24 21:32:44,227 | INFO | fb_social_uploader | JPEG optimized file size: 224092 bytes (was 1574272)
+2026-06-24 21:32:44,228 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.jpg
+2026-06-24 21:32:52,744 | INFO | fb_social_uploader | ✅ Post published! Post ID: 1200508099805451_122115557079349161
+2026-06-24 21:32:52,778 | INFO | fb_social_uploader | ✅ Copied post files to youtube_community → 20260624_160145_machli-ki-udaan-sapne-dekhna-seekho-seekh-bade-sapne-dekho-e
+2026-06-24 21:32:52,782 | INFO | fb_social_uploader | 🗑️ Deleted local post folder: 20260624_160145_machli-ki-udaan-sapne-dekhna-seekho-seekh-bade-sapne-dekho-e
+2026-06-24 21:32:52,783 | INFO | fb_social_uploader | ✅ Uploaded post: 20260624_160145_machli-ki-udaan-sapne-dekhna-seekho-seekh-bade-sapne-dekho-e
+2026-06-24 21:34:18,475 | INFO | fb_story_creator | 📱 Creating Facebook Story for topic: Chintu Aur Bolne Wala Kankal — Seekh: Darr se darna band karo, uska samna karo
+2026-06-24 21:34:24,045 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 21:34:24,054 | INFO | fb_story_creator | ✅ Story hook generated via openai:gpt-4o
+2026-06-24 21:34:24,339 | INFO | fb_story_creator | 🖼️  Story image: trying gpt-image-1 (1024x1792)...
+2026-06-24 21:34:25,019 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+2026-06-24 21:34:25,021 | WARNING | fb_story_creator | Story image gpt-image-1 failed: Error code: 400 - {'error': {'message': "Invalid size '1024x1792'. Supported sizes are 1024x1024, 1024x1536, 1536x1024, and auto.", 'type': 'image_generation_user_error', 'param': 'size', 'code': 'invalid_value'}}
+2026-06-24 21:34:25,230 | INFO | fb_story_creator | 🖼️  Story image: trying gpt-image-1 (1024x1024)...
+2026-06-24 21:35:05,349 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 21:35:07,238 | INFO | fb_story_creator | ✅ Story image saved via gpt-image-1 (base64)
+2026-06-24 21:35:08,201 | INFO | fb_story_creator | ✅ Story card saved → output\fb_content\stories\20260624_160418_chintu-aur-bolne-wala-kankal-seekh-darr-se-darna-band-karo-u\story_card.png
+2026-06-24 22:04:12,107 | INFO | fb_social_uploader | Optimizing PNG to JPEG for Facebook upload: story_card.png
+2026-06-24 22:04:12,196 | INFO | fb_social_uploader | JPEG optimized file size: 352618 bytes (was 2235885)
+2026-06-24 22:04:12,197 | INFO | fb_social_uploader | 📤 Uploading Facebook Story: story_card.jpg
+2026-06-24 22:04:16,761 | INFO | fb_social_uploader | Phase 1 complete. Photo ID: 122115563523349161
+2026-06-24 22:04:24,364 | INFO | fb_social_uploader | ✅ Story published! Story ID: unknown
+2026-06-24 22:04:24,375 | INFO | fb_social_uploader | 🗑️ Deleted local story folder: 20260624_160418_chintu-aur-bolne-wala-kankal-seekh-darr-se-darna-band-karo-u
+2026-06-24 22:04:24,376 | INFO | fb_social_uploader | ✅ Uploaded story: 20260624_160418_chintu-aur-bolne-wala-kankal-seekh-darr-se-darna-band-karo-u

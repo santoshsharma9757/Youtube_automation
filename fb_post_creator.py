@@ -40,11 +40,8 @@ LOGGER = logging.getLogger(__name__)
 FB_POSTS_DIR = Path("output/fb_content/posts")
 
 # ── Hashtag pool for Wonder Stories TV posts ─────────────────────────────────
-_POST_HASHTAGS = (
-    "#WonderStoriesTV #HindiKahani #BacchonKiKahani #MoralStory #AnimatedStory "
-    "#KidsIndia #FamilyContent #HindiStories #ChildrensStories "
-    "#NaitikShiksha #Kahani #FBViral #IndianKids #Cartoons #KidsVideo"
-)
+_POST_HASHTAGS = "#WonderStoriesTV #HindiKahani #BacchonKiKahani #MoralStory"
+
 
 
 class FBPostCreator:
@@ -356,7 +353,7 @@ Return ONLY a valid JSON object with these exact keys:
   "body_english": "1-2 sentences in English that amplify the message for reach.",
   "moral": "One-line moral lesson in Hindi Devanagari for the post caption (with emoji).",
   "cta": "Call to action in Hindi — ask parents to share/comment/tag. Max 2 lines.",
-  "hashtags": "15-20 relevant hashtags mixing Hindi content + kids + India + family tags",
+  "hashtags": "3-4 relevant hashtags mixing Hindi content + kids + India + family tags",
   "image_prompt": "A detailed image prompt: Pixar 3D animation style, adorable Indian boy named Chintu (age 6-7, wearing a red kurta, big curious eyes, chubby cheeks) in a vivid scene that represents the topic '{topic}'. Warm, vibrant colors. Soft cinematic lighting. Family-friendly. No text in image. At least 60 words."
 }}
 
@@ -397,6 +394,9 @@ def _assemble_caption(data: dict) -> str:
 
     hashtags = data.get("hashtags", _POST_HASHTAGS).strip()
     if hashtags:
+        found_tags = re.findall(r"#[^\s#]+", hashtags)
+        if len(found_tags) > 4:
+            hashtags = " ".join(found_tags[:4])
         parts.append(f"\n\n{hashtags}")
 
     return "\n".join(parts)

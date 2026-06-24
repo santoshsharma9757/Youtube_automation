@@ -107,8 +107,8 @@ class KidsSeoGenerator:
             f"   festival/season tags if relevant. Each tag max 40 chars.\n"
             f"4. Hashtags: 8-10 hashtags for database records. Must include: #WonderStoriesTV #HindiMoralStory #{char_name}Stories\n"
             f"5. Facebook description: Short, highly engaging caption. \n"
-            f"   - If this is a Short/Mini, use: 'Short punchy version (max 200 chars) with 5-6 emoji, Hindi text, and Facebook Reels hashtags like #Reels #FBViral #Shorts #HindiKahani'.\n"
-            f"   - If this is a Long format, use: 'A warm, engaging caption (300 chars) asking the audience to share with family. Use tags like #FacebookVideo #FamilyContent #HindiStories #MoralStory #WonderStoriesTV'.\n"
+            f"   - If this is a Short/Mini, use: 'Short punchy version (max 200 chars) with 5-6 emoji, Hindi text, and 3-4 Facebook Reels hashtags like #Reels #HindiKahani #MoralStory'.\n"
+            f"   - If this is a Long format, use: 'A warm, engaging caption (300 chars) asking the audience to share with family. Use 3-4 tags like #FamilyContent #HindiStories #MoralStory #WonderStoriesTV'.\n"
             f"6. Return ONLY strict JSON with keys: title, description, tags, hashtags, "
             f"   primary_keyword, facebook_description. No markdown wrapper.\n"
             f"7. NEVER use 'made for kids' or COPPA language. This is family content for all ages."
@@ -134,6 +134,22 @@ class KidsSeoGenerator:
         facebook_description = self._clean_text(payload.get("facebook_description", ""))
         if not facebook_description:
             facebook_description = self._fallback_facebook_description(idea, hashtags, is_short)
+
+        if facebook_description:
+            found_tags = []
+            seen = set()
+            for tag in re.findall(r"#[^\s#]+", facebook_description):
+                tag_lower = tag.lower()
+                if tag_lower not in seen:
+                    seen.add(tag_lower)
+                    found_tags.append(tag)
+            
+            clean_text = re.sub(r"#[^\s#]+", "", facebook_description)
+            clean_text = re.sub(r"\s+", " ", clean_text).strip()
+            if found_tags:
+                facebook_description = f"{clean_text}\n\n{' '.join(found_tags[:4])}"
+            else:
+                facebook_description = clean_text
 
         return KidsSeoPackage(
             title=title,
@@ -211,13 +227,13 @@ class KidsSeoGenerator:
     def _fallback_facebook_description(self, idea: KidsStoryIdea, hashtags: list[str], is_short: bool) -> str:
         magical = getattr(idea, "magical_element", "jaadu")
         is_kids = getattr(idea, "made_for_kids", False)
-        audience_hashtags = "#MoralStory #WonderStoriesTV #BacchonKiKahani" if is_kids else "#MoralStory #WonderStoriesTV #HindiStories"
+        audience_hashtags = "#MoralStory #WonderStoriesTV"
         
         if is_short:
-            fb_hashtags = f"#Reels #FBViral #HindiKahani #Shorts {audience_hashtags}"
+            fb_hashtags = f"#Reels #HindiKahani {audience_hashtags}"
             intro = "✨ Ek aur magical short story! 🌟"
         else:
-            fb_hashtags = f"#FacebookVideo #FamilyContent #HindiKahani {audience_hashtags}"
+            fb_hashtags = f"#FamilyContent #HindiKahani {audience_hashtags}"
             intro = "🎥 Grab your snacks for this beautiful full story! ❤️✨"
             
         return (

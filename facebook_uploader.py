@@ -28,10 +28,8 @@ LOGGER = logging.getLogger(__name__)
 CHANNEL_NAME = "Wonder Stories TV"
 
 # Core FB Reels hashtags for Wonder Stories TV niche
-_WONDER_FB_HASHTAGS = (
-    "#Reels #FBViral #HindiKahani #MoralStory #WonderStoriesTV "
-    "#BacchonKiKahani #AnimatedStory #KidsStory #HindiReels #FamilyContent"
-)
+_WONDER_FB_HASHTAGS = "#Reels #HindiKahani #MoralStory #WonderStoriesTV"
+
 
 
 class FacebookUploader:
@@ -218,15 +216,27 @@ class FacebookUploader:
             "#WonderStoriesTV",
             "#HindiKahani",
             "#MoralStory",
-            "#BacchonKiKahani",
-            "#FBViral",
             "#Reels",
-            "#AnimatedStory",
-            "#FamilyContent",
         ]
 
         extra_tags = [tag for tag in wonder_tags if tag.lower() not in optimized.lower()]
         if extra_tags:
             optimized = f"{optimized.strip()} {' '.join(extra_tags)}"
+
+        # Limit total hashtags to max 4
+        found_tags = []
+        seen = set()
+        for tag in re.findall(r"#[^\s#]+", optimized):
+            tag_lower = tag.lower()
+            if tag_lower not in seen:
+                seen.add(tag_lower)
+                found_tags.append(tag)
+
+        clean_text = re.sub(r"#[^\s#]+", "", optimized)
+        clean_text = re.sub(r"\s+", " ", clean_text).strip()
+        if found_tags:
+            optimized = f"{clean_text}\n\n{' '.join(found_tags[:4])}"
+        else:
+            optimized = clean_text
 
         return optimized[:2000]
