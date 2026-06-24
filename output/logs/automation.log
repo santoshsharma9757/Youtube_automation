@@ -475,3 +475,19 @@
 2026-06-24 22:04:24,364 | INFO | fb_social_uploader | ✅ Story published! Story ID: unknown
 2026-06-24 22:04:24,375 | INFO | fb_social_uploader | 🗑️ Deleted local story folder: 20260624_160418_chintu-aur-bolne-wala-kankal-seekh-darr-se-darna-band-karo-u
 2026-06-24 22:04:24,376 | INFO | fb_social_uploader | ✅ Uploaded story: 20260624_160418_chintu-aur-bolne-wala-kankal-seekh-darr-se-darna-band-karo-u
+2026-06-24 22:24:55,767 | INFO | fb_post_creator | 🎨 Creating Facebook post for topic: Shukriya — Jo Log Bhool Jaate Hain — Seekh: Shukriya jo hai usse kaafi bana deta hai — aur aur barkatein khichta hai
+2026-06-24 22:25:09,153 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-24 22:25:09,160 | INFO | fb_post_creator | ✅ Caption generated via openai:gpt-4o
+2026-06-24 22:25:09,407 | INFO | fb_post_creator | 🖼️  Trying OpenAI image model: gpt-image-1 ...
+2026-06-24 22:25:48,709 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+2026-06-24 22:25:50,591 | INFO | fb_post_creator | Decoding base64 image from gpt-image-1 ...
+2026-06-24 22:25:50,599 | INFO | fb_post_creator | ✅ Image saved via gpt-image-1 (base64)
+2026-06-24 22:25:50,600 | INFO | fb_post_creator | ✅ Raw image saved → output\fb_content\posts\20260624_165455_shukriya-jo-log-bhool-jaate-hain-seekh-shukriya-jo-hai-usse-\image_raw.png
+2026-06-24 22:25:50,811 | INFO | fb_post_creator | ✅ Text overlay applied → output\fb_content\posts\20260624_165455_shukriya-jo-log-bhool-jaate-hain-seekh-shukriya-jo-hai-usse-\image.png
+2026-06-24 22:26:17,472 | INFO | fb_social_uploader | Optimizing PNG to JPEG for Facebook upload: image.png
+2026-06-24 22:26:17,532 | INFO | fb_social_uploader | JPEG optimized file size: 180950 bytes (was 1384731)
+2026-06-24 22:26:17,533 | INFO | fb_social_uploader | 📤 Uploading Facebook Post: image.jpg
+2026-06-24 22:26:23,694 | INFO | fb_social_uploader | ✅ Post published! Post ID: 1200508099805451_122115567285349161
+2026-06-24 22:26:23,714 | INFO | fb_social_uploader | ✅ Copied post files to youtube_community → 20260624_165455_shukriya-jo-log-bhool-jaate-hain-seekh-shukriya-jo-hai-usse-
+2026-06-24 22:26:23,719 | INFO | fb_social_uploader | 🗑️ Deleted local post folder: 20260624_165455_shukriya-jo-log-bhool-jaate-hain-seekh-shukriya-jo-hai-usse-
+2026-06-24 22:26:23,720 | INFO | fb_social_uploader | ✅ Uploaded post: 20260624_165455_shukriya-jo-log-bhool-jaate-hain-seekh-shukriya-jo-hai-usse-
