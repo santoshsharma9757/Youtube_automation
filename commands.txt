@@ -1,170 +1,339 @@
 ╔══════════════════════════════════════════════════════════════════════════════════╗
-║                     WONDER STORIES TV — COMMANDS CHEATSHEET                      ║
-║                    YouTube & Facebook Family Story Automation                    ║
+║                    WONDER STORIES TV — COMMANDS CHEATSHEET                       ║
+║              Viral Hindi Stories: Mystery · Horror · Thriller · Crime            ║
+║                    Karma · Suspense · Dark Facts · Psychological                 ║
 ╚══════════════════════════════════════════════════════════════════════════════════╝
 
-Channel:   Wonder Stories TV  (@WonderStoriesTV)
-Character: Chintu (+ supporting cast: Mother, Golu, Pinky, Mintu)
-Strategy:  Dual-layer Pixar formula — Fun for kids, meaningful for adults
-Language:  Hindi voiceover (ElevenLabs) + English/Hindi SEO metadata
-Platform:  YouTube (Shorts + Videos) + Facebook (Reels + Videos)
+  Channel:  Wonder Stories TV  (@WonderStoriesTV)
+  Voice:    ElevenLabs Raunak (viral Hindi storyteller) → Edge TTS fallback (free)
+  Language: Hindi narration + bilingual SEO (Hindi + English)
+  Platform: YouTube Shorts (≤45s) + YouTube Videos (≤3min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TWO MODES — CHOOSE ONE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  MODE A — IMAGE MODE (default)                                              │
+  │  You make STILL IMAGES (Midjourney / DALL-E / Bing Creator / Firefly etc.) │
+  │  Assembler adds Ken Burns zoom + Raunak voiceover + subtitles               │
+  │  Scene files you place: 1_image.png, 2_image.png, 3_image.png...           │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  MODE B — VIDEO MODE                                                        │
+  │  You make SHORT VIDEO CLIPS (Kling AI / Veo / Runway / Pika etc.)          │
+  │  Assembler stitches clips + Raunak voiceover + subtitles                   │
+  │  Scene files you place: 1.mp4, 2.mp4, 3.mp4...                            │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  RECOMMENDATION: Start with IMAGE MODE — faster, cheaper, still cinematic.
+  Switch to VIDEO MODE when you have access to Kling AI / Veo / Runway.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PIPELINE FLOW (STEP BY STEP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  STEP 1  GENERATE   → LLM writes full Hindi script + scene prompts + SEO
+  STEP 2  CREATE     → Use AI tool to make images (Mode A) or video clips (Mode B)
+  STEP 3  PLACE      → Put your files in input/clips/{story_folder}/
+  STEP 4  STITCH     → Assemble everything into final MP4 video
+  STEP 5  DEPLOY     → Schedule/upload to YouTube
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 VIDEO FORMAT REFERENCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  FORMAT        LENGTH         SCENES    PLATFORM              STYLE
-  ────────────  ─────────────  ────────  ───────────────────   ────────────────────────
-  short (veo)   12-18s         3×5s      YT Shorts + FB Reels  3D Pixar 
-  short (image) 35-50s         5×8s      YT Shorts + FB Reels  3D Pixar (Ken Burns)
-  long (image)  2.5 min max    6×25s     YouTube               Studio Ghibli Watercolor
-
-  * Note: We exclusively use "Normal" (Not Made for Kids) to ensure Shorts feed reach.
+  FORMAT    MODE          DURATION        SCENES            OUTPUT SIZE
+  ───────── ──────────── ─────────────── ──────────────   ─────────────────────
+  short     image         Max 45 sec      5-7 × 7-8s       1080×1920 (9:16)
+  short     video         Max 45 sec      4-5 × 9-10s      1080×1920 (9:16)
+  long      image         Max 3 min       10-14 × 12-15s   1920×1080 (16:9)
+  long      video         Max 3 min       8-10 × 15-20s    1920×1080 (16:9)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-QUICK START — MOST USED COMMANDS
+STEP 1: GENERATE — Write Script + Prompts
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  # Generate ONE Short Video (Image mode, ~40s, ElevenLabs voice)
-  python main.py --count 1 --image
+  ── IMAGE MODE COMMANDS ──────────────────────────────────────────────────────
 
-  # Generate ONE Short Video (Veo AI Video mode, ~15s, no TTS)
+  # 1 short, image mode (DEFAULT — no extra flag needed)
   python main.py --count 1
 
-  # Generate ONE Long Video (Image mode, ~2.5 min, ElevenLabs voice)
-  python main.py --long --image
+  # 1 short, image mode, specific category
+  python main.py --count 1 --category mystery_stories
 
-  # Stitch manually downloaded images/clips from input/clips/ folder
-  python main.py --stitch
+  # 1 long video, image mode
+  python main.py --long
 
-  # Upload/Deploy already-stitched final videos to YouTube and Facebook
-  python main.py --upload
+  # 1 long video, image mode, specific category
+  python main.py --long --category horror_stories
+
+  # Multiple shorts, image mode
+  python main.py --count 3 --category karma_stories
+
+  ── VIDEO MODE COMMANDS ──────────────────────────────────────────────────────
+
+  # 1 short, VIDEO mode (you will place .mp4 clip files)
+  python main.py --count 1 --mode video
+
+  # 1 short, VIDEO mode, specific category
+  python main.py --count 1 --mode video --category thriller_stories
+
+  # 1 long video, VIDEO mode
+  python main.py --long --mode video
+
+  # 1 long video, VIDEO mode, specific category
+  python main.py --long --mode video --category crime_stories
+
+  ── FORCE A SPECIFIC STORY TOPIC ─────────────────────────────────────────────
+
+  # Force specific topic from bank (partial title match), image mode
+  python main.py --topic "Woh Letter Jo 20 Saal Baad Aaya"
+  python main.py --topic "Raat Ko 2 Baje Ek Message"
+  python main.py --topic "Woh Ghar Jahan Ghadi Ruk Gayi"
+
+  # Force specific topic, video mode
+  python main.py --topic "48 Ghante" --mode video
+
+  ── VOICE OPTIONS ─────────────────────────────────────────────────────────────
+
+  # Generate script only — skip voiceover (save ElevenLabs credits)
+  python main.py --count 1 --no-voice
+
+  # Use free Edge TTS (hi-IN-MadhurNeural) instead of ElevenLabs
+  python main.py --count 1 --local-tts
+
+  ── WHAT YOU GET AFTER GENERATE ──────────────────────────────────────────────
+
+  output/veo_prompts/{story_name}.txt
+    → Full reference file (voiceover + prompts + SEO metadata)
+
+  output/veo_prompts/{story_name}_zapi_prompts.txt        ← USE THIS IN ZAPI
+    → ONLY image prompts, one per block (no voiceover, no headers, no separators)
+    → Paste this directly into Zapi Flow — it will generate exactly N images
+    → Each block = one scene image
+
+  input/clips/{story_folder}/
+    plan.json           ← Story structure (scenes, voiceovers, prompts)
+    metadata.json       ← SEO + YouTube upload metadata
+    scene_1.mp3         ← Raunak voiceover for scene 1
+    scene_2.mp3         ← Raunak voiceover for scene 2
+    ...                 ← (one .mp3 per scene, matches scene count)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-FULL COMMAND REFERENCE
+STEP 2+3: CREATE & PLACE SCENE FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ── IF YOU USED IMAGE MODE ────────────────────────────────────────────────────
+
+  1. Open:  output/veo_prompts/{story_name}.txt
+  2. Find each scene's "Image Prompt:" — paste it into:
+       Midjourney  /  DALL-E  /  Bing Image Creator  /  Adobe Firefly
+  3. Save images into:  input/clips/{story_folder}/
+
+     File naming (one of these works):
+       1_image.png   2_image.png   3_image.png   ...   (recommended)
+       1.png         2.png         3.png          ...   (also works)
+       1_image.jpg   2_image.jpg   3_image.jpg    ...   (also works)
+
+  For LONG videos — also save:
+       thumbnail.png   ← bold high-contrast thumbnail image
+
+  ── IF YOU USED VIDEO MODE ────────────────────────────────────────────────────
+
+  1. Open:  output/veo_prompts/{story_name}.txt
+  2. Find each scene's "Image Prompt:" — use it as your VIDEO prompt in:
+       Kling AI  /  Veo  /  Runway  /  Pika  /  Sora
+  3. Save video clips into:  input/clips/{story_folder}/
+
+     File naming:
+       1.mp4   2.mp4   3.mp4   ...
+       (or .mov, .avi also accepted)
+
+  ── EXAMPLE FOLDER (ready to stitch) ─────────────────────────────────────────
+
+  IMAGE MODE folder (5-scene short):
+    input/clips/20260712_mystery_story/
+      plan.json
+      metadata.json
+      scene_1.mp3      ← auto-generated
+      scene_2.mp3      ← auto-generated
+      scene_3.mp3      ← auto-generated
+      scene_4.mp3      ← auto-generated
+      scene_5.mp3      ← auto-generated
+      1_image.png      ← YOU place this
+      2_image.png      ← YOU place this
+      3_image.png      ← YOU place this
+      4_image.png      ← YOU place this
+      5_image.png      ← YOU place this
+
+  VIDEO MODE folder (5-scene short):
+    input/clips/20260712_thriller_story/
+      plan.json
+      metadata.json
+      scene_1.mp3      ← auto-generated
+      scene_2.mp3      ← auto-generated
+      scene_3.mp3      ← auto-generated
+      scene_4.mp3      ← auto-generated
+      scene_5.mp3      ← auto-generated
+      1.mp4            ← YOU place this
+      2.mp4            ← YOU place this
+      3.mp4            ← YOU place this
+      4.mp4            ← YOU place this
+      5.mp4            ← YOU place this
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 4: STITCH — Assemble Final Video
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  # Stitch ALL ready folders (works for both image mode AND video mode)
+  python main.py --stitch
+
+  The assembler auto-detects each folder (image vs video) from plan.json.
+  It will SKIP folders where scene files are missing.
+
+  OUTPUT:
+  → output/final_videos/{story_name}.mp4   ← final video, ready for YouTube
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 5: DEPLOY — Upload to YouTube
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  # Schedule all stitched videos (1 per day, auto-spaced)
+  python main.py --deploy
+
+  # Schedule 2 videos per day
+  python main.py --deploy --videos-per-day 2
+
+  # Generate + auto-schedule in one command
+  python main.py --count 1 --schedule-upload
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AUTOMATION — Daily Scheduler
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  # Start the daily auto-scheduler (runs pipeline at 2:30 PM IST every day)
+  python main.py --schedule
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ALL 11 STORY CATEGORIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CATEGORY               IMAGE STYLE                      BEST FORMAT
+  ─────────────────────  ──────────────────────────────── ────────────
+  mystery_stories        Noir cinematic, fog, shadows     short + long
+  horror_stories         Dark moody, deep shadows, eerie  short + long
+  thriller_stories       High contrast, gritty urban      short + long
+  crime_stories          Film noir, street-level drama     short + long
+  suspense_stories       Shallow depth-of-field, moody     short
+  psychological          Surreal dreamlike, close-ups      short + long
+  dark_facts             Documentary, stark contrast        short
+  shocking_facts         Photojournalism, bold imagery     short
+  real_life_facts        Warm cinematic documentary        short + long
+  karma_stories          Warm cinematic, poetic            short + long
+  moral_stories          Emotional, authentic Indian       short + long
+
+  Usage:  python main.py --count 1 --category mystery_stories
+          python main.py --long --category karma_stories
+          python main.py --count 1 --mode video --category horror_stories
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMMENDED WEEKLY UPLOAD SCHEDULE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  DAY          FORMAT    CATEGORY              COMMAND
+  ──────────   ──────── ───────────────────── ────────────────────────────────────
+  Monday       long      mystery_stories       python main.py --long --category mystery_stories
+  Tuesday      short     shocking_facts        python main.py --count 1 --category shocking_facts
+  Wednesday    short     horror_stories        python main.py --count 1 --category horror_stories
+  Thursday     long      karma_stories         python main.py --long --category karma_stories
+  Friday       short     thriller_stories      python main.py --count 1 --category thriller_stories
+  Saturday     long      crime_stories         python main.py --long --category crime_stories
+  Sunday       short     moral_stories         python main.py --count 1 --category moral_stories
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COMPLETE OPTIONS REFERENCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   python main.py [OPTIONS]
 
-  OPTIONS:
-    --count N          Number of short videos to generate (default: 1)
-    --long             Generate a long-format video (~2.5 min)
-    --image            Use image mode with ElevenLabs TTS (Required for Long)
-    --upload           Enable upload to YouTube + Facebook after generation
-    --skip-upload      Force skip upload
-    --category CAT     Story category: magical_adventure | mythology |
-                       dadi_kahani | real_life | family_funny |
-                       animal_tales | mystery | seasonal | horror
-    --topic "TITLE"    Force a specific story title/seed from the topic bank
+  GENERATE:
+    --count N          How many short videos to generate (default: 1)
+    --long             Generate long format (max 3 min, 16:9)
+    --short            Force short format (max 45s, 9:16)
+    --long-count N     Generate N long videos
+    --mode image       IMAGE mode — you place .png/.jpg files  [DEFAULT]
+    --mode video       VIDEO mode — you place .mp4/.mov files
+    --category CAT     One of the 11 categories above
+    --topic "TITLE"    Force specific topic from topic bank (partial match)
+    --no-voice         Skip TTS — get prompts only (no audio files)
+    --local-tts        Use Edge TTS (free) instead of ElevenLabs
 
-  EXAMPLES:
-    # Mythology long-form video
-    python main.py --long --image --category mythology
+  ASSEMBLE:
+    --stitch           Assemble all ready folders in input/clips/
 
-    # Diwali seasonal story short
-    python main.py --count 1 --image --category seasonal
+  UPLOAD:
+    --deploy           Schedule all final videos to YouTube
+    --videos-per-day N Videos per day when scheduling (default: 1)
+    --schedule-upload  Auto-schedule after generation
+    --upload           Upload immediately after generation
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-RECOMMENDED UPLOAD SCHEDULE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  DAY          FORMAT           CATEGORY SUGGESTION
-  ──────────   ───────────────  ─────────────────────────────────────────────────
-  Monday       long (image)     magical_adventure
-  Tuesday      short (image)    Any category (Shorts algorithm boost)
-  Wednesday    short (veo)      mythology or dadi_kahani
-  Thursday     short (image)    Any category (Shorts algorithm boost)
-  Friday       short (veo)      real_life or family_funny
-  Saturday     long (image)     mythology or seasonal
-  Sunday       short (image)    Any category (highest views day for Shorts)
+  SYSTEM:
+    --schedule         Start daily auto-scheduler (2:30 PM IST)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-SEO & POLICY STRATEGY
+SEO & UPLOAD NOTES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  ALGORITHM REACH FIXES APPLIED:
-  ✅ COPPA: All videos forcibly set to "Not Made for Kids" to bypass Shorts block.
-  ✅ Facebook Reels: Fixed API by removing 'title' (only 'description' allowed).
-  ✅ YouTube Policy: "containsSyntheticMedia" is set to True to prevent AI strikes.
-  ✅ Audio Policy: No background music = Zero Content ID copyright strikes.
 
   TITLE FORMULA:
-    [English Title] | [Hindi Title in Devanagari] | [Hinglish Hook] | Wonder Stories TV #shorts
+    [Hook Phrase] | [Story Title] | Wonder Stories TV
+    Example: "Kya 20 Saal Baad Aaya Khat Sab Badal Dega? | Wonder Stories TV"
 
-  TAGS: 35 tags per video (Hindi + English mix)
-  DESCRIPTION: Bilingual summary + Moral in English & Hindi + Hashtags
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-CONTENT QUALITY CHECKLIST
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Before every upload, verify:
-  □ Story has DUAL LAYER: fun for kids + meaningful for adults (General Audience)
-  □ Visuals correctly match format (Pixar for Short, Ghibli for Long)
-  □ Title is bilingual and under 95 chars
-  □ Video is "Not Made for Kids" in YouTube Studio Channel Settings
-  □ Subtitles are pop-animated, yellow-highlighted CapCut style
+  MADE FOR KIDS: Always FALSE (required for Shorts feed algorithm)
+  AI DISCLOSURE: containsSyntheticMedia = True (prevents YouTube AI strikes)
+  TAGS: 50 tags per video (Hindi + English viral story keywords)
+  DESCRIPTION: Hindi hook + story tease + moral + @WonderStoriesTV CTA
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-╔══════════════════════════════════════════════════════════════════════════════════╗
-║              FACEBOOK CONTENT STUDIO — POSTS · STORIES                          ║
-║                    Wonder Stories TV — Standalone Module                        ║
-╚══════════════════════════════════════════════════════════════════════════════════╝
+PRE-UPLOAD CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Entry point: python fb_content.py [command]
-  Fully SEPARATE from video pipeline (main.py). No overlap.
+  □ Story opens with strong HOOK in first 3 seconds
+  □ Images/clips are CINEMATIC / PHOTOREALISTIC (not cartoons or 3D)
+  □ Raunak voiceover sounds dramatic and emotional throughout
+  □ Each scene visual matches the Hindi narration
+  □ Title is scroll-stopping and under 80 characters
+  □ Thumbnail is bold, high contrast (long videos)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-CREATE — Generate content and save locally
+ELEVENLABS SETUP
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  # Post: AI caption (Hindi+English) + DALL-E 3 Pixar image (1024×1024)
-  python fb_content.py create post --topic "Chintu ne seekha ki sach bolna chahiye"
-  python fb_content.py create post --auto
+  1. Go to elevenlabs.io → Voices
+  2. Find "Raunak" (your Hindi storyteller voice)
+  3. Click the voice → copy the Voice ID
+  4. Open .env → set:  ELEVENLABS_VOICE_ID=<paste_voice_id_here>
 
-  # Story: 1080x1920 gradient story card with Hinglish hook text overlay
-  python fb_content.py create story --topic "Aaj ki baat: dost ki madad karo"
-  python fb_content.py create story --auto
+  Current .env values to set:
+    ELEVENLABS_API_KEY=sk_577b70b11cbb71fdb9f06e6b4f84f18ee366842894d355a4
+    ELEVENLABS_VOICE_ID=<get from elevenlabs.io>
 
-  # Create + immediately upload to Facebook in one step
-  python fb_content.py create post --topic "..." --upload
-  python fb_content.py create story --topic "..." --upload
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-UPLOAD — Publish to Facebook page
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  python fb_content.py upload post          (all pending posts)
-  python fb_content.py upload story         (all pending stories)
-  python fb_content.py upload all           (upload everything pending)
-  python fb_content.py upload all --force   (re-upload even if done)
-  python fb_content.py upload post --dir output/fb_content/posts/20260623.../
+  Fallback (free, no setup): Edge TTS — hi-IN-MadhurNeural (dramatic Hindi male)
+  Force fallback:  python main.py --count 1 --local-tts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-LIST — See status of all content
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  python fb_content.py list
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-CONTENT SPECS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  TYPE       DIMENSIONS    FORMAT    STYLE
-  ────────   ──────────    ────────  ─────────────────────────────────────────
-  Post       1024×1024     PNG       DALL-E 3 Pixar animation + Hindi caption
-  Story      1080×1920     PNG       Gradient card + Hinglish text overlay
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-

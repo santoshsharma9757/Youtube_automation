@@ -115,9 +115,9 @@ class AppConfig:
     channel_handle: str = field(default_factory=lambda: os.getenv("CHANNEL_HANDLE", "@WonderStoriesTV"))
     channel: str = field(default_factory=lambda: os.getenv("CHANNEL", "stories").lower().strip())
 
-    ideas_store: Path = field(default_factory=lambda: DATA_DIR / "stories_ideas.json")
-    content_store: Path = field(default_factory=lambda: DATA_DIR / "stories_content_history.json")
-    seo_store: Path = field(default_factory=lambda: DATA_DIR / "stories_seo_history.json")
+    ideas_store: Path = field(default_factory=lambda: DATA_DIR / "story_ideas.json")
+    content_store: Path = field(default_factory=lambda: DATA_DIR / "content_history.json")
+    seo_store: Path = field(default_factory=lambda: DATA_DIR / "seo_history.json")
 
 
 def get_config() -> AppConfig:
@@ -126,10 +126,11 @@ def get_config() -> AppConfig:
 
 
 def resolve_font_path() -> Path:
-    bundled = ASSETS_DIR / "fonts" / "NotoSansDevanagari-Bold.ttf"
-    if bundled.exists():
-        return bundled
+    # Prioritize English fonts since subtitles and titles are in Hinglish (English letters)
     for candidate in WINDOWS_FONT_CANDIDATES:
         if candidate.exists():
             return candidate
+    bundled = ASSETS_DIR / "fonts" / "NotoSansDevanagari-Bold.ttf"
+    if bundled.exists():
+        return bundled
     return bundled

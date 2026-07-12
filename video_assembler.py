@@ -1,17 +1,17 @@
 """
-kids_video_assembler.py  –  Chintu Stories Channel
-===================================================
+video_assembler.py  –  Wonder Stories TV
+=========================================
 Assembles the final video from:
-  1. User-generated scene videos and images (MP4/PNG/JPG) placed in input/kids_clips/{folder}/
-  2. Edge TTS Hindi voiceover dynamically synthesized per scene
+  1. User-generated scene videos and images (MP4/PNG/JPG) placed in input/clips/{folder}/
+  2. ElevenLabs/Edge TTS Hindi voiceover synthesized per scene
   3. CapCut-style Hindi subtitles (word-by-word, bold, stroke)
 
-AI_VIDEO scenes   → User-provided MP4 video, fitted/cropped and extended via freeze-frame if shorter than voiceover
+AI_VIDEO scenes      → User-provided MP4 video, fitted/cropped and extended via freeze-frame
 IMAGE_FOR_ZOOM scenes → User-provided image, zoomed gently (Ken Burns) to match voiceover duration
 
-Output:
-  - Shorts: 9:16 (1080×1920)
-  - Long:   16:9 (1920×1080)
+Duration targets:
+  - Shorts (45s max): 9:16 (1080×1920)
+  - Long   (3min max): 16:9 (1920×1080)
 """
 from __future__ import annotations
 
@@ -33,8 +33,8 @@ from moviepy import (
 )
 
 from config import AppConfig
-from kids_story_generator import KidsStoryPlan
-from kids_idea_generator import KidsStoryIdea
+from story_generator import StoryPlan
+from story_idea_generator import StoryIdea
 
 LOGGER = logging.getLogger(__name__)
 
@@ -43,23 +43,31 @@ SHORTS_W, SHORTS_H = 1080, 1920
 LONG_W,   LONG_H   = 1920, 1080
 
 # ─── Viral keywords highlighted in yellow ─────────────────────────────────────
-KIDS_VIRAL_KEYWORDS = {
-    "chintu", "maa", "jaadu", "magic", "magical", "pyaar", "seekha",
-    "promise", "happy", "khushi", "dost", "sach", "jhooth", "galat",
-    "sahi", "paani", "accha", "bura", "lesson", "moral", "sikhna",
+VIRAL_KEYWORDS = {
+    # Devanagari Keywords
+    "रहस्य", "सच", "झूठ", "मौत", "डर", "खून", "क्राइम", "अपराध",
+    "कर्म", "बदला", "राज़", "अंधेरा", "हत्या", "भूत", "आत्मा", 
+    "खौफ", "हैरान", "सीक्रेट", "सच", "इंसाफ", "न्याय", "पाप", 
+    "सजा", "धोखा", "किस्मत", "कातिल", "खतरनाक", "साजिश", "जान",
+    # English/Roman fallbacks
+    "rahasya", "sach", "jhooth", "maut", "darr", "khoon", "crime",
+    "karma", "badla", "raaz", "andhera", "murder", "ghost", "bhoot",
+    "shocking", "hairan", "twist", "secret", "reveal", "truth",
+    "justice", "insaf", "zulm", "mazloom", "paap", "punishment",
+    "dhoka", "bewafa", "wafadar", "himmat", "zindagi", "maut",
 }
 
 
-class KidsVideoAssembler:
+class VideoAssembler:
     def __init__(self, config: AppConfig) -> None:
         self.config = config
 
     def assemble(
         self,
-        plan: KidsStoryPlan,
+        plan: StoryPlan,
         scene_images: dict[int, Path],   # {scene_number: image_path}
         audio_path: Path,                # combined Hindi TTS audio
-        idea: KidsStoryIdea,
+        idea: StoryIdea,
         output_path: Path,
     ) -> Path:
         """
@@ -71,7 +79,7 @@ class KidsVideoAssembler:
         vid_w   = LONG_W   if is_long else SHORTS_W
         vid_h   = LONG_H   if is_long else SHORTS_H
 
-        LOGGER.info("Assembling kids video: %s (%s)", output_path.name, idea.video_type)
+        LOGGER.info("Assembling video: %s (%s)", output_path.name, idea.video_type)
 
         # ── 1. Build per-scene video clips from images ─────────────────────────
         scene_clips = []
@@ -139,15 +147,15 @@ class KidsVideoAssembler:
                 except Exception:
                     time.sleep(0.5)
 
-        LOGGER.info("Kids video assembled: %s", output_path)
+        LOGGER.info("Video assembled: %s", output_path)
         return output_path
 
     def assemble_from_folder(
         self,
         input_dir: Path,
-        plan: KidsStoryPlan,
-        tts_engine: "KidsTTSEngine",
-        idea: KidsStoryIdea,
+        plan: StoryPlan,
+        tts_engine: "TTSEngine",
+        idea: StoryIdea,
         output_path: Path,
     ) -> Path:
         """
@@ -158,7 +166,7 @@ class KidsVideoAssembler:
         vid_w   = LONG_W   if is_long else SHORTS_W
         vid_h   = LONG_H   if is_long else SHORTS_H
 
-        LOGGER.info("Assembling kids video from folder: %s (%s)", input_dir, idea.video_type)
+        LOGGER.info("Assembling video from folder: %s (%s)", input_dir, idea.video_type)
 
         # Detect kids_mode from metadata.json to know if we use sequential indexes
         kids_mode = None
@@ -178,32 +186,41 @@ class KidsVideoAssembler:
         for scene in plan.scenes:
             num = scene["scene_number"]
             gen_type = scene["generation_type"]
-            k = num if use_sequential else (num + 1) // 2
+            
+            # Look for sequential index first (1, 2, 3...), then fall back to legacy double-scene index (1, 1, 2, 2...)
+            k_seq = num
+            k_legacy = num if use_sequential else (num + 1) // 2
 
             if gen_type == "AI_VIDEO":
                 # look for k.mp4, k.mov, k.avi
                 video_found = None
-                for ext in [".mp4", ".mov", ".avi"]:
-                    test_path = input_dir / f"{k}{ext}"
-                    if test_path.exists():
-                        video_found = test_path
+                for k in [k_seq, k_legacy]:
+                    for ext in [".mp4", ".mov", ".avi"]:
+                        test_path = input_dir / f"{k}{ext}"
+                        if test_path.exists():
+                            video_found = test_path
+                            break
+                    if video_found:
                         break
                 if not video_found:
-                    raise FileNotFoundError(f"Missing required video file for Scene {num} in {input_dir}: {k}.mp4")
+                    raise FileNotFoundError(f"Missing required video file for Scene {num} in {input_dir}: {num}.mp4")
                 scene_files[num] = (video_found, "video")
             else:
                 # look for k_image.png, k_image.jpg, k_image.jpeg, k_image.webp, or k.png, k.jpg, k.jpeg, k.webp
                 image_found = None
-                for ext in [".png", ".jpg", ".jpeg", ".webp"]:
-                    for pattern in [f"{k}_image{ext}", f"{k}{ext}"]:
-                        test_path = input_dir / pattern
-                        if test_path.exists():
-                            image_found = test_path
+                for k in [k_seq, k_legacy]:
+                    for ext in [".png", ".jpg", ".jpeg", ".webp"]:
+                        for pattern in [f"{k}_image{ext}", f"{k}{ext}"]:
+                            test_path = input_dir / pattern
+                            if test_path.exists():
+                                image_found = test_path
+                                break
+                        if image_found:
                             break
                     if image_found:
                         break
                 if not image_found:
-                    raise FileNotFoundError(f"Missing required image file for Scene {num} in {input_dir}: {k}.png or {k}.jpg")
+                    raise FileNotFoundError(f"Missing required image file for Scene {num} in {input_dir}: {num}.png or {num}.jpg")
                 scene_files[num] = (image_found, "image")
 
         # 2. Synthesize individual scene voiceovers and determine durations
@@ -620,7 +637,7 @@ class KidsVideoAssembler:
                 if g_end <= g_start:
                     continue
 
-                is_keyword = any(w.lower() in KIDS_VIRAL_KEYWORDS for w in group)
+                is_keyword = any(w.lower() in VIRAL_KEYWORDS for w in group)
                 txt_color  = "#FFE066" if is_keyword else "#FFFFFF"
 
                 card = self._render_word_card(group_text, vid_w, txt_color, is_keyword)

@@ -5,7 +5,7 @@ import json
 import logging
 import sys
 import re
-from dataclasses import asdict, replace
+from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -41,115 +41,88 @@ def write_json(path: Path, payload: list[dict]) -> None:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  WONDER STORIES TV  –  Chintu Stories Pipeline
+#  WONDER STORIES TV  –  Viral Hindi Stories Pipeline
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def run_kids_pipeline(
+def run_stories_pipeline(
     short_count: int = 1,
     long_count: int = 0,
     upload: bool = False,
     videos_per_day: int = 1,
-    kids_mode: str = "veo",
-    made_for_kids: bool | None = None,
-    video_format: str | None = None,
+    mode: str = "image",           # "image" | "video"
     category: str | None = None,
     topic: str | None = None,
     no_voice: bool = False,
     local_tts: bool = False,
 ) -> list[dict]:
     """
-    Wonder Stories TV – AI Kids Animation pipeline:
-      1. Generate story ideas (Chintu + magical element + moral)
-      2. LLM generates a 4-scene (Short) or 8-scene (Long) story JSON plan
-      3. Saves prompts to prompts.txt and plan/metadata.json to input/clips/{base_name}/
-      4. Waits for user to place manually generated videos/images
-      5. Synthesizes Edge TTS audio dynamically
-      6. Assembles the final video (subtitles, transitions, etc.)
-      7. Uploads to YouTube + Facebook
+    Wonder Stories TV – Viral Hindi Stories Pipeline:
+      1. Generate story ideas (Mystery, Horror, Thriller, Crime, Karma, etc.)
+      2. LLM generates complete Hindi script + scene image prompts
+      3. Script saved → ElevenLabs Raunak TTS voiceover synthesized
+      4. Scene image prompts saved for manual generation
+      5. User places images → Stitch (--stitch) → Upload (--deploy)
     """
-    from kids_idea_generator import KidsIdeaGenerator, KidsStoryIdea
-    from kids_story_generator import KidsStoryGenerator
-    from kids_tts import KidsTTSEngine
-    from kids_video_assembler import KidsVideoAssembler
-    from kids_seo_generator import KidsSeoGenerator
+    from story_idea_generator import IdeaGenerator, StoryIdea
+    from story_generator import StoryGenerator
+    from tts_engine import TTSEngine
+    from video_assembler import VideoAssembler
+    from seo_generator import SeoGenerator
 
     config = get_config()
 
-    kids_ideas_store   = config.ideas_store
-    kids_content_store = config.content_store
+    ideas_store   = config.ideas_store
+    content_store = config.content_store
 
-    idea_gen    = KidsIdeaGenerator(config)
-    story_gen   = KidsStoryGenerator(config)
-    tts_engine  = KidsTTSEngine(config, force_local=local_tts)
-    assembler   = KidsVideoAssembler(config)
-    seo_gen     = KidsSeoGenerator(config)
+    idea_gen   = IdeaGenerator(config)
+    story_gen  = StoryGenerator(config)
+    tts_engine = TTSEngine(config, force_local=local_tts)
+    assembler  = VideoAssembler(config)
+    seo_gen    = SeoGenerator(config)
     yt_uploader = YouTubeUploader(config)
 
-    content_history: list[dict] = read_json(kids_content_store)
+    content_history: list[dict] = read_json(content_store)
     used_titles = {item.get("idea_title", "").lower() for item in content_history}
     results: list[dict] = []
 
-    is_kids = made_for_kids if made_for_kids is not None else False
-
     # Determine formats to generate
     ideas_to_gen = []
-    if video_format:
-        count = short_count if short_count > 0 else 1
-        ideas_to_gen.append((video_format, count))
-    else:
-        if short_count > 0:
-            ideas_to_gen.append(("short", short_count))
-        if long_count > 0:
-            ideas_to_gen.append(("long", long_count))
+    if short_count > 0:
+        ideas_to_gen.append(("short", short_count))
+    if long_count > 0:
+        ideas_to_gen.append(("long", long_count))
 
-    all_ideas = []
+    all_ideas: list[StoryIdea] = []
+
     if topic:
         from story_topics import STORY_TOPIC_BANK
         import uuid
         matched_seed = None
         for seed in STORY_TOPIC_BANK:
-            seed_title = seed["title"]
-            if topic.lower() in seed_title.lower():
+            if topic.lower() in seed["title"].lower():
                 matched_seed = seed
                 break
 
         if matched_seed:
-            if video_format:
-                fmt_name = video_format
-            elif long_count > 0:
-                fmt_name = "long"
-            elif short_count > 0:
-                fmt_name = "short"
-            else:
-                fmt_name = matched_seed.get("format", "short")
-            title = matched_seed["title"]
-            adult_hook_text = matched_seed.get("adult_hook", "")
-            kids_hook_text  = matched_seed.get("kids_hook", "")
-
-            idea = KidsStoryIdea(
+            fmt_name = "long" if long_count > 0 else "short"
+            idea = StoryIdea(
                 idea_id=str(uuid.uuid4()),
-                title=title,
-                bad_habit=matched_seed.get("bad_habit", ""),
-                bad_habit_hindi=matched_seed.get("bad_habit_hindi", ""),
-                magical_element=(
-                    ""
-                    if (category or matched_seed.get("category", "")) in {"real_life", "family_funny"}
-                    else matched_seed.get("magical_element", "")
-                ),
+                title=matched_seed["title"],
+                hook=matched_seed.get("hook", ""),
+                hook_hindi=matched_seed.get("hook_hindi", ""),
+                core_conflict=matched_seed.get("core_conflict", ""),
+                twist=matched_seed.get("twist", ""),
                 moral=matched_seed.get("moral", ""),
                 moral_hindi=matched_seed.get("moral_hindi", ""),
-                angle=matched_seed.get("angle", "Moral Story"),
+                angle=matched_seed.get("angle", "Story"),
                 topic=matched_seed.get("topic", ""),
-                audience_value=matched_seed.get("audience_value", adult_hook_text),
+                audience_hook=matched_seed.get("audience_hook", ""),
                 source_prompt="static-topic-force",
                 created_at=datetime.now(timezone.utc).isoformat(),
                 video_type=fmt_name,
-                category=category or matched_seed.get("category", "magical_adventure"),
-                adult_hook=adult_hook_text,
-                kids_hook=kids_hook_text,
-                made_for_kids=is_kids,
+                category=category or matched_seed.get("category", "mystery_stories"),
             )
-            idea_gen.save_new_ideas([idea], ideas_store=kids_ideas_store)
+            idea_gen.save_new_ideas([idea], ideas_store=ideas_store)
             all_ideas = [idea]
         else:
             LOGGER.error("Forced topic '%s' not found in STORY_TOPIC_BANK!", topic)
@@ -159,74 +132,68 @@ def run_kids_pipeline(
             raw_ideas = idea_gen.generate_ideas(
                 count=count * 3,
                 video_type=fmt_name,
-                ideas_store=kids_ideas_store,
-                made_for_kids=is_kids,
+                ideas_store=ideas_store,
                 category=category,
             )
-            saved    = idea_gen.save_new_ideas(raw_ideas, ideas_store=kids_ideas_store)
+            saved    = idea_gen.save_new_ideas(raw_ideas, ideas_store=ideas_store)
             selected = [i for i in saved if i.title.lower() not in used_titles][:count]
-            if category:
-                selected = [replace(i, category=category) for i in selected]
             all_ideas.extend(selected)
 
     for idea in all_ideas:
-        LOGGER.info("Processing story: '%s' (type=%s)", idea.title, idea.video_type)
+        LOGGER.info("Processing story: '%s' (type=%s, mode=%s)", idea.title, idea.video_type, mode)
 
         try:
-            plan = story_gen.generate_story(idea, kids_mode=kids_mode)
-            
+            plan = story_gen.generate_story(idea, mode=mode)
+
             clean_title = plan.story_metadata.get("title", idea.title)
             base_name = f"{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{slugify(clean_title)}"
 
             folder_path = Path("input/clips") / base_name
             folder_path.mkdir(parents=True, exist_ok=True)
 
-            # Build prompt text per scene
+            # ── Build scene prompt text ──────────────────────────────────────
             clean_prompts = []
             for scene in plan.scenes:
                 num      = scene["scene_number"]
                 gen_type = scene["generation_type"]
-                expected = f"{num}.mp4" if gen_type == "AI_VIDEO" else f"{num}_image.png"
+                expected = scene.get("expected_file", f"{num}_image.png")
+                beat     = scene.get("scene_beat", "")
                 clean_prompts.append(
-                    f"🔥 SCENE {num} - {gen_type} (Expected file: {expected})\n"
+                    f"📌 SCENE {num} [{beat}] — {gen_type} (Expected file: {expected})\n"
                     f"Voiceover (Hindi): {scene.get('voiceover_hindi', '')}\n"
-                    f"Prompt:\n{scene.get('ai_prompt', '')}\n"
+                    f"Image Prompt:\n{scene.get('ai_prompt', '')}\n"
                     f"--------------------------------------------------\n"
                 )
 
             prompts_text = "\n".join(clean_prompts)
 
-            # Append thumbnail generation prompts for long videos
-            thumb_title_dev = plan.story_metadata.get("thumbnail_title_devanagari")
+            # ── Thumbnail section (long videos) ──────────────────────────────
+            thumb_title_dev = plan.story_metadata.get("thumbnail_title_hindi")
             thumb_prompt = plan.story_metadata.get("thumbnail_prompt")
             if idea.video_type == "long" and thumb_title_dev and thumb_prompt:
-                thumbnail_section = (
+                prompts_text += (
                     f"\n\n==================================================\n"
-                    f"🎨 THUMBNAIL GENERATION (Expected file: thumbnail.png)\n"
+                    f"🎨 THUMBNAIL (Expected file: thumbnail.png)\n"
                     f"==================================================\n"
-                    f"Suggested Text on Thumbnail (Hindi Devanagari): {thumb_title_dev}\n"
+                    f"Thumbnail Title (Hindi): {thumb_title_dev}\n"
                     f"Prompt:\n{thumb_prompt}\n"
                     f"--------------------------------------------------\n"
                 )
-                prompts_text += thumbnail_section
 
             seo = seo_gen.generate(idea, plan)
-            if made_for_kids is not None:
-                seo.made_for_kids = made_for_kids
 
-            # Append YouTube/FB metadata to the prompt text file for easy copy-pasting
-            youtube_section = (
+            # ── YouTube/FB metadata section ──────────────────────────────────
+            prompts_text += (
                 f"\n\n==================================================\n"
-                f"📺 UPLOAD METADATA (YouTube & Facebook)\n"
+                f"📺 UPLOAD METADATA (YouTube)\n"
                 f"==================================================\n"
                 f"▶ YouTube Title:\n{seo.title}\n\n"
                 f"▶ YouTube Description:\n{seo.description}\n\n"
                 f"▶ Tags:\n{', '.join(seo.tags)}\n\n"
                 f"▶ Hashtags:\n{' '.join(seo.hashtags)}\n\n"
-                f"▶ Facebook Description:\n{getattr(seo, 'facebook_description', seo.description)}\n"
+                f"▶ Facebook/Reels Caption:\n{seo.facebook_description}\n"
                 f"--------------------------------------------------\n"
             )
-            prompts_text += youtube_section
 
             prompts_dir = Path("output/veo_prompts")
             prompts_dir.mkdir(parents=True, exist_ok=True)
@@ -234,14 +201,31 @@ def run_kids_pipeline(
             prompts_file_path.write_text(prompts_text, encoding="utf-8")
             (folder_path / "plan.json").write_text(plan.raw_json, encoding="utf-8")
 
-            # Pre-synthesize TTS for image mode
-            if kids_mode != "veo" and not no_voice:
+            # ── Clean Zapi-only image prompts file (one prompt per block) ────
+            # This file has ONLY the image prompts — no voiceover, no headers.
+            # Use this file directly in Zapi Flow / Midjourney batch tools.
+            zapi_prompts = []
+            for scene in plan.scenes:
+                prompt_text = scene.get("ai_prompt", "").strip()
+                if prompt_text:
+                    zapi_prompts.append(prompt_text)
+            # Add thumbnail prompt if long video
+            thumb_prompt_clean = plan.story_metadata.get("thumbnail_prompt", "").strip()
+            if idea.video_type == "long" and thumb_prompt_clean:
+                zapi_prompts.append(f"[THUMBNAIL] {thumb_prompt_clean}")
+            zapi_file_path = prompts_dir / f"{base_name}_zapi_prompts.txt"
+            zapi_file_path.write_text("\n\n".join(zapi_prompts), encoding="utf-8")
+
+            # ── Pre-synthesize TTS voiceover for image mode ──────────────────
+            if mode == "image" and not no_voice:
                 for scene in plan.scenes:
                     text = scene.get("voiceover_hindi", "").strip()
                     if text:
                         try:
                             tts_engine.synthesize_scene(
-                                text, folder_path / f"scene_{scene['scene_number']}.mp3"
+                                text,
+                                folder_path / f"scene_{scene['scene_number']}.mp3",
+                                voice_hint=scene.get("voice_hint", "narrator_dramatic"),
                             )
                         except Exception as e:
                             LOGGER.warning("TTS pre-synth failed for scene %s: %s", scene["scene_number"], e)
@@ -255,21 +239,25 @@ def run_kids_pipeline(
                 "language_code":        seo.language_code,
                 "audio_language_code":  seo.audio_language_code,
                 "content_style":        seo.content_style,
-                "kids_mode":            kids_mode,
+                "mode":                 mode,
                 "idea_as_dict":         asdict(idea),
-                "made_for_kids":        seo.made_for_kids,
-                "facebook_description": getattr(seo, "facebook_description", ""),
+                "made_for_kids":        False,
+                "facebook_description": seo.facebook_description,
             }
             (folder_path / "metadata.json").write_text(
                 json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8"
             )
 
             safe_print(f"\n==================================================")
-            safe_print(f"[PROMPTS GENERATED FOR: {idea.title}]")
+            safe_print(f"[STORY GENERATED: {idea.title}]")
+            safe_print(f"  Category: {idea.category} | Format: {idea.video_type} | Mode: {mode}")
+            safe_print(f"  Scenes: {len(plan.scenes)} | Est. Duration: {plan.story_metadata.get('estimated_duration_seconds', '?')}s")
             safe_print(f"==================================================")
             safe_print(prompts_text)
-            safe_print(f"Prompts saved → {prompts_file_path.resolve()}")
-            safe_print(f"Plan saved    → {folder_path.resolve()}")
+            safe_print(f"")
+            safe_print(f"  Full Prompts  → {prompts_file_path.resolve()}")
+            safe_print(f"  ZAPI FLOW     → {zapi_file_path.resolve()}  ← USE THIS IN ZAPI")
+            safe_print(f"  Clips Folder  → {folder_path.resolve()}")
             safe_print(f"==================================================\n")
 
             record = {
@@ -283,7 +271,7 @@ def run_kids_pipeline(
                 "subtitle_json": "",
                 "uploaded":      False,
                 "upload_response": None,
-                "channel":       "kids",
+                "channel":       "stories",
                 "created_at":    datetime.now(timezone.utc).isoformat(),
                 "script":        {"video_type": idea.video_type, "title": idea.title},
             }
@@ -305,7 +293,7 @@ def run_kids_pipeline(
             LOGGER.exception("Pipeline failed for '%s': %s", idea.title, exc)
             continue
 
-    write_json(kids_content_store, content_history)
+    write_json(content_store, content_history)
     return results
 
 
@@ -315,18 +303,18 @@ def run_kids_pipeline(
 
 def run_stitch() -> list[dict]:
     """Scans input/clips/ for completed folders and assembles final videos."""
-    from kids_tts import KidsTTSEngine
-    from kids_video_assembler import KidsVideoAssembler
-    from kids_idea_generator import KidsStoryIdea
-    from kids_story_generator import KidsStoryPlan
-    from kids_seo_generator import KidsSeoPackage
+    from tts_engine import TTSEngine
+    from video_assembler import VideoAssembler
+    from story_idea_generator import StoryIdea
+    from story_generator import StoryPlan
+    from seo_generator import SeoPackage
 
     config = get_config()
-    tts_engine = KidsTTSEngine(config)
-    assembler  = KidsVideoAssembler(config)
+    tts_engine = TTSEngine(config)
+    assembler  = VideoAssembler(config)
 
-    kids_content_store = config.content_store
-    content_history    = read_json(kids_content_store)
+    content_store   = config.content_store
+    content_history = read_json(content_store)
 
     folders = sorted(
         [d for d in Path("input/clips").iterdir() if d.is_dir() and d.name != "temp_audio"]
@@ -365,33 +353,32 @@ def run_stitch() -> list[dict]:
                         missing_files.append(f"{num}.png/jpg")
 
             if missing_files:
-                LOGGER.info("Folder '%s' not ready – missing images for scenes: %s", folder.name, missing_files)
+                LOGGER.info("Folder '%s' not ready — missing scene files: %s", folder.name, missing_files)
                 continue
 
             LOGGER.info("Stitching '%s'…", folder.name)
 
             idea_dict = meta_data.get("idea_as_dict", {})
-            idea = KidsStoryIdea(
+            idea = StoryIdea(
                 idea_id=idea_dict.get("idea_id", ""),
                 title=idea_dict.get("title", ""),
-                bad_habit=idea_dict.get("bad_habit", ""),
-                bad_habit_hindi=idea_dict.get("bad_habit_hindi", ""),
-                magical_element=idea_dict.get("magical_element", ""),
+                hook=idea_dict.get("hook", ""),
+                hook_hindi=idea_dict.get("hook_hindi", ""),
+                core_conflict=idea_dict.get("core_conflict", ""),
+                twist=idea_dict.get("twist", ""),
                 moral=idea_dict.get("moral", ""),
                 moral_hindi=idea_dict.get("moral_hindi", ""),
                 angle=idea_dict.get("angle", ""),
                 topic=idea_dict.get("topic", ""),
-                audience_value=idea_dict.get("audience_value", ""),
+                audience_hook=idea_dict.get("audience_hook", ""),
                 source_prompt=idea_dict.get("source_prompt", ""),
                 created_at=idea_dict.get("created_at", ""),
                 video_type=idea_dict.get("video_type", "short"),
                 language=idea_dict.get("language", "hindi"),
-                category=idea_dict.get("category", "magical_adventure"),
-                adult_hook=idea_dict.get("adult_hook", ""),
-                kids_hook=idea_dict.get("kids_hook", ""),
+                category=idea_dict.get("category", "mystery_stories"),
             )
 
-            plan = KidsStoryPlan(
+            plan = StoryPlan(
                 story_metadata=plan_data["story_metadata"],
                 scenes=plan_data["scenes"],
                 audio_effects_config=plan_data.get("audio_effects_config", {}),
@@ -420,7 +407,7 @@ def run_stitch() -> list[dict]:
                     "language_code":        meta_data["language_code"],
                     "audio_language_code":  meta_data["audio_language_code"],
                     "content_style":        meta_data["content_style"],
-                    "made_for_kids":        meta_data.get("made_for_kids", False),
+                    "made_for_kids":        False,
                     "facebook_description": meta_data.get("facebook_description", ""),
                 },
                 "audio_path":    "",
@@ -429,7 +416,7 @@ def run_stitch() -> list[dict]:
                 "subtitle_json": "",
                 "uploaded":      False,
                 "upload_response": None,
-                "channel":       "kids",
+                "channel":       "stories",
                 "created_at":    datetime.now(timezone.utc).isoformat(),
                 "script":        {"video_type": idea.video_type, "title": idea.title},
             }
@@ -443,7 +430,7 @@ def run_stitch() -> list[dict]:
             else:
                 content_history.append(record)
 
-            write_json(kids_content_store, content_history)
+            write_json(content_store, content_history)
             LOGGER.info("Stitched '%s' → %s", folder.name, video_path)
 
         except Exception as e:
@@ -458,46 +445,41 @@ def run_stitch() -> list[dict]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Wonder Stories TV – Chintu Stories automation pipeline"
+        description="Wonder Stories TV – Viral Hindi Stories automation pipeline"
     )
     parser.add_argument("--count", nargs="?", const=1, default=1, type=int,
                         help="Number of short videos to generate (default: 1).")
     parser.add_argument("--long-count", type=int, default=0,
                         help="Number of long videos to generate.")
     parser.add_argument("--short", action="store_true",
-                        help="Force short format (sets long-count to 0).")
+                        help="Force short format.")
     parser.add_argument("--long", action="store_true",
-                        help="Force long format (sets short count to 0).")
+                        help="Force long format.")
     parser.add_argument("--upload", action="store_true",
-                        help="Upload / schedule generated videos to YouTube + Facebook.")
+                        help="Upload / schedule generated videos to YouTube.")
     parser.add_argument("--schedule", action="store_true",
                         help="Start APScheduler (runs daily at 2:30 PM IST).")
     parser.add_argument("--topic", type=str,
-                        help="Force a specific story topic from STORY_TOPIC_BANK (partial title match).")
+                        help="Force a specific story topic (partial title match).")
     parser.add_argument("--schedule-upload", action="store_true",
                         help="After generation, schedule all pending local videos.")
     parser.add_argument("--videos-per-day", type=int, default=1,
                         help="How many videos to schedule per day (default: 1).")
-    parser.add_argument("--stitch", "--stitch-kids", action="store_true", dest="stitch_kids",
+    parser.add_argument("--stitch", action="store_true",
                         help="Stitch manually placed video/image clips into final video.")
-    parser.add_argument("--deploy", "--deploy-kids", action="store_true", dest="deploy_kids",
+    parser.add_argument("--deploy", action="store_true",
                         help="Schedule stitched videos sitting in output/final_videos/.")
-    parser.add_argument("--image", action="store_true",
-                        help="Generate image-based story (4 image scenes, ~30s).")
+    parser.add_argument("--mode", type=str, choices=["image", "video"], default="image",
+                        help="Generation mode: image (image-to-video) | video (video-to-video). Default: image.")
     parser.add_argument("--no-voice", action="store_true",
-                        help="Skip generating voiceovers/TTS files during prompt generation to save costs.")
+                        help="Skip generating voiceovers/TTS files during prompt generation.")
     parser.add_argument("--local-tts", action="store_true",
-                        help="Use local Edge TTS only (skip ElevenLabs). Free, unlimited — ideal for testing.")
-    parser.add_argument("--children", "--kids", action="store_true", dest="children",
-                        help="Mark video as 'Made for Kids' in YouTube metadata.")
-    parser.add_argument("--normal", action="store_true", dest="normal",
-                        help="Mark video as 'Not Made for Kids' in YouTube metadata.")
-    parser.add_argument("--format", type=str, choices=["short", "long"],
-                        default=None, help="Video format: short | long.")
+                        help="Use local Edge TTS only (skip ElevenLabs). Free, unlimited.")
     parser.add_argument("--category", type=str, choices=[
-                            "magical_adventure", "mythology", "dadi_kahani",
-                            "real_life", "family_funny", "animal_tales",
-                            "mystery", "seasonal", "horror",
+                            "mystery_stories", "shocking_facts", "suspense_stories",
+                            "dark_facts", "psychological", "thriller_stories",
+                            "horror_stories", "crime_stories", "karma_stories",
+                            "real_life_facts", "moral_stories",
                         ], default=None, help="Story category.")
 
     args = parser.parse_args()
@@ -523,12 +505,12 @@ def main() -> None:
         return
 
     # ── Stitch manually placed clips ───────────────────────────────────────────
-    if args.stitch_kids:
+    if args.stitch:
         run_stitch()
         return
 
     # ── Deploy / schedule ──────────────────────────────────────────────────────
-    if args.deploy_kids or (
+    if args.deploy or (
         args.upload and not any(arg in sys.argv for arg in ["--count", "--long-count"])
     ):
         LOGGER.info("Scheduling stitched videos for upload…")
@@ -536,22 +518,13 @@ def main() -> None:
         LOGGER.info("Scheduled %s video(s).", scheduled)
         return
 
-    # ── Determine made_for_kids override ───────────────────────────────────────
-    cli_made_for_kids: bool | None = None
-    if args.children:
-        cli_made_for_kids = True
-    elif args.normal:
-        cli_made_for_kids = False
-
     # ── Generate ───────────────────────────────────────────────────────────────
-    results = run_kids_pipeline(
+    results = run_stories_pipeline(
         short_count=args.count,
         long_count=args.long_count,
         upload=args.upload,
         videos_per_day=args.videos_per_day,
-        kids_mode="images" if args.image else "veo",
-        made_for_kids=cli_made_for_kids,
-        video_format=args.format,
+        mode=args.mode,
         category=args.category,
         topic=args.topic,
         no_voice=args.no_voice,

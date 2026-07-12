@@ -1,0 +1,112 @@
+{
+  "story_metadata": {
+    "title": "Anjaan Chehra: Har Shehar Mein Nazar Aata Hai",
+    "title_hindi": "अनजान चेहरा: हर शहर में",
+    "category": "mystery_stories",
+    "hook_line": "क्या होगा अगर हर शहर के CCTV में एक चेहरा दिखे?",
+    "twist_reveal": "The face belongs to a time traveler warning about an impending disaster.",
+    "moral": "Things are not always what they seem.",
+    "moral_hindi": "हर चीज़ वैसी नहीं होती जैसी दिखती है।",
+    "total_scenes": 8,
+    "estimated_duration_seconds": 32,
+    "thumbnail_prompt": "Epic cinematic thumbnail for: Anjaan Chehra: Har Shehar Mein Nazar Aata Hai. Noir cinematic style, dramatic chiaroscuro lighting, atmospheric fog, mysterious and suspenseful composition, desaturated tones with accent colors, photorealistic photography, cinematic wide angle, 8K quality, shadow play, detective atmosphere. Bold dramatic composition. No text in image.",
+    "thumbnail_title_hindi": "अनजान चेहरा हर शहर"
+  },
+  "scenes": [
+    {
+      "scene_number": 1,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "1_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Kya hoga agar har shehar ke CCTV mein ek hi chehra dikhe?",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "Wide-angle city view with multiple CCTV cameras focused on one mysterious face. Noir style, dramatic chiaroscuro lighting, atmospheric fog.",
+      "scene_beat": "HOOK",
+      "sfx_hint": "suspense_music"
+    },
+    {
+      "scene_number": 2,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "2_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Yeh chehra har din har camera mein dikhayi padta hai.",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "Close-up of CCTV monitors, all displaying the same mysterious face. Mood: Intriguing, eerie.",
+      "scene_beat": "MYSTERY",
+      "sfx_hint": "camera_clicks"
+    },
+    {
+      "scene_number": 3,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "3_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Detective Raj ne is chehre ki talaash shuru ki.",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "Detective with a determined expression pinning pictures of the face on a board. Noir style.",
+      "scene_beat": "INVESTIGATION",
+      "sfx_hint": "footsteps"
+    },
+    {
+      "scene_number": 4,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "4_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Kya yeh ek ghost hai ya kisi technology ka chamatkar?",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "A shadowy figure standing in mist, face obscured, with digital glitch effects around. Suspenseful mood.",
+      "scene_beat": "SPECULATION",
+      "sfx_hint": "wind_howl"
+    },
+    {
+      "scene_number": 5,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "5_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Detective Raj ne purani tasviron ki jaanch ki aur pareshan ho gaya.",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "Detective in dimly lit room going through old photographs, troubled expression.",
+      "scene_beat": "DISCOVERY",
+      "sfx_hint": "paper_rustle"
+    },
+    {
+      "scene_number": 6,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "6_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Yeh chehra har zamane mein dekha gaya hai.",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "Collage of historical photos with the same mysterious face present in each era. Time-travel hint.",
+      "scene_beat": "TRAIL",
+      "sfx_hint": "clock_ticking"
+    },
+    {
+      "scene_number": 7,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "7_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Asal mein yeh ek time-traveler hai, logon ko bachaane aaya hai.",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "Revealing the mysterious face as a time traveler, futuristic device in hand, concerned expression.",
+      "scene_beat": "REVELATION",
+      "sfx_hint": "mystical_chime"
+    },
+    {
+      "scene_number": 8,
+      "generation_type": "IMAGE_FOR_ZOOM",
+      "expected_file": "8_image.png",
+      "duration_seconds": 4,
+      "voiceover_hindi": "Har cheez vaise nahi hoti jaise dikhti hai.",
+      "voice_hint": "narrator_dramatic",
+      "ai_prompt": "A symbolic image of an hourglass with faces trapped inside, representing mystery and time. Atmospheric fog.",
+      "scene_beat": "RESOLUTION",
+      "sfx_hint": "soft_wind"
+    }
+  ],
+  "audio_effects_config": {
+    "background_music": "suspense_loop",
+    "music_volume": 0.08,
+    "sfx_enabled": true,
+    "fade_in_duration": 1.0,
+    "fade_out_duration": 1.5
+  }
+}

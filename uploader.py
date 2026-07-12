@@ -11,7 +11,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
 from config import AppConfig
-from kids_seo_generator import KidsSeoPackage as SeoPackage
+from seo_generator import SeoPackage
 
 
 LOGGER = logging.getLogger(__name__)

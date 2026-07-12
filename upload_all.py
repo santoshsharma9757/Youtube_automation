@@ -13,9 +13,8 @@ ACTIVE_CHANNEL = os.getenv("CHANNEL", "stories").lower().strip()
 
 from config import VIDEO_DIR, get_config
 from posting_schedule import get_daily_slots
-from kids_seo_generator import KidsSeoPackage as SeoPackage
+from seo_generator import SeoPackage
 from uploader import YouTubeUploader
-from facebook_uploader import FacebookUploader
 
 logging.basicConfig(level=logging.INFO)
 
@@ -27,12 +26,11 @@ def build_fallback_seo(video_path: Path) -> SeoPackage:
     title_text = re.sub(r"\s+", " ", title_text).strip() or "Wonder Stories TV"
     title = title_text.title()
     hashtags = [
-        "#shorts",
         "#WonderStoriesTV",
-        "#HindiMoralStory",
-        "#BacchonKiKahani",
-        "#AnimatedStory",
-        "#KidsStory",
+        "#HindiStory",
+        "#ViralStory",
+        "#MysteryStory",
+        "#SuspenseStory",
     ]
     return SeoPackage(
         title=title[:80],
@@ -42,16 +40,16 @@ def build_fallback_seo(video_path: Path) -> SeoPackage:
         ),
         tags=[
             title_text.lower(),
-            "hindi moral story",
-            "bacchon ki kahani",
+            "hindi story",
+            "mystery story hindi",
             "wonder stories tv",
-            "animated story hindi",
+            "viral hindi story",
         ],
         hashtags=hashtags,
         primary_keyword=title_text.lower(),
         language_code="hi",
         audio_language_code="hi",
-        content_style="family_story",
+        content_style="story",
     )
 
 
