@@ -2,6 +2,7 @@
 youtube_token.json
 client_secret.json
 __pycache__/
+input/
 output/
 assets/localvideos/
 *.mp4

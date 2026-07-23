@@ -27,15 +27,16 @@ Python automation pipeline for **Wonder Stories TV** — AI-generated viral Hind
 | `karma_stories` | Poetic justice and karma stories |
 | `real_life_facts` | Inspiring/shocking real events |
 | `moral_stories` | Powerful life lesson stories |
+| `bhagwan_stories` | Devotional Bhagwan stories with respectful, uplifting tone |
 
 ## Video Formats
 
 | Format | Mode | Duration |
 |---|---|---|
-| Short | Image-to-video | Max **45 seconds** (5–7 scenes × 7–8s) |
-| Short | Video-to-video | Max **45 seconds** (4–5 scenes × 9–10s) |
-| Long | Image-to-video | Max **3 minutes** (10–14 scenes × 12–15s) |
-| Long | Video-to-video | Max **3 minutes** (8–10 scenes × 15–20s) |
+| Short | Image-to-video | Max **30-35 seconds** (6–8 scenes × 4–5s) |
+| Short | Video-to-video | Max **16 seconds** (2 scenes × 8s, complete story) |
+| Long | Image-to-video | Max **2:30-2:45** (15–20 scenes × 8–11s) |
+| Long | Video-to-video | Disabled |
 
 ## Setup
 
@@ -83,6 +84,7 @@ python main.py --topic "Woh Letter Jo 20 Saal Baad Aaya"
 ```powershell
 python main.py --count 1 --mode video
 ```
+Video-to-video is supported for short stories only. Long stories automatically fall back to image mode.
 
 ### Skip voiceover during generation (save API costs)
 ```powershell

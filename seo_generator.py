@@ -84,6 +84,11 @@ CATEGORY_TAGS: dict[str, list[str]] = {
         "life lesson hindi story", "moral of the story", "inspirational story hindi",
         "motivational kahani hindi", "moral short story hindi",
     ],
+    "bhagwan_stories": [
+        "bhagwan story hindi", "bhakti kahani hindi", "devotional story hindi",
+        "spiritual story hindi", "mandir kahani", "bhajan story hindi",
+        "kripa story hindi", "aarti story hindi",
+    ],
 }
 
 # Common viral Hindi story tags added to every video
@@ -130,6 +135,12 @@ class SeoGenerator:
         is_short = idea.video_type == "short"
 
         primary_keyword = self._build_primary_keyword(idea, category)
+        devotional_note = ""
+        if category == "bhagwan_stories":
+            devotional_note = (
+                "\nCategory note: This is a devotional Bhagwan story. Keep the SEO tone respectful, uplifting, "
+                "and emotionally sincere. Avoid sensational or mocking wording."
+            )
 
         prompt = f"""You are an expert YouTube SEO specialist for 'Wonder Stories TV' — a viral Hindi stories channel.
 
@@ -139,8 +150,9 @@ Story Brief:
   Hook: {hook}
   Twist: {twist}
   Moral: {moral}
-  Format: {'YouTube Short (max 45 seconds)' if is_short else 'YouTube video (max 3 minutes)'}
+  Format: {'YouTube Short (max 35 seconds)' if is_short else 'YouTube video (max 2:45)'}
   Primary keyword: {primary_keyword}
+{devotional_note}
 
 Generate maximum-reach SEO metadata. Return only valid JSON:
 {{
@@ -190,6 +202,7 @@ Only output the JSON, no extra text."""
             "karma_stories":    "karma story hindi",
             "real_life_facts":  "real life story hindi",
             "moral_stories":    "moral story hindi",
+            "bhagwan_stories":  "bhagwan story hindi",
         }
         return cat_map.get(category, "hindi story")
 
@@ -278,6 +291,7 @@ Only output the JSON, no extra text."""
             "karma_stories":    ["#KarmaStory", "#KarmaKaBadla", "#Justice"],
             "real_life_facts":  ["#TrueStory", "#RealLifeStory", "#Inspiring"],
             "moral_stories":    ["#MoralStory", "#LifeLesson", "#MoralKahani"],
+            "bhagwan_stories":  ["#BhagwanStory", "#BhaktiKahani", "#DevotionalStory"],
         }
         tags = base + cat_specific.get(category, ["#Story"])
         if video_type == "short":

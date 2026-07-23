@@ -15,6 +15,7 @@ Story Categories:
   karma_stories       → Karma Stories (justice served, poetic endings)
   real_life_facts     → Real-Life Facts (inspiring/shocking real events)
   moral_stories       → Moral Stories (strong life lessons)
+  bhagwan_stories     → Bhagwan Stories (devotional, uplifting, respectful)
 """
 from __future__ import annotations
 
@@ -47,6 +48,7 @@ VALID_CATEGORIES = {
     "karma_stories",
     "real_life_facts",
     "moral_stories",
+    "bhagwan_stories",
 }
 
 # Fallback topic seeds per category for LLM-guided generation
@@ -106,6 +108,11 @@ CATEGORY_SEEDS: dict[str, list[str]] = {
         "sacchi daulat kya hai (What is true wealth)",
         "rishtey aur zimmedari (Relationships and responsibility)",
     ],
+    "bhagwan_stories": [
+        "bhakti ka woh pal jo zindagi badal de (The moment of devotion that changes everything)",
+        "bhagwan ka woh sanket jo kisi ne nahi samjha (The sign from Bhagwan nobody understood)",
+        "mandir mein mila woh jawab jo dil se aaya (The answer found in a temple that came from the heart)",
+    ],
 }
 
 
@@ -149,61 +156,197 @@ class IdeaGenerator:
         existing = self._read_store(store)
         used_titles = {item.get("title", "").lower() for item in existing}
 
-        ideas: List[StoryIdea] = []
+        # If a specific category is requested, use the original legacy single-category logic
+        if category is not None:
+            ideas: List[StoryIdea] = []
 
-        # ── STEP 1: PRIMARY — Sample from STORY_TOPIC_BANK ─────────────────────
+            # ── STEP 1: PRIMARY — Sample from STORY_TOPIC_BANK ─────────────────────
+            bank_pool = [
+                s for s in STORY_TOPIC_BANK
+                if s["title"].lower() not in used_titles
+                and s.get("category") == category
+            ]
+            fmt_preferred = [s for s in bank_pool if s.get("format") == video_type]
+            fmt_fallback  = [s for s in bank_pool if s.get("format") != video_type]
+            ordered_pool  = fmt_preferred + fmt_fallback
+            random.shuffle(ordered_pool)
+
+            for seed in ordered_pool:
+                if len(ideas) >= count:
+                    break
+                seed_title = seed["title"]
+                if seed_title.lower() in used_titles:
+                    continue
+
+                idea = StoryIdea(
+                    idea_id=str(uuid.uuid4()),
+                    title=seed_title,
+                    hook=seed.get("hook", ""),
+                    hook_hindi=seed.get("hook_hindi", ""),
+                    core_conflict=seed.get("core_conflict", ""),
+                    twist=seed.get("twist", ""),
+                    moral=seed.get("moral", ""),
+                    moral_hindi=seed.get("moral_hindi", ""),
+                    angle=seed.get("angle", "Story"),
+                    topic=seed.get("topic", ""),
+                    audience_hook=seed.get("audience_hook", ""),
+                    source_prompt="story-topic-bank",
+                    created_at=datetime.now(timezone.utc).isoformat(),
+                    video_type=video_type,
+                    category=category,
+                )
+                ideas.append(idea)
+                used_titles.add(seed_title.lower())
+
+            # ── STEP 2: SECONDARY — LLM for remaining slots ─────────────────────────
+            if len(ideas) < count:
+                raw_list = self._llm_ideas(
+                    (count - len(ideas)) * 2, used_titles, category=category, video_type=video_type,
+                )
+                for item in raw_list:
+                    if len(ideas) >= count:
+                        break
+                    title = item.get("title", "").strip()
+                    if not title or title.lower() in used_titles:
+                        continue
+                    idea = StoryIdea(
+                        idea_id=str(uuid.uuid4()),
+                        title=title,
+                        hook=item.get("hook", ""),
+                        hook_hindi=item.get("hook_hindi", ""),
+                        core_conflict=item.get("core_conflict", ""),
+                        twist=item.get("twist", ""),
+                        moral=item.get("moral", ""),
+                        moral_hindi=item.get("moral_hindi", ""),
+                        angle=item.get("angle", "Story"),
+                        topic=item.get("topic", ""),
+                        audience_hook=item.get("audience_hook", ""),
+                        source_prompt="llm-generated",
+                        created_at=datetime.now(timezone.utc).isoformat(),
+                        video_type=video_type,
+                        category=category,
+                    )
+                    ideas.append(idea)
+                    used_titles.add(title.lower())
+
+            # ── STEP 3: ABSOLUTE FALLBACK ────────────────────────────────────────────
+            while len(ideas) < count:
+                seeds = CATEGORY_SEEDS.get(category, CATEGORY_SEEDS["mystery_stories"])
+                seed_text = random.choice(seeds)
+                title = f"Wonder Stories TV — {seed_text.split('(')[0].strip()}"
+                if title.lower() in used_titles:
+                    continue
+                idea = StoryIdea(
+                    idea_id=str(uuid.uuid4()),
+                    title=title,
+                    hook="Ek aisi kahani jo aapko sochne par majboor kar degi...",
+                    hook_hindi="Kya aap sach sunn-ne ke liye taiyaar hain?",
+                    core_conflict=seed_text,
+                    twist="Ant mein sab kuch badal jaata hai",
+                    moral="Sach hamesha saamne aata hai",
+                    moral_hindi="सच्चाई हमेशा सामने आती है",
+                    angle="Story",
+                    topic=category.replace("_", " "),
+                    audience_hook="Share karo agar tumhe bhi yeh baat pata nahi thi!",
+                    source_prompt="pool-random",
+                    created_at=datetime.now(timezone.utc).isoformat(),
+                    video_type=video_type,
+                    category=category,
+                )
+                ideas.append(idea)
+                used_titles.add(title.lower())
+
+            LOGGER.info("Generated %s Wonder Stories TV ideas for category %s", len(ideas), category)
+            return ideas[:count]
+
+        # ── 50/50 BALANCED CATEGORY SPLIT ──────────────────────────────────────────
+        # Determine how many slots go to Inspirational vs Suspenseful
+        if count == 1:
+            if random.random() < 0.5:
+                count_insp, count_susp = 1, 0
+            else:
+                count_insp, count_susp = 0, 1
+        else:
+            count_insp = count // 2
+            count_susp = count - count_insp
+            if count % 2 != 0 and random.random() < 0.5:
+                count_insp, count_susp = count_susp, count_insp
+
+        insp_cats = {"karma_stories", "moral_stories", "real_life_facts", "bhagwan_stories"}
+        susp_cats = {"horror_stories", "mystery_stories", "suspense_stories", "crime_stories", "psychological", "thriller_stories", "shocking_facts", "dark_facts"}
+
+        # Gather bank candidates
         bank_pool = [
             s for s in STORY_TOPIC_BANK
             if s["title"].lower() not in used_titles
-            and (not category or s.get("category") == category)
         ]
-        fmt_preferred = [s for s in bank_pool if s.get("format") == video_type]
-        fmt_fallback  = [s for s in bank_pool if s.get("format") != video_type]
-        ordered_pool  = fmt_preferred + fmt_fallback
-        random.shuffle(ordered_pool)
 
-        for seed in ordered_pool:
-            if len(ideas) >= count:
-                break
-            seed_title = seed["title"]
-            if seed_title.lower() in used_titles:
-                continue
+        bank_insp = [s for s in bank_pool if s.get("category", "mystery_stories") in insp_cats]
+        bank_susp = [s for s in bank_pool if s.get("category", "mystery_stories") in susp_cats]
 
-            idea_category = seed.get("category", category or "mystery_stories")
-            idea = StoryIdea(
+        # Prefer requested video type
+        def sort_by_format(pool):
+            pref = [s for s in pool if s.get("format") == video_type]
+            fallback = [s for s in pool if s.get("format") != video_type]
+            res = pref + fallback
+            random.shuffle(res)
+            return res
+
+        bank_insp = sort_by_format(bank_insp)
+        bank_susp = sort_by_format(bank_susp)
+
+        selected_insp = []
+        selected_susp = []
+
+        def make_idea(seed, cat_name):
+            return StoryIdea(
                 idea_id=str(uuid.uuid4()),
-                title=seed_title,
+                title=seed["title"],
                 hook=seed.get("hook", ""),
                 hook_hindi=seed.get("hook_hindi", ""),
                 core_conflict=seed.get("core_conflict", ""),
                 twist=seed.get("twist", ""),
                 moral=seed.get("moral", ""),
                 moral_hindi=seed.get("moral_hindi", ""),
-                angle=seed.get("angle", "Suspense Story"),
+                angle=seed.get("angle", "Story"),
                 topic=seed.get("topic", ""),
                 audience_hook=seed.get("audience_hook", ""),
                 source_prompt="story-topic-bank",
                 created_at=datetime.now(timezone.utc).isoformat(),
                 video_type=video_type,
-                category=idea_category,
+                category=cat_name,
             )
-            ideas.append(idea)
-            used_titles.add(seed_title.lower())
 
-        # ── STEP 2: SECONDARY — LLM for remaining slots ─────────────────────────
-        if len(ideas) < count:
-            raw_list = self._llm_ideas(
-                count * 2, used_titles, category=category, video_type=video_type,
-            )
+        # Pull from bank
+        for seed in bank_insp:
+            if len(selected_insp) >= count_insp:
+                break
+            selected_insp.append(make_idea(seed, seed.get("category", "karma_stories")))
+            used_titles.add(seed["title"].lower())
+
+        for seed in bank_susp:
+            if len(selected_susp) >= count_susp:
+                break
+            selected_susp.append(make_idea(seed, seed.get("category", "mystery_stories")))
+            used_titles.add(seed["title"].lower())
+
+        # Pull from LLM if needed
+        needed_insp = count_insp - len(selected_insp)
+        needed_susp = count_susp - len(selected_susp)
+
+        if needed_insp > 0 or needed_susp > 0:
+            llm_count = (needed_insp + needed_susp) * 2
+            raw_list = self._llm_ideas(llm_count, used_titles, category=None, video_type=video_type)
+            
+            llm_insp = []
+            llm_susp = []
             for item in raw_list:
-                if len(ideas) >= count:
-                    break
                 title = item.get("title", "").strip()
                 if not title or title.lower() in used_titles:
                     continue
-                idea_category = item.get("category", category or "mystery_stories")
-                if idea_category not in VALID_CATEGORIES:
-                    idea_category = category or "mystery_stories"
+                cat = item.get("category", "mystery_stories")
+                if cat not in VALID_CATEGORIES:
+                    cat = "mystery_stories"
 
                 idea = StoryIdea(
                     idea_id=str(uuid.uuid4()),
@@ -220,14 +363,59 @@ class IdeaGenerator:
                     source_prompt="llm-generated",
                     created_at=datetime.now(timezone.utc).isoformat(),
                     video_type=video_type,
-                    category=idea_category,
+                    category=cat,
                 )
-                ideas.append(idea)
-                used_titles.add(title.lower())
+                if cat in insp_cats:
+                    llm_insp.append(idea)
+                else:
+                    llm_susp.append(idea)
 
-        # ── STEP 3: ABSOLUTE FALLBACK ────────────────────────────────────────────
-        while len(ideas) < count:
-            cat = category or random.choice(list(VALID_CATEGORIES))
+            for idea in llm_insp:
+                if len(selected_insp) >= count_insp:
+                    break
+                selected_insp.append(idea)
+                used_titles.add(idea.title.lower())
+
+            for idea in llm_susp:
+                if len(selected_susp) >= count_susp:
+                    break
+                selected_susp.append(idea)
+                used_titles.add(idea.title.lower())
+
+        # Fallback to random if still lacking slots
+        needed_insp = count_insp - len(selected_insp)
+        needed_susp = count_susp - len(selected_susp)
+
+        while needed_insp > 0:
+            cat = random.choice(list(insp_cats))
+            seeds = CATEGORY_SEEDS.get(cat, CATEGORY_SEEDS["karma_stories"])
+            seed_text = random.choice(seeds)
+            title = f"Wonder Stories TV — {seed_text.split('(')[0].strip()}"
+            if title.lower() in used_titles:
+                continue
+            idea = StoryIdea(
+                idea_id=str(uuid.uuid4()),
+                title=title,
+                hook="Ek aisi kahani jo aapko seekh de...",
+                hook_hindi="Kya aap is seekh ko samajh paayenge?",
+                core_conflict=seed_text,
+                twist="Ant mein sacchai ki jeet hoti hai",
+                moral="Seekh: Hamesha saccha raho",
+                moral_hindi="सीख: हमेशा सच्चे रहो",
+                angle="Karma Story",
+                topic=cat.replace("_", " "),
+                audience_hook="Share karo agar aap bhi is seekh se sehmat hain!",
+                source_prompt="pool-random",
+                created_at=datetime.now(timezone.utc).isoformat(),
+                video_type=video_type,
+                category=cat,
+            )
+            selected_insp.append(idea)
+            used_titles.add(title.lower())
+            needed_insp -= 1
+
+        while needed_susp > 0:
+            cat = random.choice(list(susp_cats))
             seeds = CATEGORY_SEEDS.get(cat, CATEGORY_SEEDS["mystery_stories"])
             seed_text = random.choice(seeds)
             title = f"Wonder Stories TV — {seed_text.split('(')[0].strip()}"
@@ -244,16 +432,19 @@ class IdeaGenerator:
                 moral_hindi="सच्चाई हमेशा सामने आती है",
                 angle="Suspense Story",
                 topic=cat.replace("_", " "),
-                audience_hook="Share karo agar tumhe bhi yeh baat pata nahi thi!",
+                audience_hook="Share karo agar aapko bhi yeh baat pata nahi thi!",
                 source_prompt="pool-random",
                 created_at=datetime.now(timezone.utc).isoformat(),
                 video_type=video_type,
                 category=cat,
             )
-            ideas.append(idea)
+            selected_susp.append(idea)
             used_titles.add(title.lower())
+            needed_susp -= 1
 
-        LOGGER.info("Generated %s Wonder Stories TV ideas", len(ideas))
+        ideas = selected_insp + selected_susp
+        random.shuffle(ideas)
+        LOGGER.info("Generated %d balanced Wonder Stories TV ideas (Inspirational: %d, Suspenseful: %d)", len(ideas), len(selected_insp), len(selected_susp))
         return ideas[:count]
 
     def _llm_ideas(
@@ -268,26 +459,42 @@ class IdeaGenerator:
         cat_instruction = (
             f"Each story MUST strictly belong to the category '{category}'."
             if category else
-            "Use a diverse mix of these categories: mystery_stories, shocking_facts, "
-            "suspense_stories, dark_facts, psychological, thriller_stories, horror_stories, "
-            "crime_stories, karma_stories, real_life_facts, moral_stories."
+            "You MUST generate exactly 50% of the ideas from the Inspirational/Moral categories: "
+            "['karma_stories', 'moral_stories', 'real_life_facts', 'bhagwan_stories']. "
+            "The other 50% MUST be from the Suspense/Thriller/Horror/Mystery/Facts categories: "
+            "['horror_stories', 'mystery_stories', 'suspense_stories', 'crime_stories', 'psychological', 'thriller_stories', 'shocking_facts', 'dark_facts']."
         )
         cat_seeds = CATEGORY_SEEDS.get(category or "mystery_stories", [])
         seed_hint = random.choice(cat_seeds) if cat_seeds else "emotional, gripping story"
+        if category == "bhagwan_stories":
+            cat_instruction += (
+                "\nFor bhagwan_stories, keep the tone reverent, devotional, uplifting, and respectful. "
+                "Focus on bhakti, darshan, guidance, blessings, or a meaningful miracle."
+            )
 
         prompt = (
             f"You are a viral content creator for 'Wonder Stories TV' — a Hindi storytelling channel "
             f"on YouTube that creates HIGHLY VIRAL mystery, suspense, horror, crime, karma, "
-            f"psychological, and moral stories in Hindi.\n\n"
+            f"psychological, moral, and devotional stories in Hindi.\n\n"
             f"{cat_instruction}\n"
             f"Anchor concept for THIS batch: '{seed_hint}'\n\n"
             f"Generate {count} completely NEW, unique, HIGHLY VIRAL story ideas.\n\n"
-            f"VIRAL FORMULA:\n"
-            f"  - Hook in first 3 seconds (shocking statement or question)\n"
-            f"  - Build tension throughout\n"
-            f"  - Unexpected twist or revelation at end\n"
-            f"  - Leave viewer with a strong feeling (shock, awe, fear, inspiration)\n"
-            f"  - Titles that make people STOP scrolling\n\n"
+            f"VIRAL FORMULA (CRITICAL RULES):\n"
+            f"  - NO ABSTRACT IDEAS: Avoid abstract, corporate, or self-help concepts (e.g., do NOT generate ideas about 'safalta', 'kamyabi', 'nayi soch', 'duniya badalna', 'hard work', 'success', 'positivity'). These are boring and get skipped.\n"
+            f"  - NO MUNDANE OR DOMESTIC TOPICS: Do NOT generate ideas about kitchen utensils, cooking, household items, daily office work, traffic, or simple domestic chores. These are extremely boring and result in bad videos.\n"
+            f"  - HIGH-STAKES DRAMA ONLY: Every story concept must involve a high-stakes, dramatic conflict: life or death, deep family secrets, ancient curses, supernatural mysteries, severe betrayal, heavy karma payback, or mind-bending psychological shifts.\n"
+            f"  - CONCRETE SCENARIOS ONLY: Focus on highly specific, physical, character-driven, or supernatural situations (e.g., a locked room, a changing photo, a stolen coin, a clock stopping, a mysterious disease, a physical choice).\n"
+            f"  - HIGH RETENTION BENCHMARK EXAMPLES:\n"
+            f"    * Example 1: A locked room where a photo changes to include the intruder and his lost child from 20 years ago.\n"
+            f"    * Example 2: Two seeds planted together; one decays in the dirt due to fear, while the other grows into a giant tree.\n"
+            f"    * Example 3: A rich man who steals a beggar's last coin, only to have his vault burn to ashes that very evening.\n"
+            f"    * Example 4: A house where staying the night ages you 20 years, and a missing investigator's photo appears on the wall.\n"
+            f"  - Open with a concrete incident, visible consequence, or shocking change. Avoid vague teaser questions.\n"
+            f"  - Build the story like a mini film: situation -> trouble -> escalation -> reveal -> complete ending.\n"
+            f"  - The first line should feel like the opening shot, not a trailer.\n"
+            f"  - The twist must re-frame the opening, not just add another fact.\n"
+            f"  - Leave the viewer with a strong feeling and a complete payoff.\n"
+            f"  - Titles that make people STOP scrolling (max 10 words, Hindi + English mix)\n\n"
             f"AVOID these already-used titles: {avoid_titles}\n\n"
             f"Return strict JSON with key 'ideas', array of objects. Each object:\n"
             f"  title (Hindi + English mix, max 10 words, scroll-stopping),\n"

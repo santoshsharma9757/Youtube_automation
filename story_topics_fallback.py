@@ -65,6 +65,11 @@ FALLBACK_SEEDS: dict[str, list[str]] = {
         "Sacchi Daulat Kya Hai",
         "Rishtey Aur Zimmedari",
     ],
+    "bhagwan_stories": [
+        "Bhakti Ka Woh Pal Jo Dil Badal De",
+        "Bhagwan Ka Woh Sanket Jo Kisi Ne Nahi Samjha",
+        "Mandir Mein Mila Woh Jawab Jo Yaad Reh Gaya",
+    ],
 }
 
 

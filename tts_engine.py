@@ -41,19 +41,21 @@ ELEVENLABS_SETTINGS = {
     "stability":          0.35,   # expressive, emotional
     "similarity_boost":   0.85,   # voice consistency
     "style":              0.45,   # cinematic dramatic delivery
-    "speed":              1.20,   # faster — viral storytelling energy
+    "speed":              1.22,   # slightly faster, snappy pace
     "use_speaker_boost":  True,
 }
 
 # ─── Edge TTS Voice Map (free, unlimited fallback) ──────────────────────────────────
 EDGE_VOICE_MAP: dict[str, dict[str, str]] = {
-    # All rates bumped to faster for viral Hindi storytelling energy
-    "narrator_dramatic":  {"voice": "hi-IN-MadhurNeural", "rate": "+32%", "pitch": "-2Hz"},
-    "narrator_suspense":  {"voice": "hi-IN-MadhurNeural", "rate": "+28%", "pitch": "-3Hz"},
-    "narrator_female":    {"voice": "hi-IN-SwaraNeural",  "rate": "+32%", "pitch": "+0Hz"},
-    "narrator_whisper":   {"voice": "hi-IN-MadhurNeural", "rate": "+22%", "pitch": "-4Hz"},
-    "narrator_intense":   {"voice": "hi-IN-MadhurNeural", "rate": "+36%", "pitch": "-1Hz"},
-    "default":            {"voice": "hi-IN-MadhurNeural", "rate": "+30%", "pitch": "-2Hz"},
+    # Balanced for fast but still human-sounding Hindi narration
+    "narrator_dramatic":  {"voice": "hi-IN-MadhurNeural", "rate": "+18%", "pitch": "-1Hz"},
+    "narrator_suspense":  {"voice": "hi-IN-MadhurNeural", "rate": "+16%", "pitch": "-2Hz"},
+    "narrator_female":    {"voice": "hi-IN-SwaraNeural",  "rate": "+18%", "pitch": "+0Hz"},
+    "narrator_whisper":   {"voice": "hi-IN-MadhurNeural", "rate": "+12%", "pitch": "-3Hz"},
+    "narrator_intense":   {"voice": "hi-IN-MadhurNeural", "rate": "+22%", "pitch": "+0Hz"},
+    "narrator_warm":      {"voice": "hi-IN-MadhurNeural", "rate": "+14%", "pitch": "-1Hz"},
+    "narrator_devotional": {"voice": "hi-IN-MadhurNeural", "rate": "+14%", "pitch": "-1Hz"},
+    "default":            {"voice": "hi-IN-MadhurNeural", "rate": "+16%", "pitch": "-1Hz"},
 }
 
 

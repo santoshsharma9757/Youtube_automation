@@ -40,6 +40,17 @@ def write_json(path: Path, payload: list[dict]) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+CATEGORY_ALIASES = {
+    "bagwan_stories": "bhagwan_stories",
+}
+
+
+def normalize_story_category(category: str | None) -> str | None:
+    if category is None:
+        return None
+    return CATEGORY_ALIASES.get(category, category)
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 #  WONDER STORIES TV  –  Viral Hindi Stories Pipeline
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -70,6 +81,7 @@ def run_stories_pipeline(
     from seo_generator import SeoGenerator
 
     config = get_config()
+    category = normalize_story_category(category)
 
     ideas_store   = config.ideas_store
     content_store = config.content_store
@@ -120,7 +132,7 @@ def run_stories_pipeline(
                 source_prompt="static-topic-force",
                 created_at=datetime.now(timezone.utc).isoformat(),
                 video_type=fmt_name,
-                category=category or matched_seed.get("category", "mystery_stories"),
+                category=normalize_story_category(category or matched_seed.get("category", "mystery_stories")) or "mystery_stories",
             )
             idea_gen.save_new_ideas([idea], ideas_store=ideas_store)
             all_ideas = [idea]
@@ -129,21 +141,65 @@ def run_stories_pipeline(
             return []
     else:
         for fmt_name, count in ideas_to_gen:
-            raw_ideas = idea_gen.generate_ideas(
-                count=count * 3,
-                video_type=fmt_name,
-                ideas_store=ideas_store,
-                category=category,
-            )
-            saved    = idea_gen.save_new_ideas(raw_ideas, ideas_store=ideas_store)
-            selected = [i for i in saved if i.title.lower() not in used_titles][:count]
-            all_ideas.extend(selected)
+            if category is not None:
+                raw_ideas = idea_gen.generate_ideas(
+                    count=count * 3,
+                    video_type=fmt_name,
+                    ideas_store=ideas_store,
+                    category=category,
+                )
+                saved    = idea_gen.save_new_ideas(raw_ideas, ideas_store=ideas_store)
+                selected = [i for i in saved if i.title.lower() not in used_titles][:count]
+                all_ideas.extend(selected)
+            else:
+                # Enforce 50/50 split on the actually selected ideas
+                import random
+                insp_cats = ["karma_stories", "moral_stories", "real_life_facts", "bhagwan_stories"]
+                susp_cats = ["horror_stories", "mystery_stories", "suspense_stories", "crime_stories", "psychological", "thriller_stories", "shocking_facts", "dark_facts"]
+                
+                if count == 1:
+                    target_cats = [random.choice(insp_cats) if random.random() < 0.5 else random.choice(susp_cats)]
+                else:
+                    n_insp = count // 2
+                    n_susp = count - n_insp
+                    if count % 2 != 0 and random.random() < 0.5:
+                        n_insp, n_susp = n_susp, n_insp
+                    
+                    target_cats = []
+                    for _ in range(n_insp):
+                        target_cats.append(random.choice(insp_cats))
+                    for _ in range(n_susp):
+                        target_cats.append(random.choice(susp_cats))
+                    random.shuffle(target_cats)
+                
+                # Generate specifically for each target category slot
+                for target_cat in target_cats:
+                    raw_ideas = idea_gen.generate_ideas(
+                        count=3,
+                        video_type=fmt_name,
+                        ideas_store=ideas_store,
+                        category=target_cat,
+                    )
+                    saved = idea_gen.save_new_ideas(raw_ideas, ideas_store=ideas_store)
+                    selected = [i for i in saved if i.title.lower() not in used_titles]
+                    if not selected:
+                        selected = [i for i in raw_ideas if i.title.lower() not in used_titles]
+                    
+                    if selected:
+                        all_ideas.append(selected[0])
+                    else:
+                        all_ideas.append(raw_ideas[0])
 
     for idea in all_ideas:
-        LOGGER.info("Processing story: '%s' (type=%s, mode=%s)", idea.title, idea.video_type, mode)
+        effective_mode = mode
+        if idea.video_type == "long" and mode == "video":
+            effective_mode = "image"
+            LOGGER.warning("Long video-to-video is disabled; using image mode for '%s'.", idea.title)
+
+        LOGGER.info("Processing story: '%s' (type=%s, mode=%s)", idea.title, idea.video_type, effective_mode)
 
         try:
-            plan = story_gen.generate_story(idea, mode=mode)
+            plan = story_gen.generate_story(idea, mode=effective_mode)
 
             clean_title = plan.story_metadata.get("title", idea.title)
             base_name = f"{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{slugify(clean_title)}"
@@ -161,6 +217,7 @@ def run_stories_pipeline(
                 clean_prompts.append(
                     f"📌 SCENE {num} [{beat}] — {gen_type} (Expected file: {expected})\n"
                     f"Voiceover (Hindi): {scene.get('voiceover_hindi', '')}\n"
+                    f"Voiceover (Hinglish): {scene.get('voiceover_hinglish', '')}\n"
                     f"Image Prompt:\n{scene.get('ai_prompt', '')}\n"
                     f"--------------------------------------------------\n"
                 )
@@ -217,7 +274,7 @@ def run_stories_pipeline(
             zapi_file_path.write_text("\n\n".join(zapi_prompts), encoding="utf-8")
 
             # ── Pre-synthesize TTS voiceover for image mode ──────────────────
-            if mode == "image" and not no_voice:
+            if effective_mode == "image" and not no_voice:
                 for scene in plan.scenes:
                     text = scene.get("voiceover_hindi", "").strip()
                     if text:
@@ -239,7 +296,7 @@ def run_stories_pipeline(
                 "language_code":        seo.language_code,
                 "audio_language_code":  seo.audio_language_code,
                 "content_style":        seo.content_style,
-                "mode":                 mode,
+                "mode":                 effective_mode,
                 "idea_as_dict":         asdict(idea),
                 "made_for_kids":        False,
                 "facebook_description": seo.facebook_description,
@@ -250,7 +307,7 @@ def run_stories_pipeline(
 
             safe_print(f"\n==================================================")
             safe_print(f"[STORY GENERATED: {idea.title}]")
-            safe_print(f"  Category: {idea.category} | Format: {idea.video_type} | Mode: {mode}")
+            safe_print(f"  Category: {idea.category} | Format: {idea.video_type} | Mode: {effective_mode}")
             safe_print(f"  Scenes: {len(plan.scenes)} | Est. Duration: {plan.story_metadata.get('estimated_duration_seconds', '?')}s")
             safe_print(f"==================================================")
             safe_print(prompts_text)
@@ -337,18 +394,60 @@ def run_stitch() -> list[dict]:
 
             # Verify all scene files are present
             missing_files = []
+            import re
+
+            def has_matching_file(k_val, allowed_exts):
+                if not folder.exists():
+                    return False
+                for f in folder.iterdir():
+                    if not f.is_file():
+                        continue
+                    if f.suffix.lower() not in allowed_exts:
+                        continue
+                    m = re.match(r'^(\d+)', f.stem)
+                    if m and int(m.group(1)) == k_val:
+                        return True
+                return False
+
+            # Check if the folder contains sequential scene assets
+            has_seq_files = False
+            for ext in [".png", ".jpg", ".jpeg", ".webp", ".mp4", ".mov", ".avi"]:
+                if (folder / f"4{ext}").exists() or (folder / f"4_image{ext}").exists():
+                    has_seq_files = True
+                    break
+            if not has_seq_files:
+                for f in folder.iterdir():
+                    if f.is_file() and f.suffix.lower() in [".png", ".jpg", ".jpeg", ".webp", ".mp4", ".mov", ".avi"]:
+                        m = re.match(r'^(\d+)', f.stem)
+                        if m and int(m.group(1)) == 4:
+                            has_seq_files = True
+                            break
+
+            kids_mode = None
+            meta_path = folder / "metadata.json"
+            if meta_path.exists():
+                try:
+                    meta_data_json = json.loads(meta_path.read_text(encoding="utf-8"))
+                    kids_mode = meta_data_json.get("kids_mode")
+                except Exception:
+                    pass
+            use_sequential = (kids_mode is not None) or has_seq_files
+
             for s in plan_data.get("scenes", []):
                 num      = s["scene_number"]
                 gen_type = s["generation_type"]
+                
+                k_seq = num
+                k_legacy = num if use_sequential else (num + 1) // 2
+                
                 if gen_type == "AI_VIDEO":
-                    if not any((folder / f"{num}{ext}").exists() for ext in [".mp4", ".mov", ".avi"]):
+                    found = (has_matching_file(k_seq, [".mp4", ".mov", ".avi"]) or 
+                             has_matching_file(k_legacy, [".mp4", ".mov", ".avi"]))
+                    if not found:
                         missing_files.append(f"{num}.mp4")
                 else:
-                    valid_names = [
-                        f"{num}_image.png", f"{num}_image.jpg", f"{num}_image.jpeg", f"{num}_image.webp",
-                        f"{num}.png", f"{num}.jpg", f"{num}.jpeg", f"{num}.webp"
-                    ]
-                    found = any((folder / p).exists() for p in valid_names)
+                    found = (has_matching_file(k_seq, [".png", ".jpg", ".jpeg", ".webp"]) or 
+                             has_matching_file(k_legacy, [".png", ".jpg", ".jpeg", ".webp"]))
                     if not found:
                         missing_files.append(f"{num}.png/jpg")
 
@@ -470,7 +569,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--deploy", action="store_true",
                         help="Schedule stitched videos sitting in output/final_videos/.")
     parser.add_argument("--mode", type=str, choices=["image", "video"], default="image",
-                        help="Generation mode: image (image-to-video) | video (video-to-video). Default: image.")
+                        help="Generation mode: image (image-to-video) | video (video-to-video for short stories only). Long stories will auto-fall back to image mode.")
     parser.add_argument("--no-voice", action="store_true",
                         help="Skip generating voiceovers/TTS files during prompt generation.")
     parser.add_argument("--local-tts", action="store_true",
@@ -479,10 +578,12 @@ def parse_args() -> argparse.Namespace:
                             "mystery_stories", "shocking_facts", "suspense_stories",
                             "dark_facts", "psychological", "thriller_stories",
                             "horror_stories", "crime_stories", "karma_stories",
-                            "real_life_facts", "moral_stories",
+                            "real_life_facts", "moral_stories", "bhagwan_stories",
+                            "bagwan_stories",
                         ], default=None, help="Story category.")
 
     args = parser.parse_args()
+    args.category = normalize_story_category(args.category)
 
     if args.long:
         args.long_count = args.count

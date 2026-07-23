@@ -55,6 +55,25 @@ VIRAL_KEYWORDS = {
     "shocking", "hairan", "twist", "secret", "reveal", "truth",
     "justice", "insaf", "zulm", "mazloom", "paap", "punishment",
     "dhoka", "bewafa", "wafadar", "himmat", "zindagi", "maut",
+    "bhagwan", "bhakti", "mandir", "darshan", "aarti", "prasad",
+    "krishna", "shiv", "hanuman", "ram", "devi", "kripa",
+}
+
+
+# ─── Category-based music map ─────────────────────────────────────────────────
+MUSIC_CATEGORY_MAP: dict[str, list[str]] = {
+    "horror_stories": ["horror1.mp3", "horror2.mp3"],
+    "dark_facts": ["horror1.mp3", "horror2.mp3"],
+    "mystery_stories": ["mystery1.mp3", "mystery2.mp3"],
+    "suspense_stories": ["mystery1.mp3", "mystery2.mp3"],
+    "crime_stories": ["mystery1.mp3", "mystery2.mp3"],
+    "thriller_stories": ["mystery1.mp3", "mystery2.mp3"],
+    "psychological": ["mystery1.mp3", "mystery2.mp3"],
+    "shocking_facts": ["mystery1.mp3", "mystery2.mp3"],
+    "karma_stories": ["general1.mp3", "general2.mp3"],
+    "moral_stories": ["general1.mp3", "general2.mp3"],
+    "real_life_facts": ["general1.mp3", "general2.mp3"],
+    "bhagwan_stories": ["meditation1.mp3", "meditation2.mp3"],
 }
 
 
@@ -179,7 +198,14 @@ class VideoAssembler:
             except Exception:
                 pass
         
-        use_sequential = (kids_mode is not None)
+        # Check if the folder contains sequential scene assets (like 4.jpg, 4.png, 4.mp4)
+        has_seq_files = False
+        for ext in [".png", ".jpg", ".jpeg", ".webp", ".mp4", ".mov", ".avi"]:
+            if (input_dir / f"4{ext}").exists() or (input_dir / f"4_image{ext}").exists():
+                has_seq_files = True
+                break
+
+        use_sequential = (kids_mode is not None) or has_seq_files
 
         # 1. Map scenes and find the corresponding files
         scene_files = {}
@@ -191,32 +217,34 @@ class VideoAssembler:
             k_seq = num
             k_legacy = num if use_sequential else (num + 1) // 2
 
+            import re
+
+            def find_matching_file(k_val, allowed_exts):
+                if not input_dir.exists():
+                    return None
+                for f in input_dir.iterdir():
+                    if not f.is_file():
+                        continue
+                    if f.suffix.lower() not in allowed_exts:
+                        continue
+                    m = re.match(r'^(\d+)', f.stem)
+                    if m and int(m.group(1)) == k_val:
+                        return f
+                return None
+
             if gen_type == "AI_VIDEO":
-                # look for k.mp4, k.mov, k.avi
                 video_found = None
                 for k in [k_seq, k_legacy]:
-                    for ext in [".mp4", ".mov", ".avi"]:
-                        test_path = input_dir / f"{k}{ext}"
-                        if test_path.exists():
-                            video_found = test_path
-                            break
+                    video_found = find_matching_file(k, [".mp4", ".mov", ".avi"])
                     if video_found:
                         break
                 if not video_found:
                     raise FileNotFoundError(f"Missing required video file for Scene {num} in {input_dir}: {num}.mp4")
                 scene_files[num] = (video_found, "video")
             else:
-                # look for k_image.png, k_image.jpg, k_image.jpeg, k_image.webp, or k.png, k.jpg, k.jpeg, k.webp
                 image_found = None
                 for k in [k_seq, k_legacy]:
-                    for ext in [".png", ".jpg", ".jpeg", ".webp"]:
-                        for pattern in [f"{k}_image{ext}", f"{k}{ext}"]:
-                            test_path = input_dir / pattern
-                            if test_path.exists():
-                                image_found = test_path
-                                break
-                        if image_found:
-                            break
+                    image_found = find_matching_file(k, [".png", ".jpg", ".jpeg", ".webp"])
                     if image_found:
                         break
                 if not image_found:
@@ -265,9 +293,11 @@ class VideoAssembler:
                         LOGGER.warning("Could not copy pre-generated TTS for scene %s: %s", num, exc)
 
                 if not tts_path.exists() or tts_path.stat().st_size == 0:
+                    voice_hint = scene.get("voice_hint", "narrator_dramatic")
                     tts_engine.synthesize_scene(
-                        text, tts_path, force_elevenlabs=True,
-                        voice_hint=scene.get("voice_hint"), scene=scene,
+                        text=text,
+                        output_path=tts_path,
+                        voice_hint=voice_hint,
                     )
 
                 if not tts_path.exists() or tts_path.stat().st_size == 0:
@@ -331,8 +361,59 @@ class VideoAssembler:
         # 3. Concatenate base visual track
         video_base = concatenate_videoclips(scene_clips, method="compose")
 
-        # 4. Compose final audio track
-        final_audio = CompositeAudioClip(audio_clips)
+        # 4. Compose final audio track with background music
+        bg_clip = None
+        category = getattr(idea, "category", "mystery_stories")
+        candidates = MUSIC_CATEGORY_MAP.get(category, ["general1.mp3", "general2.mp3"])
+        if not candidates:
+            candidates = ["general1.mp3", "general2.mp3"]
+            
+        import random
+        music_name = random.choice(candidates)
+        music_file = self.config.music_dir / music_name
+        
+        if not music_file.exists():
+            for cand in candidates:
+                test_file = self.config.music_dir / cand
+                if test_file.exists():
+                    music_file = test_file
+                    music_name = cand
+                    break
+                    
+        if not music_file.exists() and self.config.music_dir.exists():
+            all_mp3s = list(self.config.music_dir.glob("*.mp3"))
+            if all_mp3s:
+                music_file = random.choice(all_mp3s)
+                music_name = music_file.name
+                
+        if music_file.exists():
+            try:
+                # Default volume: 0.35, clamped between 0.35 and 0.40 as requested
+                volume = 0.35
+                if plan.audio_effects_config:
+                    volume = plan.audio_effects_config.get("music_volume", 0.35)
+                    volume = max(0.35, min(volume, 0.40))
+                    
+                bg_music = AudioFileClip(str(music_file))
+                if bg_music.duration < total_dur:
+                    try:
+                        from moviepy.audio.fx import loop
+                        bg_clip = loop(bg_music, duration=total_dur)
+                    except Exception:
+                        bg_clip = bg_music
+                else:
+                    bg_clip = bg_music.subclipped(0, total_dur)
+                
+                bg_clip = bg_clip.with_volume_scaled(volume)
+                LOGGER.info("Mixed background music '%s' at %.2f volume", music_name, volume)
+            except Exception as exc:
+                LOGGER.warning("Could not load background music %s: %s", music_file, exc)
+                bg_clip = None
+
+        if bg_clip is not None:
+            final_audio = CompositeAudioClip(audio_clips + [bg_clip])
+        else:
+            final_audio = CompositeAudioClip(audio_clips)
 
         # 5. Overlays (cinematic gradient, title card, subtitles, progress bar)
         overlay   = self._build_gradient_overlay(total_dur, vid_w, vid_h)
@@ -371,6 +452,8 @@ class VideoAssembler:
             r_clip.close()
         for a_clip in audio_clips:
             a_clip.close()
+        if bg_clip is not None:
+            bg_clip.close()
         final_audio.close()
         final.close()
 
@@ -586,7 +669,7 @@ class VideoAssembler:
 
         clip = (
             ImageClip(np.array(img))
-            .with_duration(min(3.5, total_dur * 0.15))
+            .with_duration(min(1.6, total_dur * 0.06))
         )
         try:
             clip = clip.with_effects([vfx.CrossFadeIn(0.3), vfx.CrossFadeOut(0.4)])
@@ -613,7 +696,7 @@ class VideoAssembler:
         cursor = 0.0
 
         for scene in scenes:
-            text     = scene.get("voiceover_hindi", "").strip()
+            text     = scene.get("voiceover_hinglish", scene.get("voiceover_hindi", "")).strip()
             dur      = float(scene["duration_seconds"])
             scene_start = cursor
             cursor  += dur
@@ -664,7 +747,8 @@ class VideoAssembler:
         text_color: str,
         is_keyword: bool,
     ) -> np.ndarray:
-        font    = self._load_font(72 if vid_w == LONG_W else 78)
+        has_devanagari = any(0x0900 <= ord(char) <= 0x097F for char in text)
+        font    = self._load_font(72 if vid_w == LONG_W else 78, force_devanagari=has_devanagari)
         padding = 18
         stroke  = 8
 
@@ -677,8 +761,8 @@ class VideoAssembler:
         img  = Image.new("RGBA", (tw, th), (0, 0, 0, 0))
         draw = ImageDraw.Draw(img, "RGBA")
 
-        if is_keyword:
-            draw.rounded_rectangle((0, 0, tw - 1, th - 1), radius=20, fill=(20, 20, 20, 170))
+        bg_alpha = 175 if is_keyword else 115
+        draw.rounded_rectangle((0, 0, tw - 1, th - 1), radius=20, fill=(20, 20, 20, bg_alpha))
 
         draw.text(
             (tw // 2, th // 2),
@@ -715,8 +799,18 @@ class VideoAssembler:
     #  FONT HELPERS
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def _load_font(self, size: int) -> ImageFont.ImageFont:
+    def _load_font(self, size: int, force_devanagari: bool = False) -> ImageFont.ImageFont:
         layout = getattr(ImageFont.Layout, "RAQM", getattr(ImageFont.Layout, "BASIC", None))
+        
+        if force_devanagari:
+            bundled = self.config.background_assets_dir.parent / "fonts" / "NotoSansDevanagari-Bold.ttf"
+            if bundled.exists():
+                try:
+                    if layout:
+                        return ImageFont.truetype(str(bundled), size=size, layout_engine=layout)
+                    return ImageFont.truetype(str(bundled), size=size)
+                except Exception:
+                    pass
         
         if self.config.font_file.exists():
             try:
