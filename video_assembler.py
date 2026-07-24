@@ -73,7 +73,9 @@ MUSIC_CATEGORY_MAP: dict[str, list[str]] = {
     "karma_stories": ["general1.mp3", "general2.mp3"],
     "moral_stories": ["general1.mp3", "general2.mp3"],
     "real_life_facts": ["general1.mp3", "general2.mp3"],
-    "bhagwan_stories": ["meditation1.mp3", "meditation2.mp3"],
+    "bhagwan_stories": ["general1.mp3", "general2.mp3"],
+    "inspirational_stories": ["general1.mp3", "general2.mp3"],
+    "motivational_stories": ["general1.mp3", "general2.mp3"],
 }
 
 
@@ -388,11 +390,11 @@ class VideoAssembler:
                 
         if music_file.exists():
             try:
-                # Default volume: 0.35, clamped between 0.35 and 0.40 as requested
-                volume = 0.35
+                # Default volume: 0.28, clamped between 0.20 and 0.35 to keep it balanced
+                volume = 0.28
                 if plan.audio_effects_config:
-                    volume = plan.audio_effects_config.get("music_volume", 0.35)
-                    volume = max(0.35, min(volume, 0.40))
+                    volume = plan.audio_effects_config.get("music_volume", 0.28)
+                    volume = max(0.20, min(volume, 0.35))
                     
                 bg_music = AudioFileClip(str(music_file))
                 if bg_music.duration < total_dur:

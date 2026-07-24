@@ -209,6 +209,13 @@ def run_stories_pipeline(
 
             # ── Build scene prompt text ──────────────────────────────────────
             clean_prompts = []
+            char_desc = plan.story_metadata.get("character_appearance", "").strip()
+            if char_desc:
+                clean_prompts.append(
+                    f"👤 CHARACTER APPEARANCE REFERENCE:\n"
+                    f"{char_desc}\n"
+                    f"==================================================\n"
+                )
             for scene in plan.scenes:
                 num      = scene["scene_number"]
                 gen_type = scene["generation_type"]
@@ -309,6 +316,8 @@ def run_stories_pipeline(
             safe_print(f"[STORY GENERATED: {idea.title}]")
             safe_print(f"  Category: {idea.category} | Format: {idea.video_type} | Mode: {effective_mode}")
             safe_print(f"  Scenes: {len(plan.scenes)} | Est. Duration: {plan.story_metadata.get('estimated_duration_seconds', '?')}s")
+            if char_desc:
+                safe_print(f"  Character Reference: {char_desc}")
             safe_print(f"==================================================")
             safe_print(prompts_text)
             safe_print(f"")
@@ -579,7 +588,8 @@ def parse_args() -> argparse.Namespace:
                             "dark_facts", "psychological", "thriller_stories",
                             "horror_stories", "crime_stories", "karma_stories",
                             "real_life_facts", "moral_stories", "bhagwan_stories",
-                            "bagwan_stories",
+                            "bagwan_stories", "inspirational_stories",
+                            "motivational_stories",
                         ], default=None, help="Story category.")
 
     args = parser.parse_args()

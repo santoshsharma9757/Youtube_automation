@@ -49,6 +49,8 @@ VALID_CATEGORIES = {
     "real_life_facts",
     "moral_stories",
     "bhagwan_stories",
+    "inspirational_stories",
+    "motivational_stories",
 }
 
 # Fallback topic seeds per category for LLM-guided generation
@@ -112,6 +114,16 @@ CATEGORY_SEEDS: dict[str, list[str]] = {
         "bhakti ka woh pal jo zindagi badal de (The moment of devotion that changes everything)",
         "bhagwan ka woh sanket jo kisi ne nahi samjha (The sign from Bhagwan nobody understood)",
         "mandir mein mila woh jawab jo dil se aaya (The answer found in a temple that came from the heart)",
+    ],
+    "inspirational_stories": [
+        "haar na maanane wali kahani (A story of resilience and never giving up)",
+        "ek chhota sa badlaav, ek badi umeed (A small action that brought huge hope)",
+        "toota sapna par buland housla (Overcoming a tragedy to inspire others)",
+    ],
+    "motivational_stories": [
+        "parishram ka phal aur safalta (The reward of hard work and struggle)",
+        "mulyawan samay ki keemat (The value and proper utilization of precious time)",
+        "shuruat zero se, safar shikhar tak (Starting from nothing and achieving success through consistency)",
     ],
 }
 
@@ -272,7 +284,7 @@ class IdeaGenerator:
             if count % 2 != 0 and random.random() < 0.5:
                 count_insp, count_susp = count_susp, count_insp
 
-        insp_cats = {"karma_stories", "moral_stories", "real_life_facts", "bhagwan_stories"}
+        insp_cats = {"karma_stories", "moral_stories", "real_life_facts", "bhagwan_stories", "inspirational_stories", "motivational_stories"}
         susp_cats = {"horror_stories", "mystery_stories", "suspense_stories", "crime_stories", "psychological", "thriller_stories", "shocking_facts", "dark_facts"}
 
         # Gather bank candidates
@@ -472,6 +484,30 @@ class IdeaGenerator:
                 "Focus on bhakti, darshan, guidance, blessings, or a meaningful miracle."
             )
 
+        uplifting_categories = {"inspirational_stories", "motivational_stories", "moral_stories"}
+        if category in uplifting_categories:
+            formula_rules = (
+                f"  - EMOTIONAL HUMAN DRAMA (MANDATORY): For '{category}', the story must focus on an emotional, inspiring human struggle or growth (e.g., overcoming poverty, dedication to hard work, valuing time, helping others, achieving a dream against all odds).\n"
+                f"  - NO HORROR/SUPERNATURAL/CRIME: Strictly avoid ghosts, curses, murders, horror, or criminal themes for this category.\n"
+                f"  - SHOW, DON'T TELL: Do not write general self-help lectures. Instead, write a concrete character-driven narrative (e.g., a poor student studying under a street light, a farmer who digs a well in dry land, a father teaching his child using a broken clock).\n"
+                f"  - HIGH RETENTION BENCHMARK EXAMPLES:\n"
+                f"    * Example 1: A poor boy who walks 5 miles everyday in torn shoes to study, eventually becoming an officer and helping others.\n"
+                f"    * Example 2: A father who gives his son a broken clock to teach him the value of lost time.\n"
+                f"    * Example 3: A farmer who keeps digging a well in dry land for months while the village laughs, until he finally strikes water.\n"
+            )
+        else:
+            formula_rules = (
+                f"  - NO ABSTRACT IDEAS: Avoid abstract, corporate, or self-help concepts (e.g., do NOT generate ideas about 'safalta', 'kamyabi', 'nayi soch', 'duniya badalna', 'hard work', 'success', 'positivity'). These are boring and get skipped.\n"
+                f"  - NO MUNDANE OR DOMESTIC TOPICS: Do NOT generate ideas about kitchen utensils, cooking, household items, daily office work, traffic, or simple domestic chores. These are extremely boring and result in bad videos.\n"
+                f"  - HIGH-STAKES DRAMA ONLY: Every story concept must involve a high-stakes, dramatic conflict: life or death, deep family secrets, ancient curses, supernatural mysteries, severe betrayal, heavy karma payback, or mind-bending psychological shifts.\n"
+                f"  - CONCRETE SCENARIOS ONLY: Focus on highly specific, physical, character-driven, or supernatural situations (e.g., a locked room, a changing photo, a stolen coin, a clock stopping, a mysterious disease, a physical choice).\n"
+                f"  - HIGH RETENTION BENCHMARK EXAMPLES:\n"
+                f"    * Example 1: A locked room where a photo changes to include the intruder and his lost child from 20 years ago.\n"
+                f"    * Example 2: Two seeds planted together; one decays in the dirt due to fear, while the other grows into a giant tree.\n"
+                f"    * Example 3: A rich man who steals a beggar's last coin, only to have his vault burn to ashes that very evening.\n"
+                f"    * Example 4: A house where staying the night ages you 20 years, and a missing investigator's photo appears on the wall.\n"
+            )
+
         prompt = (
             f"You are a viral content creator for 'Wonder Stories TV' — a Hindi storytelling channel "
             f"on YouTube that creates HIGHLY VIRAL mystery, suspense, horror, crime, karma, "
@@ -480,15 +516,7 @@ class IdeaGenerator:
             f"Anchor concept for THIS batch: '{seed_hint}'\n\n"
             f"Generate {count} completely NEW, unique, HIGHLY VIRAL story ideas.\n\n"
             f"VIRAL FORMULA (CRITICAL RULES):\n"
-            f"  - NO ABSTRACT IDEAS: Avoid abstract, corporate, or self-help concepts (e.g., do NOT generate ideas about 'safalta', 'kamyabi', 'nayi soch', 'duniya badalna', 'hard work', 'success', 'positivity'). These are boring and get skipped.\n"
-            f"  - NO MUNDANE OR DOMESTIC TOPICS: Do NOT generate ideas about kitchen utensils, cooking, household items, daily office work, traffic, or simple domestic chores. These are extremely boring and result in bad videos.\n"
-            f"  - HIGH-STAKES DRAMA ONLY: Every story concept must involve a high-stakes, dramatic conflict: life or death, deep family secrets, ancient curses, supernatural mysteries, severe betrayal, heavy karma payback, or mind-bending psychological shifts.\n"
-            f"  - CONCRETE SCENARIOS ONLY: Focus on highly specific, physical, character-driven, or supernatural situations (e.g., a locked room, a changing photo, a stolen coin, a clock stopping, a mysterious disease, a physical choice).\n"
-            f"  - HIGH RETENTION BENCHMARK EXAMPLES:\n"
-            f"    * Example 1: A locked room where a photo changes to include the intruder and his lost child from 20 years ago.\n"
-            f"    * Example 2: Two seeds planted together; one decays in the dirt due to fear, while the other grows into a giant tree.\n"
-            f"    * Example 3: A rich man who steals a beggar's last coin, only to have his vault burn to ashes that very evening.\n"
-            f"    * Example 4: A house where staying the night ages you 20 years, and a missing investigator's photo appears on the wall.\n"
+            f"{formula_rules}\n"
             f"  - Open with a concrete incident, visible consequence, or shocking change. Avoid vague teaser questions.\n"
             f"  - Build the story like a mini film: situation -> trouble -> escalation -> reveal -> complete ending.\n"
             f"  - The first line should feel like the opening shot, not a trailer.\n"

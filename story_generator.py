@@ -107,17 +107,24 @@ STYLE_MAP: dict[str, str] = {
         "cinematic color grade, 8K quality"
     ),
     "moral_stories": (
-        "Cinematic emotional storytelling photography, warm and human composition, "
-        "dramatic lighting that emphasizes emotion, authentic Indian settings and Indian people, "
-        "photorealistic, heartwarming yet impactful visuals, "
-        "award-winning short film aesthetic, 8K quality"
+        "Heartwarming Studio Ghibli style anime illustration, soft nostalgic glow, "
+        "detailed painterly environment, expressive character eyes, "
+        "authentic Indian setting and Indian people, classic hand-drawn masterpiece feel"
     ),
     "bhagwan_stories": (
-        "Sacred cinematic storytelling photography, radiant divine light, "
-        "respectful devotional atmosphere, temple or village settings, "
-        "authentic Indian settings and Indian people, "
-        "golden sunrise glow, photorealistic, emotionally uplifting, "
-        "spiritual awe and reverence, 8K quality"
+        "Ethereal Studio Ghibli style divine anime illustration, radiant celestial glow, "
+        "respectful and sacred devotional atmosphere, golden temple or village setting, "
+        "authentic Indian setting and Indian people, awe-inspiring hand-drawn animation style"
+    ),
+    "inspirational_stories": (
+        "Beautiful Studio Ghibli inspired hand-drawn anime style, warm nostalgic lighting, "
+        "soft painterly background, emotional character expressions, "
+        "authentic Indian setting and Indian people, colorful masterpiece animation aesthetic"
+    ),
+    "motivational_stories": (
+        "Inspiring Studio Ghibli hand-drawn animation style, dramatic sun rays, "
+        "vibrant warm colors, dynamic storytelling angle, detailed character art, "
+        "authentic Indian setting and Indian people, high-quality anime illustration"
     ),
 }
 
@@ -425,7 +432,7 @@ Return ONLY valid JSON matching this schema exactly:
             "mystery_stories":  "Classic mystery. Drop subtle clues in context, lead up to a satisfying twist reveal.",
             "suspense_stories": "Unbearable psychological tension. Every scene raises stakes and leaves an open question.",
             "dark_facts":       "Expose dark side of history or the world. Shocking facts presented in an educational yet intense tone.",
-            "psychological":    "Mind-bending. Make the viewer question what is real. Deliver an emotional gut-punch.",
+            "psychological":    "Dimag ka khel (Mind game). Make the viewer question what is real. Deliver an emotional gut-punch.",
             "thriller_stories": "Fast-paced, urgent, and high-stakes. Make it feel like there is no room to breathe.",
             "crime_stories":    "Gritty crime details. Show the crime, investigation, and how justice is served cold.",
             "karma_stories":    "Poetic justice. The wrongdoer performs a bad action, and karma returns it with interest in a satisfying end.",
@@ -433,8 +440,20 @@ Return ONLY valid JSON matching this schema exactly:
             "real_life_facts":  "Inspirational or unbelievable real events. Capture genuine human emotion and struggle.",
             "moral_stories":    "Emotional journey with a life lesson that lands hard and stays with the viewer.",
             "bhagwan_stories":  "Reverent, devotional, and emotionally uplifting. Show the power of faith, bhakti, or divine grace. The ending must feel sacred and complete.",
+            "inspirational_stories": "Inspirational journey. Focus on resilience, overcoming massive struggles, finding hope, and uplifting the viewer's spirit.",
+            "motivational_stories": "High-energy motivational narrative. Focus on the value of hard work ('parishram ka phal'), consistency, valuing time ('mulyawan samay'), ambition, and achieving success against all odds.",
         }
         viral_tone = tone_map.get(category, "Gripping story with a powerful ending.")
+        
+        uplifting_categories = {"inspirational_stories", "motivational_stories", "moral_stories"}
+        if category in uplifting_categories:
+            transform_instruction = (
+                "  - EMOTIONAL HUMAN INTEREST (CRITICAL): If the story brief or title involves ordinary, mundane, or daily subjects (like a clock, a daily routine, simple hard work, or chores), you must build it into a high-stakes emotional human drama or a touching journey of struggle and resilience. E.g., if it's about a watch, make it about a son learning the value of time from his father's final watch, or a student's struggle to afford books. DO NOT turn it into a supernatural mystery, horror, or curse story. Keep it realistic, emotional, and inspiring."
+            )
+        else:
+            transform_instruction = (
+                "  - TRANSFORM MUNDANE/DOMESTIC TOPICS (CRITICAL): If the story brief or title involves mundane, domestic, household, or silly subjects (like kitchen utensils, cooking, traffic, simple daily routines), you MUST immediately transform it into a high-stakes supernatural, thriller, or mystery plot. E.g., if the title is about a kitchen pot, turn it into an ancient cursed vessel that traps souls, or a pot cooking a soup of lost memories. NEVER write a simple domestic, mundane, or boring story."
+            )
         
         banned_phrases = [
             "Doston, kya aapne kabhi...", "Chaliye jaante hain...", "Aaj hum baat karenge...", 
@@ -512,11 +531,13 @@ STORY BRIEF (THEME ONLY):
 CRITICAL CREATIVE LIBERTY DIRECTIVE:
   - Do NOT copy the opening hook or conflict word-for-word if they sound abstract, generic, or boring.
   - The STORY BRIEF is only a thematic seed. You have 100% creative liberty to craft a highly concrete, high-stakes, dramatic, spooky, or emotional narrative from it.
+  - **LOGICAL AND COHESIVE NARRATIVE FLOW (MANDATORY)**: The story must read like a single, continuous, highly engaging narrative. Every scene's voiceover must flow naturally and logically from the previous one, building a cohesive storyline. Avoid disjointed, robotic, or template-like sentences. The narrative must make perfect logical sense (do not insert random, unrelated clauses like 'kahaniya sajiv ho uthin').
+  - **NO SEMICOLONS OR WEIRD PUNCTUATION**: Never end a scene voiceover with a semicolon (`;`). Always end with a standard period (`.`) for Hinglish and a poorna viram (`।`) for Devanagari.
   - **NARRATIVE STORY ONLY (MANDATORY)**: You are strictly BANNED from writing listicles, lists of facts, educational lectures, or general explanations. Even for categories like `shocking_facts` or `dark_facts`, you MUST craft a gripping **character-driven narrative story** focusing on a specific individual (e.g., a specific merchant, a traveler, an officer, a scientist) who experiences the event.
   - **NATURAL HINGLISH GRAMMAR & GENDER CONGRUENCE**: The Hinglish script must have 100% correct grammar. Adjectives, verbs, and pronouns must agree with the gender of the noun. (e.g., "kitaab" is feminine, so use "tijori ke andar chhupi ek khufiya kitaab", NOT "chhupa"; "classroom" is masculine/neutral, so use "ek purane classroom", NOT "purani"). Avoid typos like "benda" for "banda", "musekarte" for "muskurate", "logoski" for "logon ki", "aakhrein" for "aawazein".
   - **BANNED PASSIVE EMOTIONS & METAPHORS**: You are strictly BANNED from writing script scenes describing abstract feelings, thoughts, or passive states (e.g., do NOT write: "he was sad", "he felt empty inside", "he realized", "he thought about life", "he looked at a sun ray", "his heart was filled with darkness"). This results in boring, unwatchable videos.
   - **MANDATORY PHYSICAL ACTIONS & VISUAL EVENTS**: Every scene voiceover MUST describe a specific physical action, event, or concrete dialogue (e.g., a vault catching fire, a mysterious letter appearing, a physical seed decaying or growing, a door vanishing, a mirror showing a different reflection). If a character is sad or greedy, show it through a physical action or event, never state it abstractly.
-  - TRANSFORM MUNDANE/DOMESTIC TOPICS (CRITICAL): If the story brief or title involves mundane, domestic, household, or silly subjects (like kitchen utensils, cooking, traffic, simple daily routines), you MUST immediately transform it into a high-stakes supernatural, thriller, or mystery plot. E.g., if the title is about a kitchen pot, turn it into an ancient cursed vessel that traps souls, or a pot cooking a soup of lost memories. NEVER write a simple domestic, mundane, or boring story.
+{transform_instruction}
   - **PHYSICAL RESOLUTION IN THE FINAL SCENE (MANDATORY)**: The final scene (Scene 6 for shorts, Scene 16 for longs) **MUST physically resolve the events of the plot**. Do NOT end the story with just a generic moral lesson, general advice, or abstract thought. The final scene must show the concrete aftermath, a physical climax, or a visual revelation (e.g., the cursed statue dissolving, the vault burning, the person vanishing, a new photo appearing). The story arc must feel completely closed, resolved, and tightly connected to the hook.
   - Make sure the plot is incredibly engaging and matches the pacing, tension, and completeness of the GOOD HINGLISH EXAMPLES below.
   - Every sentence must paint a clear picture and build anticipation for the next scene. Avoid abstract definitions or explanations. Show specific actions and events.
@@ -554,7 +575,12 @@ SCRIPT-FIRST APPROACH:
   Step 2: Describe a PERFECT CINEMATIC IMAGE for each scene based on the voiceover.
           - NO 3D animation, NO Pixar, NO anime, NO cartoons.
           - Gritty, photorealistic, cinematic, dramatic lighting.
-          - **ETHNICITY & SETTINGS (MANDATORY)**: All people, characters, clothing, settings, and environments MUST be described as Indian (e.g., traditional Indian clothing, rural Indian settings, Indian faces) to match the cultural context of the Hindi storytelling. Do NOT describe Western, Caucasian, or Hollywood-like people or settings.
+          - **ETHNICITY & SETTINGS (MANDATORY)**: All people, characters, clothing, settings, and environments MUST be described as Indian (e.g., traditional Indian clothing, rural Indian settings, Indian faces) to match the cultural context of the Hindi storytelling. Do NOT describe Western, Caucasian, or Hollywood-like people or settings. You MUST explicitly use the word "Indian" or "authentic Indian" before every mention of a person, group, or setting (e.g., "Indian children", "Indian classroom", "Indian young girl", "Indian villagers") in EVERY scene prompt to guarantee correct style output.
+          - **CHARACTER CONSISTENCY (MANDATORY)**: To ensure characters do not change faces, outfits, or appearances from scene to scene:
+            1. Define a detailed, consistent physical description for the main character (and secondary characters, if any) in the `"character_appearance"` field of `story_metadata`.
+            2. This description must include: gender, specific age (e.g., "28-year-old"), skin tone, hair style and color (e.g., "short messy black hair"), facial features (e.g., "clean-shaven", "short stubble beard"), and a specific outfit (e.g., "wearing a dark green woolen sweater").
+            3. In EVERY scene's `ai_prompt` where the character is present, you MUST include the exact same physical description details (e.g., "a 28-year-old Indian man with short messy black hair, short stubble beard, wearing a dark green woolen sweater"). Never just write "an Indian man" or "the boy" without these specific details, as this causes the AI image generator to change their face and clothing.
+            4. Keep the clothing and styling identical across all scenes unless the story explicitly spans different days/years (even then, keep physical features like eyes, facial hair, and hair style identical).
           - The visual must match the scene's emotional tone and describe the key focal point.
 
 STYLE REFERENCE GUIDE:
@@ -919,6 +945,7 @@ Return ONLY valid JSON matching this schema exactly:
                 ),
                 "thumbnail_prompt": f"Epic cinematic thumbnail for: {idea.title}. {art_style}. Bold dramatic composition. Include the Hindi title text prominently on the image in a highly stylish and attractive font.",
                 "thumbnail_title_hindi": "Thumbnail text in Hindi (5 words max)",
+                "character_appearance": "A detailed physical description of the main protagonist(s) for character consistency (e.g., 'A 28-year-old Indian man with short messy black hair, short stubble beard, wearing a dark green woolen sweater'). Use these exact descriptive elements consistently in every scene's ai_prompt where the character is visible.",
             },
             "scenes": [
                 {
@@ -936,7 +963,7 @@ Return ONLY valid JSON matching this schema exactly:
             ],
             "audio_effects_config": {
                 "background_music": "suspense_loop",
-                "music_volume": 0.35,
+                "music_volume": 0.28,
                 "sfx_enabled": True,
                 "fade_in_duration": 1.0,
                 "fade_out_duration": 1.5,
@@ -996,7 +1023,18 @@ Return the output as a valid JSON object matching this schema exactly:
                 ),
                 "thumbnail_prompt": f"Epic cinematic thumbnail: {idea.title}. {art_style}. Include the Hindi title text prominently on the image in a highly stylish and attractive font.",
                 "thumbnail_title_hindi": idea.title[:30],
+                "character_appearance": "",
             }
+
+        if "character_appearance" not in payload["story_metadata"]:
+            payload["story_metadata"]["character_appearance"] = ""
+
+        # Ensure thumbnail prompt has Indian context
+        thumb_p = payload["story_metadata"].get("thumbnail_prompt", "").strip()
+        if thumb_p and "indian" not in thumb_p.lower():
+            thumb_p = thumb_p.rstrip().rstrip(".")
+            thumb_p += f", authentic Indian settings and Indian people"
+            payload["story_metadata"]["thumbnail_prompt"] = thumb_p
 
         scenes = payload.get("scenes", [])
 
@@ -1046,9 +1084,26 @@ Return the output as a valid JSON object matching this schema exactly:
                     scene["voiceover_hinglish"] = voice_hindi
                 else:
                     scene["voiceover_hinglish"] = self._fallback_voiceover_for_beat(idea, beat, i, len(scenes), category, lang="hinglish")
-            # Ensure AI prompt exists
-            if not scene.get("ai_prompt", "").strip():
+            
+            # Clean up trailing semicolons or periods that might mess with the voiceover
+            vh = scene.get("voiceover_hindi", "").strip()
+            vgh = scene.get("voiceover_hinglish", "").strip()
+            if vh.endswith(";"):
+                vh = vh[:-1].strip()
+            if vgh.endswith(";"):
+                vgh = vgh[:-1].strip()
+            scene["voiceover_hindi"] = vh
+            scene["voiceover_hinglish"] = vgh
+
+            # Ensure AI prompt exists and contains Indian context and style tags
+            ai_p = scene.get("ai_prompt", "").strip()
+            if not ai_p:
                 scene["ai_prompt"] = f"Scene {i} - {beat}: Cinematic {category.replace('_', ' ')} visual. {art_style}. No text, no watermarks."
+            else:
+                if "indian" not in ai_p.lower():
+                    ai_p = ai_p.rstrip().rstrip(".")
+                    ai_p += f", authentic Indian settings and Indian people"
+                scene["ai_prompt"] = ai_p
             # Voice hint
             if "voice_hint" not in scene:
                 scene["voice_hint"] = self._voice_hint_for_beat(category, beat)
@@ -1106,6 +1161,7 @@ Return the output as a valid JSON object matching this schema exactly:
                 "estimated_duration_seconds": sum(durations),
                 "thumbnail_prompt": f"Epic cinematic thumbnail: {idea.title}. {art_style}. Bold dramatic composition. Include the Hindi title text prominently on the image in a highly stylish and attractive font.",
                 "thumbnail_title_hindi": idea.title[:30],
+                "character_appearance": "",
             },
             "scenes": scenes,
             "audio_effects_config": self._default_sfx(idea),
@@ -1126,10 +1182,12 @@ Return the output as a valid JSON object matching this schema exactly:
             "real_life_facts":  "emotional_cinematic",
             "moral_stories":    "emotional_warm",
             "bhagwan_stories":  "devotional_cinematic",
+            "inspirational_stories": "emotional_cinematic",
+            "motivational_stories": "documentary_dramatic",
         }
         return {
             "background_music": music_map.get(category, "suspense_loop"),
-            "music_volume": 0.35,
+            "music_volume": 0.28,
             "sfx_enabled": True,
             "fade_in_duration": 1.0,
             "fade_out_duration": 2.0,
